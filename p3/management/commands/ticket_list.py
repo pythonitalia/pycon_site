@@ -2,7 +2,6 @@
 import haystack
 
 from django.core.management.base import BaseCommand, CommandError
-from conference import models
 
 from collections import defaultdict
 from optparse import make_option
@@ -25,6 +24,7 @@ class Command(BaseCommand):
         ),
     )
     def handle(self, *args, **options):
+        from conference import models
         qs = models.Ticket.objects\
                     .filter(orderitem__order___complete=True)\
                     .exclude(fare__ticket_type='partner')\

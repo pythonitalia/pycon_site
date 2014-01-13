@@ -2,15 +2,16 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from assopy import models as amodels
-from conference import models as cmodels
-from p3 import models
 
 class Command(BaseCommand):
     """
     """
     @transaction.commit_on_success
     def handle(self, *args, **options):
+        from assopy import models as amodels
+        from conference import models as cmodels
+        from p3 import models
+
         for u in amodels.User.objects.all().select_related('user'):
             print u.name()
             try:

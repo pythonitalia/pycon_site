@@ -2,7 +2,7 @@
 from django import forms
 from django import http
 from django.conf import settings
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls import url, patterns
 from django.contrib import admin
 from django.core import urlresolvers
 from assopy import admin as aadmin
@@ -165,17 +165,6 @@ admin.site.unregister(cmodels.Ticket)
 admin.site.register(cmodels.Ticket, TicketConferenceAdmin)
 
 class SpeakerAdmin(cadmin.SpeakerAdmin):
-    def queryset(self, request):
-        # XXX: in attesa di passare a django 1.4 implemento in questo modo
-        # barbaro un filtro per limitare gli speaker a quelli della conferenza
-        # in corso
-        qs = super(SpeakerAdmin, self).queryset(request)
-        qs = qs.filter(user__in=(
-            cmodels.TalkSpeaker.objects\
-                .filter(talk__conference=settings.CONFERENCE_CONFERENCE)\
-                .values('speaker')
-        ))
-        return qs
     def get_paginator(self, request, queryset, per_page, orphans=0, allow_empty_first_page=True):
         sids = queryset.values_list('user', flat=True)
         profiles = dataaccess.profiles_data(sids)

@@ -1,21 +1,70 @@
-Django==1.4.3
-South==0.7.6
-pillow
-django-page-cms==1.4.5
-django-authority==0.4 #serve a django-page-cms ma non è incluso nelle sue dipendenze
-django-taggit==0.9.3
-django-rosetta==0.6.8
+BeautifulSoup==3.2.1
+Django==1.6.1
+Fabric==1.8.1
+Jinja2==2.7.2
+MarkupSafe==0.18
+PIL==1.1.7
+Pillow==2.3.0
+PyYAML==3.10
+Pygments==1.6
+South==0.8.4
+Sphinx==1.2
+Unidecode==0.04.14
+aafigure==0.5
 akismet==0.2.0
-git+git://github.com/smacker/django-filebrowser-no-grappelli-django14.git#egg=django-filebrowser
-django-templatesadmin==0.7
+argparse==1.1
+-e git+git@github.com:djangoitalia/assopy.git@931eff6a0ccc2a2015487a0924aa4ae9c7da07d0#egg=assopy-dev
+-e git+git@github.com:djangoitalia/conference.git@895a02fb059e32995163f6ecd88f0ade4b95ec09#egg=conference-dev
+django-authority==0.8
+django-crontab==0.5.1
+django-email-template==1.0
+django-filebrowser==3.5.3
+django-grappelli==2.5.1
+django-haystack==2.1.1-dev
+django-mptt==0.6.0
+-e git+git@github.com:djangoitalia/django-page-cms.git@aa3f6eb02acca8959652978644f50b8d1eaca903#egg=django_page_cms-dev
+-e git://github.com/dcramer/django-paypal.git@4d58224317e9c0f4c9c2ee88bd1a6b8de8891800#egg=django_paypal-dev
+django-pingback==0.3
+django-recaptcha-works==0.3.4
+-e git+https://github.com/mbi/django-rosetta.git@cb3b26dab2c6f02ae9096df827814878e8de9a4c#egg=django_rosetta-dev
 django-tagging==0.3.1
-python-memcached==1.48
-pytz
-Fabric
-django-crontab==0.4.2
--e git+git://github.com/dcramer/django-paypal.git#egg=django-paypal
-
--e git+https://github.com/pythonitalia/microblog.git#egg=microblog
--e git+https://github.com/pythonitalia/hcomments.git#egg=hcomments
--e git+https://github.com/pythonitalia/conference.git#egg=conference
--e git+https://github.com/pythonitalia/assopy.git#egg=assopy
+django-taggit==0.11.2
+-e git+git@github.com:djangoitalia/django-templatesadmin.git@41bb28907c2f4b333ecdd0f12edf9cbe313f3a21#egg=django_templatesadmin-dev
+django-xmlrpc==0.1.5
+docutils==0.11
+docx==0.2.2
+ecdsa==0.10
+fancy-tag==0.2.0
+haystack==0.15
+-e git+git@github.com:djangoitalia/hcomments.git@8e199b2ad975ab71bbd83b4b87fc0dcd4b5fe926#egg=hcomments-dev
+html2text==3.200.3
+html5lib==0.95
+httplib2==0.8
+ipython==1.1.0
+lxml==3.2.5
+markdown2==2.2.0
+-e git+git@github.com:djangoitalia/microblog.git@0a6c666245cea5d2678df381248401968a82a4d7#egg=microblog-dev
+nltk==2.0.4
+nose==1.3.0
+numpy==1.8.0
+oauth2==1.5.211
+oauthlib==0.6.0
+pandas==0.12.0
+paramiko==1.12.0
+polib==1.0.3
+pycrypto==2.6.1
+python-dateutil==2.2
+python-memcached==1.53
+python-oembed==0.2.1
+python-ptrace==0.6.6
+python-twitter==1.1
+pytz==2013.9
+requests==2.1.0
+requests-oauthlib==0.4.0
+rosetta==0.2.2
+scipy==0.13.2
+simplejson==3.3.1
+six==1.4.1
+sphinxcontrib-aafig==1.0
+suds==0.4
+wsgiref==0.1.2

@@ -1,10 +1,12 @@
 # -*- coding: UTF-8 -*-
 from django.core.management.base import BaseCommand, CommandError
-from conference import models as cmodels
-from hcomments import models as hmodels
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
+        from conference import models as cmodels
+        from hcomments import models as hmodels
+
         try:
             conf = args[0]
         except IndexError:

@@ -7,7 +7,7 @@
 
     <h2>Primary email contact</h2>
     
-    <form action="{% url p3-account-email %}" class="async{% if pform.is_valid %} live-edit{% endif %}" method="POST" rel="#account-email-contact-async-target">
+    <form action="{% url 'p3-account-email' %}" class="async{% if pform.is_valid %} live-edit{% endif %}" method="POST" rel="#account-email-contact-async-target">
         <p>This is the e-mail address which we can use to contact you. It is also the e-mail you can use to login in our website (in case you don't like web accounts or social networks to do it).</p>
         {% if pform.is_valid %}
         <div class="the-email" style="text-align: center; margin-top: 20px">

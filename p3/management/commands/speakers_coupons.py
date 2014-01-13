@@ -2,9 +2,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from conference import models
-from assopy.models import Coupon
-
 import string
 import random
 
@@ -13,6 +10,9 @@ class Command(BaseCommand):
     """
     @transaction.commit_on_success
     def handle(self, *args, **options):
+        from conference import models
+        from assopy.models import Coupon
+
         try:
             conference = models.Conference.objects.get(code=args[0])
         except IndexError:
