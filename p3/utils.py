@@ -149,7 +149,7 @@ def conference2ical(conf, user=None, abstract=False):
         elif component == 'event':
             eid = data['uid']
             data['uid'] = settings.DEFAULT_URL_PREFIX + '/p3/event/' + str(data['uid'])
-            data['organizer'] = ('mailto:info@djangovillage.it', {'CN': 'Django Italia'})
+            data['organizer'] = ('mailto:info@pycon.it', {'CN': 'Django Italia'})
             if hotel:
                 data['coordinates'] = [hotel.lat, hotel.lng]
             if not isinstance(data['summary'], tuple):
