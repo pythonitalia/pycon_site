@@ -2,7 +2,7 @@
 {% p3_profile_data profile.user_id as profile_data %}
 <section id="profile-user-visibility" class="profile-user-visibility clearfix">
     <div class="profile-visibility form-box">
-        <form action="{% url p3-profile slug=profile_data.slug %}" class="live-edit async" method="post" rel="#profile-user-visibility">{% csrf_token %}
+        <form action="{% url 'p3-profile' slug=profile_data.slug %}" class="live-edit async" method="post" rel="#profile-user-visibility">{% csrf_token %}
             <input type="hidden" name="section" value="visibility" />
 
             {% if profile_data.visibility == "x" %}

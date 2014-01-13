@@ -5,7 +5,7 @@
 <section id="profile-user-bio" class="profile-user-bio">
     <h2>Quick Bio</h2>
     <div class="cms">
-        <form action="{% url p3-profile slug=profile_data.slug %}" class="live-edit async" method="post" enctype="multipart/form-data" rel="#profile-user-bio">{% csrf_token %}
+        <form action="{% url 'p3-profile' slug=profile_data.slug %}" class="live-edit async" method="post" enctype="multipart/form-data" rel="#profile-user-bio">{% csrf_token %}
             <input type="hidden" name="section" value="bio" />
             <div>
                 {% if profile_data.bio %}

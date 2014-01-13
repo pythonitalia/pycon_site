@@ -14,7 +14,7 @@
                 'form': $('#add-comment form.new-comment'),
                 'wrapper': $('#comments'),
                 'comments': $('#comments li'),
-                'remove': "{% url hcomments-delete-comment %}"
+                'remove': "{% url 'hcomments-delete-comment' %}"
             });
             hcomments.onCommentModerated = function(comment) {
                 var e = comment ? comment : $('.form-box');
@@ -66,7 +66,7 @@
 
         {% if data.tags %}
         <dt>{% trans "Tag" %}</dt>
-        <dd>{% for t in data.tags %}<a class="tag" href="{% url microblog-tag tag=t.name %}">{{ t.name }}</a>{% endfor %}</dd>
+        <dd>{% for t in data.tags %}<a class="tag" href="{% url 'microblog-tag' tag=t.name %}">{{ t.name }}</a>{% endfor %}</dd>
         {% endif %}
     </dl>
 </div>

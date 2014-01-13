@@ -108,7 +108,8 @@ def spam_recruiter_by_conf(conf):
 
 from django.core.cache import cache
 from django.utils.http import urlquote
-from django.utils.hashcompat import md5_constructor
+from hashlib import md5 as md5_constructor
+
 
 def template_cache_name(fragment_name, *variables):
     args = md5_constructor(u':'.join([urlquote(var) for var in variables]))
@@ -148,7 +149,7 @@ def conference2ical(conf, user=None, abstract=False):
         elif component == 'event':
             eid = data['uid']
             data['uid'] = settings.DEFAULT_URL_PREFIX + '/p3/event/' + str(data['uid'])
-            data['organizer'] = ('mailto:info@pycon.it', {'CN': 'Python Italia'})
+            data['organizer'] = ('mailto:info@djangovillage.it', {'CN': 'Django Italia'})
             if hotel:
                 data['coordinates'] = [hotel.lat, hotel.lng]
             if not isinstance(data['summary'], tuple):

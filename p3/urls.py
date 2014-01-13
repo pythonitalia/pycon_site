@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
-from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
+from django.conf.urls import *
 
 urlpatterns = patterns('p3.views',
     url(r'^map.js/', 'map_js', name='p3-map-js'),

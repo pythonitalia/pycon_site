@@ -4,9 +4,6 @@ import haystack
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from conference import models
-from conference.templatetags.conference import fare_blob
-
 from collections import defaultdict
 from datetime import datetime
 from xml.sax.saxutils import escape
@@ -16,6 +13,9 @@ class Command(BaseCommand):
     """
     @transaction.commit_on_success
     def handle(self, *args, **options):
+        from conference import models
+        from conference.templatetags.conference import fare_blob
+
         try:
             conference = args[0]
         except IndexError:

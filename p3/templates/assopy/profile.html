@@ -31,7 +31,7 @@
                         <li class="clearfix" data-identifier="{{ i.identifier }}"><span class="show-tooltip" title="{{ i.identifier }}">{% if i.provider == "Other" %}OpenID{% else %}{{ i.provider }}{% endif %}</span>&nbsp;<img class="clickable delete" src="{{ STATIC_URL }}assopy/i/icon-delete.png" title="{% trans "Remove account" %}" /></li>
                         {% endfor %}
                     </ul>
-                    <form id="remove-identity" action="{% url assopy-profile-identities %}" method="post">
+                    <form id="remove-identity" action="{% url 'assopy-profile-identities' %}" method="post">
                         <input type="hidden" name="identifier" value="" />
                     </form>
                     <script type="text/javascript">
@@ -55,7 +55,7 @@
                         });
                     </script>
                     <div class="button mini">
-                        {% url assopy-profile as u %}
+                        {% url 'assopy-profile' as u %}
                         {% render_janrain_box u "overlay" %}
                     </div>
                 </div>
@@ -107,12 +107,12 @@
                                 {% else %}
                                     {% for i in invoices %}
                                         {% if i.assopy_id %}
-                                            <a href="{% url genro-legacy-invoice assopy_id=i.assopy_id %}">{{ i.code }}</a>
+                                            <a href="{% url "genro-legacy-invoice" assopy_id=i.assopy_id %}">{{ i.code }}</a>
                                         {% else %}
-                                            <a href="{% url assopy-invoice-pdf order_code=o.code code=i.code %}">{{ i.code }}</a>
+                                            <a href="{% url "assopy-invoice-pdf" order_code=o.code code=i.code %}">{{ i.code }}</a>
                                             {% comment %}
                                             {% for cn in i.credit_notes.all %}
-                                                (<a href="{% url assopy-invoice-pdf assopy_id=cn.assopy_id %}">{{ cn.code }}</a> refund)
+                                                (<a href="{% url "assopy-invoice-pdf" assopy_id=cn.assopy_id %}">{{ cn.code }}</a> refund)
                                             {% endfor %}
                                             {% endcomment %}
                                         {% endif %}
@@ -139,11 +139,11 @@
     <div class="span-6">
         <section>
             <div class="button">
-                <a href="{% url conference-profile slug=profile.slug %}">Your public profile &rarr;</a>
+                <a href="{% url "conference-profile" slug=profile.slug %}">Your public profile &rarr;</a>
             </div>
             <div style="margin-top: 15px; margin-bottom: 15px; font-size: smaller;">Partecipate in
                   "<a href="/find-out-whos-coming">Find out who's coming</a>": let
-                  people know that you will be coming to EuroPython.
+                  people know that you will be coming to Django Village.
             </div>
         </section>
     </div>
@@ -153,7 +153,7 @@
          {% if tickets|length %}
              <section>
                 <div class="button">
-                   <a href="{% url conference-profile-conferences %}">Conference & Contacts &rarr;</a>
+                   <a href="{% url "conference-profile-conferences" %}">Conference & Contacts &rarr;</a>
                 </div>
 
                 <div style="margin-top: 15px; margin-bottom: 15px; font-size: smaller;">
@@ -169,7 +169,7 @@
     <div class="span-6">
         <section>
             <div class="button">
-                <a href="{% url assopy-tickets %}">{% trans "Your tickets" %} ({{tickets|length}}) &rarr;</a>
+                <a href="{% url "assopy-tickets" %}">{% trans "Your tickets" %} ({{tickets|length}}) &rarr;</a>
             </div>
 
             <div style="margin-top: 15px; margin-bottom: 15px; font-size: smaller;">
@@ -181,7 +181,7 @@
     <div class="span-6 last">
         <section>
             <div class="button">
-                <a href="{% url p3-my-schedule %}">Your personal schedule &rarr;</a>
+                <a href="{% url "p3-my-schedule" %}">Your personal schedule &rarr;</a>
             </div>
         </section>
     </div>

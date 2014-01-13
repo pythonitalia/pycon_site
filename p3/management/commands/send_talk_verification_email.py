@@ -1,14 +1,16 @@
 # -*- coding: UTF-8 -*-
 from django.core.management.base import BaseCommand, CommandError
-from conference import models
 from datetime import datetime
-from email_template import utils
+
 
 class Command(BaseCommand):
     """
     """
 
     def handle(self, *args, **options):
+        from conference import models
+        from email_template import util
+
         try:
             conference = args[0]
         except IndexError:
@@ -49,5 +51,5 @@ class Command(BaseCommand):
             data.append((email, ctx, tpl))
 
         for email, ctx, tpl in data:
-            utils.email(tpl, ctx, to=[email]).send()
+            util.email(tpl, ctx, to=[email]).send()
 
