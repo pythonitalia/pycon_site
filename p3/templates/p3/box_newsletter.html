@@ -1,10 +1,11 @@
-<div class="section newsletter">
-    <h4>Newsletter</h4>
-    <p>If you want to stay updated with news about EuroPython, sign-up to the official low-traffic EuroPython mailing-list:</p>
-    <form action="http://mail.python.org/mailman/subscribe/europython" method="post">
-        <div>
-            <label class="inline"><input type="text" name="email"  onfocus="if(this.value=='Your email address') {this.value=''; return true;}" value="Your email address" size="20"/></label>&nbsp;<button type="submit" name="" value="">Sign up</button>
-        </div>
+{% load i18n %}
+{% if NEWSLETTER_SUBSCRIBE_URL %}
+<div class="slot slot-newsletter">
+    <h4>{% trans "Newsletter" %}</h4>
+    <p>{% trans "If you want to stay updated with news about thie conference, sign-up to the official low-traffic PyCon mailing-list:" %}</p>
+    <form action="{{ NEWSLETTER_SUBSCRIBE_URL }}" method="post">
+        <label><input placeholder="Your email address" type="text" name="email" value="" size="20" /></label>
+        <button type="submit" class="btn btn-small" name="" value="">{% trans "Sign up" %}</button>
     </form>
 </div>
-
+{% endif %}

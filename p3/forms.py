@@ -16,11 +16,11 @@ from p3 import models
 import datetime
 
 TALK_DURATION = (
-    (30, '30 minutes inc Q&A'),
-    (45, '30 minutes + 10 Q&A'),
-    (60, '45 minutes + 10 Q&A'),
-    (90, '70 minutes + 15 Q&A'),
-    (240, '4 hours'))
+    (30, _('30 minutes inc Q&A')),
+    (45, _('45 minutes inc Q&A')),
+    (60, _('60 minutes inc Q&A')),
+    (90, _('90 minutes inc Q&A')),
+)
 
 class P3TalkFormMixin(object):
     def clean(self):
@@ -46,7 +46,7 @@ class P3TalkFormMixin(object):
 class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     duration = forms.TypedChoiceField(
         label=_('Duration'),
-        help_text=_('This is the <b>desired duration</b> of the talk'),
+        help_text=_('This is the <i>desired duration</i> of the talk'),
         choices=TALK_DURATION,
         coerce=int,
         initial=60,
@@ -67,7 +67,7 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     )
     personal_agreement = forms.BooleanField(
         label=_('I agree to let you publish my data (excluding birth date and phone number).'),
-        help_text=_('This speaker profile will be publicly accesible if one of your talks is accepted. Your mobile phone and date of birth will <strong>never</strong> be published'),
+        help_text=_('This speaker profile will be publicly accesible if one of your talks is accepted. Your mobile phone and date of birth will <i>never</i> be published'),
     )
     slides_agreement = forms.BooleanField(
         label=_('I agree to release all the talk material after the event.'),
@@ -78,25 +78,26 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     )
     bio = forms.CharField(
         label=_('Compact biography'),
-        help_text=_('Please enter a short biography (one or two paragraphs). Do not paste your CV!'),
+        help_text=_('Short biography (one or two paragraphs). Do not paste your CV'),
         widget=cforms.MarkEditWidget,)
     abstract = forms.CharField(
         max_length=5000,
         label=_('Talk abstract'),
-        help_text=_('<p>Please enter a short description of the talk you are submitting. Be sure to includes the goals of your talk and any prerequisite required to fully understand it.</p><p>Suggested size: two or three paragraphs.</p>'),
+        help_text=_('<p>Short description of the talk you are submitting. Be sure to includes the goals of your talk and any prerequisite required to fully understand it.</p><p>Suggested size: two or three paragraphs.</p>'),
         widget=cforms.MarkEditWidget,)
 
     language = forms.TypedChoiceField(
         help_text=_('Select Italian only if you are not comfortable in speaking English.'),
         choices=cmodels.TALK_LANGUAGES,
-        initial='en', required=False)
+        initial='it', required=False)
 
     def __init__(self, user, *args, **kwargs):
-        data = {
-            'mobile': user.assopy_user.phone,
-            'birthday': user.assopy_user.birthday,
-            'activity_homepage': user.assopy_user.www,
-        }
+#         data = {
+#             'mobile': user.assopy_user.phone,
+#             'birthday': user.assopy_user.birthday,
+#             'activity_homepage': user.assopy_user.www,
+#         }
+        data = {}
         data.update(kwargs.get('initial', {}))
         kwargs['initial'] = data
         super(P3SubmissionForm, self).__init__(user, *args, **kwargs)
@@ -164,12 +165,12 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
 class P3SpeakerForm(cforms.SpeakerForm):
     bio = forms.CharField(
         label=_('Compact biography'),
-        help_text=_('Please enter a short biography (one or two paragraphs). Do not paste your CV!'),
+        help_text=_('Short biography (one or two paragraphs). Do not paste your CV'),
         widget=cforms.MarkEditWidget,)
 
 class FormTicket(forms.ModelForm):
-    ticket_name = forms.CharField(max_length=60, required=False, help_text='name of the attendee')
-    days = forms.MultipleChoiceField(label=_('Probable days of attendance:'), choices=tuple(), widget=forms.CheckboxSelectMultiple, required=False)
+    ticket_name = forms.CharField(max_length=60, required=False, help_text='Name of the attendee')
+    days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(), widget=forms.CheckboxSelectMultiple, help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
 
     class Meta:
         model = models.TicketConference
@@ -257,7 +258,7 @@ class FormSprint(forms.ModelForm):
 class P3ProfileForm(cforms.ProfileForm):
     bio = forms.CharField(
         label=_('Compact biography'),
-        help_text=_('Please enter a short biography (one or two paragraphs). Do not paste your CV!'),
+        help_text=_('Short biography (one or two paragraphs). Do not paste your CV'),
         widget=cforms.MarkEditWidget,
         required=False,)
     tagline = forms.CharField(
@@ -350,7 +351,7 @@ class P3ProfilePublicDataForm(P3ProfileForm):
 class P3ProfileBioForm(P3ProfileForm):
     bio = forms.CharField(
         label=_('Compact biography'),
-        help_text=_('Please enter a short biography (one or two paragraphs). Do not paste your CV!'),
+        help_text=_('Short biography (one or two paragraphs). Do not paste your CV'),
         widget=cforms.MarkEditWidget,
         required=False,)
     class Meta:
@@ -373,10 +374,10 @@ class P3ProfileVisibilityForm(P3ProfileForm):
 
 class P3ProfilePictureForm(P3ProfileForm):
     opt = forms.ChoiceField(choices=(
-            ('x', 'no picture'),
-            ('g', 'use gravatar'),
-            ('u', 'use url'),
-            ('f', 'upload file'),
+            ('x', _('no picture')),
+            ('g', _('use gravatar')),
+            ('u', _('use url')),
+            ('f', _('upload file')),
         ), required=False)
     image_gravatar= forms.BooleanField(required=False, widget=forms.HiddenInput)
     image_url = forms.URLField(required=False)
@@ -421,13 +422,13 @@ class P3ProfilePersonalDataForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     phone = forms.CharField(
-        help_text=_('If you opt-in the privacy settings, we can send you important communications via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This number will <strong>never</strong> be published.'),
+        help_text=_('If you opt-in the privacy settings, we can send you important communications via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This number will <i>never</i> be published.'),
         max_length=30,
         required=False,
     )
     birthday = forms.DateField(
         label=_('Date of birth'),
-        help_text=_('We require date of birth for speakers to accomodate for Italian laws regarding minors.<br />Format: YYYY-MM-DD<br />This date will <strong>never</strong> be published.'),
+        help_text=_('We require date of birth for speakers to accomodate for Italian laws regarding minors.<br />Format: YYYY-MM-DD<br />This date will <i>never</i> be published.'),
         input_formats=('%Y-%m-%d',),
         widget=forms.DateInput(attrs={'size': 10, 'maxlength': 10}),
         required=False,
@@ -445,7 +446,7 @@ class P3ProfilePersonalDataForm(forms.ModelForm):
             pass
         else:
             if not value:
-                raise forms.ValidationError('This field is required for a speaker')
+                raise forms.ValidationError(_('This field is required for a speaker'))
         return value
 
     def clean_birthday(self):
@@ -456,7 +457,7 @@ class P3ProfilePersonalDataForm(forms.ModelForm):
             pass
         else:
             if not value:
-                raise forms.ValidationError('This field is required for a speaker')
+                raise forms.ValidationError(_('This field is required for a speaker'))
         return value
 
 class P3ProfileEmailContactForm(forms.Form):
@@ -470,13 +471,13 @@ class P3ProfileEmailContactForm(forms.Form):
         value = self.cleaned_data['email'].strip()
         if self.user:
             if value != self.user.email and User.objects.filter(email__iexact=value).exists():
-                raise forms.ValidationError('Email already registered')
+                raise forms.ValidationError(_('Email already registered'))
         return value
 
 class P3ProfileSpamControlForm(forms.ModelForm):
-    spam_recruiting = forms.BooleanField(label='I want to receive a few selected job offers through EuroPython.', required=False)
-    spam_user_message = forms.BooleanField(label='I want to receive private messages from other partecipants.', required=False)
-    spam_sms = forms.BooleanField(label='I want to receive SMS during the conference for main communications.', required=False)
+    spam_recruiting = forms.BooleanField(label=_('I want to receive a few selected job offers through PyCon.'), required=False)
+    spam_user_message = forms.BooleanField(label=_('I want to receive private messages from other partecipants.'), required=False)
+    spam_sms = forms.BooleanField(label=_('I want to receive SMS during the conference for main communications.'), required=False)
     class Meta:
         model = models.P3Profile
         fields = ('spam_recruiting', 'spam_user_message', 'spam_sms')
@@ -623,7 +624,7 @@ class HotelReservationsField(forms.Field):
 
 class P3FormTickets(aforms.FormTickets):
     coupon = forms.CharField(
-        label='Insert your discount code and save money!',
+        label=_('Insert your discount code and save money!'),
         max_length=10,
         required=False,
         widget=forms.TextInput(attrs={'size': 10}),
@@ -654,13 +655,13 @@ class P3FormTickets(aforms.FormTickets):
         if not data:
             return None
         if data[0] == '_':
-            raise forms.ValidationError('invalid coupon')
+            raise forms.ValidationError(_('invalid coupon'))
         try:
             coupon = amodels.Coupon.objects.get(code__iexact=data)
         except amodels.Coupon.DoesNotExist:
-            raise forms.ValidationError('invalid coupon')
+            raise forms.ValidationError(_('invalid coupon'))
         if not coupon.valid(self.user):
-            raise forms.ValidationError('invalid coupon')
+            raise forms.ValidationError(_('invalid coupon'))
         return coupon
 
     def _check_hotel_reservation(self, field_name):
@@ -770,5 +771,5 @@ class P3EventBookingForm(cforms.EventBookingForm):
             booked = cmodels.EventBooking.objects\
                 .filter(event__in=brothers, user=self.user)
             if booked.count() > 0:
-                raise forms.ValidationError('already booked')
+                raise forms.ValidationError(_('already booked'))
         return data

@@ -40,12 +40,12 @@ TIME_ZONE = 'Europe/Rome'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'it-it'
 
 ugettext = lambda s: s
 LANGUAGES = (
-#    ('it', ugettext('Italiano')),
-    ('en', ugettext('English')),
+    ('it-it', ugettext('Italiano')),
+    ('en-us', ugettext('English')),
 )
 
 SITE_ID = 1
@@ -109,25 +109,39 @@ TEMPLATE_LOADERS = (
 
 from django.conf import global_settings
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.request",
+    "django.core.context_processors.media",
+    'django.core.context_processors.csrf',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'conference.context_processors.current_url',
     'conference.context_processors.stuff',
-    'pages.context_processors.media',
-    'p3.context_processors.countdown',
+    'p3.context_processors.settings',
+    "cms.context_processors.cms_settings",
+    "sekizai.context_processors.sekizai",
+    "django.core.context_processors.static",
 )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.http.ConditionalGetMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'assopy.middleware.DebugInfo',
+    'pycon.middleware.RisingResponse',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'pycon.urls'
@@ -136,10 +150,13 @@ ROOT_URLCONF = 'pycon.urls'
 WSGI_APPLICATION = 'pycon.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'templates'),
 )
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_DIR, 'locale'),
+)
+
 
 INSTALLED_APPS = (
     'filebrowser',
@@ -148,6 +165,7 @@ INSTALLED_APPS = (
     'p3',
     'assopy',
 
+    'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -159,6 +177,11 @@ INSTALLED_APPS = (
     'django.contrib.redirects',
     'django.contrib.comments',
 
+    'djangocms_text_ckeditor',
+
+    'cms',
+    'menus',
+    'sekizai',
     'tagging',
     'taggit',
     'authority',
@@ -177,6 +200,11 @@ INSTALLED_APPS = (
 
     'recaptcha_works',
     'django_crontab',
+    'formstyle',
+
+    'cms_migration',
+    'markitup',
+    'cms_utils',
 )
 
 RECAPTCHA_OPTIONS = {
@@ -247,28 +275,47 @@ PAGE_TEMPLATES = (
 PAGE_UNIQUE_SLUG_REQUIRED = False
 PAGE_TAGGING = True
 PAGE_LANGUAGES = (
+    ('it-it', ugettext('Italian')),
     ('en-us', ugettext('English')),
 )
-PAGE_DEFAULT_LANGUAGE = 'en-us'
-PAGE_LANGUAGE_MAPPING = lambda lang: 'en-us'
-
+PAGE_DEFAULT_LANGUAGE = PAGE_LANGUAGES[0][0]
+PAGE_LANGUAGE_MAPPING = lambda lang: PAGE_LANGUAGES[0][0]
 
 PAGE_REAL_TIME_SEARCH = False
 
 PAGE_USE_STRICT_URL = True
 
-MICROBLOG_LINK = 'http://www.europython.eu'
-MICROBLOG_TITLE = 'Europython blog'
-MICROBLOG_DESCRIPTION = 'latest news from europython'
-MICROBLOG_DEFAULT_LANGUAGE = 'en'
+ROSETTA_EXCLUDED_APPLICATIONS = (
+    'debug_toolbar',
+    'filebrowser',
+    'pages',
+    'rosetta',
+)
+
+CMS_LANGUAGES = PAGE_LANGUAGES
+CMS_TEMPLATES = (
+    ('django_cms/p5_homepage.html', 'Homepage'),
+    ('django_cms/content.html', 'Content page'),
+    ('django_cms/content-1col.html', 'Content page, single column'),
+    ('django_cms/p5_home_splash.html', 'Homepage, splash'),
+)
+CMS_PLUGIN_PROCESSORS = (
+    'cms_utils.processors.process_templatetags',
+)
+MARKITUP_FILTER = ('markdown2.markdown', {'safe_mode': True})
+
+MICROBLOG_LINK = 'http://www.pycon.it'
+MICROBLOG_TITLE = 'PyconIT blog'
+MICROBLOG_DESCRIPTION = 'latest news from pycon.it'
+MICROBLOG_DEFAULT_LANGUAGE = 'it'
 MICROBLOG_POST_LIST_PAGINATION = True
 MICROBLOG_POST_PER_PAGE = 10
 MICROBLOG_MODERATION_TYPE = 'akismet'
 MICROBLOG_AKISMET_KEY = '56c34997206c'
-MICROBLOG_EMAIL_RECIPIENTS = ['europython@python.org', 'europython-improve@python.org', 'pycon-organization@googlegroups.com']
+MICROBLOG_EMAIL_RECIPIENTS = ['pycon-organization@googlegroups.com']
 MICROBLOG_EMAIL_INTEGRATION = True
 
-MICROBLOG_TWITTER_USERNAME = 'europython'
+MICROBLOG_TWITTER_USERNAME = 'pyconit'
 MICROBLOG_TWITTER_POST_URL_MANGLER = 'microblog.utils.bitly_url'
 MICROBLOG_TWITTER_INTEGRATION = False
 
@@ -281,7 +328,7 @@ def MICROBLOG_POST_FILTER(posts, user):
     else:
         return filter(lambda x: x.is_published(), posts)
 
-SESSION_COOKIE_NAME = 'ep_sessionid'
+SESSION_COOKIE_NAME = 'p5_sessionid'
 
 CONFERENCE_OLARK_KEY = '1751-12112149-10-1389'
 CONFERENCE_GOOGLE_MAPS = {
@@ -292,9 +339,9 @@ CONFERENCE_GOOGLE_MAPS = {
     'country': 'it',
 }
 
-CONFERENCE_CONFERENCE = 'ep2013'
+CONFERENCE_CONFERENCE = 'pycon6'
 CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', ]
-CONFERENCE_VOTING_DISALLOWED = 'https://ep2013.europython.eu/voting-disallowed'
+CONFERENCE_VOTING_DISALLOWED = 'https://www.pycon.it/voting-disallowed'
 
 CONFERENCE_FORMS = {
     'PaperSubmission': 'p3.forms.P3SubmissionForm',
@@ -528,6 +575,7 @@ def CONFERENCE_TALK_VIDEO_ACCESS(request, talk):
 def ASSOPY_ORDERITEM_CAN_BE_REFUNDED(user, item):
     if user.is_superuser:
         return True
+    return False
     if not item.ticket:
         return False
     ticket = item.ticket
@@ -558,11 +606,13 @@ ASSOPY_OTC_CODE_HANDLERS = {
     'e': 'p3.views.OTCHandler_E',
 }
 
-DEFAULT_URL_PREFIX = 'https://ep2012.europython.eu'
-PINGBACK_TARGET_DOMAIN = 'ep2012.europython.eu'
+DEFAULT_URL_PREFIX = 'https://www.pycon.it'
+PINGBACK_TARGET_DOMAIN = 'www.pycon.it'
 COMMENTS_APP = 'hcomments'
 
 from datetime import date
+P3_FARES_ENABLED = lambda u: True
+P3_NEWSLETTER_SUBSCRIBE_URL = "http://groups.google.com/group/python-italia-aps/boxsubscribe"
 P3_TWITTER_USER = MICROBLOG_TWITTER_USERNAME
 P3_HOTEL_RESERVATION = {
     'period': (date(2013, 6, 28), date(2013, 7, 9)),
@@ -570,10 +620,10 @@ P3_HOTEL_RESERVATION = {
 }
 P3_USER_MESSAGE_FOOTER = '''
 
-This message was sent from a participant at the conference EuroPython.
+This message was sent from a participant at the conference PyconITalia.
 Your email address is not disclosed to anyone, to stop receiving messages
 from other users you can change your privacy settings from this page:
-https://ep2013.europython.eu/accounts/profile/
+https://www.pycon.it/accounts/profile/
 '''
 
 TEMPLATESADMIN_EDITHOOKS = (
@@ -604,7 +654,7 @@ def HCOMMENTS_MODERATOR_REQUEST(request, comment):
             return request.user in owners
     return False
 
-P3_ANONYMOUS_AVATAR = 'p5/i/headshot-default.jpg'
+P3_ANONYMOUS_AVATAR = 'p5/images/headshot-default.jpg'
 
 P3_LIVE_INTERNAL_IPS = ('2.228.78.', '10.3.3.', '127.0.0.1')
 P3_INTERNAL_SERVER = 'live.ep:1935'
