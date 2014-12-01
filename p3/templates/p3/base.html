@@ -116,6 +116,7 @@
             <ul class="clearfix">
                 {% show_menu 0 1 1 1  %}
                 {% language_chooser "p3/includes/langnav.html" "native" %}
+                {% if request.user.is_authenticated %}
                 <li class="right">
                 {% if request.user.is_authenticated %}
                     <a class="username" href="{% url "assopy-profile" %}"><i class="fa fa-user"></i>&nbsp;{{ request.user.assopy_user.name }}</a>
@@ -130,6 +131,7 @@
                     <a href="/accounts/login/?next={{ request.META.PATH_INFO }}">Log in</a>
                 {% endif %}
                 </li>
+                {% endif %}
             </ul>
         </nav>
     {% endblock %}

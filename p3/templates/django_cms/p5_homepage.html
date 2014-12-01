@@ -39,6 +39,7 @@
     {% endif %}
 
     {% current_conference as conf %}
+    {% if request.user.is_staff %}
     <section class="subcommunities">
         <div class="grid-container">
             <!-- NOTICE -->
@@ -63,6 +64,7 @@
             {% endif %}
         </div><!-- /grid-container -->
     </section>
+    {% endif %}
 
     {% block SPONSORS %}
         {% conference_sponsor as sponsors %}
