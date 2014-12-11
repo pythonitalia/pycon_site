@@ -80,7 +80,7 @@
         else if(value != autocomplete['last_search']) {
             autocomplete['last_search'] = i.val();
             $.ajax({
-                url: '{% url p3-schedule-search conference=params.conference%}?q=' + i.val(),
+                url: '{% url "p3-schedule-search" conference=params.conference%}?q=' + i.val(),
                 dataType: 'json',
                 success: function(data, status, jqXHR) {
                     var events_ids = [];
@@ -207,7 +207,7 @@
         var schedules = $('.schedule-wrapper')
         if(schedules.length) {
             var h3 = form_flags.prev();
-            h3.prepend('<img src="{{ STATIC_URL }}p5/i/ajax-loader.gif" width="16" />');
+            h3.prepend('<img src="{{ STATIC_URL }}p6/i/ajax-loader.gif" width="16" />');
             form_flags.attr('data-wait', schedules.length);
             schedules.each(function() {
                 var schedule = $(this);

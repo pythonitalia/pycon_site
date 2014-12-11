@@ -10,13 +10,16 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('dvd', 'dvd@gnx.it'),
     ('c8e', 'carlo.miron@gmail.com'),
+    ('yakky', 'github@spalletti.it'),
 )
 
 MANAGERS = ADMINS
 
-PROJECT_DIR = os.environ.get('PROJECT_DIR', os.path.normpath(os.path.join(os.path.dirname(__file__), '..')))
+PROJECT_DIR = os.environ.get('PROJECT_DIR', os.path.normpath(
+    os.path.join(os.path.dirname(__file__), '..')))
 DATA_DIR = os.environ.get('DATA_DIR', os.path.join(PROJECT_DIR, 'data'))
-OTHER_STUFF = os.environ.get('OTHER_STUFF', os.path.join(PROJECT_DIR, 'documents'))
+OTHER_STUFF = os.environ.get('OTHER_STUFF',
+                             os.path.join(PROJECT_DIR, 'documents'))
 
 sys.path.insert(0, os.path.join(PROJECT_DIR, 'deps'))
 
@@ -40,11 +43,11 @@ TIME_ZONE = 'Europe/Rome'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'it'
 
 ugettext = lambda s: s
 LANGUAGES = (
-#    ('it', ugettext('Italiano')),
+    ('it', ugettext('Italiano')),
     ('en', ugettext('English')),
 )
 
@@ -94,7 +97,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -104,30 +107,47 @@ SECRET_KEY = ''
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    # 'django.template.loaders.eggs.Loader',
 )
 
 from django.conf import global_settings
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    'django.core.context_processors.request',
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
     'django.contrib.messages.context_processors.messages',
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.request",
+    "django.core.context_processors.media",
+    'django.core.context_processors.csrf',
+    'django.core.context_processors.request',
+    "django.core.context_processors.tz",
+    'p3.context_processors.settings',
     'conference.context_processors.current_url',
     'conference.context_processors.stuff',
-    'pages.context_processors.media',
-    'p3.context_processors.countdown',
+    "sekizai.context_processors.sekizai",
+    "cms.context_processors.cms_settings",
+    "django.core.context_processors.static",
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+    'django.middleware.http.ConditionalGetMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
+    #'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'assopy.middleware.DebugInfo',
+    'pycon.middleware.RisingResponse',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 ROOT_URLCONF = 'pycon.urls'
@@ -136,9 +156,11 @@ ROOT_URLCONF = 'pycon.urls'
 WSGI_APPLICATION = 'pycon.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'templates'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_DIR, 'locale'),
 )
 
 INSTALLED_APPS = (
@@ -148,6 +170,7 @@ INSTALLED_APPS = (
     'p3',
     'assopy',
 
+    'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -159,10 +182,22 @@ INSTALLED_APPS = (
     'django.contrib.redirects',
     'django.contrib.comments',
 
+    'djangocms_text_ckeditor',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_link',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_teaser',
+    'cmsplugin_filer_video',
+    'djangocms_grid',
+
+    'cms',
+    'menus',
+    'sekizai',
     'tagging',
     'taggit',
     'authority',
-    'pages',
+    #'pages',
     'mptt',
     'conference',
     'microblog',
@@ -174,16 +209,25 @@ INSTALLED_APPS = (
     'templatesadmin',
     'email_template',
     'paypal.standard.ipn',
+    'filer',
+    'easy_thumbnails',
 
     'recaptcha_works',
     'django_crontab',
+    'formstyle',
+
+    'cms_migration',
+    'markitup',
+    'cms_utils',
+
+    'raven.contrib.django.raven_compat',
 )
 
 RECAPTCHA_OPTIONS = {
     'theme': 'clean',
     'lang': 'en',
     'tabindex': 0,
-    #'custom_translations': {},
+    # 'custom_translations': {},
     #'custom_theme_widget': None
 }
 
@@ -207,8 +251,8 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'console': {
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         }
     },
     'loggers': {
@@ -236,7 +280,7 @@ FILEBROWSER_URL_FILEBROWSER_MEDIA = '/static/filebrowser/'
 PAGE_USE_SITE_ID = False
 DEFAULT_PAGE_TEMPLATE = 'cms/content.html'
 PAGE_TEMPLATES = (
-    #('cms/index.html', 'homepage'),
+    # ('cms/index.html', 'homepage'),
     #('cms/index-simple.html', 'homepage (semplificata)'),
     ('cms/p5_homepage.html', 'Homepage'),
     ('cms/content.html', 'Content page'),
@@ -247,33 +291,99 @@ PAGE_TEMPLATES = (
 PAGE_UNIQUE_SLUG_REQUIRED = False
 PAGE_TAGGING = True
 PAGE_LANGUAGES = (
+    ('it-it', ugettext('Italian')),
     ('en-us', ugettext('English')),
 )
-PAGE_DEFAULT_LANGUAGE = 'en-us'
-PAGE_LANGUAGE_MAPPING = lambda lang: 'en-us'
-
+PAGE_DEFAULT_LANGUAGE = PAGE_LANGUAGES[0][0]
+PAGE_LANGUAGE_MAPPING = lambda lang: PAGE_LANGUAGES[0][0]
 
 PAGE_REAL_TIME_SEARCH = False
 
 PAGE_USE_STRICT_URL = True
 
-MICROBLOG_LINK = 'http://www.europython.eu'
-MICROBLOG_TITLE = 'Europython blog'
-MICROBLOG_DESCRIPTION = 'latest news from europython'
-MICROBLOG_DEFAULT_LANGUAGE = 'en'
+ROSETTA_EXCLUDED_APPLICATIONS = (
+    'debug_toolbar',
+    'filebrowser',
+    'pages',
+    'rosetta',
+)
+
+CMS_LANGUAGES = {
+    1: [
+        {
+            'code': 'it',
+            'name': ugettext('Italiano'),
+        },
+        {
+            'code': 'en',
+            'name': ugettext('English'),
+        },
+    ],
+    'default': {
+        'fallbacks': ['it', 'en'],
+        'redirect_on_fallback': True,
+        'public': True,
+        'hide_untranslated': False,
+
+    }
+}
+CMS_TEMPLATES = (
+    ('django_cms/p5_homepage.html', 'Homepage'),
+    ('django_cms/content.html', 'Content page'),
+    ('django_cms/content-1col.html', 'Content page, single column'),
+    ('django_cms/p5_home_splash.html', 'Homepage, splash'),
+)
+CMS_PLUGIN_PROCESSORS = (
+    'cms_utils.processors.process_templatetags',
+)
+MARKITUP_FILTER = ('markdown2.markdown', {'safe_mode': False})
+
+CKEDITOR_SETTINGS = {
+    'height': 300,
+    'stylesSet': 'default:/static/p6/javascripts/ckeditor.wysiwyg.js',
+    'contentsCss': ['/static/css/base.css'],
+    'language': '{{ language }}',
+    'toolbar': 'CMS',
+    'skin': 'moono',
+    'extraPlugins': 'cmsplugins',
+}
+
+MICROBLOG_LINK = 'http://www.pycon.it'
+MICROBLOG_TITLE = 'PyconIT blog'
+MICROBLOG_DESCRIPTION = 'latest news from pycon.it'
+MICROBLOG_DEFAULT_LANGUAGE = 'it'
 MICROBLOG_POST_LIST_PAGINATION = True
 MICROBLOG_POST_PER_PAGE = 10
 MICROBLOG_MODERATION_TYPE = 'akismet'
 MICROBLOG_AKISMET_KEY = '56c34997206c'
-MICROBLOG_EMAIL_RECIPIENTS = ['europython@python.org', 'europython-improve@python.org', 'pycon-organization@googlegroups.com']
+MICROBLOG_EMAIL_RECIPIENTS = ['pycon-organization@googlegroups.com']
 MICROBLOG_EMAIL_INTEGRATION = True
 
-MICROBLOG_TWITTER_USERNAME = 'europython'
+MICROBLOG_TWITTER_USERNAME = 'pyconit'
 MICROBLOG_TWITTER_POST_URL_MANGLER = 'microblog.utils.bitly_url'
 MICROBLOG_TWITTER_INTEGRATION = False
 
 MICROBLOG_PINGBACK_SERVER = False
 MICROBLOG_TRACKBACK_SERVER = False
+
+SOUTH_MIGRATION_MODULES = {
+    'easy_thumbnails': 'easy_thumbnails.south_migrations',
+}
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+THUMBNAIL_HIGH_RESOLUTION = True
+
+DJANGOCMS_GRID_CONFIG = {
+    'COLUMNS': 100,
+    'TOTAL_WIDTH': 960,
+    'GUTTER': 20,
+}
+
 
 def MICROBLOG_POST_FILTER(posts, user):
     if user and user.is_staff:
@@ -281,7 +391,8 @@ def MICROBLOG_POST_FILTER(posts, user):
     else:
         return filter(lambda x: x.is_published(), posts)
 
-SESSION_COOKIE_NAME = 'ep_sessionid'
+
+SESSION_COOKIE_NAME = 'p5_sessionid'
 
 CONFERENCE_OLARK_KEY = '1751-12112149-10-1389'
 CONFERENCE_GOOGLE_MAPS = {
@@ -292,9 +403,9 @@ CONFERENCE_GOOGLE_MAPS = {
     'country': 'it',
 }
 
-CONFERENCE_CONFERENCE = 'ep2013'
+CONFERENCE_CONFERENCE = 'pycon6'
 CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', ]
-CONFERENCE_VOTING_DISALLOWED = 'https://ep2013.europython.eu/voting-disallowed'
+CONFERENCE_VOTING_DISALLOWED = 'https://www.pycon.it/voting-disallowed'
 
 CONFERENCE_FORMS = {
     'PaperSubmission': 'p3.forms.P3SubmissionForm',
@@ -307,9 +418,11 @@ CONFERENCE_TALKS_RANKING_FILE = SITE_DATA_ROOT + '/rankings.txt'
 CONFERENCE_ADMIN_TICKETS_STATS_EMAIL_LOG = SITE_DATA_ROOT + '/admin_ticket_emails.txt'
 CONFERENCE_ADMIN_TICKETS_STATS_EMAIL_LOAD_LIBRARY = ['p3', 'conference']
 
+
 def CONFERENCE_TICKETS(conf, ticket_type=None, fare_code=None):
     from conference import models
-    tickets = models.Ticket.objects\
+
+    tickets = models.Ticket.objects \
         .filter(fare__conference=conf, orderitem__order___complete=True)
     if ticket_type:
         tickets = tickets.filter(fare__ticket_type=ticket_type)
@@ -320,23 +433,28 @@ def CONFERENCE_TICKETS(conf, ticket_type=None, fare_code=None):
             tickets = tickets.filter(fare__code=fare_code)
     return tickets
 
+
 def CONFERENCE_VOTING_OPENED(conf, user):
     # possono accedere alla pagina:
-    #   chiunque durante il community voting
+    # chiunque durante il community voting
     #   i superuser
     #   gli speaker (della conferenza in corso)
     #   chi ha il gruppo special "pre_voting"
     if conf.voting() or user.is_superuser:
         return True
     from conference.models import TalkSpeaker, Speaker
+
     try:
-        count = TalkSpeaker.objects.filter(talk__conference=CONFERENCE_CONFERENCE, speaker=user.speaker).count()
+        count = TalkSpeaker.objects.filter(
+            talk__conference=CONFERENCE_CONFERENCE,
+            speaker=user.speaker).count()
     except (AttributeError, Speaker.DoesNotExist):
         pass
     else:
         if count > 0:
             return True
     return user.groups.filter(name='pre_voting').exists()
+
 
 def CONFERENCE_VOTING_ALLOWED(user):
     if not user.is_authenticated():
@@ -345,8 +463,11 @@ def CONFERENCE_VOTING_ALLOWED(user):
         return True
 
     from conference.models import TalkSpeaker, Speaker
+
     try:
-        count = TalkSpeaker.objects.filter(talk__conference=CONFERENCE_CONFERENCE, speaker=user.speaker).count()
+        count = TalkSpeaker.objects.filter(
+            talk__conference=CONFERENCE_CONFERENCE,
+            speaker=user.speaker).count()
     except Speaker.DoesNotExist:
         pass
     else:
@@ -357,15 +478,19 @@ def CONFERENCE_VOTING_ALLOWED(user):
     from django.db.models import Q
     # può votare chi ha almeno un biglietto confermato e che non ha
     # assegnato a qualcun'altro
-    tickets = models.TicketConference.objects\
-        .available(user, CONFERENCE_CONFERENCE)\
-        .filter(Q(orderitem__order___complete=True)|Q(orderitem__order__method='admin'))\
-        .filter(Q(p3_conference=None)|Q(p3_conference__assigned_to='')|Q(p3_conference__assigned_to=user.email))
+    tickets = models.TicketConference.objects \
+        .available(user, CONFERENCE_CONFERENCE) \
+        .filter(Q(orderitem__order___complete=True) | Q(
+        orderitem__order__method='admin')) \
+        .filter(Q(p3_conference=None) | Q(p3_conference__assigned_to='') | Q(
+        p3_conference__assigned_to=user.email))
     return tickets.count() > 0
+
 
 def CONFERENCE_SCHEDULE_ATTENDEES(schedule, forecast):
     from p3.stats import presence_days
     from conference.models import Schedule
+
     if not isinstance(schedule, Schedule):
         output = {}
         for s in Schedule.objects.filter(conference=schedule):
@@ -381,6 +506,7 @@ def CONFERENCE_SCHEDULE_ATTENDEES(schedule, forecast):
                 return row['total']
     return 0
 
+
 CONFERENCE_ADMIN_ATTENDEE_STATS = (
     'p3.stats.tickets_status',
     'p3.stats.hotel_tickets',
@@ -393,11 +519,14 @@ CONFERENCE_ADMIN_ATTENDEE_STATS = (
     'p3.stats.pp_tickets',
 )
 
+
 def CONFERENCE_VIDEO_COVER_EVENTS(conference):
     from conference import dataaccess
     from conference import models
     from datetime import timedelta
+
     conf = models.Conference.objects.get(code=conference)
+
     def valid(e):
         if e['tags'] & set(['special', 'break']):
             return False
@@ -407,10 +536,13 @@ def CONFERENCE_VIDEO_COVER_EVENTS(conference):
         # gli eventi serali non vengono ripresi
         if e['time'].hour >= 20:
             return False
-        if len(e['tracks']) == 1 and (e['tracks'][0] in ('helpdesk1', 'helpdesk2')):
+        if len(e['tracks']) == 1 and (
+            e['tracks'][0] in ('helpdesk1', 'helpdesk2')):
             return False
         return True
-    return [ x['id'] for x in filter(valid, dataaccess.events(conf=conference)) ]
+
+    return [x['id'] for x in filter(valid, dataaccess.events(conf=conference))]
+
 
 def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
     import re
@@ -422,7 +554,8 @@ def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
     conference = event['conference']
 
     stuff = os.path.normpath(
-        os.path.join(os.path.dirname(__file__), '..', 'documents', 'cover', conference))
+        os.path.join(os.path.dirname(__file__), '..', 'documents', 'cover',
+                     conference))
     if not os.path.isdir(stuff):
         return None
 
@@ -454,7 +587,8 @@ def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
         return lines
 
     if conference in ('ep2012', 'ep2013'):
-        master = Image.open(os.path.join(stuff, 'cover-start-end.png')).convert('RGBA')
+        master = Image.open(os.path.join(stuff, 'cover-start-end.png')).convert(
+            'RGBA')
 
         if type == 'back':
             return master
@@ -492,7 +626,7 @@ def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
             y += ftitle.getsize(l)[1] + 8
 
         if event.get('talk'):
-            spks = [ x['name'] for x in event['talk']['speakers'] ]
+            spks = [x['name'] for x in event['talk']['speakers']]
             text = 'by ' + ','.join(spks)
             lines = wrap_text(fauthor, text, width)
             for l in lines:
@@ -505,12 +639,16 @@ def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
     else:
         return None
 
+
 CONFERENCE_TICKET_BADGE_ENABLED = True
 CONFERENCE_TICKET_BADGE_PROG_ARGS = ['-e', '0', '-p', 'A4', '-n', '1']
 
+
 def CONFERENCE_TICKET_BADGE_PREPARE_FUNCTION(tickets):
     from p3.utils import conference_ticket_badge
+
     return conference_ticket_badge(tickets)
+
 
 def CONFERENCE_TALK_VIDEO_ACCESS(request, talk):
     return True
@@ -520,14 +658,18 @@ def CONFERENCE_TALK_VIDEO_ACCESS(request, talk):
     if u.is_anonymous():
         return False
     from conference.models import Ticket
-    qs = Ticket.objects\
-            .filter(id__in=[x.id for x in u.assopy_user.tickets()])\
-            .filter(orderitem__order___complete=True, fare__ticket_type='conference')
+
+    qs = Ticket.objects \
+        .filter(id__in=[x.id for x in u.assopy_user.tickets()]) \
+        .filter(orderitem__order___complete=True,
+                fare__ticket_type='conference')
     return qs.exists()
+
 
 def ASSOPY_ORDERITEM_CAN_BE_REFUNDED(user, item):
     if user.is_superuser:
         return True
+    return False
     if not item.ticket:
         return False
     ticket = item.ticket
@@ -538,6 +680,7 @@ def ASSOPY_ORDERITEM_CAN_BE_REFUNDED(user, item):
     if item.order.total() == 0:
         return False
     return item.order._complete
+
 
 GENRO_BACKEND = False
 ASSOPY_VIES_WSDL_URL = None
@@ -558,11 +701,14 @@ ASSOPY_OTC_CODE_HANDLERS = {
     'e': 'p3.views.OTCHandler_E',
 }
 
-DEFAULT_URL_PREFIX = 'https://ep2012.europython.eu'
-PINGBACK_TARGET_DOMAIN = 'ep2012.europython.eu'
+DEFAULT_URL_PREFIX = 'https://www.pycon.it'
+PINGBACK_TARGET_DOMAIN = 'www.pycon.it'
 COMMENTS_APP = 'hcomments'
 
 from datetime import date
+
+P3_FARES_ENABLED = lambda u: True
+P3_NEWSLETTER_SUBSCRIBE_URL = "http://groups.google.com/group/python-italia-aps/boxsubscribe"
 P3_TWITTER_USER = MICROBLOG_TWITTER_USERNAME
 P3_HOTEL_RESERVATION = {
     'period': (date(2013, 6, 28), date(2013, 7, 9)),
@@ -570,10 +716,10 @@ P3_HOTEL_RESERVATION = {
 }
 P3_USER_MESSAGE_FOOTER = '''
 
-This message was sent from a participant at the conference EuroPython.
+This message was sent from a participant at the conference PyconITalia.
 Your email address is not disclosed to anyone, to stop receiving messages
 from other users you can change your privacy settings from this page:
-https://ep2013.europython.eu/accounts/profile/
+https://www.pycon.it/accounts/profile/
 '''
 
 TEMPLATESADMIN_EDITHOOKS = (
@@ -583,17 +729,21 @@ TEMPLATESADMIN_EDITHOOKS = (
 HAYSTACK_SITECONF = 'web_site.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 
+
 def HCOMMENTS_RECAPTCHA(request):
     return not request.user.is_authenticated()
+
 
 def HCOMMENTS_THREAD_OWNERS(o):
     from conference.models import Talk
     from microblog.models import Post
+
     if isinstance(o, Talk):
-        return [ s.user for s in o.get_all_speakers() ]
+        return [s.user for s in o.get_all_speakers()]
     elif isinstance(o, Post):
-        return [ o.author, ]
+        return [o.author, ]
     return None
+
 
 def HCOMMENTS_MODERATOR_REQUEST(request, comment):
     if request.user.is_superuser:
@@ -604,7 +754,8 @@ def HCOMMENTS_MODERATOR_REQUEST(request, comment):
             return request.user in owners
     return False
 
-P3_ANONYMOUS_AVATAR = 'p5/i/headshot-default.jpg'
+
+P3_ANONYMOUS_AVATAR = 'p5/images/headshot-default.jpg'
 
 P3_LIVE_INTERNAL_IPS = ('2.228.78.', '10.3.3.', '127.0.0.1')
 P3_INTERNAL_SERVER = 'live.ep:1935'
@@ -654,6 +805,7 @@ P3_LIVE_TRACKS = {
     },
 }
 
+
 def P3_LIVE_REDIRECT_URL(request, track):
     internal = False
     for check in P3_LIVE_INTERNAL_IPS:
@@ -663,9 +815,11 @@ def P3_LIVE_REDIRECT_URL(request, track):
     url = None
     if internal:
         import re
+
         ua = request.META['HTTP_USER_AGENT']
 
-        base = '{0}/{1}'.format(P3_INTERNAL_SERVER, P3_LIVE_TRACKS[track]['stream']['internal'])
+        base = '{0}/{1}'.format(P3_INTERNAL_SERVER,
+                                P3_LIVE_TRACKS[track]['stream']['internal'])
         if re.search('Android', ua, re.I):
             url = 'rtsp://' + base
         elif re.search('iPhone|iPad|iPod', ua, re.I):
@@ -674,10 +828,12 @@ def P3_LIVE_REDIRECT_URL(request, track):
             url = 'rtmp://' + base
     else:
         try:
-            url = 'https://www.youtube.com/watch?v={0}'.format(P3_LIVE_TRACKS[track]['stream']['external'])
+            url = 'https://www.youtube.com/watch?v={0}'.format(
+                P3_LIVE_TRACKS[track]['stream']['external'])
         except KeyError:
             pass
     return url
+
 
 def P3_LIVE_EMBED(request, track=None, event=None):
     from django.core.cache import cache
@@ -687,7 +843,7 @@ def P3_LIVE_EMBED(request, track=None, event=None):
 
     if event:
         # ep2012, tutti i keynote vengono trasmessi dalla track "lasagne"
-        if 'keynote' in event['tags'] or len(event['tracks'])>1:
+        if 'keynote' in event['tags'] or len(event['tracks']) > 1:
             track = 'track2'
         else:
             track = event['tracks'][0]
@@ -700,7 +856,8 @@ def P3_LIVE_EMBED(request, track=None, event=None):
 
     if internal:
         try:
-            url = '{0}/{1}'.format(P3_INTERNAL_SERVER, P3_LIVE_TRACKS[track]['stream']['internal'])
+            url = '{0}/{1}'.format(P3_INTERNAL_SERVER,
+                                   P3_LIVE_TRACKS[track]['stream']['internal'])
         except KeyError:
             return None
         data = {
@@ -758,11 +915,13 @@ def P3_LIVE_EMBED(request, track=None, event=None):
             return data
 
         try:
-            yurl = 'https://www.youtube.com/watch?v={0}'.format(P3_LIVE_TRACKS[track]['stream']['external'])
+            yurl = 'https://www.youtube.com/watch?v={0}'.format(
+                P3_LIVE_TRACKS[track]['stream']['external'])
         except KeyError:
             return None
 
         import httplib2, json
+
         http = httplib2.Http()
         service = 'https://www.youtube.com/oembed'
         url = service + '?url=' + yurl + '&format=json&scheme=https'
@@ -774,12 +933,15 @@ def P3_LIVE_EMBED(request, track=None, event=None):
         cache.set('p3_live_embed_%s' % track, data['html'], 3600)
         return data['html']
 
+
 # cronjob
 
 def cron_cleanup():
     from django.core.management.commands import cleanup
+
     cmd = cleanup.Command()
     cmd.handle()
+
 
 CRONTAB_COMMAND_PREFIX = 'DATA_DIR=%s OTHER_STUFF=%s' % (DATA_DIR, OTHER_STUFF)
 CRONJOBS = [
@@ -794,18 +956,23 @@ if DEBUG:
 # serve ad evitare che vengano messi in una subdir di MEDIA_ROOT che
 # normalmente è servita da un webserver esterno.
 import os.path
+
 check = os.path.commonprefix((MEDIA_ROOT, SECURE_MEDIA_ROOT))
 if check.startswith(MEDIA_ROOT):
     if not DEBUG:
         raise RuntimeError('SECURE_MEDIA_ROOT cannot be a subdir of MEDIA_ROOT')
     else:
-        print 'WARN, SECURE_MEDIA_ROOT is a subdir of MEDIA_ROOT'
+        print
+        'WARN, SECURE_MEDIA_ROOT is a subdir of MEDIA_ROOT'
 
 from django.core.files import storage
-SECURE_STORAGE = storage.FileSystemStorage(location=SECURE_MEDIA_ROOT, base_url=SECURE_MEDIA_URL)
+
+SECURE_STORAGE = storage.FileSystemStorage(location=SECURE_MEDIA_ROOT,
+                                           base_url=SECURE_MEDIA_URL)
 
 if not SECRET_KEY:
     if not DEBUG:
         raise RuntimeError('SECRET_KEY not set')
     else:
-        print 'WARN, SECRET_KEY not set'
+        print
+        'WARN, SECRET_KEY not set'
