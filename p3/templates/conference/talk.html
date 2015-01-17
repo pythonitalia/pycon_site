@@ -40,6 +40,16 @@
     });
 //]]>
     </script>
+
+    <style type="text/css">
+        .markedit-toolbar {
+            height: 38px;
+        }
+
+        h2.tag-toggle {
+            font-size: 1.4em;
+        }
+    </style>
 {% endblock %}
 
 
@@ -161,6 +171,10 @@
                     <hr />
                 {% endif %}
                 <dl>
+                    {# Track/Subcommunity Info #}
+                    <dt>{% trans "Track" %}/{% trans "Sub-Community" %}</dt>
+                    <dd>{{ talk.track|title }}</dd>
+
                     <dt>{% trans "Lingua" %}</dt>
                     <dd>{{ talk.language|upper }}</dd>
 
