@@ -38,9 +38,9 @@ register = template.Library()
 def box_pycon_italia():
     return {}
 
-@register.inclusion_tag('p3/box_newsletter.html')
-def box_newsletter():
-    return {}
+@register.inclusion_tag('p3/box_newsletter.html', takes_context=True)
+def box_newsletter(context):
+    return context
 
 @register.inclusion_tag('p3/box_cal.html', takes_context = True)
 def box_cal(context, limit=None):
@@ -176,8 +176,7 @@ def render_ticket(context, ticket):
         )
         blocked = False
     elif ticket.fare.code.startswith('H'):
-        # le instanze di TicketRoom devono esistere, ci pensa un listener a
-        # crearle
+        # TicketRoom instances must exist, they're created by a listener
         inst = ticket.p3_conference_room
         form = forms.FormTicketRoom(
             instance=inst,
@@ -199,13 +198,15 @@ def render_ticket(context, ticket):
     })
     return ctx
 
-@register.assignment_tag
-def fares_available(fare_type, sort=None):
+@register.assignment_tag(takes_context=True)
+def fares_available(context, fare_type, sort=None):
     """
     Restituisce l'elenco delle tariffe attive in questo momento per la
     tipologia specificata.
     """
     assert fare_type in ('all', 'conference', 'goodies', 'partner', 'hotel-room', 'hotel-room-sharing', 'other')
+    if not settings.P3_FARES_ENABLED(context['user']):
+        return []
 
     fares_list = filter(lambda f: f['valid'], cdataaccess.fares(settings.CONFERENCE_CONFERENCE))
     if fare_type == 'conference':
@@ -232,7 +233,7 @@ def render_cart_rows(context, fare_type, form):
     try:
         company = request.user.assopy_user.account_type == 'c'
     except AttributeError:
-        # utente anonimo o senza il profilo assopy (impossibile!)
+        # anonymous user or without an assopy profile (impossible!)
         company = False
 
     ctx.update({
@@ -243,12 +244,10 @@ def render_cart_rows(context, fare_type, form):
     fares_list = filter(lambda f: f['valid'], cdataaccess.fares(settings.CONFERENCE_CONFERENCE))
     if fare_type == 'conference':
         tpl = 'p3/fragments/render_cart_conference_ticket_row.html'
-        # il rendering dei biglietti "conference" è un po' particolare, ogni
-        # riga del carrello corrisponde a più `fare` (student, private,
-        # company)
-
-        # Le tariffe devono essere ordinate secondo l'ordine temporale + il
-        # tipo di biglietto + il destinatario:
+        # rendering "conference" tickets is a bit complex; each row in
+        # the cart corresponds to multiple "fare" (student, private, copany)
+        #
+        # The prices must be sorted on time + ticket type + owner
         #   early
         #       full            [Student, Private, Company]
         #       lite (standard) [Student, Private, Company]
@@ -258,18 +257,19 @@ def render_cart_rows(context, fare_type, form):
         #   on desk
         #       ...
         #
-        # L'ordine temporale viene implicitamente garantito dall'aver escluso
-        # le fare non più valide (non permettiamo overlap nel range di
-        # validità)
+        # The correct time ordering is guaranteed implicitly by
+        # excluding expired fares (it's not permitted to have overlaps
+        # of validity periods).
         fares = dict((f['code'][2:], f) for f in fares_list if f['code'][0] == 'T')
         rows = []
         for t in ('S', 'L', 'D'):
-            # Per semplificare il template impacchetto le fare a gruppi di tre:
-            # studente, privato, azienda.
-            # Ogni riha è una tupla con 3 elementi:
-            #       1. Fare
-            #       2. FormField
-            #       3. Boolean che indica se la tariffa è utilizzabile dall'utente
+            # To simplify the template fares are packed in triplets:
+            # student, private, company.
+            #
+            # Each raw is a tuple with three elements:
+            #    1. Fare
+            #    2. FormField
+            #    3. Boolean flag telling if the price can be applied to the user
             row = []
             for k in ('S', 'P', 'C'):
                 try:
@@ -277,8 +277,8 @@ def render_cart_rows(context, fare_type, form):
                 except KeyError:
                     row.append((None, None, None))
                 else:
-                    # la tariffa è valida se passa il controllo temporale e se il tipo
-                    # dell'account è compatibile
+                    # The price is valid if the time test is passed and if the
+                    # account type is compatible
                     valid = not (company ^ (f['code'][-1] == 'C'))
                     row.append((f, form.__getitem__(f['code']), valid))
             rows.append(row)
@@ -454,6 +454,10 @@ def p3_profile_data(uid):
 @fancy_tag(register)
 def p3_profiles_data(uids):
     return dataaccess.profiles_data(uids)
+
+@fancy_tag(register)
+def p3_talk_data(tid):
+    return dataaccess.talk_data(tid)
 
 @fancy_tag(register, takes_context=True)
 def get_form(context, name, bound="auto", bound_field=None):

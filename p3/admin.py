@@ -2,7 +2,7 @@
 from django import forms
 from django import http
 from django.conf import settings
-from django.conf.urls.defaults import url, patterns
+from django.conf.urls import url, patterns
 from django.contrib import admin
 from django.core import urlresolvers
 from assopy import admin as aadmin
@@ -166,9 +166,8 @@ admin.site.register(cmodels.Ticket, TicketConferenceAdmin)
 
 class SpeakerAdmin(cadmin.SpeakerAdmin):
     def queryset(self, request):
-        # XXX: in attesa di passare a django 1.4 implemento in questo modo
-        # barbaro un filtro per limitare gli speaker a quelli della conferenza
-        # in corso
+        # XXX: waiting to upgrade to django 1.4, I'm implementing
+        # this bad hack filter to keep only speakers of current conference.
         qs = super(SpeakerAdmin, self).queryset(request)
         qs = qs.filter(user__in=(
             cmodels.TalkSpeaker.objects\
@@ -216,10 +215,19 @@ class DonationAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Donation, DonationAdmin)
 
+class HotelBookingAdmin(admin.ModelAdmin):
+    list_display = ('conference', 'booking_start', 'booking_end', 'minimum_night')
+
+admin.site.register(models.HotelBooking, HotelBookingAdmin)
+
 class HotelRoomAdmin(admin.ModelAdmin):
-    list_display = ('conference', 'room_type', 'quantity', 'amount',)
+    list_display = ('_conference', 'room_type', 'quantity', 'amount',)
     list_editable = ('quantity', 'amount',)
-    list_filter = ('conference',)
+    list_filter = ('booking__conference',)
+    list_select_related = True
+
+    def _conference(self, o):
+        return o.booking.conference_id
 
     def get_urls(self):
         urls = super(HotelRoomAdmin, self).get_urls()

@@ -9,12 +9,27 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q
 from django.db.models.query import QuerySet
+from django.utils.translation import ugettext as _
 
 from conference.models import Ticket, ConferenceTaggedItem, AttendeeProfile
 from taggit.managers import TaggableManager
 
 import logging
 log = logging.getLogger('p3.models')
+
+TALK_SUBCOMMUNITY = (
+    ('', _('All')),
+    ('django', _('DjangoVillage')),
+    ('pydata', _('PyData')),
+    ('odoo', _('Odoo')),
+)
+
+class P3Talk(models.Model):
+    """
+    Estensione del talk di conference per l'utilizzo da parte di P3
+    """
+    talk = models.OneToOneField('conference.Talk', related_name='p3_talk', primary_key=True)
+    sub_community = models.CharField(max_length=20, choices=TALK_SUBCOMMUNITY, default='')
 
 class SpeakerConference(models.Model):
     speaker = models.OneToOneField('conference.Speaker', related_name='p3_speaker')
@@ -33,18 +48,18 @@ TICKET_CONFERENCE_SHIRT_SIZES = (
     ('xxl', 'XXL (male)'),
 )
 TICKET_CONFERENCE_DIETS = (
-    ('omnivorous', 'Omnivorous'),
-    ('vegetarian', 'Vegetarian'),
-    #('vegan', 'Vegan'),
-    #('kosher', 'Kosher'),
+    ('omnivorous', _('Omnivorous')),
+    ('vegetarian', _('Vegetarian')),
+    #('vegan', _('Vegan')),
+    #('kosher', _('Kosher')),
 )
 TICKET_CONFERENCE_EXPERIENCES = (
-    (0, '0'),
-    (1, '1'),
-    (2, '2'),
-    (3, '3'),
-    (4, '4'),
-    (5, '5'),
+    (0, _('0 stars')),
+    (1, _('1 stars')),
+    (2, _('2 stars')),
+    (3, _('3 stars')),
+    (4, _('4 stars')),
+    (5, _('5 stars')),
 )
 class TicketConferenceManager(models.Manager):
     def get_query_set(self):
@@ -59,7 +74,7 @@ class TicketConferenceManager(models.Manager):
             restituisce il qs con i biglietti disponibili per l'utente;
             disponibili significa comprati dall'utente o assegnati a lui.
             """
-            # TODO: drop in favore di dataaccess.user_tickets
+            # TODO: drop in favor of dataaccess.user_tickets
             q1 = user.ticket_set.all()
             if conference:
                 q1 = q1.conference(conference)
@@ -75,12 +90,16 @@ class TicketConference(models.Model):
     shirt_size = models.CharField(max_length=4, choices=TICKET_CONFERENCE_SHIRT_SIZES, default='l')
     python_experience = models.PositiveIntegerField(choices=TICKET_CONFERENCE_EXPERIENCES, default=0)
     diet = models.CharField(max_length=10, choices=TICKET_CONFERENCE_DIETS, default='omnivorous')
-    tagline = models.CharField(max_length=60, blank=True, help_text='a (funny?) tagline that will be displayed on the badge<br />Eg. CEO of FooBar Inc.; Student at MIT; Super Python fanboy')
-    days = models.TextField(verbose_name='Days of attendance', blank=True)
+    tagline = models.CharField(
+        max_length=60,
+        blank=True,
+        help_text=_('a (funny?) tagline that will be displayed on the badge<br />Eg. CEO of FooBar Inc.; Student at MIT; Super Python fanboy'))
+    days = models.TextField(
+        verbose_name=_('Days of attendance'), blank=True)
     badge_image = models.ImageField(
         null=True, blank=True,
         upload_to='p3/tickets/badge_image',
-        help_text='''A custom badge image instead of the python logo. Don't use a very large image, 250x250 should be fine.''')
+        help_text=_('''A custom badge image instead of the python logo. Don't use a very large image, 250x250 should be fine.'''))
     assigned_to = models.EmailField(blank=True)
 
     objects = TicketConferenceManager()
@@ -93,8 +112,8 @@ class TicketConference(models.Model):
 
 def _ticket_sim_upload_to(instance, filename):
     subdir = 'p3/personal_documents'
-    # inserisco anche l'id del biglietto nel nome del file perché un utente può
-    # acquistare più sim e probabilmente non sono tutte per lui.
+    # Adding the ticket id in the filename because a single user can
+    # buy multiple sims and probably they're not all for the same person.
     fname = '%s-%s' % (instance.ticket.user.username, instance.ticket.id)
     fdir = os.path.join(dsettings.SECURE_MEDIA_ROOT, subdir)
     for f in os.listdir(fdir):
@@ -102,54 +121,68 @@ def _ticket_sim_upload_to(instance, filename):
             os.unlink(os.path.join(fdir, f))
             break
     fpath = os.path.join(subdir, fname + os.path.splitext(filename)[1].lower())
-    # c'è un qualche balletto strano tra django e python e se ritorno una
-    # stringa non unicode con caratteri non ascii ad un certo punto viene
-    # trasformata in unicode correttamente ma poi passata alla os.stat che ci
-    # applica una `str()`. Mi limito a tornare una stringa ascii.
+    # There's some strange interaction between django and python, and if
+    # a non-unicode string containing non-ascii chars is used it's transformed
+    # in unicode correctly, but later it's passed to os.stat that will
+    # call str() on it. The solution is to return only an ascii string.
     if not isinstance(fpath, unicode):
         fpath = unicode(fpath, 'utf-8')
     return fpath.encode('ascii', 'ignore')
 
 TICKET_SIM_TYPE = (
-    ('std', 'Standard SIM (USIM)'),
-    ('micro', 'Micro SIM'),
-    ('nano', 'Nano SIM'),
+    ('std', _('Standard SIM (USIM)')),
+    ('micro', _('Micro SIM')),
+    ('nano', _('Nano SIM')),
 )
 TICKET_SIM_PLAN_TYPE = (
-    ('std', 'Standard Plan'),
-    ('bb', 'BlackBerry Plan'),
+    ('std', _('Standard Plan')),
+    ('bb', _('BlackBerry Plan')),
 )
 class TicketSIM(models.Model):
     ticket = models.OneToOneField(Ticket, related_name='p3_conference_sim')
     document = models.FileField(
-        verbose_name='ID Document',
+        verbose_name=_('ID Document'),
         upload_to=_ticket_sim_upload_to,
         storage=dsettings.SECURE_STORAGE,
         blank=True,
-        help_text='Italian regulations require a document ID to activate a phone SIM. You can use the same ID for up to three SIMs. Any document is fine (EU driving license, personal ID card, etc).',
-    )
+        help_text=_('Italian regulations require a document ID to activate a phone SIM. You can use the same ID for up to three SIMs. Any document is fine (EU driving license, personal ID card, etc).'))
     sim_type = models.CharField(
         max_length=5,
         choices=TICKET_SIM_TYPE,
         default='std',
-        help_text='Select the SIM physical format. USIM is the sandard for most mobile phones; Micro SIM is notably used on iPad and iPhone 4; Nano SIM is used for the last generation smartphone like the iPhone 5',
-    )
+        help_text=_('Select the SIM physical format. USIM is the sandard for most mobile phones; Micro SIM is notably used on iPad and iPhone 4; Nano SIM is used for the last generation smartphone like the iPhone 5'))
     plan_type = models.CharField(
         max_length=3,
         choices=TICKET_SIM_PLAN_TYPE,
         default='std',
-        help_text='Standard plan is fine for all mobiles except BlackBerry that require a special plan (even though rates and features are exactly the same).',
-    )
-    number = models.CharField(max_length=20, blank=True, help_text="Telephone number")
+        help_text=_('Standard plan is fine for all mobiles except BlackBerry that require a special plan (even though rates and features are exactly the same).'))
+    number = models.CharField(
+        max_length=20, blank=True, help_text=_("Telephone number"))
+
+class HotelBooking(models.Model):
+    """
+    Hotel booking rules for a given conference.
+    """
+    conference = models.ForeignKey('conference.Conference')
+    booking_start = models.DateField(help_text=_("first bookable day"))
+    booking_end = models.DateField(help_text=_("last bookable day"))
+    default_start = models.DateField(
+        help_text=_("suggested first bookable day (used in the cart as the default start day)"))
+    default_end = models.DateField(
+        help_text=_("suggested last bookable day (used in the cart as the default last day)"))
+    minimum_night = models.PositiveIntegerField(default=1)
+
+    def __unicode__(self):
+        return '{}: {}-{}'.format(self.conference_id, self.booking_start, self.booking_end)
 
 HOTELROOM_ROOM_TYPE = (
-    ('t1', 'Single room'),
-    ('t2', 'Double room'),
-    ('t3', 'Triple room'),
-    ('t4', 'Quadruple room'),
+    ('t1', _('Single room')),
+    ('t2', _('Double room')),
+    ('t3', _('Triple room')),
+    ('t4', _('Quadruple room')),
 )
 class HotelRoom(models.Model):
-    conference = models.ForeignKey('conference.Conference')
+    booking = models.ForeignKey(HotelBooking)
     room_type = models.CharField(max_length=2, choices=HOTELROOM_ROOM_TYPE)
     quantity = models.PositiveIntegerField()
     amount = models.CharField(max_length=100, help_text='''
@@ -162,7 +195,7 @@ class HotelRoom(models.Model):
     ''')
 
     class Meta:
-        unique_together = (('conference', 'room_type'),)
+        unique_together = (('booking', 'room_type'),)
 
     def __unicode__(self):
         return '%s: %s' % (self.conference, self.get_room_type_display())
@@ -209,9 +242,9 @@ class HotelRoom(models.Model):
 
 class TicketRoomManager(models.Manager):
     def valid_tickets(self):
-        # prima di tutto individuo i biglietti validi; sono quelli il cui
-        # ordine è confermato o, nel caso di ordini con bonifico bancario, sono
-        # avvenuti di "recente"...
+        # First of all valid tickets are selected; only the ones for which
+        # the order has been confirmed or, in case of bank transfer payment,
+        # happened "recently"...
         incomplete_limit = datetime.date.today() - datetime.timedelta(days=60)
         return TicketRoom.objects\
             .filter(ticket__fare__conference=dsettings.CONFERENCE_CONFERENCE)\
@@ -240,21 +273,27 @@ class TicketRoomManager(models.Manager):
         inc = datetime.timedelta(days=1)
 
         rooms = HotelRoom.objects\
-            .filter(conference=dsettings.CONFERENCE_CONFERENCE)
+            .filter(booking__conference=dsettings.CONFERENCE_CONFERENCE)
+
+        booking = HotelBooking.objects\
+            .get(conference=dsettings.CONFERENCE_CONFERENCE)
 
         period = {}
+        start = booking.booking_start
+        while start <= booking.booking_end:
+            period[start] = {}
+            for hr in rooms:
+                period[start][hr.room_type] = {
+                    'available': hr.quantity * hr.beds(),
+                    'reserved': 0,
+                    'free': 0,
+                }
+            start += inc
+
         for t in qs:
             rt = t['room_type__room_type']
             start = t['checkin']
             while start < t['checkout']:
-                if start not in period:
-                    period[start] = s = {}
-                    for hr in rooms:
-                        s[hr.room_type] = {
-                            'available': hr.quantity * hr.beds(),
-                            'reserved': 0,
-                            'free': 0,
-                        }
                 period[start][rt]['reserved'] += 1
                 start += inc
 
@@ -280,26 +319,25 @@ class TicketRoomManager(models.Manager):
         start, end = period
         inc = datetime.timedelta(days=1)
 
-        # la presenza di un periodo ben definito ci può suggerire di usare una
-        # query ad hoc (come faceva l'implementazione precedente), bisogna però
-        # stare attenti alle prenotazioni adiacenti; cioè quelle prenotazioni
-        # che possono condividere il periodo selezionato perché una termina
-        # prima dell'altra. Ad esempio:
+        # the presence of a well defined period could suggest touse an ad-hoc
+        # query (like it was done in previous implementation), it's important
+        # however to pay attention to adjacent bookings, i.e. those bookings
+        # that may share the same selected period because one is ending before
+        # the other. For example:
         #
         # start = 2/7
         # end = 6/7
         #
-        # biglietti:
+        # tickets:
         #   1, 2/7 -> 8/7
         #   2, 30/6 -> 3/7
         #   3, 5/7 -> 10/7
         #
-        # sebbene ci siano 3 biglietti nel periodo richiesto i posti letto
-        # effettivamente occupati sono 2 perché i biglietti #2 e #3 possono
-        # condividere la stessa stanza.
+        # despite there are 3 tickets in the selected period the used beds
+        # are only 2 because ticket #2 and #3 can share the same room.
         #
-        # Per questo motivo si utilizza la `overall_status` che sebbene un po'
-        # più lenta tiene già conto di questi casi.
+        # For this reason the `overall_status` is used as, even if being a
+        # little slower, it handles correctly these cases.
         reservations = self.overall_status()
         output = reservations[start]
 
@@ -333,26 +371,25 @@ class TicketRoomManager(models.Manager):
         return True
 
 TICKETROOM_TICKET_TYPE = (
-    ('B', 'room shared'),
-    ('R', 'room not shared'),
+    ('B', _('room shared')),
+    ('R', _('room not shared')),
 )
 class TicketRoom(models.Model):
     ticket = models.OneToOneField(Ticket, related_name='p3_conference_room')
     document = models.FileField(
-        verbose_name='ID Document',
+        verbose_name=_('ID Document'),
         upload_to=_ticket_sim_upload_to,
         storage=dsettings.SECURE_STORAGE,
         blank=True,
-        help_text='Italian regulations require a document ID to book an hotel room. Any document is fine (EU driving license, personal ID card, etc).',
-    )
+        help_text=_('Italian regulations require a document ID to book an hotel room. Any document is fine (EU driving license, personal ID card, etc).'))
     room_type = models.ForeignKey(HotelRoom)
     ticket_type = models.CharField(max_length=1, choices=TICKETROOM_TICKET_TYPE)
     checkin = models.DateField(db_index=True)
     checkout = models.DateField(db_index=True)
     unused = models.BooleanField(
         default=False,
-        verbose_name="Bed place not needed",
-        help_text='Check if you don\'t use this bed place.')
+        verbose_name=_("Bed place not needed"),
+        help_text=_('Check if you don\'t use this bed place.'))
 
     objects = TicketRoomManager()
 
@@ -396,11 +433,12 @@ class P3ProfileManager(models.Manager):
 
 class P3Profile(models.Model):
     profile = models.OneToOneField('conference.AttendeeProfile', related_name='p3_profile', primary_key=True)
-    tagline = models.CharField(max_length=60, blank=True, help_text='describe yourself in one line!')
+    tagline = models.CharField(
+        max_length=60, blank=True, help_text=_('describe yourself in one line!'))
     interests = TaggableManager(through=ConferenceTaggedItem)
     twitter = models.CharField(max_length=80, blank=True)
     image_gravatar = models.BooleanField(default=False)
-    image_url = models.URLField(max_length=500, verify_exists=False, blank=False)
+    image_url = models.URLField(max_length=500, blank=False)
     country = models.CharField(max_length=2, blank=True, default='', db_index=True)
 
     spam_recruiting = models.BooleanField(default=False)
@@ -438,8 +476,8 @@ class P3Profile(models.Model):
     def send_user_message(self, from_, subject, message):
         from conference.models import Conference, AttendeeLink
         if not self.spam_user_message:
-            # esiste un link tra i due utenti, il messaggio è consentito
-            # nonostante spam_user_message
+            # If there's a link between the two users the message is allowed
+            # despite spam_user_message
             try:
                 AttendeeLink.objects.getLink(from_.id, self.profile_id)
             except AttendeeLink.DoesNotExist:
