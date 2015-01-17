@@ -66,12 +66,12 @@ def talk_data(tid, preload=None):
     if preload is None:
         preload = {}
     talk = cdata.talk_data(tid)
-    try:
-        p3t = preload['talk']
-    except KeyError:
-        p3t = models.P3Talk.objects\
-            .get(talk=tid)
-    talk['sub_community'] = (p3t.sub_community, p3t.get_sub_community_display())
+    # try:
+    #     p3t = preload['talk']
+    # except KeyError:
+    #     p3t = models.P3Talk.objects\
+    #         .get(talk=tid)
+    # talk['track'] = (p3t.sub_community, p3t.get_sub_community_display())
     return talk
 
 def _i_talk_data(sender, **kw):

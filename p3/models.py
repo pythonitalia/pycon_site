@@ -17,19 +17,11 @@ from taggit.managers import TaggableManager
 import logging
 log = logging.getLogger('p3.models')
 
-TALK_SUBCOMMUNITY = (
-    ('', _('All')),
-    ('django', _('DjangoVillage')),
-    ('pydata', _('PyData')),
-    ('odoo', _('Odoo')),
-)
-
 class P3Talk(models.Model):
     """
     Estensione del talk di conference per l'utilizzo da parte di P3
     """
     talk = models.OneToOneField('conference.Talk', related_name='p3_talk', primary_key=True)
-    sub_community = models.CharField(max_length=20, choices=TALK_SUBCOMMUNITY, default='')
 
 class SpeakerConference(models.Model):
     speaker = models.OneToOneField('conference.Speaker', related_name='p3_speaker')

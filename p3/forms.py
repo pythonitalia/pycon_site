@@ -16,10 +16,25 @@ from p3 import models
 import datetime
 
 TALK_DURATION = (
-    (30, _('30 minutes inc Q&A')),
+    # (30, _('30 minutes inc Q&A')),
     (45, _('45 minutes inc Q&A')),
     (60, _('60 minutes inc Q&A')),
     (90, _('90 minutes inc Q&A')),
+)
+
+TALK_TYPES = (
+    ('s', _('Regular talk')),
+    ('t', _('Training')),
+)
+
+# Ho duplicato per semplificare l'UI del front-end rispetto al back-end
+# @see conference.admin.TalkAdmin
+TALK_SUBCOMMUNITY = (
+    ('', _('-------')),
+    ('odoo', _('Odoo')),
+    ('pydata', _('PyData')),
+    ('django', _('DjangoVillage')),
+    ('pycon', _('PyCon')),
 )
 
 class P3TalkFormMixin(object):
@@ -60,7 +75,7 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     type = forms.TypedChoiceField(
         label=_('Talk Type'),
         help_text='Choose between a standard talk, a 4-hours in-depth training, a poster session or an help desk session',
-        choices=(('s', 'Standard talk'), ('t', 'Training'), ('p', 'Poster session'), ('h', 'Help Desk')),
+        choices=TALK_TYPES,
         initial='s',
         required=True,
         widget=forms.RadioSelect(renderer=cforms.PseudoRadioRenderer),
@@ -92,11 +107,11 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
         initial='it', required=False)
 
     sub_community = forms.ChoiceField(
-        label=_('Sub community'),
-        help_text=_('Select the sub community this talk is intended for.'),
-        choices=models.TALK_SUBCOMMUNITY,
+        label=_('Track'),
+        help_text=_('Select the track this talk is intended for.'),
+        choices=TALK_SUBCOMMUNITY,
         initial='',
-        required=False)
+        required=True)
 
     def __init__(self, user, *args, **kwargs):
         data = {}
@@ -119,8 +134,7 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
         p3s.first_time = data['first_time']
         p3s.save()
 
-        models.P3Talk.objects\
-            .create(talk=talk, sub_community=data['sub_community'])
+        models.P3Talk.objects.create(talk=talk)
 
         return talk
 
@@ -141,15 +155,21 @@ class P3SubmissionAdditionalForm(P3TalkFormMixin, cforms.TalkForm):
         if self.instance:
             self.fields['duration'].initial = self.instance.duration
             if self.instance.id:
-                self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
+                self.fields['sub_community'].initial = self.instance.track
 
     def save(self, *args, **kwargs):
         talk = super(P3SubmissionAdditionalForm, self).save(*args, **kwargs)
         talk.duration = self.cleaned_data['duration']
         talk.qa_duration = self.cleaned_data['qa_duration']
         talk.save()
-        talk.p3_talk.sub_community = self.cleaned_data['sub_community']
-        talk.p3_talk.save()
+
+        # If this talk is going to be submitted for the first time, create the
+        # related P3Talk Instance
+        try:
+            models.P3Talk.objects.get(talk=talk)
+        except models.P3Talk.DoesNotExist:
+            models.P3Talk.objects.create(talk=talk)
+
         return talk
 
 class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
@@ -165,15 +185,13 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
         super(P3TalkForm, self).__init__(*args, **kwargs)
         if self.instance:
             self.fields['duration'].initial = self.instance.duration
-            self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
+            self.fields['sub_community'].initial = self.instance.track
 
     def save(self, *args, **kwargs):
         talk = super(P3TalkForm, self).save(*args, **kwargs)
         talk.duration = self.cleaned_data['duration']
         talk.qa_duration = self.cleaned_data['qa_duration']
         talk.save()
-        talk.p3_talk.sub_community = self.cleaned_data['sub_community']
-        talk.p3_talk.save()
         return talk
 
 class P3SpeakerForm(cforms.SpeakerForm):
@@ -184,7 +202,9 @@ class P3SpeakerForm(cforms.SpeakerForm):
 
 class FormTicket(forms.ModelForm):
     ticket_name = forms.CharField(max_length=60, required=False, help_text='Name of the attendee')
-    days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(), widget=forms.CheckboxSelectMultiple, help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
+    days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(),
+                                     widget=forms.CheckboxSelectMultiple,
+                                     help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
 
     class Meta:
         model = models.TicketConference
