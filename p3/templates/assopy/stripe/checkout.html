@@ -1,0 +1,87 @@
+{% extends "assopy/stripe/base.html" %}
+
+{% load stripe_tags i18n %}
+
+{% block EXTRA_HEAD %}
+    {{ block.super }}
+
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+        <!-- Fill in your publishable key -->
+        Stripe.setPublishableKey('{{ stripe_publishable_key }}');
+
+        var stripeResponseHandler = function(status, response) {
+            var $form = $('#payment-form');
+
+            if (response.error) {
+                // Show the errors on the form
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('button').prop('disabled', false);
+            } else {
+                // token contains id, last4, and card type
+                var token = response.id;
+                // Insert the token into the form so it gets submitted to the server
+                $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                $form.append($('<input type="hidden" name="stripeTokenType" />').val(response.type));
+                // and re-submit
+                $form.get(0).submit();
+            }
+        };
+
+        jQuery(function($) {
+            $('#payment-form').submit(function(e) {
+                var $form = $(this);
+
+                // Disable the submit button to prevent repeated clicks
+                $form.find('button').prop('disabled', true);
+
+                Stripe.card.createToken($form, stripeResponseHandler);
+
+                // Prevent the form from submitting with the default action
+                return false;
+            });
+        });
+    </script>
+{% endblock EXTRA_HEAD %}
+
+{% block ASSOPY_MAIN_CONTENT %}
+    {# here is rendered the "pay with stripe" button #}
+    {% block stripe-checkout-form %}
+
+        <form action="{% url "assopy-stripe-checkout" order.pk %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <input type="hidden" name="stripeEmail" value="{{ order.user.user.email }}">
+            <!-- Add a section to display errors if you want -->
+            <span class='payment-errors'></span>
+            <label>{% trans "Card Number" %}</label>
+            <input data-stripe="number"/>
+            <label>{% trans "CVC" %}</label>
+            <input data-stripe="cvc"/>
+            <label>{% trans "Exp Month" %}</label>
+            <input data-stripe="exp-month"/>
+            <label>{% trans "Exp Year" %}</label>
+            <input data-stripe="exp-year"/>
+
+            <span>{% trans "Total amount: " %}{{ order.total }}&euro;</span>
+            <button type="submit">{% trans "Submit Payment" %}</button>
+        </form>
+    {% endblock stripe-checkout-form %}
+
+    {# errors returned during the payment charging by the stripe API #}
+    {% block stripe-error %}
+        {% if stripe_error %}
+            {% include "assopy/stripe/stripe_error.html" %}
+        {% endif %}
+    {% endblock stripe-error %}
+
+    {# errors returned when the form has incompleted data #}
+    {% block form-errors %}
+        {% if form.errors %}
+            <div>
+                {% trans "Missing stripe parameters. More details below:" %}
+                {{ form.errors }}
+            </div>
+        {% endif %}
+    {% endblock form-errors %}
+
+{% endblock ASSOPY_MAIN_CONTENT %}
