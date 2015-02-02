@@ -43,7 +43,7 @@ def on_order_created(sender, **kwargs):
                 t = Ticket.objects.filter(fare=fare, user=sender.user.user, p3_conference_room=None)[0]
                 room = models.TicketRoom(ticket=t)
                 room.ticket_type = fare.code[1]
-                room.room_type = models.HotelRoom.objects.get(conference=fare.conference, room_type='t%s' % fare.code[2])
+                room.room_type = models.HotelRoom.objects.get(booking__conference=fare.conference, room_type='t%s' % fare.code[2])
                 room.checkin = params['period'][0]
                 room.checkout = params['period'][1]
                 room.save()
