@@ -15,6 +15,8 @@ from p3 import models
 
 import datetime
 
+from django.utils.safestring import mark_safe
+
 TALK_DURATION = (
     # (30, _('30 minutes inc Q&A')),
     (45, _('45 minutes inc Q&A')),
@@ -28,7 +30,7 @@ TALK_TYPES = (
 )
 
 # Ho duplicato per semplificare l'UI del front-end rispetto al back-end
-# @see conference.admin.TalkAdmin
+# @see p3.admin.TalkAdmin
 TALK_SUBCOMMUNITY = (
     ('', _('-------')),
     ('odoo', _('Odoo')),
@@ -61,7 +63,8 @@ class P3TalkFormMixin(object):
 class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     duration = forms.TypedChoiceField(
         label=_('Duration'),
-        help_text=_('This is the <i>desired duration</i> of the talk'),
+        help_text=_('This is the <i>desired duration</i> of the Talk. <br> '
+                    'As for a Training, the duration is <i>fixed</i> to 4 hours.'),
         choices=TALK_DURATION,
         coerce=int,
         initial=60,
@@ -74,7 +77,7 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     )
     type = forms.TypedChoiceField(
         label=_('Talk Type'),
-        help_text='Choose between a standard talk, a 4-hours in-depth training, a poster session or an help desk session',
+        help_text=_('Choose between a standard talk or a 4-hours in-depth training'),
         choices=TALK_TYPES,
         initial='s',
         required=True,
@@ -134,7 +137,7 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
         p3s.first_time = data['first_time']
         p3s.save()
 
-        models.P3Talk.objects.create(talk=talk)
+        models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
 
         return talk
 
@@ -155,20 +158,22 @@ class P3SubmissionAdditionalForm(P3TalkFormMixin, cforms.TalkForm):
         if self.instance:
             self.fields['duration'].initial = self.instance.duration
             if self.instance.id:
-                self.fields['sub_community'].initial = self.instance.track
+                self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
 
     def save(self, *args, **kwargs):
         talk = super(P3SubmissionAdditionalForm, self).save(*args, **kwargs)
-        talk.duration = self.cleaned_data['duration']
-        talk.qa_duration = self.cleaned_data['qa_duration']
+
+        data = self.cleaned_data
+        talk.duration = data['duration']
+        talk.qa_duration = data['qa_duration']
         talk.save()
 
         # If this talk is going to be submitted for the first time, create the
         # related P3Talk Instance
         try:
-            models.P3Talk.objects.get(talk=talk)
+            models.P3Talk.objects.get(talk=talk, sub_community=data['sub_community'])
         except models.P3Talk.DoesNotExist:
-            models.P3Talk.objects.create(talk=talk)
+            models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
 
         return talk
 
@@ -185,7 +190,7 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
         super(P3TalkForm, self).__init__(*args, **kwargs)
         if self.instance:
             self.fields['duration'].initial = self.instance.duration
-            self.fields['sub_community'].initial = self.instance.track
+            self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
 
     def save(self, *args, **kwargs):
         talk = super(P3TalkForm, self).save(*args, **kwargs)
@@ -824,3 +829,26 @@ class P3EventBookingForm(cforms.EventBookingForm):
             if booked.count() > 0:
                 raise forms.ValidationError(_('already booked'))
         return data
+
+# --------------
+# Custom Widgets
+# --------------
+
+class HTMLAnchorWidget(forms.widgets.TextInput):
+    """
+    Very simple widget to display an HTML anchor tag.
+    (So far, used only in p3.admin.P3TalkAdminForm).
+
+    One can pass a "title" attribute to display a title
+    different from the raw URL link.
+    """
+
+    def __init__(self, *args, **kwargs):
+        self._title = kwargs.pop('title', None)
+        super(HTMLAnchorWidget, self).__init__(*args, **kwargs)
+
+
+    def render(self, name, value, attrs=None):
+        title = self._title if self._title else value
+        return mark_safe(u'''<a href="{v}" target="_blank" title="{t}">
+                                {t}</a>'''.format(v=value, t=title))
