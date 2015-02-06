@@ -142,6 +142,8 @@ class P3SubmissionAdditionalForm(P3TalkFormMixin, cforms.TalkForm):
             self.fields['duration'].initial = self.instance.duration
             if self.instance.id:
                 self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
+                self.fields['slides_agreement'].initial = True
+                self.fields['video_agreement'].initial = True
 
     def save(self, *args, **kwargs):
         talk = super(P3SubmissionAdditionalForm, self).save(*args, **kwargs)
