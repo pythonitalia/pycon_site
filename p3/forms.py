@@ -181,29 +181,15 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
     duration = P3SubmissionForm.base_fields['duration']
     type = P3SubmissionForm.base_fields['type']
     abstract = P3SubmissionForm.base_fields['abstract']
-    sub_community = P3SubmissionForm.base_fields['sub_community']
 
     class Meta(cforms.TalkForm.Meta):
-        exclude = ('duration', 'qa_duration',)
+        exclude = ('duration', 'qa_duration')
 
     def __init__(self, *args, **kwargs):
-        if 'data' in kwargs and 'instance' in kwargs and not 'sub_community' in kwargs['data']:
-            # FIXME: Patch to avoid changin conference view callback
-            # (i.e., conference.views.talk)
-            #
-            # If `sub_community` is not in cleaned_data, is because the cfp is closed!
-            # (see conference.views.talk:229)
-            # However, since the `sub_community` field is required by the form but missing
-            # in the submitted data, the method returns True to allow the validation to pass!
-            # Btw, please note that the template as well hides the sub_community field
-            # in the form (see p3/templates/conference/talk.html)
-            kwargs['data']['sub_community'] = kwargs['instance'].p3_talk.sub_community
         super(P3TalkForm, self).__init__(*args, **kwargs)
 
         if self.instance:
             self.fields['duration'].initial = self.instance.duration
-            self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
-
 
     def save(self, *args, **kwargs):
         talk = super(P3TalkForm, self).save(*args, **kwargs)
@@ -211,18 +197,6 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
         talk.duration = data['duration']
         talk.qa_duration = data['qa_duration']
         talk.save()
-
-        # If this talk is going to be submitted for the first time, create the
-        # related P3Talk Instance
-        try:
-            p3_talk = models.P3Talk.objects.get(talk=talk)
-            if 'sub_community' in data:
-                # Available iff CfP is still open! @see p3/templates/conference/talk.html
-                p3_talk.sub_community=data['sub_community']
-                p3_talk.save()
-        except models.P3Talk.DoesNotExist:
-            models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
-
         return talk
 
 class P3SpeakerForm(cforms.SpeakerForm):
