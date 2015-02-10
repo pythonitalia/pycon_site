@@ -171,7 +171,9 @@ class P3SubmissionAdditionalForm(P3TalkFormMixin, cforms.TalkForm):
         # If this talk is going to be submitted for the first time, create the
         # related P3Talk Instance
         try:
-            models.P3Talk.objects.get(talk=talk, sub_community=data['sub_community'])
+            p3_talk = models.P3Talk.objects.get(talk=talk)
+            p3_talk.sub_community = data['sub_community']
+            p3_talk.save()
         except models.P3Talk.DoesNotExist:
             models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
 
@@ -194,9 +196,20 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
 
     def save(self, *args, **kwargs):
         talk = super(P3TalkForm, self).save(*args, **kwargs)
-        talk.duration = self.cleaned_data['duration']
-        talk.qa_duration = self.cleaned_data['qa_duration']
+        data = self.cleaned_data
+        talk.duration = data['duration']
+        talk.qa_duration = data['qa_duration']
         talk.save()
+
+        # If this talk is going to be submitted for the first time, create the
+        # related P3Talk Instance
+        try:
+            p3_talk = models.P3Talk.objects.get(talk=talk)
+            p3_talk.sub_community=data['sub_community']
+            p3_talk.save()
+        except models.P3Talk.DoesNotExist:
+            models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
+
         return talk
 
 class P3SpeakerForm(cforms.SpeakerForm):
