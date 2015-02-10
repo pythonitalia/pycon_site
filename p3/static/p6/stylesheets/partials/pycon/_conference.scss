@@ -257,9 +257,19 @@
         width: 600px;
         margin-left: auto;
         margin-right: auto;
-        border-bottom: 2px solid #8D897C;
         text-align: center;
         padding-bottom: 10px;
+    }
+
+    >h1 {
+        border-bottom: 2px solid #8D897C;
+    }
+
+    .stripe-error {
+        color: #E61F4B;
+        h1 {
+            border-bottom: 2px dashed #E61F4B;
+        }
     }
     #payment-form {
         width: 600px;

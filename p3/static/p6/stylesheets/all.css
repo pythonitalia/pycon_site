@@ -2251,7 +2251,10 @@ h4 { font-size: 20px; font-size: 2rem; font-weight: bold; margin: 1em 0 0.5em 0;
 .person-card { background: white; padding: 0.75em 15px; border: 1px solid #bcbab2; border-radius: 4px; margin-bottom: 1.5em; }
 .person-card .person-card-picture { float: left; margin-right: 15px; }
 
-.stripe-checkout h1 { width: 600px; margin-left: auto; margin-right: auto; border-bottom: 2px solid #8D897C; text-align: center; padding-bottom: 10px; }
+.stripe-checkout h1 { width: 600px; margin-left: auto; margin-right: auto; text-align: center; padding-bottom: 10px; }
+.stripe-checkout > h1 { border-bottom: 2px solid #8D897C; }
+.stripe-checkout .stripe-error { color: #E61F4B; }
+.stripe-checkout .stripe-error h1 { border-bottom: 2px dashed #E61F4B; }
 .stripe-checkout #payment-form { width: 600px; margin: 0 auto; padding: 20px 0; }
 .stripe-checkout #payment-form button { display: block; margin: 10px auto 0 auto; }
 .stripe-checkout #payment-form .total { margin: 20px auto; text-align: center; }

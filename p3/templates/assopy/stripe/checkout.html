@@ -50,7 +50,29 @@
 
     <div class="stripe-checkout">
 
+        {# errors returned during the payment charging by the stripe API #}
+        {% block stripe-error %}
+            {% if stripe_error%}
+                <div class="stripe-error">
+                    <h1>{{ stripe_error.message }} ({{ stripe_error.type }}/{{ stripe_error.code }}/{{ stripe_error.param }})</h1>
+                </div>
+            {% endif %}
+        {% endblock stripe-error %}
+
+        {# errors returned when the form has incompleted data #}
+        {% block form-errors %}
+            {% if form.errors %}
+                <div class="stripe-error">
+                    {% trans "Missing stripe parameters. More details below:" %}
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+        {% endblock form-errors %}
+
+
+        {% if not stripe_error and not form.errors %}
         <h1>{% trans "Please enter your credit card details." %}</h1>
+        {% endif %}
 
 
         <form action="{% url "assopy-stripe-checkout" order.pk %}" method="POST" id="payment-form">
@@ -60,12 +82,12 @@
             <span class='payment-errors'></span>
             <label>{% trans "Card Number" %}</label>
             <input data-stripe="number"/>
-            <label>{% trans "CVC" %}</label>
-            <input data-stripe="cvc"/>
             <label>{% trans "Exp Month" %}</label>
             <input data-stripe="exp-month"/>
             <label>{% trans "Exp Year" %}</label>
             <input data-stripe="exp-year"/>
+            <label>{% trans "CVC" %}</label>
+            <input data-stripe="cvc"/>
 
             <div class="total">{% trans "Total amount: " %}<b>{{ order.total }}&euro;</b> {% trans "VAT inc." %}</div>
             <button type="submit">{% trans "Submit Payment" %}</button>
@@ -78,22 +100,5 @@
 
     </div>
     {% endblock stripe-checkout-form %}
-
-    {# errors returned during the payment charging by the stripe API #}
-    {% block stripe-error %}
-        {% if stripe_error %}
-            {% include "assopy/stripe/stripe_error.html" %}
-        {% endif %}
-    {% endblock stripe-error %}
-
-    {# errors returned when the form has incompleted data #}
-    {% block form-errors %}
-        {% if form.errors %}
-            <div>
-                {% trans "Missing stripe parameters. More details below:" %}
-                {{ form.errors }}
-            </div>
-        {% endif %}
-    {% endblock form-errors %}
 
 {% endblock ASSOPY_MAIN_CONTENT %}
