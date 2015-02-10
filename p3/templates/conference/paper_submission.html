@@ -1,7 +1,23 @@
 {% extends "p3/base.html" %}
 {% load i18n conference assopy_tags formstyle %}
 
-{% block EXTRA_HEAD %}{{ form.media }}{% endblock %}
+{% block EXTRA_HEAD %}
+    {{ form.media }}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="radio"][name="type"][value="t"]').click(function(){
+                $('#id_duration').prop('disabled', 'disabled');
+            })
+
+            $('input[type="radio"][name="type"][value="s"]').click(function(){
+                $('#id_duration').prop('disabled', false);
+            })
+        });
+
+    </script>
+
+{% endblock %}
 {% block PAGE_TITLE %}Nuovo talk{% endblock %}
 
 {% block MAIN_CONTENT %}

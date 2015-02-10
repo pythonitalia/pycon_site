@@ -78,10 +78,10 @@ def _i_talk_data(sender, **kw):
     # invalidation signal is handled by cachef
     return 'talk:%s' % (kw['instance'].talk_id,)
 
-talk_data = cache_me(
-    signals=(cdata.talk_data.invalidated,),
-    models=(models.P3Talk,),
-    key='talk:%(tid)s')(talk_data, _i_talk_data)
+# talk_data = cache_me(
+#     signals=(cdata.talk_data.invalidated,),
+#     models=(models.P3Talk,),
+#     key='talk:%(tid)s')(talk_data, _i_talk_data)
 
 def profiles_data(uids):
     cached = zip(uids, profile_data.get_from_cache([ (x,) for x in uids ]))

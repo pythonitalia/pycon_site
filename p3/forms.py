@@ -15,11 +15,28 @@ from p3 import models
 
 import datetime
 
+from django.utils.safestring import mark_safe
+
 TALK_DURATION = (
-    (30, _('30 minutes inc Q&A')),
+    # (30, _('30 minutes inc Q&A')),
     (45, _('45 minutes inc Q&A')),
     (60, _('60 minutes inc Q&A')),
     (90, _('90 minutes inc Q&A')),
+)
+
+TALK_TYPES = (
+    ('s', _('Regular talk')),
+    ('t', _('Training')),
+)
+
+# Ho duplicato per semplificare l'UI del front-end rispetto al back-end
+# @see p3.admin.TalkAdmin
+TALK_SUBCOMMUNITY = (
+    ('', _('-------')),
+    ('odoo', _('Odoo')),
+    ('pydata', _('PyData')),
+    ('django', _('DjangoVillage')),
+    ('pycon', _('PyCon')),
 )
 
 class P3TalkFormMixin(object):
@@ -46,7 +63,8 @@ class P3TalkFormMixin(object):
 class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     duration = forms.TypedChoiceField(
         label=_('Duration'),
-        help_text=_('This is the <i>desired duration</i> of the talk'),
+        help_text=_('This is the <i>desired duration</i> of the Talk. <br> '
+                    'As for a Training, the duration is <i>fixed</i> to 4 hours.'),
         choices=TALK_DURATION,
         coerce=int,
         initial=60,
@@ -59,8 +77,8 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
     )
     type = forms.TypedChoiceField(
         label=_('Talk Type'),
-        help_text='Choose between a standard talk, a 4-hours in-depth training, a poster session or an help desk session',
-        choices=(('s', 'Standard talk'), ('t', 'Training'), ('p', 'Poster session'), ('h', 'Help Desk')),
+        help_text=_('Choose between a standard talk or a 4-hours in-depth training'),
+        choices=TALK_TYPES,
         initial='s',
         required=True,
         widget=forms.RadioSelect(renderer=cforms.PseudoRadioRenderer),
@@ -92,11 +110,11 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
         initial='it', required=False)
 
     sub_community = forms.ChoiceField(
-        label=_('Sub community'),
-        help_text=_('Select the sub community this talk is intended for.'),
-        choices=models.TALK_SUBCOMMUNITY,
+        label=_('Track'),
+        help_text=_('Select the track this talk is intended for.'),
+        choices=TALK_SUBCOMMUNITY,
         initial='',
-        required=False)
+        required=True)
 
     def __init__(self, user, *args, **kwargs):
         data = {}
@@ -119,8 +137,7 @@ class P3SubmissionForm(P3TalkFormMixin, cforms.SubmissionForm):
         p3s.first_time = data['first_time']
         p3s.save()
 
-        models.P3Talk.objects\
-            .create(talk=talk, sub_community=data['sub_community'])
+        models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
 
         return talk
 
@@ -147,15 +164,17 @@ class P3SubmissionAdditionalForm(P3TalkFormMixin, cforms.TalkForm):
 
     def save(self, *args, **kwargs):
         talk = super(P3SubmissionAdditionalForm, self).save(*args, **kwargs)
-        talk.duration = self.cleaned_data['duration']
-        talk.qa_duration = self.cleaned_data['qa_duration']
+
+        data = self.cleaned_data
+        talk.duration = data['duration']
+        talk.qa_duration = data['qa_duration']
         talk.save()
         try:
-            talk.p3_talk.sub_community = self.cleaned_data['sub_community']
+            talk.p3_talk.sub_community = data['sub_community']
             talk.p3_talk.save()
         except models.P3Talk.DoesNotExist:
             models.P3Talk.objects\
-                .create(talk=talk, sub_community=self.cleaned_data['sub_community'])
+                .create(talk=talk, sub_community=data['sub_community'])
         return talk
 
 class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
@@ -168,18 +187,42 @@ class P3TalkForm(P3TalkFormMixin, cforms.TalkForm):
         exclude = ('duration', 'qa_duration',)
 
     def __init__(self, *args, **kwargs):
+        if 'data' in kwargs and 'instance' in kwargs and not 'sub_community' in kwargs['data']:
+            # FIXME: Patch to avoid changin conference view callback
+            # (i.e., conference.views.talk)
+            #
+            # If `sub_community` is not in cleaned_data, is because the cfp is closed!
+            # (see conference.views.talk:229)
+            # However, since the `sub_community` field is required by the form but missing
+            # in the submitted data, the method returns True to allow the validation to pass!
+            # Btw, please note that the template as well hides the sub_community field
+            # in the form (see p3/templates/conference/talk.html)
+            kwargs['data']['sub_community'] = kwargs['instance'].p3_talk.sub_community
         super(P3TalkForm, self).__init__(*args, **kwargs)
+
         if self.instance:
             self.fields['duration'].initial = self.instance.duration
             self.fields['sub_community'].initial = self.instance.p3_talk.sub_community
 
+
     def save(self, *args, **kwargs):
         talk = super(P3TalkForm, self).save(*args, **kwargs)
-        talk.duration = self.cleaned_data['duration']
-        talk.qa_duration = self.cleaned_data['qa_duration']
+        data = self.cleaned_data
+        talk.duration = data['duration']
+        talk.qa_duration = data['qa_duration']
         talk.save()
-        talk.p3_talk.sub_community = self.cleaned_data['sub_community']
-        talk.p3_talk.save()
+
+        # If this talk is going to be submitted for the first time, create the
+        # related P3Talk Instance
+        try:
+            p3_talk = models.P3Talk.objects.get(talk=talk)
+            if 'sub_community' in data:
+                # Available iff CfP is still open! @see p3/templates/conference/talk.html
+                p3_talk.sub_community=data['sub_community']
+                p3_talk.save()
+        except models.P3Talk.DoesNotExist:
+            models.P3Talk.objects.create(talk=talk, sub_community=data['sub_community'])
+
         return talk
 
 class P3SpeakerForm(cforms.SpeakerForm):
@@ -190,7 +233,9 @@ class P3SpeakerForm(cforms.SpeakerForm):
 
 class FormTicket(forms.ModelForm):
     ticket_name = forms.CharField(max_length=60, required=False, help_text='Name of the attendee')
-    days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(), widget=forms.CheckboxSelectMultiple, help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
+    days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(),
+                                     widget=forms.CheckboxSelectMultiple,
+                                     help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
 
     class Meta:
         model = models.TicketConference
@@ -810,3 +855,26 @@ class P3EventBookingForm(cforms.EventBookingForm):
             if booked.count() > 0:
                 raise forms.ValidationError(_('already booked'))
         return data
+
+# --------------
+# Custom Widgets
+# --------------
+
+class HTMLAnchorWidget(forms.widgets.TextInput):
+    """
+    Very simple widget to display an HTML anchor tag.
+    (So far, used only in p3.admin.P3TalkAdminForm).
+
+    One can pass a "title" attribute to display a title
+    different from the raw URL link.
+    """
+
+    def __init__(self, *args, **kwargs):
+        self._title = kwargs.pop('title', None)
+        super(HTMLAnchorWidget, self).__init__(*args, **kwargs)
+
+
+    def render(self, name, value, attrs=None):
+        title = self._title if self._title else value
+        return mark_safe(u'''<a href="{v}" target="_blank" title="{t}">
+                                {t}</a>'''.format(v=value, t=title))

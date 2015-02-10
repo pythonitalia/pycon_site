@@ -18,10 +18,11 @@ import logging
 log = logging.getLogger('p3.models')
 
 TALK_SUBCOMMUNITY = (
-    ('', _('All')),
-    ('django', _('DjangoVillage')),
-    ('pydata', _('PyData')),
+    ('', _('None')),
     ('odoo', _('Odoo')),
+    ('pydata', _('PyData')),
+    ('django', _('DjangoVillage')),
+    ('pycon', _('PyCon Sei')),
 )
 
 class P3Talk(models.Model):
@@ -29,7 +30,17 @@ class P3Talk(models.Model):
     Estensione del talk di conference per l'utilizzo da parte di P3
     """
     talk = models.OneToOneField('conference.Talk', related_name='p3_talk', primary_key=True)
-    sub_community = models.CharField(max_length=20, choices=TALK_SUBCOMMUNITY, default='')
+
+    # Track Info Back Here
+    sub_community = models.CharField(verbose_name=_('Sub-Community Track'), max_length=20,
+                             choices=TALK_SUBCOMMUNITY, default='')
+
+    def __unicode__(self):
+        return self._meta.verbose_name
+
+    class Meta:
+        verbose_name = 'PyCon Talk'
+        verbose_name_plural = 'PyCon Talks'
 
 class SpeakerConference(models.Model):
     speaker = models.OneToOneField('conference.Speaker', related_name='p3_speaker')
