@@ -157,6 +157,7 @@ WSGI_APPLICATION = 'pycon.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
+    os.path.join(PROJECT_DIR, 'p3', 'templates'), # To allow Conference Templates overriding
 )
 
 LOCALE_PATHS = (
@@ -167,6 +168,7 @@ INSTALLED_APPS = (
     'filebrowser',
     # Warning: the sequence p3/assopy/admin is important to be able to
     # resolve correctly templates
+    'conference',  # Moved here to pass migration -> dependency w/ P3Talk & conference.Talk
     'p3',
     'assopy',
     'assopy.stripe',
@@ -200,7 +202,7 @@ INSTALLED_APPS = (
     'authority',
     #'pages',
     'mptt',
-    'conference',
+
     'microblog',
     'hcomments',
     'django_xmlrpc',
