@@ -48,6 +48,11 @@
     {# here is rendered the "pay with stripe" button #}
     {% block stripe-checkout-form %}
 
+    <div class="stripe-checkout">
+
+        <h1>{% trans "Please enter your credit card details." %}</h1>
+
+
         <form action="{% url "assopy-stripe-checkout" order.pk %}" method="POST" id="payment-form">
             {% csrf_token %}
             <input type="hidden" name="stripeEmail" value="{{ order.user.user.email }}">
@@ -62,9 +67,16 @@
             <label>{% trans "Exp Year" %}</label>
             <input data-stripe="exp-year"/>
 
-            <span>{% trans "Total amount: " %}{{ order.total }}&euro;</span>
+            <div class="total">{% trans "Total amount: " %}<b>{{ order.total }}&euro;</b> {% trans "VAT inc." %}</div>
             <button type="submit">{% trans "Submit Payment" %}</button>
         </form>
+
+        <div class="stripe-checkout-footer">
+            <p>{% trans "Payment processed by Stripe.com" %}</p>
+            <p>{% trans "Credit cards details are not stored" %}</p>
+        </div>
+
+    </div>
     {% endblock stripe-checkout-form %}
 
     {# errors returned during the payment charging by the stripe API #}

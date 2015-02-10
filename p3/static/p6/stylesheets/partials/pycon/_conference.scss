@@ -251,3 +251,45 @@
     }
 }
 
+.stripe-checkout {
+    h1 {
+        @extend h3;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: 2px solid #8D897C;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    #payment-form {
+        width: 600px;
+        margin: 0 auto;
+        padding: 20px 0;
+        input {
+            @extend input[type="text"];
+        }
+
+        button {
+            @extend .btn;
+            @extend .btn-primary;
+            display: block;
+            margin: 10px auto 0 auto;
+        }
+
+        .total {
+            margin: 20px auto;
+            text-align: center;
+        }
+    }
+
+    .stripe-checkout-footer {
+        margin-bottom: 20px;
+        text-align: center;
+        p {
+            display: inline;
+        }
+        p:first-child:after {
+            content: " - ";
+        }
+    }
+}

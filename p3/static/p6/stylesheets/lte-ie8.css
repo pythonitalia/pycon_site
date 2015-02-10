@@ -13,7 +13,7 @@ URL: http://stuffandnonsense.co.uk/projects/rock-hammer/
 */
 @import url("//fonts.googleapis.com/css?family=Lato:300italic,700italic,300,400,400italic,700");
 /* About $basefontsize*1.5 */
-html, body, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, .meta, #talk-voting .talk-speakers, .person-card .see-more, .ticket-footer, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+html, body, body, div, span, object, iframe, h1, h2, h3, .stripe-checkout h1, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, .meta, #talk-voting .talk-speakers, .person-card .see-more, .ticket-footer, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
 
 article, aside, figure, footer, header, hgroup, nav, section { display: block; }
 
@@ -50,7 +50,7 @@ body { margin: 0; padding: 0; width: 100%; background-color: transparent; font-f
 .calendar-icon { display: inline-block; }
 
 .media-body { text-align: center; }
-.media-body h3 { padding-top: 5px; }
+.media-body h3, .media-body .stripe-checkout h1, .stripe-checkout .media-body h1 { padding-top: 5px; }
 
 .learn-with-pycon { background-image: url("../images/bg-learn-with-pycon.jpg"); background-size: cover; background-position: center top; background-repeat: no-repeat; background-attachment: fixed; }
 .learn-with-pycon a:hover { text-decoration: none; }
@@ -93,15 +93,15 @@ header { background-image: url("../images/bg-learn-with-pycon.jpg"); background-
 
 .join-us { background-color: #888; }
 .join-us .help-text { color: white; }
-.join-us .help-text h3 { text-transform: uppercase; margin: 0 0 0.2em 0; }
+.join-us .help-text h3, .join-us .help-text .stripe-checkout h1, .stripe-checkout .join-us .help-text h1 { text-transform: uppercase; margin: 0 0 0.2em 0; }
 
 .subcommunities { background-color: #FAFAFA; }
-.subcommunities h3 { text-align: center; width: 80%; display: block; margin: 0 auto 0.5em auto; }
+.subcommunities h3, .subcommunities .stripe-checkout h1, .stripe-checkout .subcommunities h1 { text-align: center; width: 80%; display: block; margin: 0 auto 0.5em auto; }
 .subcommunities .subcommunity-container { padding: 15px; width: 100%; height: auto; border: 5px solid #EEE; }
 .subcommunities .subcommunity-container:hover { -webkit-transition: all 80ms linear; -moz-transition: all 80ms linear; transition: all 80ms linear; background-color: #EEE; }
 
 .notice { padding-top: 20px; }
-.notice h3.media-heading { font-size: 28px; font-size: 2.8rem; padding-bottom: 0; }
+.notice h3.media-heading, .notice .stripe-checkout h1.media-heading, .stripe-checkout .notice h1.media-heading { font-size: 28px; font-size: 2.8rem; padding-bottom: 0; }
 
 .blog-container h2 { margin: 0 0 0.5em 0; }
 
@@ -125,7 +125,7 @@ header { background-image: url("../images/bg-learn-with-pycon.jpg"); background-
 
 .talk-form section { padding-bottom: 0; }
 
-.btn, .cms .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action a { text-transform: uppercase; }
+.btn, .cms .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action a, .stripe-checkout #payment-form button { text-transform: uppercase; }
 
 [role="banner"]:after { content: ""; display: table; clear: both; }
 
@@ -150,15 +150,15 @@ figure figcaption { display: block; font-weight: normal; font-size: 14px; font-s
 
 a.tag:hover { background: white; text-decoration: none; }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; font-family: inherit; font-weight: 400; color: inherit; text-rendering: optimizelegibility; }
-h1 small, h1 .meta, h1 #talk-voting .talk-speakers, #talk-voting h1 .talk-speakers, h1 .person-card .see-more, .person-card h1 .see-more, h1 .ticket-footer, h2 small, h2 .meta, h2 #talk-voting .talk-speakers, #talk-voting h2 .talk-speakers, h2 .person-card .see-more, .person-card h2 .see-more, h2 .ticket-footer, h3 small, h3 .meta, h3 #talk-voting .talk-speakers, #talk-voting h3 .talk-speakers, h3 .person-card .see-more, .person-card h3 .see-more, h3 .ticket-footer, h4 small, h4 .meta, h4 #talk-voting .talk-speakers, #talk-voting h4 .talk-speakers, h4 .person-card .see-more, .person-card h4 .see-more, h4 .ticket-footer, h5 small, h5 .meta, h5 #talk-voting .talk-speakers, #talk-voting h5 .talk-speakers, h5 .person-card .see-more, .person-card h5 .see-more, h5 .ticket-footer, h6 small, h6 .meta, h6 #talk-voting .talk-speakers, #talk-voting h6 .talk-speakers, h6 .person-card .see-more, .person-card h6 .see-more, h6 .ticket-footer { font-weight: normal; line-height: 1; color: #bcbab2; }
+h1, h2, h3, .stripe-checkout h1, h4, h5, h6 { margin: 0; font-family: inherit; font-weight: 400; color: inherit; text-rendering: optimizelegibility; }
+h1 small, h1 .meta, h1 #talk-voting .talk-speakers, #talk-voting h1 .talk-speakers, h1 .person-card .see-more, .person-card h1 .see-more, h1 .ticket-footer, h2 small, h2 .meta, h2 #talk-voting .talk-speakers, #talk-voting h2 .talk-speakers, h2 .person-card .see-more, .person-card h2 .see-more, h2 .ticket-footer, h3 small, .stripe-checkout h1 small, h3 .meta, .stripe-checkout h1 .meta, h3 #talk-voting .talk-speakers, #talk-voting h3 .talk-speakers, .stripe-checkout h1 #talk-voting .talk-speakers, #talk-voting .stripe-checkout h1 .talk-speakers, h3 .person-card .see-more, .person-card h3 .see-more, .stripe-checkout h1 .person-card .see-more, .person-card .stripe-checkout h1 .see-more, h3 .ticket-footer, .stripe-checkout h1 .ticket-footer, h4 small, h4 .meta, h4 #talk-voting .talk-speakers, #talk-voting h4 .talk-speakers, h4 .person-card .see-more, .person-card h4 .see-more, h4 .ticket-footer, h5 small, h5 .meta, h5 #talk-voting .talk-speakers, #talk-voting h5 .talk-speakers, h5 .person-card .see-more, .person-card h5 .see-more, h5 .ticket-footer, h6 small, h6 .meta, h6 #talk-voting .talk-speakers, #talk-voting h6 .talk-speakers, h6 .person-card .see-more, .person-card h6 .see-more, h6 .ticket-footer { font-weight: normal; line-height: 1; color: #bcbab2; }
 
 h1, .h1 { font-size: 36px; font-size: 3.6rem; line-height: 1.2; margin-bottom: 0.75em; font-weight: 300; text-transform: uppercase; }
 
 h2.border-title { font-size: 48px; font-size: 4.8rem; line-height: 1.2; margin-bottom: 0.75em; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
 h2.border-title:after { content: ""; display: block; background: #555555; height: 2px; width: 90px; margin: 0 auto; margin-top: 20px; }
 
-h3, .h3 { font-size: 23.4px; font-size: 2.34rem; line-height: 1.3; margin-bottom: 1em; }
+h3, .stripe-checkout h1, .h3 { font-size: 23.4px; font-size: 2.34rem; line-height: 1.3; margin-bottom: 1em; }
 
 h4, .h4 { font-size: 22.5px; font-size: 2.25rem; line-height: 1.25; margin-bottom: 0.75em; text-transform: uppercase; text-align: center; }
 
@@ -321,7 +321,7 @@ a:hover, a:active { outline: 0; }
 
 .slick-list { position: relative; overflow: hidden; display: block; margin: 0; padding: 0; }
 .slick-list:focus { outline: none; }
-.slick-loading .slick-list { background: white url("../images/ajax-loader.gif") center center no-repeat; }
+.slick-loading .slick-list { background: #fff url("../images/ajax-loader.gif") center center no-repeat; }
 .slick-list.dragging { cursor: pointer; cursor: hand; }
 
 .slick-slider .slick-track { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
@@ -352,13 +352,13 @@ a:hover, a:active { outline: 0; }
 
 .slick-prev { left: -25px; }
 [dir="rtl"] .slick-prev { left: auto; right: -25px; }
-.slick-prev:before { content: "\2190"; }
-[dir="rtl"] .slick-prev:before { content: "\2192"; }
+.slick-prev:before { content: "←"; }
+[dir="rtl"] .slick-prev:before { content: "→"; }
 
 .slick-next { right: -25px; }
 [dir="rtl"] .slick-next { left: -25px; right: auto; }
-.slick-next:before { content: "\2192"; }
-[dir="rtl"] .slick-next:before { content: "\2190"; }
+.slick-next:before { content: "→"; }
+[dir="rtl"] .slick-next:before { content: "←"; }
 
 /* Dots */
 .slick-dots { position: absolute; bottom: -45px; list-style: none; display: block; text-align: center; padding: 0; width: 100%; }
@@ -366,7 +366,7 @@ a:hover, a:active { outline: 0; }
 .slick-dots li button { border: 0; background: transparent; display: block; height: 20px; width: 20px; outline: none; line-height: 0; font-size: 0; color: transparent; padding: 5px; cursor: pointer; }
 .slick-dots li button:hover, .slick-dots li button:focus { outline: none; }
 .slick-dots li button:hover:before, .slick-dots li button:focus:before { opacity: 1; }
-.slick-dots li button:before { position: absolute; top: 0; left: 0; content: "\2022"; width: 20px; height: 20px; font-family: "slick"; font-size: 6px; line-height: 20px; text-align: center; color: black; opacity: 0.25; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.slick-dots li button:before { position: absolute; top: 0; left: 0; content: "•"; width: 20px; height: 20px; font-family: "slick"; font-size: 6px; line-height: 20px; text-align: center; color: black; opacity: 0.25; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .slick-dots li.slick-active button:before { color: black; opacity: 0.75; }
 
 .accordion { /* margin-bottom : $baselineheight;  */ }
@@ -385,15 +385,15 @@ a:hover, a:active { outline: 0; }
 .alert > h4 { margin: 0; color: #3a330c; }
 
 /*alert*/
-.alert--success { background-color: lightgreen; border-color: #64e764; color: #116e11; }
+.alert--success { background-color: #90EE90; border-color: #64e764; color: #116e11; }
 .alert--success > h4 { color: #116e11; }
 
 /*alert--success*/
-.alert--danger, .alert--error { background-color: firebrick; border-color: #871a1a; color: white; }
+.alert--danger, .alert--error { background-color: #B22222; border-color: #871a1a; color: white; }
 .alert--danger > h4, .alert--error > h4 { color: white; }
 
 /*alert--error*/
-.alert--info { background-color: #9dcfff; border-color: #6ab6ff; color: #00509d; }
+.alert--info { background-color: #9DCFFF; border-color: #6ab6ff; color: #00509d; }
 .alert--info > h4 { color: #00509d; }
 
 /*alert--info*/
@@ -477,7 +477,7 @@ a:hover, a:active { outline: 0; }
 
 .modal-header .close { float: right; margin-top: 2px; background-color: #e0dfdb; border: 1px solid #c8c6c0; border-bottom-color: #bcbab2; border-radius: 4px; cursor: pointer; color: #3c3a34; }
 
-.modal-header h3 { margin: 0; line-height: 30px; }
+.modal-header h3, .modal-header .stripe-checkout h1, .stripe-checkout .modal-header h1 { margin: 0; line-height: 30px; }
 
 .modal-body { position: relative; max-height: 400px; padding: 1.5em 30px; overflow-y: auto; }
 
@@ -489,9 +489,9 @@ a:hover, a:active { outline: 0; }
 
 .modal-footer:after { clear: both; }
 
-.modal-footer .btn + .btn, .modal-footer .cms .call-to-action a + .btn, .cms .call-to-action .modal-footer a + .btn, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action a + .btn, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer a + .btn, .modal-footer .cms .call-to-action .btn + a, .cms .call-to-action .modal-footer .btn + a, .modal-footer .cms .call-to-action a + a, .cms .call-to-action .modal-footer a + a, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action .btn + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn + a, .conference-schedules.list .event .details .abstract .modal-footer .cms .call-to-action a + a, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action a + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer a + a { margin-bottom: 0; margin-left: 5px; }
+.modal-footer .btn + .btn, .modal-footer .cms .call-to-action a + .btn, .cms .call-to-action .modal-footer a + .btn, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action a + .btn, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer a + .btn, .modal-footer .stripe-checkout #payment-form button + .btn, .stripe-checkout #payment-form .modal-footer button + .btn, .modal-footer .cms .call-to-action .btn + a, .cms .call-to-action .modal-footer .btn + a, .modal-footer .cms .call-to-action a + a, .cms .call-to-action .modal-footer a + a, .modal-footer .stripe-checkout #payment-form .cms .call-to-action button + a, .cms .call-to-action .modal-footer .stripe-checkout #payment-form button + a, .stripe-checkout #payment-form .modal-footer .cms .call-to-action button + a, .cms .call-to-action .stripe-checkout #payment-form .modal-footer button + a, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action .btn + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn + a, .conference-schedules.list .event .details .abstract .modal-footer .cms .call-to-action a + a, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action a + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer a + a, .modal-footer .stripe-checkout #payment-form .conference-schedules.list .event .details .abstract .call-to-action button + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .stripe-checkout #payment-form button + a, .stripe-checkout #payment-form .modal-footer .conference-schedules.list .event .details .abstract .call-to-action button + a, .conference-schedules.list .event .details .abstract .call-to-action .stripe-checkout #payment-form .modal-footer button + a, .modal-footer .stripe-checkout #payment-form .btn + button, .stripe-checkout #payment-form .modal-footer .btn + button, .modal-footer .cms .call-to-action .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .modal-footer .cms .call-to-action a + button, .cms .call-to-action .modal-footer .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .cms .call-to-action .modal-footer a + button, .modal-footer .conference-schedules.list .event .details .abstract .call-to-action .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .modal-footer .conference-schedules.list .event .details .abstract .call-to-action a + button, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .conference-schedules.list .event .details .abstract .call-to-action .modal-footer a + button, .modal-footer .stripe-checkout #payment-form button + button, .stripe-checkout #payment-form .modal-footer button + button { margin-bottom: 0; margin-left: 5px; }
 
-.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .cms .call-to-action a + .btn, .cms .call-to-action .modal-footer .btn-group a + .btn, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action a + .btn, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group a + .btn, .modal-footer .btn-group .cms .call-to-action .btn + a, .cms .call-to-action .modal-footer .btn-group .btn + a, .modal-footer .btn-group .cms .call-to-action a + a, .cms .call-to-action .modal-footer .btn-group a + a, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action .btn + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group .btn + a, .conference-schedules.list .event .details .abstract .modal-footer .btn-group .cms .call-to-action a + a, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action a + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group a + a { margin-left: -1px; }
+.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .cms .call-to-action a + .btn, .cms .call-to-action .modal-footer .btn-group a + .btn, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action a + .btn, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group a + .btn, .modal-footer .btn-group .stripe-checkout #payment-form button + .btn, .stripe-checkout #payment-form .modal-footer .btn-group button + .btn, .modal-footer .btn-group .cms .call-to-action .btn + a, .cms .call-to-action .modal-footer .btn-group .btn + a, .modal-footer .btn-group .cms .call-to-action a + a, .cms .call-to-action .modal-footer .btn-group a + a, .modal-footer .btn-group .stripe-checkout #payment-form .cms .call-to-action button + a, .cms .call-to-action .modal-footer .btn-group .stripe-checkout #payment-form button + a, .stripe-checkout #payment-form .modal-footer .btn-group .cms .call-to-action button + a, .cms .call-to-action .stripe-checkout #payment-form .modal-footer .btn-group button + a, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action .btn + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group .btn + a, .conference-schedules.list .event .details .abstract .modal-footer .btn-group .cms .call-to-action a + a, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action a + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group a + a, .modal-footer .btn-group .stripe-checkout #payment-form .conference-schedules.list .event .details .abstract .call-to-action button + a, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group .stripe-checkout #payment-form button + a, .stripe-checkout #payment-form .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action button + a, .conference-schedules.list .event .details .abstract .call-to-action .stripe-checkout #payment-form .modal-footer .btn-group button + a, .modal-footer .btn-group .stripe-checkout #payment-form .btn + button, .stripe-checkout #payment-form .modal-footer .btn-group .btn + button, .modal-footer .btn-group .cms .call-to-action .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .modal-footer .btn-group .cms .call-to-action a + button, .cms .call-to-action .modal-footer .btn-group .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .cms .call-to-action .modal-footer .btn-group a + button, .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .modal-footer .btn-group .conference-schedules.list .event .details .abstract .call-to-action a + button, .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group .stripe-checkout #payment-form a + button, .stripe-checkout #payment-form .conference-schedules.list .event .details .abstract .call-to-action .modal-footer .btn-group a + button, .modal-footer .btn-group .stripe-checkout #payment-form button + button, .stripe-checkout #payment-form .modal-footer .btn-group button + button { margin-left: -1px; }
 
 .modal-footer .btn-block + .btn-block { margin-left: 0; }
 
@@ -754,7 +754,7 @@ table { max-width: 100%; background-color: transparent; border-collapse: collaps
 .tooltip.bottom .tooltip-arrow { top: 0; left: 50%; margin-left: -5px; border-width: 0 5px 5px; border-bottom-color: #e61f4b; }
 
 /*tooltip*/
-.well { min-height: 20px; padding: 15px; margin-bottom: 1.5em; background-color: #eeeeee; border: 0 solid #d4d4d4; border-radius: 4px; color: #555555; }
+.well { min-height: 20px; padding: 15px; margin-bottom: 1.5em; background-color: #EEE; border: 0 solid #d4d4d4; border-radius: 4px; color: #555555; }
 .well p:last-child { margin-bottom: 0; }
 
 .well--large { padding: 30px; }
@@ -782,7 +782,7 @@ label, input, button, select, textarea { font-family: "Lato", "Helvetica Neue", 
 label { display: block; margin-bottom: 0.375em; font-size: 18px; font-size: 1.8rem; }
 label span { font-size: 13.5; color: #807c6f; }
 
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"] { display: inline-block; margin-bottom: 0.75em; padding: 6px 6px; font-size: 18px; font-size: 1.8rem; line-height: 1.5em; color: inherit; border-radius: 4px; vertical-align: middle; }
+select, textarea, input[type="text"], .stripe-checkout #payment-form input, input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"] { display: inline-block; margin-bottom: 0.75em; padding: 6px 6px; font-size: 18px; font-size: 1.8rem; line-height: 1.5em; color: inherit; border-radius: 4px; vertical-align: middle; }
 
 input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] { display: -webkit-inline-flex; }
 
@@ -790,9 +790,9 @@ input, textarea { width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: 
 
 textarea { height: auto; resize-x: none; }
 
-textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { background-color: white; border: 2px solid #bcbab2; }
-textarea:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="date"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, input[type="number"]:hover, input[type="email"]:hover, input[type="url"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="color"]:hover { border-color: #a5a197; }
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus { border-color: #807c6f; outline: 0; outline: thin dotted \ 9; }
+textarea, input[type="text"], .stripe-checkout #payment-form input, input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { background-color: white; border: 2px solid #bcbab2; }
+textarea:hover, input[type="text"]:hover, .stripe-checkout #payment-form input:hover, input[type="password"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="date"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, input[type="number"]:hover, input[type="email"]:hover, input[type="url"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="color"]:hover { border-color: #a5a197; }
+textarea:focus, input[type="text"]:focus, .stripe-checkout #payment-form input:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus { border-color: #807c6f; outline: 0; outline: thin dotted \ 9; }
 
 input[type="radio"], input[type="checkbox"] { margin: 4px 0 0; *margin-top: 0; margin-top: 1px \ 9; line-height: normal; }
 
@@ -879,11 +879,11 @@ input.search-query { margin-bottom: 0; padding-right: 14px; padding-right: 4px \
 
 .form-search .input-append .search-query { border-radius: 14px, 0, 0, 14px; }
 
-.form-search .input-append .btn, .form-search .input-append .cms .call-to-action a, .cms .call-to-action .form-search .input-append a, .form-search .input-append .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .form-search .input-append a { border-radius: 0, 14px, 14px, 0; }
+.form-search .input-append .btn, .form-search .input-append .cms .call-to-action a, .cms .call-to-action .form-search .input-append a, .form-search .input-append .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .form-search .input-append a, .form-search .input-append .stripe-checkout #payment-form button, .stripe-checkout #payment-form .form-search .input-append button { border-radius: 0, 14px, 14px, 0; }
 
 .form-search .input-prepend .search-query { border-radius: 0, 14px, 14px, 0; }
 
-.form-search .input-prepend .btn, .form-search .input-prepend .cms .call-to-action a, .cms .call-to-action .form-search .input-prepend a, .form-search .input-prepend .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .form-search .input-prepend a { border-radius: 14px, 0, 0, 14px; }
+.form-search .input-prepend .btn, .form-search .input-prepend .cms .call-to-action a, .cms .call-to-action .form-search .input-prepend a, .form-search .input-prepend .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .form-search .input-prepend a, .form-search .input-prepend .stripe-checkout #payment-form button, .stripe-checkout #payment-form .form-search .input-prepend button { border-radius: 14px, 0, 0, 14px; }
 
 .form-search { /*radio*/ }
 .form-search input, .form-search textarea, .form-search select { display: inline-block; *display: inline; *zoom: 1; margin-bottom: 0; vertical-align: middle; }
@@ -896,19 +896,19 @@ input.search-query { margin-bottom: 0; padding-right: 14px; padding-right: 4px \
 .form-search legend + .control-group { margin-top: 1.5em; -webkit-margin-top-collapse: separate; }
 
 /*form-search*/
-.btn, .cms .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action a { display: inline-block; *display: inline; *zoom: 1; padding: 6px 11px; margin-bottom: 0; *margin-left: .3em; font-weight: normal; font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 18px; font-size: 1.8rem; line-height: 1.5em; color: #3c3a34; text-align: center; vertical-align: middle; background-color: #e0dfdb; border-radius: 4px; border: none; cursor: pointer; }
-.btn:visited, .cms .call-to-action a:visited, .conference-schedules.list .event .details .abstract .call-to-action a:visited, .btn:hover, .cms .call-to-action a:hover, .conference-schedules.list .event .details .abstract .call-to-action a:hover, .btn:active, .cms .call-to-action a:active, .conference-schedules.list .event .details .abstract .call-to-action a:active { background-color: #d4d2cd; color: #050504; text-decoration: none; }
+.btn, .cms .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action a, .stripe-checkout #payment-form button { display: inline-block; *display: inline; *zoom: 1; padding: 6px 11px; margin-bottom: 0; *margin-left: .3em; font-weight: normal; font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 18px; font-size: 1.8rem; line-height: 1.5em; color: #3c3a34; text-align: center; vertical-align: middle; background-color: #e0dfdb; border-radius: 4px; border: none; cursor: pointer; }
+.btn:visited, .cms .call-to-action a:visited, .conference-schedules.list .event .details .abstract .call-to-action a:visited, .stripe-checkout #payment-form button:visited, .btn:hover, .cms .call-to-action a:hover, .conference-schedules.list .event .details .abstract .call-to-action a:hover, .stripe-checkout #payment-form button:hover, .btn:active, .cms .call-to-action a:active, .conference-schedules.list .event .details .abstract .call-to-action a:active, .stripe-checkout #payment-form button:active { background-color: #d4d2cd; color: #050504; text-decoration: none; }
 
 /*btn*/
-.btn:first-child, .cms .call-to-action a:first-child, .conference-schedules.list .event .details .abstract .call-to-action a:first-child { *margin-left: 0; }
+.btn:first-child, .cms .call-to-action a:first-child, .conference-schedules.list .event .details .abstract .call-to-action a:first-child, .stripe-checkout #payment-form button:first-child { *margin-left: 0; }
 
 .btn-disabled { opacity: .5; cursor: default; }
 
-.btn-error { background-color: firebrick; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
+.btn-error { background-color: #B22222; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
 .btn-error:visited, .btn-error:active, .btn-error:hover { background-color: #9d1e1e; color: #f2f2f2; }
 
 /*btn-error*/
-.btn-info { background-color: #9dcfff; border-color: #6ab6ff; border-bottom-color: #379dff; color: #00509d; text-shadow: none; }
+.btn-info { background-color: #9DCFFF; border-color: #6ab6ff; border-bottom-color: #379dff; color: #00509d; text-shadow: none; }
 .btn-info:visited, .btn-info:active, .btn-info:hover { background-color: #6ab6ff; color: #004384; }
 
 /*btn-info*/
@@ -916,21 +916,21 @@ input.search-query { margin-bottom: 0; padding-right: 14px; padding-right: 4px \
 .btn-inverse:visited, .btn-inverse:active, .btn-inverse:hover { background-color: #343434; color: #f2f2f2; }
 
 /*btn-inverse*/
-.btn-primary { background-color: #e61f4b; border-color: #bd153a; border-bottom-color: #8f102c; color: white; text-shadow: none; }
-.btn-primary:visited, .btn-primary:active, .btn-primary:hover { background-color: #d41841; color: #f2f2f2; }
+.btn-primary, .stripe-checkout #payment-form button { background-color: #e61f4b; border-color: #bd153a; border-bottom-color: #8f102c; color: white; text-shadow: none; }
+.btn-primary:visited, .stripe-checkout #payment-form button:visited, .btn-primary:active, .stripe-checkout #payment-form button:active, .btn-primary:hover, .stripe-checkout #payment-form button:hover { background-color: #d41841; color: #f2f2f2; }
 
 /*btn-primary*/
-.btn-success { background-color: lightgreen; border-color: #64e764; border-bottom-color: #64e764; color: #116e11; text-shadow: none; }
+.btn-success { background-color: #90EE90; border-color: #64e764; border-bottom-color: #64e764; color: #116e11; text-shadow: none; }
 .btn-success:visited, .btn-success:active, .btn-success:hover { background-color: #7aeb7a; color: #0d580d; }
 
 /*btn-success*/
-.btn-warning { background-color: firebrick; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
+.btn-warning { background-color: #B22222; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
 .btn-warning:visited, .btn-warning:active, .btn-warning:hover { background-color: #9d1e1e; color: #f2f2f2; }
 
 /*btn-warning*/
 .btn-extlarge { padding: 11px 22px; font-size: 36px; font-size: 3.6rem; border-width: 2px; border-radius: 8px; }
 
-.btn.btn-large, .cms .call-to-action a.btn-large, .conference-schedules.list .event .details .abstract .call-to-action a.btn-large { *padding-top: 7px; *padding-bottom: 7px; }
+.btn.btn-large, .cms .call-to-action a.btn-large, .conference-schedules.list .event .details .abstract .call-to-action a.btn-large, .stripe-checkout #payment-form button.btn-large { *padding-top: 7px; *padding-bottom: 7px; }
 
 /*btn.btn-large*/
 .btn-large { padding: 11px 18px; font-size: 22.5px; font-size: 2.25rem; line-height: inherit; border-width: 2px; border-radius: 8px; }
@@ -940,11 +940,11 @@ input.search-query { margin-bottom: 0; padding-right: 14px; padding-right: 4px \
 .btn-mini { padding: 3px 5px; font-size: 12px; font-size: 1.2rem; line-height: inherit; }
 
 .btn-group { position: relative; *zoom: 1; *margin-left: .3em; margin-bottom: 1.5em; }
-.btn-group .btn, .btn-group .cms .call-to-action a, .cms .call-to-action .btn-group a, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a { position: relative; float: left; margin-left: -1px; border-radius: 0; }
-.btn-group .btn:first-child, .btn-group .cms .call-to-action a:first-child, .cms .call-to-action .btn-group a:first-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a:first-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a:first-child { margin-left: 0; border-radius: 2px, 0, 2px, 0; }
-.btn-group .btn:last-child, .btn-group .cms .call-to-action a:last-child, .cms .call-to-action .btn-group a:last-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a:last-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a:last-child { border-radius: 0, 2px, 0, 2px; }
-.btn-group .btn.large:first-child, .btn-group .cms .call-to-action a.large:first-child, .cms .call-to-action .btn-group a.large:first-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a.large:first-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a.large:first-child { margin-left: 0; border-radius: 4px, 0, 4px, 0; }
-.btn-group .btn.large:last-child, .btn-group .cms .call-to-action a.large:last-child, .cms .call-to-action .btn-group a.large:last-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a.large:last-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a.large:last-child { border-radius: 0, 4px, 0, 4px; }
+.btn-group .btn, .btn-group .cms .call-to-action a, .cms .call-to-action .btn-group a, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a, .btn-group .stripe-checkout #payment-form button, .stripe-checkout #payment-form .btn-group button { position: relative; float: left; margin-left: -1px; border-radius: 0; }
+.btn-group .btn:first-child, .btn-group .cms .call-to-action a:first-child, .cms .call-to-action .btn-group a:first-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a:first-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a:first-child, .btn-group .stripe-checkout #payment-form button:first-child, .stripe-checkout #payment-form .btn-group button:first-child { margin-left: 0; border-radius: 2px, 0, 2px, 0; }
+.btn-group .btn:last-child, .btn-group .cms .call-to-action a:last-child, .cms .call-to-action .btn-group a:last-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a:last-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a:last-child, .btn-group .stripe-checkout #payment-form button:last-child, .stripe-checkout #payment-form .btn-group button:last-child { border-radius: 0, 2px, 0, 2px; }
+.btn-group .btn.large:first-child, .btn-group .cms .call-to-action a.large:first-child, .cms .call-to-action .btn-group a.large:first-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a.large:first-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a.large:first-child, .btn-group .stripe-checkout #payment-form button.large:first-child, .stripe-checkout #payment-form .btn-group button.large:first-child { margin-left: 0; border-radius: 4px, 0, 4px, 0; }
+.btn-group .btn.large:last-child, .btn-group .cms .call-to-action a.large:last-child, .cms .call-to-action .btn-group a.large:last-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a.large:last-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a.large:last-child, .btn-group .stripe-checkout #payment-form button.large:last-child, .stripe-checkout #payment-form .btn-group button.large:last-child { border-radius: 0, 4px, 0, 4px; }
 
 /*btn.btn-group*/
 .btn-toolbar { clear: both; margin-top: 0.75em; margin-bottom: 0.75em; }
@@ -2050,7 +2050,7 @@ nav[role=navigation].active { max-height: 25em; }
 /* Copyright (C) 2009-2013, Python Italia APS All rights reserved.  This file is non-free. See README.md for an explanation. */
 .janrain-box { width: 400px; display: block; /*     background: transparent url(../images/loading-janrain.png) center center no-repeat; */ min-height: 240px; }
 
-form .field.error .errorlist { margin: 0; padding: 0; color: firebrick; }
+form .field.error .errorlist { margin: 0; padding: 0; color: #B22222; }
 
 .overlay { position: absolute !important; display: none; z-index: 10000; background: white; padding: 0.75em 30px; width: 35em; min-height: 15em; box-shadow: 0 0 15px #3c3a34; }
 
@@ -2125,7 +2125,7 @@ body > div.draft { position: fixed; top: 0; left: 0; width: 100px; bottom: 0; z-
 /* ============== */
 .cms .highlights, .conference-schedules.list .event .details .abstract .highlights { padding: 10px; border-top: 2px dotted #aba18f; border-bottom: 2px dotted #aba18f; margin: 20px 0; background: #fff; }
 
-.cms .highlights h3, .conference-schedules.list .event .details .abstract .highlights h3 { color: #4895a3; margin: 0 0 10px 0; font-size: 21px; text-align: center; }
+.cms .highlights h3, .conference-schedules.list .event .details .abstract .highlights h3, .cms .highlights .stripe-checkout h1, .stripe-checkout .cms .highlights h1, .conference-schedules.list .event .details .abstract .highlights .stripe-checkout h1, .stripe-checkout .conference-schedules.list .event .details .abstract .highlights h1 { color: #4895a3; margin: 0 0 10px 0; font-size: 21px; text-align: center; }
 
 .cms .highlights ul, .conference-schedules.list .event .details .abstract .highlights ul { margin-bottom: 0; }
 
@@ -2173,7 +2173,7 @@ h1 { font-weight: bold; }
 
 h2 { font-size: 28px; font-size: 2.8rem; font-weight: bold; margin: 1em 0 0.5em 0; }
 
-h3 { font-size: 24px; font-size: 2.4rem; font-weight: bold; margin: 1em 0 0.5em 0; }
+h3, .stripe-checkout h1 { font-size: 24px; font-size: 2.4rem; font-weight: bold; margin: 1em 0 0.5em 0; }
 
 h4 { font-size: 20px; font-size: 2rem; font-weight: bold; margin: 1em 0 0.5em 0; }
 
@@ -2194,7 +2194,7 @@ h4 { font-size: 20px; font-size: 2rem; font-weight: bold; margin: 1em 0 0.5em 0;
 
 /* Copyright (C) 2009-2013, Python Italia APS All rights reserved.  This file is non-free. See README.md for an explanation. */
 #talk-voting { margin: 0; padding: 0; list-style: none; }
-#talk-voting h3 { margin-bottom: 0; }
+#talk-voting h3, #talk-voting .stripe-checkout h1, .stripe-checkout #talk-voting h1 { margin-bottom: 0; }
 #talk-voting > li { margin: 0 0 0.75em 0; padding: 0 0 0.75em 0; border-bottom: 1px dotted #bcbab2; }
 #talk-voting .talk-speakers { text-transform: uppercase; }
 #talk-voting .accordion__group.abstract .accordion__inner * { font-size: 16px; font-size: 1.6rem; }
@@ -2251,6 +2251,14 @@ h4 { font-size: 20px; font-size: 2rem; font-weight: bold; margin: 1em 0 0.5em 0;
 .person-card { background: white; padding: 0.75em 15px; border: 1px solid #bcbab2; border-radius: 4px; margin-bottom: 1.5em; }
 .person-card .person-card-picture { float: left; margin-right: 15px; }
 
+.stripe-checkout h1 { width: 600px; margin-left: auto; margin-right: auto; border-bottom: 2px solid #8D897C; text-align: center; padding-bottom: 10px; }
+.stripe-checkout #payment-form { width: 600px; margin: 0 auto; padding: 20px 0; }
+.stripe-checkout #payment-form button { display: block; margin: 10px auto 0 auto; }
+.stripe-checkout #payment-form .total { margin: 20px auto; text-align: center; }
+.stripe-checkout .stripe-checkout-footer { margin-bottom: 20px; text-align: center; }
+.stripe-checkout .stripe-checkout-footer p { display: inline; }
+.stripe-checkout .stripe-checkout-footer p:first-child:after { content: " - "; }
+
 div.rateit { display: inline-block; position: relative; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none; -webkit-touch-callout: none; }
 
 div.rateit div.rateit-range { position: relative; display: inline-block; background: url(../images/rateit-star.gif); height: 16px; }
@@ -2276,7 +2284,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 
 .conference-schedules .event .talk-level.beginner { background: #738023; }
 .conference-schedules .event .talk-level.intermediate { background: #e7c30f; }
-.conference-schedules .event .talk-level.advanced { background: #da2300; }
+.conference-schedules .event .talk-level.advanced { background: #DA2300; }
 
 .conference-schedules.list .schedule { margin-bottom: 3em; }
 .conference-schedules.list .schedule th { width: 5em; text-align: left; }
@@ -2286,7 +2294,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.list .event .speakers { display: inline; }
 .conference-schedules.list .event .video-opener { display: inline; height: 1.5em; }
 .conference-schedules.list .event .video-opener a { border: none; }
-.conference-schedules.list .event .details { background: #efecdf; margin: 0.75em 0; padding: 0.75em 15px; }
+.conference-schedules.list .event .details { background: #EFECDF; margin: 0.75em 0; padding: 0.75em 15px; }
 
 .conference-schedules.timetable { /* layout della timetable */ /* centra gli schedule (grazie al display di .schedule) */ text-align: center; /* z-index madness; ---------------- Questo blocco serve a creare uno stacking context in modo che titolo ed header dello schedule siano posti "sopra" (z-index) al body; in questo modo posso spostare il body usando margin-top e tagliarne l'overflow.  Vedi: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context  La proprietà z-index viene presa in considerazione solo per gli elementi "posizionati" (il che vuol dire no position static) per questo ho ripetuto qui le varie position, insieme a questo commento la ripetizione serva da documentazione. */ /* layout dell'evento; un evento può trovarsi in due stati: - normale - esposto (.exposed)  Lo stato normale ha una dimensione contenuta e mostra un sottoinsieme dei dati dell'evento; lo stato esposto, attivato dall'utente, aumenta la dimensione dell'evento e rivela più dettagli.  La classe .maximized può essere applicata a i figli dell'evento per renderli visibili solo nella versione esposta. La classe .minimized ha il comportamento opposto. */ }
 .conference-schedules.timetable .schedule { /* serve a limitare la larghezza al contenuto*/ display: inline-block; }
@@ -2301,7 +2309,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event.special, .conference-schedules.timetable .track[data-track=sprint1] .event.special, .conference-schedules.timetable .track[data-track=sprint2] .event.special, .conference-schedules.timetable .track[data-track=sprint3] .event.special, .conference-schedules.timetable .event.break { z-index: 101; }
 .conference-schedules.timetable .hhmm { position: relative; }
 .conference-schedules.timetable .hhmm > div { position: absolute; }
-.conference-schedules.timetable .event { overflow: hidden; box-sizing: border-box; border: 2px solid white; padding: 3px; background: #efecdf; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; transition: all 0.4s ease; }
+.conference-schedules.timetable .event { overflow: hidden; box-sizing: border-box; border: 2px solid white; padding: 3px; background: #EFECDF; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; transition: all 0.4s ease; }
 .conference-schedules.timetable .event .maximized { display: none; }
 .conference-schedules.timetable .event.exposed { padding: 7px; z-index: 200 !important; box-shadow: 0 3px 8px 0 #aaa; border: 4px solid white; width: 400px !important; height: 350px !important; opacity: 1 !important; }
 .conference-schedules.timetable .event.exposed .minimized { display: none; }
@@ -2313,7 +2321,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable [data-track=track1].schedule__header--track, .conference-schedules.timetable [data-track=track2].schedule__header--track, .conference-schedules.timetable [data-track=track3].schedule__header--track, .conference-schedules.timetable [data-track=track4].schedule__header--track, .conference-schedules.timetable [data-track=track-ita].schedule__header--track { background: #d4d2cd; }
 .conference-schedules.timetable [data-track=training1].schedule__header--track, .conference-schedules.timetable [data-track=training2].schedule__header--track { background: #a4d4d4; }
 .conference-schedules.timetable .schedule { background: white; border: 10px solid white; margin: 0 0 40px; }
-.conference-schedules.timetable .schedule__body h3 { margin: 0 0 2px; text-transform: none; }
+.conference-schedules.timetable .schedule__body h3, .conference-schedules.timetable .schedule__body .stripe-checkout h1, .stripe-checkout .conference-schedules.timetable .schedule__body h1 { margin: 0 0 2px; text-transform: none; }
 .conference-schedules.timetable .schedule__body .hhmm { font-size: 14px; font-size: 1.4rem; }
 .conference-schedules.timetable .schedule__body .track .title { text-align: left; font-size: 16px; font-size: 1.6rem; min-height: 40px; border: 2px solid white; box-sizing: border-box; background-color: #d4d2cd; }
 .conference-schedules.timetable .schedule__body .track[data-track=sprint1] .title, .conference-schedules.timetable .schedule__body .track[data-track=sprint2] .title, .conference-schedules.timetable .schedule__body .track[data-track=sprint3] .title { background-color: #a9cb0f; }
@@ -2349,7 +2357,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event[data-talk].exposed .name, .conference-schedules.timetable .exposed.event.partner-program .name, .conference-schedules.timetable .track[data-track=sprint1] .exposed.event .name, .conference-schedules.timetable .track[data-track=sprint2] .exposed.event .name, .conference-schedules.timetable .track[data-track=sprint3] .exposed.event .name { height: auto; margin: 0.75em 0; }
 .conference-schedules.timetable .event .toggle-notice { width: 16px; height: 16px; cursor: pointer; background-image: url("img/suggest.png"); background-repeat: no-repeat; background-position: bottom center; }
 .conference-schedules.timetable .event .notice { transition: all 0.8s ease 0s; -moz-transition: all 0.8s ease 0s; -webkit-transition: all 0.8s ease 0s; -o-transition: all 0.8s ease 0s; -ms-transition: all 0.8s ease 0s; position: absolute; background: #a4d4d4; border: 6px solid #93c3c3; top: 0; left: 100%; right: 0; bottom: 0; }
-.conference-schedules.timetable .event .notice h3 { border: 0 !important; display: block !important; margin: 10px 0; padding: 0 !important; }
+.conference-schedules.timetable .event .notice h3, .conference-schedules.timetable .event .notice .stripe-checkout h1, .stripe-checkout .conference-schedules.timetable .event .notice h1 { border: 0 !important; display: block !important; margin: 10px 0; padding: 0 !important; }
 .conference-schedules.timetable .event .notice p { padding: 0 3px; }
 .conference-schedules.timetable .event .notice p a { border-bottom: 1px solid black; color: black; margin: 0 0 0 10px; }
 .conference-schedules.timetable .event .status-bar { position: relative; background: transparent; height: 3px; position: absolute; left: 0; right: 0; bottom: 0; }
@@ -2367,32 +2375,32 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event .book-event { padding: 0 4px; }
 .conference-schedules.timetable .event .book-event > div { padding: 0 4px; }
 .conference-schedules.timetable .event .book-event a { color: white; }
-.conference-schedules.timetable .event .book-event .book { background: #4895a3; }
+.conference-schedules.timetable .event .book-event .book { background: #4895A3; }
 .conference-schedules.timetable .event .book-event .cancel { background: #4895A3; }
-.conference-schedules.timetable .event .book-event .sold-out { background: #4895a3; }
-.conference-schedules.timetable .event .book-event .restricted { background: #4895a3; }
+.conference-schedules.timetable .event .book-event .sold-out { background: #4895A3; }
+.conference-schedules.timetable .event .book-event .restricted { background: #4895A3; }
 .conference-schedules.timetable .event .info.booked, .conference-schedules.timetable .event .info.available, .conference-schedules.timetable .event .info.sold-out { text-transform: uppercase; bottom: 0; position: absolute; width: 90px; padding: 12px; font-size: 10px; color: #e7880f; line-height: 13px; }
 .conference-schedules.timetable .event .info.booked:first-line, .conference-schedules.timetable .event .info.available:first-line, .conference-schedules.timetable .event .info.sold-out:first-line { font-size: 16px; }
 .conference-schedules.timetable .event .info.booked.available, .conference-schedules.timetable .event .info.available.available, .conference-schedules.timetable .event .info.sold-out.available { color: #738023; }
 .conference-schedules.timetable .event .info.booked.available span, .conference-schedules.timetable .event .info.available.available span, .conference-schedules.timetable .event .info.sold-out.available span { /* 0xAB la x la voglio minuscola */ }
 .conference-schedules.timetable .event .info.booked.available span span, .conference-schedules.timetable .event .info.available.available span span, .conference-schedules.timetable .event .info.sold-out.available span span { text-transform: none; padding: 0 1px; }
 .conference-schedules.timetable .event .info.booked.booked, .conference-schedules.timetable .event .info.available.booked, .conference-schedules.timetable .event .info.sold-out.booked { color: #e7c30f; }
-.conference-schedules.timetable .event .info.booked.sold-out, .conference-schedules.timetable .event .info.available.sold-out, .conference-schedules.timetable .event .info.sold-out.sold-out { color: #da2300; }
+.conference-schedules.timetable .event .info.booked.sold-out, .conference-schedules.timetable .event .info.available.sold-out, .conference-schedules.timetable .event .info.sold-out.sold-out { color: #DA2300; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked, .conference-schedules.timetable .track[data-track=training1] .event .info.available, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.available, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out { transform: translate(0px, 0px) rotate(-30deg); -moz-transform: translate(0px, 0px) rotate(-30deg); -o-transform: translate(0px, 0px) rotate(-30deg); -webkit-transform: translate(0px, 0px) rotate(-30deg); -ms-transform: translate(0px, 0px) rotate(-30deg); transform-origin: left top; -moz-transform-origin: left top; -webkit-transform-origin: left top; -o-transform-origin: left top; -ms-transform-origin: left top; letter-spacing: -0.05em; border: 2px dotted transparent; border-radius: 8px; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=training1] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out:first-line, .conference-schedules.timetable .track[data-track=training2] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=training2] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out:first-line { font-size: 20px; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked.available, .conference-schedules.timetable .track[data-track=training1] .event .info.available.available, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.available, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.available, .conference-schedules.timetable .track[data-track=training2] .event .info.available.available, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.available { border-color: #738023; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=training1] .event .info.available.booked, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.available.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.booked { border-color: #e7c30f; }
-.conference-schedules.timetable .track[data-track=training1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.sold-out { border-color: #da2300; }
-.conference-schedules.timetable .track[data-track=helpdesk1] .title, .conference-schedules.timetable .track[data-track=helpdesk2] .title { background-color: #fdb55a; }
-.conference-schedules.timetable .track[data-track=helpdesk1] .event, .conference-schedules.timetable .track[data-track=helpdesk2] .event { padding: 3px; background-color: #ffe2b8; }
+.conference-schedules.timetable .track[data-track=training1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.sold-out { border-color: #DA2300; }
+.conference-schedules.timetable .track[data-track=helpdesk1] .title, .conference-schedules.timetable .track[data-track=helpdesk2] .title { background-color: #FDB55A; }
+.conference-schedules.timetable .track[data-track=helpdesk1] .event, .conference-schedules.timetable .track[data-track=helpdesk2] .event { padding: 3px; background-color: #FFE2B8; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .name, .conference-schedules.timetable .track[data-track=helpdesk2] .event .name { font-size: 1.1em; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out { padding: 2px; text-align: center; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out:first-line, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out:first-line { font-size: 9px; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.available, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.available, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.available { border-color: #738023; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.booked, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.booked { border-color: #e7c30f; }
-.conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.sold-out { border-color: #da2300; transform: translate(0px, 10px) rotate(-13deg); -moz-transform: translate(0px, 10px) rotate(-13deg); -o-transform: translate(0px, 10px) rotate(-13deg); -webkit-transform: translate(0px, 10px) rotate(-13deg); -ms-transform: translate(0px, 10px) rotate(-13deg); transform-origin: left bottom; -moz-transform-origin: left bottom; -webkit-transform-origin: left bottom; -o-transform-origin: left bottom; -ms-transform-origin: left bottom; text-align: right; }
-.conference-schedules.timetable .event.keynote { /* stesso padding devinito in .event; purtroppo annullato dall'.event[data-talk] */ padding-top: 20px; background-color: #d3db9c; text-align: center; }
-.conference-schedules.timetable .event.keynote .name { background-color: white; font-size: 13px; border: 1px dotted #878181; padding: 7px; display: inline; font-variant: small-caps; }
+.conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.sold-out { border-color: #DA2300; transform: translate(0px, 10px) rotate(-13deg); -moz-transform: translate(0px, 10px) rotate(-13deg); -o-transform: translate(0px, 10px) rotate(-13deg); -webkit-transform: translate(0px, 10px) rotate(-13deg); -ms-transform: translate(0px, 10px) rotate(-13deg); transform-origin: left bottom; -moz-transform-origin: left bottom; -webkit-transform-origin: left bottom; -o-transform-origin: left bottom; -ms-transform-origin: left bottom; text-align: right; }
+.conference-schedules.timetable .event.keynote { /* stesso padding devinito in .event; purtroppo annullato dall'.event[data-talk] */ padding-top: 20px; background-color: #D3DB9C; text-align: center; }
+.conference-schedules.timetable .event.keynote .name { background-color: #ffffff; font-size: 13px; border: 1px dotted #878181; padding: 7px; display: inline; font-variant: small-caps; }
 .conference-schedules.timetable .event.keynote .speakers { border-bottom: none; }
 .conference-schedules.timetable .event.keynote.exposed { text-align: left; }
 .conference-schedules.timetable .event.keynote.exposed .name { border: 0; padding: 0; }
@@ -2402,7 +2410,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event.special .name .hhmm span, .conference-schedules.timetable .event.break .name .hhmm span { font-size: inherit; }
 .conference-schedules.timetable .event.special .name .hhmm:after, .conference-schedules.timetable .event.break .name .hhmm:after { content: " - "; }
 .conference-schedules.timetable .event.poster { padding-top: 0; }
-.conference-schedules.timetable .event.poster h3 { margin: 10px 0; font-size: 16px; text-align: center; }
+.conference-schedules.timetable .event.poster h3, .conference-schedules.timetable .event.poster .stripe-checkout h1, .stripe-checkout .conference-schedules.timetable .event.poster h1 { margin: 10px 0; font-size: 16px; text-align: center; }
 .conference-schedules.timetable .event.poster ul { columns: 2; -moz-columns: 2; -webkit-columns: 2; -o-columns: 2; -ms-columns: 2; list-style: disc; margin-left: 15px; }
 .conference-schedules.timetable .event.poster ul li a { /* necessario per far funzionare l'height */ display: inline-block; height: 16px; line-height: 16px; overflow: hidden; text-transform: lowercase; }
 .conference-schedules.timetable .event.partner-program .abstract { height: 260px; }
@@ -2420,7 +2428,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 */ }
 .conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.beginner { background: #738023; }
 .conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.intermediate { background: #e7c30f; }
-.conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.advanced { background: #da2300; }
+.conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.advanced { background: #DA2300; }
 .conference-schedules.timetable .event .warning.overbook { position: absolute; top: 2px; right: 2px; }
 .conference-schedules.timetable .event.exposed .warning.overbook { top: 4px; right: 30px; }
 
@@ -2430,13 +2438,13 @@ body#schedule > .page > .container { margin-left: 60px; }
 #schedule-navigator .disabled { color: #999; opacity: 0.7; }
 #schedule-navigator > div { float: left; height: 40px; margin: 0; padding: 0 10px !important; line-height: 32px; }
 #schedule-navigator > div > div { display: none; position: absolute; border: 1px solid #bcbab2; transform: rotate(90deg) translate(15px, -10px); -moz-transform: rotate(90deg) translate(15px, -10px); -o-transform: rotate(90deg) translate(15px, -10px); -webkit-transform: rotate(90deg) translate(15px, -10px); -ms-transform: rotate(90deg) translate(15px, -10px); transform-origin: left top; -moz-transform-origin: left top; -webkit-transform-origin: left top; -o-transform-origin: left top; -ms-transform-origin: left top; background: white; width: 12em; }
-#schedule-navigator > div > div h3 { padding: 0.375em 7.5px; margin-bottom: 0; font-size: 14px; font-size: 1.4rem; text-transform: uppercase; background: #d4d2cd; }
+#schedule-navigator > div > div h3, #schedule-navigator > div > div .stripe-checkout h1, .stripe-checkout #schedule-navigator > div > div h1 { padding: 0.375em 7.5px; margin-bottom: 0; font-size: 14px; font-size: 1.4rem; text-transform: uppercase; background: #d4d2cd; }
 #schedule-navigator > div > div ul { margin: 0; padding: 0; }
 #schedule-navigator > div > div ul li { padding: 0.1875em 7.5px; font-size: 16px; font-size: 1.6rem; }
 #schedule-navigator > div > div .tag-list { display: none; }
 #schedule-navigator > div:first-child { background: #301D1D; color: #FCFAD9; font-weight: bold; padding: 4px 8px; }
 #schedule-navigator > div.selected { background-color: #807c6f; }
-#schedule-navigator > div.selected > a { color: white; }
+#schedule-navigator > div.selected > a { color: #ffffff; }
 #schedule-navigator > div.selected a.filter-active { color: #878181; opacity: .6; }
 #schedule-navigator > div.selected a.highlight-active { font-weight: bold; }
 #schedule-navigator .tag-list { position: absolute; top: 0; left: 160px; background: white; border: 2px solid #7D6F60; padding: 0.375em 7.5px; line-height: 20px; width: 630px; }
@@ -2524,7 +2532,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable.vertical-narrow .tracks-9 { width: 900px; }
 .conference-schedules.timetable.vertical-narrow .track .title { position: absolute; width: 100%; top: 0; text-align: center; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0], .conference-schedules.timetable.vertical-narrow .track[data-track=partner1], .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] { /* l'attributo data-intersection indica il livello di overlap, o1 significa che al massimo ci sono due eventi che si sovrappongono */ }
-.conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event { /* imposto il right (che in questo caso è equivalente a left=0) per ottenere a costo zero l'apertura della versione "exposed" verso sinistra (utile perché la colonna partner-program è sulla destra dello schedule) */ right: 0; background-color: #fff0ef; }
+.conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event { /* imposto il right (che in questo caso è equivalente a left=0) per ottenere a costo zero l'apertura della versione "exposed" verso sinistra (utile perché la colonna partner-program è sulla destra dello schedule) */ right: 0; background-color: #FFF0EF; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event[data-intersection=o1], .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event[data-intersection=o1], .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event[data-intersection=o1] { width: 75px; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event[data-intersection=o1].left-intersection-0, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event[data-intersection=o1].left-intersection-0, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event[data-intersection=o1].left-intersection-0 { right: 25px; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event[data-intersection=o1].left-intersection-1, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event[data-intersection=o1].left-intersection-1, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event[data-intersection=o1].left-intersection-1 { right: 0; z-index: 102; box-shadow: -3px 3px 8px 0 #aaa; }
@@ -2705,7 +2713,7 @@ Per me non c'è abbastanza differenza stilistica/dimensione tra titolo del talk 
 */
 @media print { * { background: transparent !important; color: black !important; box-shadow: none !important; text-shadow: none !important; }
   @page { margin: 0.5cm; }
-  h2, h3 { orphans: 3; widows: 3; page-break-after: avoid; }
+  h2, h3, .stripe-checkout h1 { orphans: 3; widows: 3; page-break-after: avoid; }
   p { orphans: 3; widows: 3; }
   pre, blockquote { border: 1px solid #666; page-break-inside: avoid; }
   abbr[title]:after { content: " (" attr(title) ")"; }
@@ -2954,3 +2962,5 @@ Per me non c'è abbastanza differenza stilistica/dimensione tra titolo del talk 
 .grid-100 { clear: both; width: 100%; }
 
 body { min-width: 767px; }
+
+/*# sourceMappingURL=lte-ie8.css.map */
