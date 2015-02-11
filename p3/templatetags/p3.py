@@ -572,6 +572,10 @@ def all_user_tickets(context, uid=None, conference=None, status="complete", fare
 def p3_tags():
     return dataaccess.tags()
 
+@fancy_tag(register)
+def p3_tags_for_talks():
+    return dataaccess.tags_for_proposed_talks()
+
 @fancy_tag(register, takes_context=True)
 def render_profile_box(context, profile, conference=None, user_message="auto"):
     if conference is None:
