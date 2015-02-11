@@ -70,8 +70,13 @@
             user.email = "";
             user.tickets = [];
         {% endif %}
-        {% p3_tags as ptags %}
-        {% conference_js_data tags=ptags %}
+    </script>
+
+    <script type="text/javascript">
+        {% block CONFERENCE_JS_DATA %}
+            {% p3_tags as ptags %}
+            {% conference_js_data tags=ptags %}
+        {% endblock %}
     </script>
 
     <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/vendor/modernizr-min.js"></script>

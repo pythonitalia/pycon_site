@@ -421,6 +421,12 @@ CONFERENCE_TALKS_RANKING_FILE = SITE_DATA_ROOT + '/rankings.txt'
 CONFERENCE_ADMIN_TICKETS_STATS_EMAIL_LOG = SITE_DATA_ROOT + '/admin_ticket_emails.txt'
 CONFERENCE_ADMIN_TICKETS_STATS_EMAIL_LOAD_LIBRARY = ['p3', 'conference']
 
+CONFERENCE_VOTING_TALK_TYPES = (
+    ('all', 'All'),
+    ('s', 'Talks'),
+    ('t', 'Trainings'),
+)
+
 
 def CONFERENCE_TICKETS(conf, ticket_type=None, fare_code=None):
     from conference import models
