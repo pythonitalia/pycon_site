@@ -32,20 +32,23 @@
             </div>
         </div>
             <!-- NOTICE -->
-        <div class="grid-container">
-            <div class="grid-100 media-body notice">
-                <div class="deadline-homepage">
-                    <h3 class="media-heading">{% trans "Call for Proposals is <span>open</span>" %}</h3>
-                    {% placeholder "cfp_teaser_text" as cfp_text %}
-                    {% if cfp_text %}
-                        <p class="">{{ cfp_text }}</p>
-                    {% endif %} 
-                </div><!-- /media-body -->
-            <div>
-            <div class="deadline-button">
-                <a class="btn btn-primary" href="{% page_url 'cfp' %}">{% trans "Submit your proposal" %}</a>
+        {% current_conference as conf %}
+        {% if conf.cfp %}
+            <div class="grid-container">
+                <div class="grid-100 media-body notice">
+                    <div class="deadline-homepage">
+                        <h3 class="media-heading">{% trans "Call for Proposals is <span>open</span>" %}</h3>
+                        {% placeholder "cfp_teaser_text" as cfp_text %}
+                        {% if cfp_text %}
+                            <p class="">{{ cfp_text }}</p>
+                        {% endif %}
+                    </div><!-- /media-body -->
+                <div>
+                <div class="deadline-button">
+                    <a class="btn btn-primary" href="{% page_url 'cfp' %}">{% trans "Submit your proposal" %}</a>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </section>
     {% endif %}
 
