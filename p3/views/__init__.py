@@ -473,9 +473,9 @@ def genro_invoice_pdf(request, assopy_id):
 # ----
 def subcommunity_talk_voting(request):
     """
-
-    :param request:
-    :return:
+    View Callback used for community talk voting.
+    This view wraps the conference voting view,
+    and adds a talk filter based on sub_communities.
     """
 
     if request.method == 'POST':
