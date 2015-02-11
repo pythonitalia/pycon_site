@@ -574,7 +574,8 @@ def p3_tags():
 
 @fancy_tag(register)
 def p3_tags_for_talks():
-    return dataaccess.tags_for_proposed_talks()
+    conference = settings.CONFERENCE_CONFERENCE
+    return dataaccess.tags_for_conference_talks(conference=conference)
 
 @fancy_tag(register, takes_context=True)
 def render_profile_box(context, profile, conference=None, user_message="auto"):

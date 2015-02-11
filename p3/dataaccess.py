@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 
 # used in `tags_for_proposed_talks` method
-from django.conf import settings
 from collections import defaultdict
 # --
 
@@ -271,7 +270,7 @@ tags = cache_me(
     signals=(cdata.tags.invalidated,),
     models=(models.P3Profile, cmodels.AttendeeProfile))(tags)
 
-def tags_for_proposed_talks():
+def tags_for_conference_talks(conference, status=None):
     """
     This function gets the list of all tags associated to proposed talks
     submitted to the current conference.
@@ -285,8 +284,7 @@ def tags_for_proposed_talks():
         Values are sets of tuples (couples) - (content_type_id, object_id) -
         from `ConferenceTaggedItems` associated to each tag.
     """
-    conference = settings.CONFERENCE_CONFERENCE
-    tags_for_talks = cdata.tags_for_talks(conference=conference, status='proposed')
+    tags_for_talks = cdata.tags_for_talks(conference=conference, status=status)
     tags = defaultdict(set)
     for conference_tag in tags_for_talks:
         tagged_items = conference_tag.conference_conferencetaggeditem_items.all()
