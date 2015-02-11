@@ -23,7 +23,15 @@ from email_template import utils
 
 import logging
 import uuid
-from collections import defaultdict
+
+# New imports used in `subcommunity_talk_voting`
+from conference.views import voting, get_data_for_context, filter_talks_in_context
+from conference import settings as csettings
+from conference.forms import PseudoRadioRenderer, OptionForm
+from p3.forms import TALK_SUBCOMMUNITY
+from p3.models import P3Talk
+from django.utils.translation import ugettext as _
+# -----------------------------
 
 log = logging.getLogger('p3.views')
 
@@ -461,6 +469,73 @@ def genro_invoice_pdf(request, assopy_id):
     response = http.HttpResponse(f, mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="%s"' % fname
     return response
+
+# ----
+def subcommunity_talk_voting(request):
+    """
+
+    :param request:
+    :return:
+    """
+
+    if request.method == 'POST':
+        return voting(request)
+    else:
+        conf, talks, voting_allowed = get_data_for_context(request)
+
+        if not csettings.VOTING_OPENED(conf, request.user):
+            if csettings.VOTING_CLOSED:
+                return redirect(csettings.VOTING_CLOSED)
+            else:
+                raise http.Http404()
+
+        ctx = filter_talks_in_context(request, talks, voting_allowed)
+        filtered_talks = ctx['talks']
+
+        sub_community_choices = [list(v) for v in TALK_SUBCOMMUNITY]
+        sub_community_choices[0][1] = _('All')
+
+        class SubCommunityOptionForm(OptionForm):
+            sub_community = forms.ChoiceField(
+                choices=sub_community_choices,
+                required=False,
+                initial='',
+                widget=forms.RadioSelect(renderer=PseudoRadioRenderer),
+            )
+
+        if request.GET:
+            form = SubCommunityOptionForm(data=request.GET)
+            form.is_valid()
+            options = form.cleaned_data
+        else:
+            form = SubCommunityOptionForm()
+            options = {
+                'abstracts': 'not-voted',
+                'talk_type': '',
+                'language': '',
+                'tags': '',
+                'order': 'vote',
+                'sub_community': '',
+            }
+
+        if options['sub_community'] != '':
+            sub_community_talks = P3Talk.objects.filter(
+                sub_community=options['sub_community'])
+            sub_community_talks = [p3talk.pk for p3talk in sub_community_talks]
+            talks_id = [t['id'] for t in filtered_talks]
+            talks = list()
+            for idx, tid in enumerate(talks_id):
+                if tid in sub_community_talks:
+                    talks.append(filtered_talks[idx])
+            ctx.update({'talks': talks})
+        ctx.update({'form': form})
+
+        if request.is_ajax():
+            tpl = 'conference/ajax/voting.html'
+        else:
+            tpl = 'conference/voting.html'
+        return render(request, tpl, ctx)
+
 
 from p3.views.cart import *
 from p3.views.live import *
