@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-{% load conference pages_tags i18n tagging_tags p3 %}
-<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% load conference cms_tags menu_tags sekizai_tags i18n tagging_tags p3 static thumbnail %}
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
 <head>
     <meta charset="UTF-8" />
+    <title>{% block PAGE_TITLE %}{% if current_page %}{% page_attribute "title" %}{% endif %}{% endblock %} &middot; PyCon Sei &middot; Firenze, 17–19 Aprile 2015</title>
 
-    <title>{% block PAGE_TITLE %}{% if current_page %}{% show_content current_page "title" %} &mdash; {% endif %}{% endblock %} EuroPython 2013: Florence, July 1&ndash;7</title>
+    {% block HEAD_VIEWPORT %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% endblock %}
+    <meta http-equiv="cleartype" content="on" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <link rel="shortcut icon" href="{{ STATIC_URL }}p5/i/favicon.ico" />
-    <link rel="icon" href="{{ STATIC_URL }}p5/i/favicon.png" type="image/png" />
+    <meta name="description" content="" />
+    <meta name="author" content="Python Italia" />
 
-    {% if current_page and request.user.is_staff %}
-    <link rel="alternate" type="application/x-wiki" title="Edit this page!" href="{% url admin:pages_page_change current_page.pk %}"/>
-    {% endif %}
+    <link rel="shortcut icon" href="{{ STATIC_URL }}p6/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ STATIC_URL }}p6/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}p6/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}p6/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ STATIC_URL }}p6/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ STATIC_URL }}p6/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ STATIC_URL }}p6/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ STATIC_URL }}p6/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ STATIC_URL }}p6/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}p6/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p6/images/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p6/images/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p6/images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p6/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p6/images/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#ffffff  ">
+    <meta name="msapplication-TileImage" content="{{ STATIC_URL }}p6/images/mstile-144x144.png">
+    <meta name="msapplication-square70x70logo" content="{{ STATIC_URL }}p6/images/mstile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="{{ STATIC_URL }}p6/images/mstile-150x150.png">
+    <meta name="msapplication-square310x310logo" content="{{ STATIC_URL }}p6/images/mstile-310x310.png">
+    <meta name="msapplication-wide310x150logo" content="{{ STATIC_URL }}p6/images/mstile-310x150.png">
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/reset.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/grid.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/form.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/base.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/cms.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/wizard.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/schedule.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/mobile.css" type="text/css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/blog.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/pygments.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/j/rateit/src/rateit.css" type="text/css" />
 
-    <link type="text/css" href="{{ STATIC_URL }}conference/jquery-ui/css/flick/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
-<!--[if lt IE 9]>
-    <script src="{{ STATIC_URL }}p5/j/html5.js"></script>
-    <link rel="stylesheet" href="{{ STATIC_URL }}p5/s/ie.css" type="text/css" media="screen, projection" />
-<![endif]-->
+    <!-- For all browsers -->
+    <!--[if (gt IE 8) | (IEMobile)]><!-->
+        <link rel="stylesheet" href="{{ STATIC_URL }}p6/stylesheets/all.css" type="text/css" />
+        <link type="text/css" href="{{ STATIC_URL }}conference/jquery-ui/css/flick/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+    <!--
+        <link rel="stylesheet" href="{{ STATIC_URL }}p6/s/pygments.css" type="text/css" media="all" />
+    -->
+    <!--<![endif]-->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+        <script src='{{ STATIC_URL }}p6/javascripts/vendor/selectivizr-min.js'></script>
+        <link rel='stylesheet' href='{{ STATIC_URL }}p5/stylesheets/lte-ie8.css'>
+    <![endif]-->
+
     <link rel="alternate" type="application/rss+xml" title="Ultimi post" href="/blog/feeds/latest/" />
+    <!-- JavaScript -->
     <script>
         var STATIC_URL = {{ STATIC_URL|json_ }};
         var user = {
@@ -47,312 +70,155 @@
             user.email = "";
             user.tickets = [];
         {% endif %}
-        {% p3_tags as ptags %}
-        {% conference_js_data tags=ptags %}
     </script>
+
+    <script type="text/javascript">
+        {% block CONFERENCE_JS_DATA %}
+            {% p3_tags as ptags %}
+            {% conference_js_data tags=ptags %}
+        {% endblock %}
+    </script>
+
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/vendor/modernizr-min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}conference/jquery-ui/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}p5/j/jquerytools/1.2.5/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/jquerytools/1.2.5/jquery.tools.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}conference/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}conference/init.js"></script>
-
     <script type="text/javascript" src="{{ STATIC_URL }}conference/jquery.form.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}p5/j/utils.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}p5/j/rateit/src/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/utils.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/parallax.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/rateit/src/jquery.rateit.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}hcomments/j/hcomments.js"></script>
-    {% if current_page|check_map %}
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/slick.min.js"></script>
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="{% url p3-map-js %}"></script>
-    {% endif %}
+    <script type="text/javascript" src="{% url "p3-map-js" %}"></script>
     {% block EXTRA_HEAD %}{% endblock %}
 
     <!-- verification for YouTube channel -->
     <meta name="google-site-verification" content="kBsSy1heDIyy-W34t57N5-RsOKonmK54u7zn0mC8mv8" />
-
+    {% render_block "css" %}
     {% block OPENGRAPH %}
-    <meta property="og:image" content="{{ DEFAULT_URL_PREFIX }}{{ STATIC_URL }}p5/i/europython-logo-quad.jpg" />
+    <meta property="og:image" content="https://www.pycon.it/media/filer_public/68/44/6844ea4f-0676-4cfc-a6e7-11559dc95639/pycon6_150.png" />
     <meta property="fb:admins" content="789244177" />
     {% endblock %}
 </head>
-<body id="{% block BODY_ID %}{% endblock %}"{% if current_page.status == 0 or current_page.status == 2 or current_page.status == 3 %} class="draft"{% endif %}>
-
- <!--[if lt IE 8]>
-    <div id="promptChromeFrame">
-    </div>
-  <![endif]-->
-
-
+<body id="{% block BODY_ID %}{% endblock %}" class="{% block body-class %}content-tpl{% endblock %}">
+{% cms_toolbar %}
+{% if request.toolbar.edit_mode %}<div class="draft"></div>{% endif %}
+<!--[if lt IE 8]>
+<div id="promptChromeFrame">
+</div>
+<![endif]-->
 {% block HEADER_BLOCK %}
-{% if messages %}
-{% for m in messages %}
-<div class="feedback{% if m.tags %} {{ m.tags }}{% endif %}">{{ m }}</div>
-{% endfor %}
-{% endif %}
-<header>
+    {% if messages %}
+    {% for m in messages %}
+        <div class="feedback{% if m.tags %} {{ m.tags }}{% endif %}">{{ m }}</div>
+    {% endfor %}
+    {% endif %}
     {% block TOP_NAV_BLOCK %}
-    <nav class="darker">
-        <div class="container clearfix">
-
-            <div class="span-9">
-                <ul>
-                    {% with request.META.PATH_INFO as pth %}
-                    <li class="{% ifequal pth "/" %}current{% endifequal %}">
-                        <a href="/">Home</a>
-                    </li>
-                    {% endwith %}
-
-                    {% navigation "menu1" as pages %}
-                    {% for page in pages %}
-                    <li class="{% ifequal current_page.slug page.slug %}current{% endifequal %}">
-                        <a href="{{ page.url }}" title="">{{ page.title }}</a>
-                    </li>
-                    {% endfor %}
-                    {% with request.META.PATH_INFO|slice:"1:5" as f %}
-                    <li class="{% ifequal f "blog" %}current{% endifequal %}">
-                        <a href="/blog/">Blog</a>
-                    </li>
-                    {% endwith %}
-                </ul>
-                <form class="hidden" id="change-language" action="/i18n/setlang/" method="post"><div style="display: inline;"><input type="hidden" name="language" value="" /></div></form>
-            </div>
-
-            <div class="span-3 last">
-                <div class="user">
-                    {% if request.user.is_authenticated %}
-                        <a href="{% url assopy-profile %}"><b>{{ request.user.assopy_user.name }}</b></a> &bull;
-                        {% if request.user.is_staff %}
-                        <a href="/admin/"><b>A</b></a> &bull;
-                        {% endif %}
-                        {% if request.session.doppelganger %}
-                        <a href="{% url admin:auser-kill-doppelganger %}" title="kill the doppelganger"><b>K</b></a> &bull;
-                        {% endif %}
-                        <a href="/accounts/logout/?next=/">Log out</a>
-                    {% else %}
-                        <a href="/accounts/login/?next={{ request.META.PATH_INFO }}">Log in</a>
+        <a href="#navigation-toggle" class="navigation-toggle"><i title="Menu" class="fa fa-bars"></i></a>
+        <nav id="navigation-toggle" role="navigation">
+            <ul class="clearfix">
+                {% show_menu 0 1 1 1  %}
+                {% language_chooser "p3/includes/langnav.html" "native" %}
+                <li class="right">
+                {% if request.user.is_authenticated %}
+                    <a class="username" href="{% url "assopy-profile" %}"><i class="fa fa-user"></i>&nbsp;{{ request.user.assopy_user.name }}</a>
+                    {% if request.user.is_staff %}
+                        <a title="Enter admin" href="/admin/"><i class="fa fa-wrench"></i></a>
                     {% endif %}
-                </div>
-            </div>
-        </div>
-    </nav>
+                    {% if request.session.doppelganger %}
+                        <a href="{% url "admin:auser-kill-doppelganger" %}" title="Kill doppelganger"><i class="fa fa-bolt"></i></a>
+                    {% endif %}
+                        <a href="/accounts/logout/?next=/"><i class="fa fa-sign-out"></i>Log out</a>
+                {% else %}
+                    <a href="/accounts/login/?next={{ request.META.PATH_INFO }}">Log in</a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav>
     {% endblock %}
-
-    <div class="container clearfix">
-        {% comment %}
-        <section class="notice countdown">
-            <div class="baron"></div>
-            {% if COUNTDOWN.conference > 1 %}
-            <strong>Hurry up!</strong> only {{ COUNTDOWN.conference }} tickets left
-            {% elif COUNTDOWN.conference == 1 %}
-            <strong>Hurry up!</strong> only {{ COUNTDOWN.conference }} ticket left
-            {% else %}
-            <strong>Conference SOLD OUT!</strong>
-            {% endif %}
-            <a href="https://ep2013.europython.eu/blog/2013/05/20/enjoy-your-evenings">PyBarbecue</a>
-            {% if COUNTDOWN.pyfiorentina >= 0 %}
-            seats left: <strong>{{ COUNTDOWN.pyfiorentina }}</strong>!
-            {% else %}
-            few seats left!
-            {% endif %}
-        </section>
-        {% endcomment %}
-    </div>
-
-    <div class="container clearfix">
- <!--[if lt IE 8]>
-    <script type="text/javascript" 
-     src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-
-    <style>
-     .chromeFrameInstallDefaultStyle {
-       width: 820px; /* default is 800px */
-       height: 680px;
-       border: 5px solid blue;
-     }
-     body { filter: alpha(opacity=30); }
-     body header > .container { position:relative }
-     .chromeFrameDiv {
-       position: absolute;
-       z-index: 10;
-       background: white;
-       top: 120px; left: 160px;
-       border: 5px solid blue;
-       padding: 10px;
-     }
-     #promptChromeFrame {
-       z-index: 11;
-     }
-    </style>
-
-    <div class="chromeFrameDiv">
-       <h1 align="center">This website is not compatible with your browser</h1>
-       <p align="center">To browse this website, you need to activate the Google Chrome Frame plugin.</p>
-       <p align="center"><button onclick="CFInstall.check({mode:'inline',node:'promptChromeFrame'});">Click here to proceed</button></p>
-    </div>
- <![endif]-->
-
-        <div class="span-6">
-        {% block LOGO %}
-            <div class="logo">
-{% if 0 %}
-                <a title="EuroPython home" href="/"><img src="{{ STATIC_URL }}p5/i/europython-logo.png" alt="EuroPython 2013" title="" width="330" height="110" /></a>
-{% else %}
-                <a title="EuroPython home" href="/"><img src="/media/uploads/ep_logodate2_big.png" alt="EuroPython 2013" title="" width="330" height="110" /></a>
-{% endif %}
-            </div>
-        {% endblock %}
-        </div>
-        <div class="span-3">
-            {% fares_available "conference" sort="price" as fares %}
-            {% if not fares %}
-                {% fares_available "all" sort="price" as fares %}
-            {% endif %}
-            {% if fares %}
-            <div class="buy badge">
-                <h5><a href="/registration/">Buy Tickets</a></h5>
-                Starting from <b>{{ fares.0.price }}€</b>
-            </div>
-            {% else %}
-            &nbsp;
-            {% endif %}
-        </div>
-        <div class="span-3 last">
-            <div id="habla_available_div" class="badge chat hidden">
-                <h5><a href="#">Get Support</a></h5>
-                Chat with organizers
-            </div>
-            <div id="habla_unavailable_div" class="badge chat unavailable">
-                <h5><a href="#">Support unavailable</a></h5>
-                Please try again later
-            </div>
-        </div>
-    </div>
-</header>
 {% endblock %}
 
+<div class="container">
 
-{% block TEASER %}{% endblock %}
+{% block HEADER %}
+    <header role="banner">
+        <div class="grid-container">
+            <div class="grid-60 prefix-20">
+                <div class="branding"><a href="/" title="Home"><img src="{{STATIC_URL}}p6/images/pycon-sei-logo.png" alt="*" ></a></div>
+            </div>
+        </div><!-- /grid-container -->
+    </header>
+{% endblock %}
 
-<div class="page {% block BODY_CLASS %}{% endblock %}">
-    <div class="container clearfix">
-        {% block MAIN_CONTENT %}{% endblock %}
-    </div>
+<div class="page clearfix">
+    {% block TEASER %}{% endblock %}
+    {% block MAIN_CONTENT %}{% endblock %}
 </div>
 
-{% block SPONSORS %}
-
-<section class="sponsors">
-    <h5>Our Sponsors</h5>
-    {% conference_sponsor as sponsors %}
-    {% for s in sponsors %}
-        <div class="ad">
-            <a href="{{ s.url }}"><img class="block" src="{{ s.logo|image_resized }}" alt="{{ s.alt_text }}" title="{% firstof s.title_text s.sponsor %}" width="110" height="50" /></a>
-        </div>
-    {% endfor %}
-    <div class="ad">
-        <a href="/sponsor/"><img class="block" src="{{ STATIC_URL }}p5/i/sponsor-wanted.png" alt="Wanna sponsor?" width="110" height="50" /></a>
-    </div>
-</section>
-
-{% endblock %}
-
 {% block FOOTER_BLOCK %}
-<footer>
-    <div class="container clearfix">
-
-            <div class="span-3">
-                <nav class="darker">
-                    <h5>&nbsp;</h5>
-                    <ul>
-                        {% block BOTTOM_NAV_BLOCK %}
-                        {% navigation "menu3" as pages %}
-                        {% for page in pages %}
-                        <li><a href="{{ page.url }}" title="">{{ page.title }}</a></li>
-                        {% endfor %}
-                        {% endblock %}
-
-                        <li class="sep"><img src="{{ STATIC_URL }}p5/i/facebook-16x16.png" alt="" width="16" height="16" />&nbsp;<a href="http://www.facebook.com/pages/EuroPython/196457473701266">EuroPython on Facebook</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="span-5">
-                {% box_latest_tweets %}
-            </div>
-
-            <div class="span-4 last">
-                <div class="donate">
-                    <h5><span>Please</span> Donate</h5>
-                    <p>EuroPython is organized by the Python Italia no-profit association. We are able to accept donations through PayPal and credit card, and we welcome any kind of contribution that will be exclusively used for improving the EuroPython event for everyone. Thanks!</p>
-                    <p class="we-accept">
-                        <img src="{{ STATIC_URL }}p5/i/icon-visa.png" alt="Visa" width="32" height="32" />
-                        <img src="{{ STATIC_URL }}p5/i/icon-mastercard.png" alt="Mastercard" width="32" height="32" />
-                        <img src="{{ STATIC_URL }}p5/i/icon-amex.png" alt="Amex" width="32" height="32" />
-                        <img src="{{ STATIC_URL }}p5/i/icon-paypal.png" alt="Paypal" width="32" height="32" />
-                    </p>
-
-                    <div class="button mini">
-                        <form id="donate-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                            <input type="hidden" name="cmd" value="_s-xclick" />
-                            <input type="hidden" name="hosted_button_id" value="PDVV2CL2WVLLG" />
-                            <img alt="" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1" />
-                            <a href="#" title="PayPal - The safer, easier way to pay online!">Donate Now</a>
-                            <script type="text/javascript">
-                            $('#donate-form a').click(function(e) {
-                                e.preventDefault();
-                                $('#donate-form').submit();
-                            });
-                            </script>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <hr />
-
-            <div class="span-8">
-                <div class="darker legalese">
-                    <p>&copy; 2007&ndash;2013 <a href="/python-italia/">Python Italia</a>, with <a href="http://creativecommons.org/licenses/by-nd/3.0/">some rights reserved</a>.</p>
-                </div>
-            </div>
-
-            <div class="span-4 last">
-                <div class="darker feeds">
-                    <img src="{{ STATIC_URL }}p5/i/icon-feed.png" alt="" width="12" height="12" />&nbsp;<a href="/blog/feeds/latest/">Recent blog posts</a>
-                </div>
-            </div>
+<footer role="contentinfo">
+<div class="bg-red">
+    <div class="grid-container">
+        <div class="grid-50 prefix-25">
+            <a href="https://www.facebook.com/pyconitalia" target="_blank"><img src="{% static 'p6/images/facebook.svg' %}" /></a>
+            <a href="https://twitter.com/pyconit" target="_blank"><img src="{% static 'p6/images/twitter.svg' %}" /></a>
+            <a href="/blog/feeds/latest/"><img src="{% static 'p6/images/rss.svg' %}" /></a>
+        </div>
     </div>
+</div>
+<div class="bg-grey">
+    <ul class="footer-menu">
+        <li><a href="{% page_url 'contacts' %}">{% page_attribute 'menu_title' 'contacts'  %}</a></li>
+        <li><a href="{% page_url 'privacy' %}">{% page_attribute 'menu_title' 'privacy'  %}</a></li>
+        <li><a href="{% page_url 'conduct-code' %}">{% page_attribute 'menu_title' 'conduct-code'  %}</a></li>
+    </ul>
+</div>
+<div class="join-us">
+    <div class="grid-container">
+        <div class="grid-100 help-text">
+            {% static_placeholder "help_text" %}
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT ---><table width=125 border=0 cellspacing=0 cellpadding=0 title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information." ><tr><td><span id="ss_img_wrapper_gmogs_image_125-50_en_black"><a href="https://www.globalsign.eu/" target=_blank title="GlobalSign Site Seal" rel="nofollow"><img alt="SSL" border=0 id="ss_img" src="//seal.globalsign.com/SiteSeal/images/gs_noscript_125-50_en.gif"></a></span><script type="text/javascript" src="//seal.globalsign.com/SiteSeal/gmogs_image_125-50_en_black.js"></script></td></tr></table><!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT --->
+    <p>&copy; 2007&ndash;2014 <a href="/python-italia/">Python Italia</a> with <a href="http://creativecommons.org/licenses/by-nd/3.0/">some rights reserved</a>.</p>
+</div>
 
 </footer>
+
+</div><!-- container -->
+
 {% endblock %}
     <div id="global-overlay" class="overlay"><div class="contentWrap"></div></div>
     <script type="text/javascript">
         setup_fragment();
     </script>
-    {% comment %}
-    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-    {% endcomment %}
+    {% render_block "js" %}
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
     <script type="text/javascript">
         try {
-            var pageTracker = _gat._getTracker("UA-20969067-1");
+            var pageTracker = _gat._getTracker("UA-1860245-1");
             pageTracker._trackPageview();
         } catch(err) {
         }
     </script>
     {% olark_chat %}
     <script type='text/javascript'>
-    $('#habla_available_div').click(function(e) {
+    $('#habla-available').click(function(e) {
         e.preventDefault();
         olark('api.box.expand');
     });
     olark('api.chat.onOperatorsAvailable', function() {
-        $('#habla_available_div').show();
-        $('#habla_unavailable_div').hide();
+        $('#habla-available').show();
+        $('#habla-unavailable').hide();
     });
     </script>
-    {% comment %}Twitter library used by the follow button{% endcomment %}
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     <script type="text/javascript">
         var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
@@ -364,5 +230,28 @@
             xdReceiver: '/static/p5/x/rpx_xdcomm.html'
         });
     </script>
+    <script type="text/javascript">
+
+        $('.learn-with-pycon').parallax({
+            speed : 0.3
+        });
+    </script>
+    <!-- @@TODO We should really use head.js -->
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/vendor/bootstrap-min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/nav-patterns/responsive-nav.min.js"></script>
+    <script type="text/javascript">
+        // <![CDATA[
+        {% block script %}
+        {% endblock script %}
+        $(function () {
+            {% block script_ready %}
+
+            {% endblock %}
+            {% render_block "script_ready" %}
+        });
+        {% render_block "script" %}
+        // ]]>
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}p6/javascripts/vendor/retina.js"></script>
 </body>
 </html>

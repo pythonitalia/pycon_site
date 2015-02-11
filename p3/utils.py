@@ -5,6 +5,7 @@ from collections import defaultdict
 from conference.models import Conference, AttendeeProfile
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from p3 import models as p3models
 
 def conference_ticket_badge(tickets):
     """
@@ -26,7 +27,10 @@ def conference_ticket_badge(tickets):
                 'plugin': os.path.join(settings.OTHER_STUFF, 'badge', t.fare.conference, 'conf.py'),
                 'tickets': [],
             }
-        p3c = t.p3_conference
+        try:
+            p3c = t.p3_conference
+        except p3models.TicketConference.DoesNotExist:
+            p3c = None
         if p3c is None:
             tagline = ''
             days = '1'
@@ -152,8 +156,8 @@ def conference2ical(conf, user=None, abstract=False):
             if hotel:
                 data['coordinates'] = [hotel.lat, hotel.lng]
             if not isinstance(data['summary'], tuple):
-                # questo è un evento custom, se inizia con un anchor posso
-                # estrane il riferimento
+                # this is a custom event, if it starts with an anchor I can
+                # extract the reference
                 import re
                 m = re.match(r'<a href="(.*)">(.*)</a>', data['summary'])
                 if m:
