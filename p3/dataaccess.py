@@ -7,6 +7,10 @@ from p3 import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 
+# used in `tags_for_proposed_talks` method
+from collections import defaultdict
+# --
+
 cache_me = cachef.CacheFunction(prefix='p3:')
 
 def profile_data(uid, preload=None):
@@ -265,3 +269,26 @@ def tags():
 tags = cache_me(
     signals=(cdata.tags.invalidated,),
     models=(models.P3Profile, cmodels.AttendeeProfile))(tags)
+
+def tags_for_conference_talks(conference, status=None):
+    """
+    This function gets the list of all tags associated to proposed talks
+    submitted to the current conference.
+    The method relies on the `conference.dataaccess.tags_for_talks`
+    function to actually get the data.
+    Afterwards, acquired data are rearranged according to the data structure
+    expected by the `conference.conference_js_data` templatetags.
+
+    :return: tags (dictionary)
+        The keys of the dictionary are `conferenceTag` instances.
+        Values are sets of tuples (couples) - (content_type_id, object_id) -
+        from `ConferenceTaggedItems` associated to each tag.
+    """
+    tags_for_talks = cdata.tags_for_talks(conference=conference, status=status)
+    tags = defaultdict(set)
+    for conference_tag in tags_for_talks:
+        tagged_items = conference_tag.conference_conferencetaggeditem_items.all()
+        for item in tagged_items:
+            tags[conference_tag].add((item.content_type_id, item.object_id))
+    return tags
+
