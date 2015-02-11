@@ -4,6 +4,25 @@
 
 {% block PAGE_TITLE %}{% trans "Talk voting" %}{% endblock %}
 
+{% block CONFERENCE_JS_DATA %}
+    {% p3_tags_for_talks as ptags %}
+    {% conference_js_data tags=ptags %}
+{% endblock %}
+
+{% block EXTRA_HEAD %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.tag-toggle').click(function(){
+                if ($(this).hasClass('trigger-expanded')){
+                    $(this).removeClass('trigger-expanded');
+                } else {
+                    $(this).addClass('trigger-expanded');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block MAIN_CONTENT %}
     {% if not voting_allowed %}
         {% url "p3-cart" as cart_url %}

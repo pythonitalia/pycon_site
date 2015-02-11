@@ -146,7 +146,18 @@ figure figcaption { display: block; font-weight: normal; font-size: 14px; font-s
 .meta, #talk-voting .talk-speakers, .person-card .see-more { color: #807c6f; }
 .meta a:link, #talk-voting .talk-speakers a:link, .person-card .see-more a:link, .meta a:visited, #talk-voting .talk-speakers a:visited, .person-card .see-more a:visited { color: #807c6f; }
 
-.tag { background: #d4d2cd; border: 1px solid #bcbab2; border-radius: 4px; padding: 0 6px; display: inline-block; font-size: 14px; font-size: 1.4rem; margin-right: 7.5px; margin-bottom: 0.375em; }
+/*.tag { background: #d4d2cd; border: 1px solid #bcbab2; border-radius: 4px; padding: 0 6px; display: inline-block; font-size: 14px; font-size: 1.4rem; margin-right: 7.5px; margin-bottom: 0.375em; }*/
+.tag {
+    background: #d4d2cd;
+    border: 1px solid #bcbab2;
+    border-radius: 4px;
+    padding: 0 6px;
+    display: inline-block;
+    /*font-size: 14px;*/
+    font-size: 1.2rem;
+    margin-right: 6.5px;
+    margin-bottom: 0.375em;
+}
 
 a.tag:hover { background: white; text-decoration: none; }
 
@@ -2764,9 +2775,16 @@ form .no-label label { display: none !important; visibility: hidden; }
 .autocomplete ul { margin: 0; padding: 0; }
 .autocomplete li { padding: 0 0 0.75em 0; }
 
-.toggle, .tag-toggle { padding: 0 0 0 15px; cursor: pointer; background: transparent url(../images/icon-arr-down.png) left center no-repeat; }
+/*.toggle, .tag-toggle { padding: 0 0 0 15px; cursor: pointer; background: transparent url(../images/icon-arr-down.png) left center no-repeat; }*/
+.toggle, .tag-toggle {
+    padding: 0 0 0 15px; cursor: pointer;
+    background: transparent url(../images/icon-arr-right.png) left center no-repeat;
+    font-size: 16px;
+    display: inline-block;
+    padding-right: 5px;}
 
-.toggle.trigger-expanded { background-image: url(../images/icon-arr-up.png); }
+.toggle .trigger-expanded { background-image: url(../images/icon-arr-up.png); }
+.trigger-expanded { background: transparent url(../images/icon-arr-down.png) left center no-repeat; }
 
 dt.toggle { font-weight: bold; margin: 0.75em 0 0 0; }
 
