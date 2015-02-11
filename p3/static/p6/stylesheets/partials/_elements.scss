@@ -69,7 +69,7 @@ border: 1px solid $lightneutralcolor;
 border-radius: $borderradius;
 padding: 0 6px;
 display: inline-block;
-@include font-size(14);
+@include font-size(1.2rem);
 margin-right: $gutterwidth/4;
 margin-bottom: $baselineheight/4;    
 }

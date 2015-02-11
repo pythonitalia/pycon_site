@@ -245,11 +245,16 @@ form .no-label {
 
 // Toggle elements 
 
-.toggle, 
-.tag-toggle {
+.toggle{
     padding: 0 0 0 $gutterwidth/2;
     cursor: pointer;
     background: transparent url(../images/icon-arr-down.png) left center no-repeat;
+}
+.tag-toggle {
+    @extend .toggle;
+    padding-right: 5px;
+    font-size: 16px;
+    display: inline-block;
 }
 
 .toggle.trigger-expanded {
