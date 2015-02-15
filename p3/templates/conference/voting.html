@@ -43,13 +43,15 @@
 
     <div class="grid-60">
 
-        <form class="async" rel="#talk-voting-wrapper" action="{% url "conference-voting" %}" method="GET" id="form-options">
+        <form class="async" rel="#talk-voting-wrapper"
+              action="{% url "sub_community-conference-voting" %}" method="GET" id="form-options">
 
                 <fieldset class="clearfix">
                     <legend>Filters</legend>
 
-                    {{ form.abstracts|form_field:"autosubmit" }}
+                    {{ form.sub_community|form_field:"autosubmit" }}
                     {{ form.talk_type|form_field:"autosubmit" }}
+                    {{ form.abstracts|form_field:"autosubmit" }}
                     {{ form.language|form_field:"autosubmit" }}
                     {{ form.order|form_field:"autosubmit" }}
                     {{ form.tags|form_field:"autosubmit" }}
