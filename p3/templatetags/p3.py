@@ -638,7 +638,7 @@ def p3_voting_data(conference):
     from conference.templatetags.conference import voting_data
     from conference.utils import voting_results
 
-    groups = defaultdict(lambda: defaultdict(list))
+    groups = defaultdict(list)
     results = voting_results()
     if results is not None:
         talk_ids = [ x[0] for x in results ]
@@ -648,10 +648,7 @@ def p3_voting_data(conference):
                 .values_list('talk', 'sub_community'))
         for tid, type, language in results:
             community = sub_community.get(tid, '')
-            groups[(type, community)][language].append(tid)
-
-    for k, v in groups.items():
-        groups[k] = dict(v)
+            groups[(type, community)].append(tid)
 
     results = voting_data(conference)
     results['groups'] = dict(groups)
