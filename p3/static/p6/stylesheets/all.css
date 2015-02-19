@@ -2301,7 +2301,8 @@ body#schedule > .page > .container { margin-left: 60px; }
 
 .conference-schedules.timetable { /* layout della timetable */ /* centra gli schedule (grazie al display di .schedule) */ text-align: center; /* z-index madness; ---------------- Questo blocco serve a creare uno stacking context in modo che titolo ed header dello schedule siano posti "sopra" (z-index) al body; in questo modo posso spostare il body usando margin-top e tagliarne l'overflow.  Vedi: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context  La proprietà z-index viene presa in considerazione solo per gli elementi "posizionati" (il che vuol dire no position static) per questo ho ripetuto qui le varie position, insieme a questo commento la ripetizione serva da documentazione. */ /* layout dell'evento; un evento può trovarsi in due stati: - normale - esposto (.exposed)  Lo stato normale ha una dimensione contenuta e mostra un sottoinsieme dei dati dell'evento; lo stato esposto, attivato dall'utente, aumenta la dimensione dell'evento e rivela più dettagli.  La classe .maximized può essere applicata a i figli dell'evento per renderli visibili solo nella versione esposta. La classe .minimized ha il comportamento opposto. */ }
 .conference-schedules.timetable .schedule { /* serve a limitare la larghezza al contenuto*/ display: inline-block; }
-.conference-schedules.timetable .schedule .schedule__header div { display: inline-block; }
+.conference-schedules.timetable .schedule .schedule__header { font-size: 0; }
+.conference-schedules.timetable .schedule .schedule__header div { display: inline-block; font-size: 16px; }
 .conference-schedules.timetable .schedule .schedule__body { min-width: 440px; }
 .conference-schedules.timetable .schedule { position: relative; overflow: hidden; }
 .conference-schedules.timetable .schedule .schedule__title { position: relative; z-index: 10; }
@@ -2329,7 +2330,6 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .schedule__body .track .title { text-align: left; font-size: 16px; font-size: 1.6rem; min-height: 40px; border: 2px solid white; box-sizing: border-box; background-color: #d4d2cd; }
 .conference-schedules.timetable .schedule__body .track[data-track=sprint1] .title, .conference-schedules.timetable .schedule__body .track[data-track=sprint2] .title, .conference-schedules.timetable .schedule__body .track[data-track=sprint3] .title { background-color: #a9cb0f; }
 .conference-schedules.timetable .schedule__body .track[data-track=sprint1] .event, .conference-schedules.timetable .schedule__body .track[data-track=sprint2] .event, .conference-schedules.timetable .schedule__body .track[data-track=sprint3] .event { border-right: 2px solid #a9cb0f; }
-.conference-schedules.timetable .schedule__body .track[data-track=track1] .event[class~="tracks-1"], .conference-schedules.timetable .schedule__body .track[data-track=track2] .event[class~="tracks-1"] { z-index: 102; }
 .conference-schedules.timetable .schedule__body .track[data-track=track1] .event.special, .conference-schedules.timetable .schedule__body .track[data-track=track1] .event.break, .conference-schedules.timetable .schedule__body .track[data-track=track2] .event.special, .conference-schedules.timetable .schedule__body .track[data-track=track2] .event.break { z-index: 101; }
 .conference-schedules.timetable .schedule__body .track[data-track=track1] .title, .conference-schedules.timetable .schedule__body .track[data-track=track2] .title, .conference-schedules.timetable .schedule__body .track[data-track=track3] .title, .conference-schedules.timetable .schedule__body .track[data-track=track4] .title, .conference-schedules.timetable .schedule__body .track[data-track=track-ita] .title { background-color: #d4d2cd; }
 .conference-schedules.timetable .schedule__body .track[data-track=track1] .event, .conference-schedules.timetable .schedule__body .track[data-track=track2] .event, .conference-schedules.timetable .schedule__body .track[data-track=track3] .event, .conference-schedules.timetable .schedule__body .track[data-track=track4] .event, .conference-schedules.timetable .schedule__body .track[data-track=track-ita] .event { border-right: 2px solid #d4d2cd; }
@@ -2345,6 +2345,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event .close-event { position: absolute; right: 5px; }
 .conference-schedules.timetable .event .name { text-align: center; }
 .conference-schedules.timetable .event .name a { border-bottom: 1px solid #0F2424; font-size: 14px; font-size: 1.4rem; }
+.conference-schedules.timetable .event .name img.language { width: 24px; height: 24px; }
 .conference-schedules.timetable .event[data-talk] .name a, .conference-schedules.timetable .event.partner-program .name a, .conference-schedules.timetable .track[data-track=sprint1] .event .name a, .conference-schedules.timetable .track[data-track=sprint2] .event .name a, .conference-schedules.timetable .track[data-track=sprint3] .event .name a { border: none; font-size: 16px; font-size: 1.6rem; line-height: 1.2; }
 .conference-schedules.timetable .event .hhmm { position: static; height: auto; width: auto; margin-right: 5px; }
 .conference-schedules.timetable .event .abstract { overflow-y: auto; height: 200px; background: white; padding: 0.375em 15px; }
@@ -2553,13 +2554,41 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable.vertical .duration-60 { height: 240px; }
 .conference-schedules.timetable.vertical .duration-75 { height: 300px; }
 .conference-schedules.timetable.vertical .duration-90 { height: 360px; }
+.conference-schedules.timetable.vertical .duration-105 { height: 420px; }
+.conference-schedules.timetable.vertical .duration-120 { height: 480px; }
 .conference-schedules.timetable.vertical .duration-135 { height: 540px; }
 .conference-schedules.timetable.vertical .duration-150 { height: 600px; }
+.conference-schedules.timetable.vertical .duration-165 { height: 660px; }
 .conference-schedules.timetable.vertical .duration-180 { height: 720px; }
+.conference-schedules.timetable.vertical .duration-195 { height: 780px; }
+.conference-schedules.timetable.vertical .duration-210 { height: 840px; }
+.conference-schedules.timetable.vertical .duration-225 { height: 900px; }
 .conference-schedules.timetable.vertical .duration-240 { height: 960px; }
+.conference-schedules.timetable.vertical .duration-255 { height: 1020px; }
 .conference-schedules.timetable.vertical .duration-270 { height: 1080px; }
+.conference-schedules.timetable.vertical .duration-285 { height: 1140px; }
+.conference-schedules.timetable.vertical .duration-300 { height: 1200px; }
+.conference-schedules.timetable.vertical .duration-315 { height: 1260px; }
+.conference-schedules.timetable.vertical .duration-330 { height: 1320px; }
+.conference-schedules.timetable.vertical .duration-345 { height: 1380px; }
+.conference-schedules.timetable.vertical .duration-360 { height: 1440px; }
+.conference-schedules.timetable.vertical .duration-375 { height: 1500px; }
+.conference-schedules.timetable.vertical .duration-390 { height: 1560px; }
+.conference-schedules.timetable.vertical .duration-405 { height: 1620px; }
 .conference-schedules.timetable.vertical .duration-420 { height: 1680px; }
+.conference-schedules.timetable.vertical .duration-435 { height: 1740px; }
+.conference-schedules.timetable.vertical .duration-450 { height: 1800px; }
+.conference-schedules.timetable.vertical .duration-465 { height: 1860px; }
 .conference-schedules.timetable.vertical .duration-480 { height: 1920px; }
+.conference-schedules.timetable.vertical .duration-495 { height: 1980px; }
+.conference-schedules.timetable.vertical .duration-510 { height: 2040px; }
+.conference-schedules.timetable.vertical .duration-525 { height: 2100px; }
+.conference-schedules.timetable.vertical .duration-540 { height: 2160px; }
+.conference-schedules.timetable.vertical .duration-555 { height: 2220px; }
+.conference-schedules.timetable.vertical .duration-570 { height: 2280px; }
+.conference-schedules.timetable.vertical .duration-585 { height: 2340px; }
+.conference-schedules.timetable.vertical .duration-600 { height: 2400px; }
+.conference-schedules.timetable.vertical .duration-615 { height: 2460px; }
 .conference-schedules.timetable.vertical .duration-630 { height: 2520px; }
 .conference-schedules.timetable.vertical .offset-0800 { margin-top: -40px; }
 .conference-schedules.timetable.vertical .time-0800 { top: 40px; }
@@ -2699,8 +2728,9 @@ body#schedule > .page > .container { margin-left: 60px; }
 
 * navigazione - effetto "disabled" per link (ad esempio "My Schedule") da poter utilizzare anche nei sotto menu - quando attivo una voce forse potremmo selezionarla? - sotto menu Filters, serve una classe "selected" per i filtri sulla track - sotto menu Filters, spaziature e titolo - iconcina per chiudere i sottomenu (la riuserei anche nello zoom degli eventi)
 * highlight - eventi evidenziati (apri un evento a caso e scegli un tag) - eventi "dimmed" opacizzati è il contrario del precedente potremmo usarlo nelle ricerchè per "nascondere" i risultati $('.event').dim() - +1 (e -1 anche se forse non lo useremo)
-* colori - come ti piace di più, possiamo selezionare gli eventi per: # tipo di track # tipo di evento (special, keynote, normale) 
-OK - stellina gialla        
+* colori - come ti piace di più, possiamo selezionare gli eventi per: # tipo di track # tipo di evento (special, keynote, normale)
+
+OK - stellina gialla
 OK - Nomi delle tracce da stilare
 ?? - Traccia keynote: non si capiscono i nomi delle celle
 Troncamento titoli: mancano i puntini per indicare i titoli
