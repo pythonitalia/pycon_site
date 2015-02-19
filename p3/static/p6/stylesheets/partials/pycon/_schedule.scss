@@ -305,7 +305,7 @@ body#schedule > .page > .container {
             // gli special normalmente stanno sopra gli eventi non espansi
             // ma gli eventi della track 1 e della track 2 possono sovrapporsi agli special durante il pranzo
             // per questo devo assicurarmi qui che stiano sopra lo special del pranzo
-            .event[class~="tracks-1"]{ z-index: 102; }
+            //.event[class~="tracks-1"]{ z-index: 102; }
             .event.special, .event.break{ z-index: 101; }
         }
 
