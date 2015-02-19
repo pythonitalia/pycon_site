@@ -146,8 +146,12 @@ body#schedule > .page > .container {
         .schedule__title {
         }
         .schedule__header {
+            // dimensione del font nulla; un hack per eliminare gli spazi
+            // bianchi tra gli elementi inline
+            font-size: 0;
             div {
                 display: inline-block;
+                font-size: 16px;
             }
         }
         .schedule__body {
