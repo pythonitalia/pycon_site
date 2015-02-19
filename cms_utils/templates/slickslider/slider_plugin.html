@@ -10,9 +10,11 @@
 {% addtoblock "js" %}
 <script type="text/javascript">
     var slick_slider = $("#slide_{{ instance.pk }}").slick({
-        arrows: {{ instance.arrows|yesno:"true,false" }},
+        arrows: "false",
         autoplay: {{ instance.automatic|yesno:"true,false" }},
         dots: false,
+        centerMode: true,
+        centerPadding: '0px',
         autoplaySpeed: {{ instance.timeout }},
         fade: {{ instance.fade|yesno:"true,false" }},
         onInit: function(that) {
