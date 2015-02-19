@@ -1,0 +1,27 @@
+{% load i18n sekizai_tags cms_tags %}
+{% add_data "css-screen" "slick/slick.css" %}
+{% add_data "js-script" "slick/slick.js" %}
+{% spaceless %}
+<div id="slide_{{ instance.pk }}" class="box-menu {% if not instance.border %}noborder{% endif %} slick-slideshow-arrow">
+    {% for plugin in instance.child_plugin_instances %}
+        <div class="slick-slide">{% render_plugin plugin %}</div>
+    {% endfor %}
+</div>
+{% addtoblock "js" %}
+<script type="text/javascript">
+    var slick_slider = $("#slide_{{ instance.pk }}").slick({
+        arrows: {{ instance.arrows|yesno:"true,false" }},
+        autoplay: {{ instance.automatic|yesno:"true,false" }},
+        dots: false,
+        autoplaySpeed: {{ instance.timeout }},
+        fade: {{ instance.fade|yesno:"true,false" }},
+        onInit: function(that) {
+            $(that.$slider.context).height($('.slick-slide[index='+that.currentSlide+']', that.$slider).height());
+        },
+        onAfterChange: function(that, index) {
+            $(that.$slider.context).height($('.slick-slide[index='+that.currentSlide+']', that.$slider).height());
+        }
+    });
+</script>
+{% endaddtoblock %}
+{% endspaceless %}
