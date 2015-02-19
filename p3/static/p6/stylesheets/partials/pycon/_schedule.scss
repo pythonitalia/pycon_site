@@ -1110,20 +1110,11 @@ body#schedule > .page > .container {
     }
     .event { width: 100%; }
 
-    .duration-15 { height: $slot15; }
-    .duration-30 { height: $slot15*2; }
-    .duration-45 { height: $slot15*3; }
-    .duration-60 { height: $slot15*4; }
-    .duration-75 { height: $slot15*5; }
-    .duration-90 { height: $slot15*6; }
-    .duration-135 { height: $slot15*9; }
-    .duration-150 { height: $slot15*10; }
-    .duration-180 { height: $slot15*12; }
-    .duration-240 { height: $slot15*16; }
-    .duration-270 { height: $slot15*18; }
-    .duration-420 { height: $slot15*28; }
-    .duration-480 { height: $slot15*32; }
-    .duration-630 { height: $slot15*42; }
+    @for $i from 1 through 42 {
+        .duration-#{15 * $i} {
+            height: $slot15*$i;
+        }
+    }
 
     @each $hour, $hix in (
                     "08": 0, "09": 1, "10": 2, "11": 3,
