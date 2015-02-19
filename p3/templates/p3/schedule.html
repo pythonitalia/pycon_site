@@ -144,7 +144,7 @@
                 <div class="track" data-track="{{ track }}">
                     {% for e in events %}
                     {% if e.tracks|length == 1 or e.tracks.0 == track %}
-                    <div id="e{{ e.id }}" class="event time-{{ e.time|time:"Hi" }} duration-{{ e.duration }} tracks-{{ e.tracks|length }} {{ e.tags|join:" " }}{% if e.bookable %} bookable{% endif %}" data-id="{{ e.id }}"{% if e.talk %} data-talk="{{ e.talk.id }}"{% endif %}{% if e.intersection %} data-intersection="o{{ e.intersection }}"{% endif %}{% if "partner-program" in e.tags %} data-fare="{{ e.fare }}"{% endif %}>
+                    <div id="e{{ e.id }}" class="event time-{{ e.time|time:"Hi" }} duration-{{ e.duration }} tracks-{{ e.tracks|length }} {{ e.tags|join:" " }}{% if e.bookable %} bookable{% endif %}" data-id="{{ e.id }}"{% if e.talk %} data-talk="{{ e.talk.id }}" data-language="{{ e.talk.language }}"{% endif %}{% if e.intersection %} data-intersection="o{{ e.intersection }}"{% endif %}{% if "partner-program" in e.tags %} data-fare="{{ e.fare }}"{% endif %}>
                         {% if e.talk %}
                         <div class="speakers">
                             <span class="maximized hhmm">{{ e.time|time:"H:i" }}</span>
@@ -152,7 +152,10 @@
                             <a href="{% url "conference-profile" slug=s.slug %}">{{ s.name|name_abbrv }}</a>{% if not forloop.last %}, {% endif %}
                             {% endfor %}
                         </div>
-                        <h3 class="name"><a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a></h3>
+                        <h3 class="name">
+                            {% if e.talk.language == "en" %}<img src="{{ STATIC_URL }}p6/images/english-flag.png" class="language" />{% endif %}
+                            <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a>
+                        </h3>
                         <div class="maximized all-tags">
                             {% for tag in e.talk.tags %}<a class="tag">{{ tag }}</a>{% endfor %}
                         </div>

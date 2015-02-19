@@ -365,6 +365,10 @@ body#schedule > .page > .container {
                 border-bottom: 1px solid #0F2424;
                 @include font-size(14);
             }
+            img.language {
+                width: 24px;
+                height: 24px;
+            }
         }
         &[data-talk] {
             .name {
