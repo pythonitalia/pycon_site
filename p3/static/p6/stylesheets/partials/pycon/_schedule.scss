@@ -75,6 +75,11 @@ $cEventStarred           : #d7f5fa;
 body#schedule > .page > .container {
     margin-left: 60px;
 }
+
+body#schedule .alert {
+    text-align: center;
+}
+
 .conference-schedules {
     .event {
         .talk-level.beginner {

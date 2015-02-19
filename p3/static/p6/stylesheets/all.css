@@ -2285,6 +2285,8 @@ div.rateit div.rateit-reset:hover { background-position: 0 -16px; }
 /********** END SETTINGS ******/
 body#schedule > .page > .container { margin-left: 60px; }
 
+body#schedule .alert { text-align: center; }
+
 .conference-schedules .event .talk-level.beginner { background: #738023; }
 .conference-schedules .event .talk-level.intermediate { background: #e7c30f; }
 .conference-schedules .event .talk-level.advanced { background: #DA2300; }
