@@ -119,6 +119,7 @@ class TicketConferenceAdmin(cadmin.TicketAdmin):
         import datetime
 
         conferences = cmodels.Conference.objects\
+            .exclude(code__startswith='ep')\
             .order_by('conference_start')
 
         output = {}
