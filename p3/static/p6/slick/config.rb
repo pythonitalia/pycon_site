@@ -1,1 +1,10 @@
-/srv/www/www/almaedizioni.it/www/sito/web/static/slick/config.rb
+css_dir = "."
+sass_dir = "."
+images_dir = "."
+fonts_dir = "fonts"
+relative_assets = true
+
+output_style = :compact
+line_comments = false
+
+preferred_syntax = :scss
