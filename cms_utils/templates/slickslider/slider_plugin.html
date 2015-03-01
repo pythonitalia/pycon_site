@@ -1,0 +1,32 @@
+{% load i18n sekizai_tags cms_tags conference %}
+{% add_data "css-screen" "slick/slick.css" %}
+{% add_data "js-script" "slick/slick.js" %}
+{% spaceless %}
+{% conference_sponsor as sponsors %}
+    <div id="slide_{{ instance.pk }}" class="box-menu {% if not instance.border %}noborder{% endif %} slick-slideshow-arrow">
+        {% for s in sponsors %}
+            <div class="slick-slide">
+                <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.alt_text }}" title="{% firstof s.title_text s.sponsor %}" width="190" height="90" /></a>
+            </div>
+        {% endfor %}
+    </div>
+{% addtoblock "js" %}
+<script type="text/javascript">
+    var slick_slider = $("#slide_{{ instance.pk }}").slick({
+        arrows: "false",
+        autoplay: {{ instance.automatic|yesno:"true,false" }},
+        dots: false,
+        centerMode: true,
+        centerPadding: '0px',
+        autoplaySpeed: {{ instance.timeout }},
+        fade: {{ instance.fade|yesno:"true,false" }},
+        onInit: function(that) {
+            $(that.$slider.context).height($('.slick-slide[index='+that.currentSlide+']', that.$slider).height());
+        },
+        onAfterChange: function(that, index) {
+            $(that.$slider.context).height($('.slick-slide[index='+that.currentSlide+']', that.$slider).height());
+        }
+    });
+</script>
+{% endaddtoblock %}
+{% endspaceless %}
