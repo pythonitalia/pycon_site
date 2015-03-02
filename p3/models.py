@@ -209,7 +209,7 @@ class HotelRoom(models.Model):
         unique_together = (('booking', 'room_type'),)
 
     def __unicode__(self):
-        return '%s: %s' % (self.conference, self.get_room_type_display())
+        return '%s: %s' % (self.booking.conference, self.get_room_type_display())
 
     def clean(self):
         try:
