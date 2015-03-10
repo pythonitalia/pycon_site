@@ -30,7 +30,7 @@ class P3BillingData(aforms.BillingData):
         if 'cf_code' in self.cleaned_data:
             cf_code = self.cleaned_data['cf_code']
             vat = self.cleaned_data.get('vat_number', '')
-            country = self.cleaned_data['country']
+            country = self.cleaned_data.get('country', '')
             if country and country.pk == 'IT':
                # the tax id is 16 characters for persons, for companies it can be shorter
                if not cf_code or (len(cf_code) != 16 and not vat):
