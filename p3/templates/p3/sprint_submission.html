@@ -1,6 +1,8 @@
 {% extends "assopy/base.html" %}
 {% load i18n p3 assopy_tags %}
 {% block MAIN_CONTENT %}
+<div class="page clearfix">
+    <div class="grid-container">
     <h1>{% trans "Propose a Sprint" %}</h1>
     <form action="{% url "p3-sprint-submission" %}" method="post">{% csrf_token %}
         <fieldset>
@@ -12,4 +14,6 @@
             <button name="" value="" type="submit">{% trans "Submit" %}</button>
         </fieldset>
     </form>
+    </div>
+</div>
 {% endblock %}
