@@ -1,18 +1,11 @@
 {% extends "p3/base.html" %}
 {% load i18n assopy_tags %}
 {% block MAIN_CONTENT %}
-<style>
-#hotel-report table {
-    width: 900px;
-}
-#hotel-report table td {
-    padding: 5px 0 5px 5px;
-}
-</style>
-<div id="hotel-report" class="cms">
+<div id="hotel-report" class="page clearfix">
+<div class="grid-container">
     <h1>Stanze prenotate</h1>
     {% for type, orders in rooms %}
-    <table>
+    <table class="table">
         <tr>
             <th>Room Type</th>
             <th>Check in</th>
@@ -67,9 +60,10 @@
         {% endfor %}
     </table>
     {% endfor %}
+    {% if beds %}
     <h1>Posti letto in room sharing</h1>
     {% for type, periods in beds %}
-    <table>
+    <table class="table">
         <tr>
             <th>Room Type</th>
             <th>Check in</th>
@@ -86,5 +80,7 @@
         {% endfor %}
     </table>
     {% endfor %}
+    {% endif %}
+</div>
 </div>
 {% endblock %}
