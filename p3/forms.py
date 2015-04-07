@@ -22,6 +22,7 @@ TALK_DURATION = (
     (45, _('45 minutes inc Q&A')),
     (60, _('60 minutes inc Q&A')),
     (90, _('90 minutes inc Q&A')),
+    (240, _('240 minutes inc Q&A')),
 )
 
 TALK_TYPES = (
