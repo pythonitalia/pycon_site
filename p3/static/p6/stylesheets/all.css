@@ -146,18 +146,7 @@ figure figcaption { display: block; font-weight: normal; font-size: 14px; font-s
 .meta, #talk-voting .talk-speakers, .person-card .see-more { color: #807c6f; }
 .meta a:link, #talk-voting .talk-speakers a:link, .person-card .see-more a:link, .meta a:visited, #talk-voting .talk-speakers a:visited, .person-card .see-more a:visited { color: #807c6f; }
 
-/*.tag { background: #d4d2cd; border: 1px solid #bcbab2; border-radius: 4px; padding: 0 6px; display: inline-block; font-size: 14px; font-size: 1.4rem; margin-right: 7.5px; margin-bottom: 0.375em; }*/
-.tag {
-    background: #d4d2cd;
-    border: 1px solid #bcbab2;
-    border-radius: 4px;
-    padding: 0 6px;
-    display: inline-block;
-    /*font-size: 14px;*/
-    font-size: 1.2rem;
-    margin-right: 6.5px;
-    margin-bottom: 0.375em;
-}
+.tag { background: #d4d2cd; border: 1px solid #bcbab2; border-radius: 4px; padding: 0 6px; display: inline-block; font-size: 14px; font-size: 1.4rem; margin-right: 7.5px; margin-bottom: 0.375em; }
 
 a.tag:hover { background: white; text-decoration: none; }
 
@@ -332,7 +321,7 @@ a:hover, a:active { outline: 0; }
 
 .slick-list { position: relative; overflow: hidden; display: block; margin: 0; padding: 0; }
 .slick-list:focus { outline: none; }
-.slick-loading .slick-list { background: white url("../images/ajax-loader.gif") center center no-repeat; }
+.slick-loading .slick-list { background: #fff url("../images/ajax-loader.gif") center center no-repeat; }
 .slick-list.dragging { cursor: pointer; cursor: hand; }
 
 .slick-slider .slick-track { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
@@ -363,13 +352,13 @@ a:hover, a:active { outline: 0; }
 
 .slick-prev { left: -25px; }
 [dir="rtl"] .slick-prev { left: auto; right: -25px; }
-.slick-prev:before { content: "\2190"; }
-[dir="rtl"] .slick-prev:before { content: "\2192"; }
+.slick-prev:before { content: "←"; }
+[dir="rtl"] .slick-prev:before { content: "→"; }
 
 .slick-next { right: -25px; }
 [dir="rtl"] .slick-next { left: -25px; right: auto; }
-.slick-next:before { content: "\2192"; }
-[dir="rtl"] .slick-next:before { content: "\2190"; }
+.slick-next:before { content: "→"; }
+[dir="rtl"] .slick-next:before { content: "←"; }
 
 /* Dots */
 .slick-dots { position: absolute; bottom: -45px; list-style: none; display: block; text-align: center; padding: 0; width: 100%; }
@@ -377,7 +366,7 @@ a:hover, a:active { outline: 0; }
 .slick-dots li button { border: 0; background: transparent; display: block; height: 20px; width: 20px; outline: none; line-height: 0; font-size: 0; color: transparent; padding: 5px; cursor: pointer; }
 .slick-dots li button:hover, .slick-dots li button:focus { outline: none; }
 .slick-dots li button:hover:before, .slick-dots li button:focus:before { opacity: 1; }
-.slick-dots li button:before { position: absolute; top: 0; left: 0; content: "\2022"; width: 20px; height: 20px; font-family: "slick"; font-size: 6px; line-height: 20px; text-align: center; color: black; opacity: 0.25; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.slick-dots li button:before { position: absolute; top: 0; left: 0; content: "•"; width: 20px; height: 20px; font-family: "slick"; font-size: 6px; line-height: 20px; text-align: center; color: black; opacity: 0.25; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .slick-dots li.slick-active button:before { color: black; opacity: 0.75; }
 
 .accordion { /* margin-bottom : $baselineheight;  */ }
@@ -396,15 +385,15 @@ a:hover, a:active { outline: 0; }
 .alert > h4 { margin: 0; color: #3a330c; }
 
 /*alert*/
-.alert--success { background-color: lightgreen; border-color: #64e764; color: #116e11; }
+.alert--success { background-color: #90EE90; border-color: #64e764; color: #116e11; }
 .alert--success > h4 { color: #116e11; }
 
 /*alert--success*/
-.alert--danger, .alert--error { background-color: firebrick; border-color: #871a1a; color: white; }
+.alert--danger, .alert--error { background-color: #B22222; border-color: #871a1a; color: white; }
 .alert--danger > h4, .alert--error > h4 { color: white; }
 
 /*alert--error*/
-.alert--info { background-color: #9dcfff; border-color: #6ab6ff; color: #00509d; }
+.alert--info { background-color: #9DCFFF; border-color: #6ab6ff; color: #00509d; }
 .alert--info > h4 { color: #00509d; }
 
 /*alert--info*/
@@ -765,7 +754,7 @@ table { max-width: 100%; background-color: transparent; border-collapse: collaps
 .tooltip.bottom .tooltip-arrow { top: 0; left: 50%; margin-left: -5px; border-width: 0 5px 5px; border-bottom-color: #e61f4b; }
 
 /*tooltip*/
-.well, .slot { min-height: 20px; padding: 15px; margin-bottom: 1.5em; background-color: #eeeeee; border: 0 solid #d4d4d4; border-radius: 4px; color: #555555; }
+.well, .slot { min-height: 20px; padding: 15px; margin-bottom: 1.5em; background-color: #EEE; border: 0 solid #d4d4d4; border-radius: 4px; color: #555555; }
 .well p:last-child, .slot p:last-child { margin-bottom: 0; }
 
 .well--large { padding: 30px; }
@@ -915,11 +904,11 @@ input.search-query { margin-bottom: 0; padding-right: 14px; padding-right: 4px \
 
 .btn-disabled { opacity: .5; cursor: default; }
 
-.btn-error { background-color: firebrick; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
+.btn-error { background-color: #B22222; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
 .btn-error:visited, .btn-error:active, .btn-error:hover { background-color: #9d1e1e; color: #f2f2f2; }
 
 /*btn-error*/
-.btn-info { background-color: #9dcfff; border-color: #6ab6ff; border-bottom-color: #379dff; color: #00509d; text-shadow: none; }
+.btn-info { background-color: #9DCFFF; border-color: #6ab6ff; border-bottom-color: #379dff; color: #00509d; text-shadow: none; }
 .btn-info:visited, .btn-info:active, .btn-info:hover { background-color: #6ab6ff; color: #004384; }
 
 /*btn-info*/
@@ -931,11 +920,11 @@ input.search-query { margin-bottom: 0; padding-right: 14px; padding-right: 4px \
 .btn-primary:visited, .btn-primary:active, .btn-primary:hover { background-color: #d41841; color: #f2f2f2; }
 
 /*btn-primary*/
-.btn-success { background-color: lightgreen; border-color: #64e764; border-bottom-color: #64e764; color: #116e11; text-shadow: none; }
+.btn-success { background-color: #90EE90; border-color: #64e764; border-bottom-color: #64e764; color: #116e11; text-shadow: none; }
 .btn-success:visited, .btn-success:active, .btn-success:hover { background-color: #7aeb7a; color: #0d580d; }
 
 /*btn-success*/
-.btn-warning { background-color: firebrick; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
+.btn-warning { background-color: #B22222; border-color: #871a1a; border-bottom-color: #5c1212; color: white; text-shadow: none; }
 .btn-warning:visited, .btn-warning:active, .btn-warning:hover { background-color: #9d1e1e; color: #f2f2f2; }
 
 /*btn-warning*/
@@ -2061,7 +2050,7 @@ nav[role=navigation].active { max-height: 25em; }
 /* Copyright (C) 2009-2013, Python Italia APS All rights reserved.  This file is non-free. See README.md for an explanation. */
 .janrain-box { width: 400px; display: block; /*     background: transparent url(../images/loading-janrain.png) center center no-repeat; */ min-height: 240px; }
 
-form .field.error .errorlist { margin: 0; padding: 0; color: firebrick; }
+form .field.error .errorlist { margin: 0; padding: 0; color: #B22222; }
 
 .overlay { position: absolute !important; display: none; z-index: 10000; background: white; padding: 0.75em 30px; width: 35em; min-height: 15em; box-shadow: 0 0 15px #3c3a34; }
 
@@ -2287,7 +2276,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 
 .conference-schedules .event .talk-level.beginner { background: #738023; }
 .conference-schedules .event .talk-level.intermediate { background: #e7c30f; }
-.conference-schedules .event .talk-level.advanced { background: #da2300; }
+.conference-schedules .event .talk-level.advanced { background: #DA2300; }
 
 .conference-schedules.list .schedule { margin-bottom: 3em; }
 .conference-schedules.list .schedule th { width: 5em; text-align: left; }
@@ -2297,7 +2286,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.list .event .speakers { display: inline; }
 .conference-schedules.list .event .video-opener { display: inline; height: 1.5em; }
 .conference-schedules.list .event .video-opener a { border: none; }
-.conference-schedules.list .event .details { background: #efecdf; margin: 0.75em 0; padding: 0.75em 15px; }
+.conference-schedules.list .event .details { background: #EFECDF; margin: 0.75em 0; padding: 0.75em 15px; }
 
 .conference-schedules.timetable { /* layout della timetable */ /* centra gli schedule (grazie al display di .schedule) */ text-align: center; /* z-index madness; ---------------- Questo blocco serve a creare uno stacking context in modo che titolo ed header dello schedule siano posti "sopra" (z-index) al body; in questo modo posso spostare il body usando margin-top e tagliarne l'overflow.  Vedi: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context  La proprietà z-index viene presa in considerazione solo per gli elementi "posizionati" (il che vuol dire no position static) per questo ho ripetuto qui le varie position, insieme a questo commento la ripetizione serva da documentazione. */ /* layout dell'evento; un evento può trovarsi in due stati: - normale - esposto (.exposed)  Lo stato normale ha una dimensione contenuta e mostra un sottoinsieme dei dati dell'evento; lo stato esposto, attivato dall'utente, aumenta la dimensione dell'evento e rivela più dettagli.  La classe .maximized può essere applicata a i figli dell'evento per renderli visibili solo nella versione esposta. La classe .minimized ha il comportamento opposto. */ }
 .conference-schedules.timetable .schedule { /* serve a limitare la larghezza al contenuto*/ display: inline-block; }
@@ -2312,7 +2301,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event.special, .conference-schedules.timetable .track[data-track=sprint1] .event.special, .conference-schedules.timetable .track[data-track=sprint2] .event.special, .conference-schedules.timetable .track[data-track=sprint3] .event.special, .conference-schedules.timetable .event.break { z-index: 101; }
 .conference-schedules.timetable .hhmm { position: relative; }
 .conference-schedules.timetable .hhmm > div { position: absolute; }
-.conference-schedules.timetable .event { overflow: hidden; box-sizing: border-box; border: 2px solid white; padding: 3px; background: #efecdf; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; transition: all 0.4s ease; }
+.conference-schedules.timetable .event { overflow: hidden; box-sizing: border-box; border: 2px solid white; padding: 3px; background: #EFECDF; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; transition: all 0.4s ease; }
 .conference-schedules.timetable .event .maximized { display: none; }
 .conference-schedules.timetable .event.exposed { padding: 7px; z-index: 200 !important; box-shadow: 0 3px 8px 0 #aaa; border: 4px solid white; width: 400px !important; height: 350px !important; opacity: 1 !important; }
 .conference-schedules.timetable .event.exposed .minimized { display: none; }
@@ -2378,32 +2367,32 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable .event .book-event { padding: 0 4px; }
 .conference-schedules.timetable .event .book-event > div { padding: 0 4px; }
 .conference-schedules.timetable .event .book-event a { color: white; }
-.conference-schedules.timetable .event .book-event .book { background: #4895a3; }
+.conference-schedules.timetable .event .book-event .book { background: #4895A3; }
 .conference-schedules.timetable .event .book-event .cancel { background: #4895A3; }
-.conference-schedules.timetable .event .book-event .sold-out { background: #4895a3; }
-.conference-schedules.timetable .event .book-event .restricted { background: #4895a3; }
+.conference-schedules.timetable .event .book-event .sold-out { background: #4895A3; }
+.conference-schedules.timetable .event .book-event .restricted { background: #4895A3; }
 .conference-schedules.timetable .event .info.booked, .conference-schedules.timetable .event .info.available, .conference-schedules.timetable .event .info.sold-out { text-transform: uppercase; bottom: 0; position: absolute; width: 90px; padding: 12px; font-size: 10px; color: #e7880f; line-height: 13px; }
 .conference-schedules.timetable .event .info.booked:first-line, .conference-schedules.timetable .event .info.available:first-line, .conference-schedules.timetable .event .info.sold-out:first-line { font-size: 16px; }
 .conference-schedules.timetable .event .info.booked.available, .conference-schedules.timetable .event .info.available.available, .conference-schedules.timetable .event .info.sold-out.available { color: #738023; }
 .conference-schedules.timetable .event .info.booked.available span, .conference-schedules.timetable .event .info.available.available span, .conference-schedules.timetable .event .info.sold-out.available span { /* 0xAB la x la voglio minuscola */ }
 .conference-schedules.timetable .event .info.booked.available span span, .conference-schedules.timetable .event .info.available.available span span, .conference-schedules.timetable .event .info.sold-out.available span span { text-transform: none; padding: 0 1px; }
 .conference-schedules.timetable .event .info.booked.booked, .conference-schedules.timetable .event .info.available.booked, .conference-schedules.timetable .event .info.sold-out.booked { color: #e7c30f; }
-.conference-schedules.timetable .event .info.booked.sold-out, .conference-schedules.timetable .event .info.available.sold-out, .conference-schedules.timetable .event .info.sold-out.sold-out { color: #da2300; }
+.conference-schedules.timetable .event .info.booked.sold-out, .conference-schedules.timetable .event .info.available.sold-out, .conference-schedules.timetable .event .info.sold-out.sold-out { color: #DA2300; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked, .conference-schedules.timetable .track[data-track=training1] .event .info.available, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.available, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out { transform: translate(0px, 0px) rotate(-30deg); -moz-transform: translate(0px, 0px) rotate(-30deg); -o-transform: translate(0px, 0px) rotate(-30deg); -webkit-transform: translate(0px, 0px) rotate(-30deg); -ms-transform: translate(0px, 0px) rotate(-30deg); transform-origin: left top; -moz-transform-origin: left top; -webkit-transform-origin: left top; -o-transform-origin: left top; -ms-transform-origin: left top; letter-spacing: -0.05em; border: 2px dotted transparent; border-radius: 8px; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=training1] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out:first-line, .conference-schedules.timetable .track[data-track=training2] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=training2] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out:first-line { font-size: 20px; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked.available, .conference-schedules.timetable .track[data-track=training1] .event .info.available.available, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.available, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.available, .conference-schedules.timetable .track[data-track=training2] .event .info.available.available, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.available { border-color: #738023; }
 .conference-schedules.timetable .track[data-track=training1] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=training1] .event .info.available.booked, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.available.booked, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.booked { border-color: #e7c30f; }
-.conference-schedules.timetable .track[data-track=training1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.sold-out { border-color: #da2300; }
-.conference-schedules.timetable .track[data-track=helpdesk1] .title, .conference-schedules.timetable .track[data-track=helpdesk2] .title { background-color: #fdb55a; }
-.conference-schedules.timetable .track[data-track=helpdesk1] .event, .conference-schedules.timetable .track[data-track=helpdesk2] .event { padding: 3px; background-color: #ffe2b8; }
+.conference-schedules.timetable .track[data-track=training1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=training2] .event .info.sold-out.sold-out { border-color: #DA2300; }
+.conference-schedules.timetable .track[data-track=helpdesk1] .title, .conference-schedules.timetable .track[data-track=helpdesk2] .title { background-color: #FDB55A; }
+.conference-schedules.timetable .track[data-track=helpdesk1] .event, .conference-schedules.timetable .track[data-track=helpdesk2] .event { padding: 3px; background-color: #FFE2B8; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .name, .conference-schedules.timetable .track[data-track=helpdesk2] .event .name { font-size: 1.1em; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out { padding: 2px; text-align: center; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out:first-line, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked:first-line, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available:first-line, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out:first-line { font-size: 9px; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.available, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.available, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.available, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.available { border-color: #738023; }
 .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.booked, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.booked, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.booked { border-color: #e7c30f; }
-.conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.sold-out { border-color: #da2300; transform: translate(0px, 10px) rotate(-13deg); -moz-transform: translate(0px, 10px) rotate(-13deg); -o-transform: translate(0px, 10px) rotate(-13deg); -webkit-transform: translate(0px, 10px) rotate(-13deg); -ms-transform: translate(0px, 10px) rotate(-13deg); transform-origin: left bottom; -moz-transform-origin: left bottom; -webkit-transform-origin: left bottom; -o-transform-origin: left bottom; -ms-transform-origin: left bottom; text-align: right; }
-.conference-schedules.timetable .event.keynote { /* stesso padding devinito in .event; purtroppo annullato dall'.event[data-talk] */ padding-top: 20px; background-color: #d3db9c; text-align: center; }
-.conference-schedules.timetable .event.keynote .name { background-color: white; font-size: 13px; border: 1px dotted #878181; padding: 7px; display: inline; font-variant: small-caps; }
+.conference-schedules.timetable .track[data-track=helpdesk1] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk1] .event .info.sold-out.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.booked.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.available.sold-out, .conference-schedules.timetable .track[data-track=helpdesk2] .event .info.sold-out.sold-out { border-color: #DA2300; transform: translate(0px, 10px) rotate(-13deg); -moz-transform: translate(0px, 10px) rotate(-13deg); -o-transform: translate(0px, 10px) rotate(-13deg); -webkit-transform: translate(0px, 10px) rotate(-13deg); -ms-transform: translate(0px, 10px) rotate(-13deg); transform-origin: left bottom; -moz-transform-origin: left bottom; -webkit-transform-origin: left bottom; -o-transform-origin: left bottom; -ms-transform-origin: left bottom; text-align: right; }
+.conference-schedules.timetable .event.keynote { /* stesso padding devinito in .event; purtroppo annullato dall'.event[data-talk] */ padding-top: 20px; background-color: #D3DB9C; text-align: center; }
+.conference-schedules.timetable .event.keynote .name { background-color: #ffffff; font-size: 13px; border: 1px dotted #878181; padding: 7px; display: inline; font-variant: small-caps; }
 .conference-schedules.timetable .event.keynote .speakers { border-bottom: none; }
 .conference-schedules.timetable .event.keynote.exposed { text-align: left; }
 .conference-schedules.timetable .event.keynote.exposed .name { border: 0; padding: 0; }
@@ -2431,7 +2420,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 */ }
 .conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.beginner { background: #738023; }
 .conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.intermediate { background: #e7c30f; }
-.conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.advanced { background: #da2300; }
+.conference-schedules.timetable .event.dimmed.exposed.dimmed .talk-level.advanced { background: #DA2300; }
 .conference-schedules.timetable .event .warning.overbook { position: absolute; top: 2px; right: 2px; }
 .conference-schedules.timetable .event.exposed .warning.overbook { top: 4px; right: 30px; }
 
@@ -2447,7 +2436,7 @@ body#schedule > .page > .container { margin-left: 60px; }
 #schedule-navigator > div > div .tag-list { display: none; }
 #schedule-navigator > div:first-child { background: #301D1D; color: #FCFAD9; font-weight: bold; padding: 4px 8px; }
 #schedule-navigator > div.selected { background-color: #807c6f; }
-#schedule-navigator > div.selected > a { color: white; }
+#schedule-navigator > div.selected > a { color: #ffffff; }
 #schedule-navigator > div.selected a.filter-active { color: #878181; opacity: .6; }
 #schedule-navigator > div.selected a.highlight-active { font-weight: bold; }
 #schedule-navigator .tag-list { position: absolute; top: 0; left: 160px; background: white; border: 2px solid #7D6F60; padding: 0.375em 7.5px; line-height: 20px; width: 630px; }
@@ -2535,17 +2524,17 @@ body#schedule > .page > .container { margin-left: 60px; }
 .conference-schedules.timetable.vertical-narrow .tracks-9 { width: 900px; }
 .conference-schedules.timetable.vertical-narrow .track .title { position: absolute; width: 100%; top: 0; text-align: center; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0], .conference-schedules.timetable.vertical-narrow .track[data-track=partner1], .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] { /* l'attributo data-intersection indica il livello di overlap, o1 significa che al massimo ci sono due eventi che si sovrappongono */ }
-.conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event { /* imposto il right (che in questo caso è equivalente a left=0) per ottenere a costo zero l'apertura della versione "exposed" verso sinistra (utile perché la colonna partner-program è sulla destra dello schedule) */ right: 0; background-color: #fff0ef; }
+.conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event { /* imposto il right (che in questo caso è equivalente a left=0) per ottenere a costo zero l'apertura della versione "exposed" verso sinistra (utile perché la colonna partner-program è sulla destra dello schedule) */ right: 0; background-color: #FFF0EF; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event[data-intersection=o1], .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event[data-intersection=o1], .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event[data-intersection=o1] { width: 75px; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event[data-intersection=o1].left-intersection-0, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event[data-intersection=o1].left-intersection-0, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event[data-intersection=o1].left-intersection-0 { right: 25px; }
 .conference-schedules.timetable.vertical-narrow .track[data-track=partner0] .event[data-intersection=o1].left-intersection-1, .conference-schedules.timetable.vertical-narrow .track[data-track=partner1] .event[data-intersection=o1].left-intersection-1, .conference-schedules.timetable.vertical-narrow .track[data-track=partner2] .event[data-intersection=o1].left-intersection-1 { right: 0; z-index: 102; box-shadow: -3px 3px 8px 0 #aaa; }
 
 .conference-schedules.timetable.vertical .schedule__header--hhmm { width: 40px; }
 .conference-schedules.timetable.vertical .schedule__header--track { width: 190px; }
-.conference-schedules.timetable.vertical .schedule__body { height: 2980px; }
-.conference-schedules.timetable.vertical .schedule__body > .hhmm { float: left; width: 40px; height: 2980px; }
+.conference-schedules.timetable.vertical .schedule__body { height: 3400px; }
+.conference-schedules.timetable.vertical .schedule__body > .hhmm { float: left; width: 40px; height: 3400px; }
 .conference-schedules.timetable.vertical .schedule:after { content: ' '; display: block; clear: both; }
-.conference-schedules.timetable.vertical .track { position: relative; float: left; width: 190px; height: 2980px; }
+.conference-schedules.timetable.vertical .track { position: relative; float: left; width: 190px; height: 3400px; }
 .conference-schedules.timetable.vertical .event { width: 100%; }
 .conference-schedules.timetable.vertical .duration-15 { height: 60px; }
 .conference-schedules.timetable.vertical .duration-30 { height: 120px; }
@@ -2766,7 +2755,7 @@ header .subhead { font-weight: 300; color: #807c6f; }
 
 span.icon { cursor: pointer; }
 
-span.icon-remove { color: firebrick; }
+span.icon-remove { color: #B22222; }
 
 form .no-label label { display: none !important; visibility: hidden; }
 
@@ -2775,16 +2764,9 @@ form .no-label label { display: none !important; visibility: hidden; }
 .autocomplete ul { margin: 0; padding: 0; }
 .autocomplete li { padding: 0 0 0.75em 0; }
 
-/*.toggle, .tag-toggle { padding: 0 0 0 15px; cursor: pointer; background: transparent url(../images/icon-arr-down.png) left center no-repeat; }*/
-.toggle, .tag-toggle {
-    padding: 0 0 0 15px; cursor: pointer;
-    background: transparent url(../images/icon-arr-right.png) left center no-repeat;
-    font-size: 16px;
-    display: inline-block;
-    padding-right: 5px;}
+.toggle, .tag-toggle { padding: 0 0 0 15px; cursor: pointer; background: transparent url(../images/icon-arr-down.png) left center no-repeat; }
 
-.toggle .trigger-expanded { background-image: url(../images/icon-arr-up.png); }
-.trigger-expanded { background: transparent url(../images/icon-arr-down.png) left center no-repeat; }
+.toggle.trigger-expanded { background-image: url(../images/icon-arr-up.png); }
 
 dt.toggle { font-weight: bold; margin: 0.75em 0 0 0; }
 
@@ -2793,3 +2775,5 @@ dt.toggle img { vertical-align: middle; }
 dt.toggle + dd { font-size: 14px; font-size: 1.4rem; color: #807c6f; margin: 0.75em 0 0 15px; }
 
 .async-feedback { display: none; position: fixed; top: 1.5em; left: 50%; right: 0; width: 50%; margin-left: -25%; text-align: center; }
+
+/*# sourceMappingURL=all.css.map */
