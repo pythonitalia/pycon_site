@@ -309,16 +309,16 @@ class P3TalkAdminForm(forms.ModelForm):
         model = models.P3Talk
         fields = ['sub_community']
 
-    talk_url = forms.URLField(_('Talk'), required=False)
+    # talk_url = forms.URLField(_('Talk'), required=False)
+    talk_url = forms.ModelChoiceField(required=False, queryset=cmodels.Talk.objects.filter(
+                                                        conference=settings.CONFERENCE_CONFERENCE))
 
     def __init__(self, *args, **kwargs):
         super(P3TalkAdminForm, self).__init__(*args, **kwargs)
-        if self.instance:
+        if self.instance and self.instance.pk:
             self.fields['talk_url'].widget = pforms.HTMLAnchorWidget(title=self.instance.talk.title)
             self.fields['talk_url'].initial = str(urlresolvers.reverse('admin:conference_talk_change',
                                                                    args=(self.instance.talk.pk,)))
-        else:
-            self.fields['talk_url'].widget = pforms.HTMLAnchorWidget()
 
 
 
