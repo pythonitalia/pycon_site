@@ -37,7 +37,7 @@ TALK_SUBCOMMUNITY = (
     ('odoo', _('Odoo')),
     ('pydata', _('PyData')),
     ('django', _('DjangoVillage')),
-    ('pycon', _('PyCon')),
+    ('pycon', _('Python & Friends')),
 )
 
 class P3TalkFormMixin(object):
