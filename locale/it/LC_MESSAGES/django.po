@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-07 19:52+0200\n"
-"PO-Revision-Date: 2015-01-13 22:28+0050\n"
-"Last-Translator: Valerio Maggio <valeriomaggio@gmail.com>\n"
+"PO-Revision-Date: 2015-04-10 12:06+0050\n"
+"Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: it <pycon-organization@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,9 +58,8 @@ msgid "90 minutes inc Q&A"
 msgstr "90 minuti comprese le domande"
 
 #: p3/forms.py:25
-#, fuzzy
 msgid "240 minutes inc Q&A"
-msgstr "60 minuti inc. Q&A"
+msgstr "240 minuti inc. Q&A"
 
 #: p3/forms.py:29
 msgid "Regular talk"
@@ -96,8 +95,8 @@ msgstr "Durata"
 
 #: p3/forms.py:67
 msgid ""
-"This is the <i>desired duration</i> of the Talk. <br> As for a Training, the "
-"duration is <i>fixed</i> to 4 hours."
+"This is the <i>desired duration</i> of the Talk. <br> As for a Training, the"
+" duration is <i>fixed</i> to 4 hours."
 msgstr ""
 "Indicare la <i>durata desiderata</i> del Talk. <br> Per i Training, la "
 "durata è <i>fissata</i> a 4 ore."
@@ -130,7 +129,6 @@ msgstr ""
 "data di nascita)"
 
 #: p3/forms.py:89
-#, fuzzy
 msgid ""
 "This speaker profile will be publicly accesible if one of your talks is "
 "accepted. Your mobile phone and date of birth will <i>never</i> be published"
@@ -165,7 +163,6 @@ msgid "Compact biography"
 msgstr "Breve biografia"
 
 #: p3/forms.py:100 p3/forms.py:234 p3/forms.py:329 p3/forms.py:422
-#, fuzzy
 msgid "Short biography (one or two paragraphs). Do not paste your CV"
 msgstr ""
 "Inserisci una breve biografia (uno o due paragrafi). Non incollare il tuo "
@@ -1077,7 +1074,6 @@ msgid "Traduzione simultanea"
 msgstr "Traduzione simultanea"
 
 #: p3/templates/conference/talk.html:200
-#, fuzzy
 msgid "Disponibile"
 msgstr "Disponibile"
 
@@ -1233,8 +1229,10 @@ msgid "Helpdesk"
 msgstr "Helpdesk"
 
 #: p3/templates/django_cms/p5_homepage.html:138
-msgid "Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
-msgstr "Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
+msgid ""
+"Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
+msgstr ""
+"Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
 
 #: p3/templates/django_cms/p5_homepage.html:148
 msgid "Scopri chi viene"
@@ -1498,9 +1496,8 @@ msgid "I will attend this sprint"
 msgstr ""
 
 #: p3/templates/p3/render_single_sprint.html:27
-#, fuzzy
 msgid "Cancel my registration"
-msgstr "Sistema di registrazione"
+msgstr "Cancella la mia registrazione"
 
 #: p3/templates/p3/render_single_sprint.html:39
 #: p3/templates/p3/sprint_submission.html:12
@@ -1512,7 +1509,6 @@ msgid "Schedule"
 msgstr "Schedule"
 
 #: p3/templates/p3/schedule.html:228
-#, fuzzy
 msgid "Recruiting session"
 msgstr "Recruiting"
 
@@ -1561,8 +1557,10 @@ msgstr "Proponi uno Sprint"
 msgid ""
 "Come to the wonderful hacking sessions on Sunday, learn from expert Python "
 "developers, and contribute to the Python ecosystem!"
-msgstr "Partecipa alla fantastica sessione di hacking in programma domenica, impara da esperti "
-       "sviluppatori Python, e contribuisci anche tu a migliorare l'ecosistema Python!"
+msgstr ""
+"Partecipa alla fantastica sessione di hacking in programma domenica, impara "
+"da esperti sviluppatori Python, e contribuisci anche tu a migliorare "
+"l'ecosistema Python!"
 
 #: p3/templates/p3/sprints.html:13
 msgid "What is a sprint"
@@ -1570,18 +1568,19 @@ msgstr "Che cos'è uno sprint"
 
 #: p3/templates/p3/sprints.html:14
 msgid ""
-"A sprint is a self-organized session where programmers join together to work "
-"on a specific project, usually open-source and connected to the Python "
+"A sprint is a self-organized session where programmers join together to work"
+" on a specific project, usually open-source and connected to the Python "
 "ecosystem. The sprint is usually proposed and driven by one or more "
 "programmers who are already expert on the specific project (maybe even "
-"maintainers), and are willing to help out more programmers to introduce them "
-"into the project."
-msgstr "Uno sprint è una sessione auto-organizzata nella quale i programmatori si uniscono per lavorare "
-       "su di uno specifico progetto, generalmente open-source e che abbia a che fare con Python. "
-       "Lo sprint è tipicamente proposto e gestito da uno o più sviluppatori già esperti del codice "
-       "dello specifico progetto (magari proprio maintainers), "
-       "i quali saranno ben lieti di supportare nuovi programmatori nello sviluppo, e introdurli "
-       "nel progetto."
+"maintainers), and are willing to help out more programmers to introduce them"
+" into the project."
+msgstr ""
+"Uno sprint è una sessione auto-organizzata nella quale i programmatori si "
+"uniscono per lavorare su di uno specifico progetto, generalmente open-source"
+" e che abbia a che fare con Python. Lo sprint è tipicamente proposto e "
+"gestito da uno o più sviluppatori già esperti del codice dello specifico "
+"progetto (magari proprio maintainers), i quali saranno ben lieti di "
+"supportare nuovi programmatori nello sviluppo, e introdurli nel progetto."
 
 #: p3/templates/p3/sprints.html:15
 msgid "Requirements"
@@ -1590,15 +1589,19 @@ msgstr "Requisiti"
 #: p3/templates/p3/sprints.html:16
 msgid ""
 "Sprint sessions are open for everybody to join, and are <b>totally free</b>"
-msgstr "Le sessioni di sprint sono aperte a chiunque, e sono <b>totalmente gratuite</b>"
+msgstr ""
+"Le sessioni di sprint sono aperte a chiunque, e sono <b>totalmente "
+"gratuite</b>"
 
 #: p3/templates/p3/sprints.html:17
 msgid ""
-"While we assume that most people there will have a ticket for the conference "
-"days (held in the previous days), having a ticket for the conference is "
+"While we assume that most people there will have a ticket for the conference"
+" days (held in the previous days), having a ticket for the conference is "
 "<b>not required</b> to join a sprint."
-msgstr "Sebbene si assume che la maggiorparte dei partecipanti sia già in possesso di un biglietto della conferenza, "
-"<b>non sarà richiesto</b> di essere dei partecipanti alla conferenza per poter prendere parte ad uno sprint. "
+msgstr ""
+"Sebbene si assume che la maggiorparte dei partecipanti sia già in possesso "
+"di un biglietto della conferenza, <b>non sarà richiesto</b> di essere dei "
+"partecipanti alla conferenza per poter prendere parte ad uno sprint. "
 
 #: p3/templates/p3/sprints.html:18
 msgid ""
@@ -1606,10 +1609,12 @@ msgid ""
 "cables with Internet access, wifi, whiteboards and will generally help out "
 "with logistic tasks. Partecipants are required to <b>bring their own "
 "laptops</b> to take part into the sprint"
-msgstr "Lo staff organizzativo di PyCon si preoccuperà di preparare delle postazioni di lavoro "
-"adatte allo svolgimento dello sprint (cavi di alimentazione, cavi di rete, connessione wi-fi, lavagne) "
-"e sarà generalmente di supporto per questioni logistiche e organizzative. I partecipanti ad uno "
-"sprint dovranno però <b>necessariamente</b> utilizzare il proprio laptop per lo sviluppo."
+msgstr ""
+"Lo staff organizzativo di PyCon si preoccuperà di preparare delle postazioni"
+" di lavoro adatte allo svolgimento dello sprint (cavi di alimentazione, cavi"
+" di rete, connessione wi-fi, lavagne) e sarà generalmente di supporto per "
+"questioni logistiche e organizzative. I partecipanti ad uno sprint dovranno "
+"però <b>necessariamente</b> utilizzare il proprio laptop per lo sviluppo."
 
 #: p3/templates/p3/sprints.html:19
 msgid "Sprint submission"
@@ -1627,8 +1632,9 @@ msgstr "form online"
 msgid ""
 "Please submit a sprint only if you really intend to hold it and help out "
 "other people joining it."
-msgstr "Per favore, inviare la propria proposta di sprint soltanto se si intente <b>realmente</b> "
-"parteciparvi e aiutare le persone ad unirsi alla sessione."
+msgstr ""
+"Per favore, inviare la propria proposta di sprint soltanto se si intente "
+"<b>realmente</b> parteciparvi e aiutare le persone ad unirsi alla sessione."
 
 #: p3/templates/p3/sprints.html:25
 msgid "Registering for a sprint"
@@ -1638,8 +1644,9 @@ msgstr "Registrarsi per una sessione di sprint"
 msgid ""
 "If you are interested in a specific sprint, join it by clicking the "
 "corresponding button"
-msgstr "Se si intende registrarsi ad uno specifico sprint, lo si potrà fare attraverso un semplice "
-"click sul bottone corrispondente."
+msgstr ""
+"Se si intende registrarsi ad uno specifico sprint, lo si potrà fare "
+"attraverso un semplice click sul bottone corrispondente."
 
 #: p3/templates/p3/sprints.html:27
 msgid "(after <a href="
@@ -1648,15 +1655,17 @@ msgstr "(dopo <a href="
 #: p3/templates/p3/sprints.html:28
 #, python-format
 msgid ""
-"Registration is not mandatory, and will not be enforced by organizers in any "
-"way, but it will help us out understanding how many people will be present, "
-"and at the same time will help sprint organizers setting up a list of tasks "
-"for their project. If you think that you might join a sprint (even if you "
+"Registration is not mandatory, and will not be enforced by organizers in any"
+" way, but it will help us out understanding how many people will be present,"
+" and at the same time will help sprint organizers setting up a list of tasks"
+" for their project. If you think that you might join a sprint (even if you "
 "are not 100%% sure yet), <b>please register</b>."
-msgstr "La registrazione non è obbligatoria, ma sarà esclusivamente necessaria per gli organizzatori "
-"per conoscere il numero dei partecipanti, e per poter gestire al meglio la gestione di spazi e "
-"attrezzature. Se pensi di poter partecipare ad uno sprint (anche se non sei sicuro al 100%), "
-"<b>per favore, registrati.</b>"
+msgstr ""
+"La registrazione non è obbligatoria, ma sarà esclusivamente necessaria per "
+"gli organizzatori per conoscere il numero dei partecipanti, e per poter "
+"gestire al meglio la gestione di spazi e attrezzature. Se pensi di poter "
+"partecipare ad uno sprint (anche se non sei sicuro al 100%), <b>per favore, "
+"registrati.</b>"
 
 #: p3/templates/p3/sprints.html:38
 msgid "List of sprints"
@@ -1674,7 +1683,9 @@ msgstr "Proponi uno sprint"
 msgid ""
 "Cannot save the form.\\nUse the web chat, or contact info@pycon.it, for "
 "assistance."
-msgstr "Impossibile salvare il form.\\nUtilizzare la web chat, o contattare info@pycon.it, per assistenza."
+msgstr ""
+"Impossibile salvare il form.\\nUtilizzare la web chat, o contattare "
+"info@pycon.it, per assistenza."
 
 #: p3/templates/p3/tickets.html:4 p3/templates/p3/tickets.html.py:12
 msgid "Your tickets"
