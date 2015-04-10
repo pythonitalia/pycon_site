@@ -214,11 +214,11 @@ def tickets_status(conf, code=None):
                 # p3_conference can be None because it's filled lazily when
                 # the ticket is saved for the first time
                 try:
-                    x.p3_conference
+                    p3c =  x.p3_conference
                 except models.TicketConference.DoesNotExist:
-                    continue
-                if x.p3_conference and x.p3_conference.assigned_to:
-                    email = x.p3_conference.assigned_to
+                    p3c = None
+                if p3c and p3c.assigned_to:
+                    email = p3c.assigned_to
                     u = assignees.get(email)
                 else:
                     email = x.user.email
