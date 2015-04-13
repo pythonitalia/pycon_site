@@ -43,21 +43,24 @@ def conference_ticket_badge(tickets):
             cdays = conferences[t.fare.conference]['days']
             days = ','.join(map(str,[cdays.index(x)+1 for x in tdays]))
             badge_image = p3c.badge_image.path if p3c.badge_image else None
-        if p3c and p3c.assigned_to:
-            profile = AttendeeProfile.objects\
-                        .select_related('user')\
-                        .get(user__email=p3c.assigned_to)
-        else:
-            profile = t.user.attendeeprofile
+        try:
+            if p3c and p3c.assigned_to:
+                profile = AttendeeProfile.objects\
+                            .select_related('user')\
+                            .get(user__email=p3c.assigned_to)
+            else:
+                profile = t.user.attendeeprofile
+        except p3models.AttendeeProfile.DoesNotExist:
+            profile = None
         name = t.name.strip()
         if not name:
-            if profile.user.first_name or profile.user.last_name:
-                name = '%s %s' % (profile.user.first_name, profile.user.last_name)
+            if t.user.first_name or t.user.last_name:
+                name = '%s %s' % (t.user.first_name, t.user.last_name)
             else:
                 name = t.orderitem.order.user.name()
                 if p3c and p3c.assigned_to:
                     name = p3c.assigned_to + ' (%s)' % name
-        groups[t.fare.conference]['tickets'].append({
+        tdata = {
             'name': name,
             'tagline': tagline,
             'days': days,
@@ -68,9 +71,11 @@ def conference_ticket_badge(tickets):
             'experience': experience,
             'badge_image': badge_image,
             'staff': t.ticket_type == 'staff',
-            'profile-link': settings.DEFAULT_URL_PREFIX + reverse(
-                'conference-profile-link', kwargs={'uuid': profile.uuid}),
-        })
+        }
+        if profile:
+            tdata['profile-link'] = settings.DEFAULT_URL_PREFIX + reverse(
+                'conference-profile-link', kwargs={'uuid': profile.uuid})
+        groups[t.fare.conference]['tickets'].append(tdata)
     return groups.values()
 
 def gravatar(email, size=80, default='identicon', rating='r', protocol='https'):
