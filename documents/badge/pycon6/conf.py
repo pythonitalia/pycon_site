@@ -44,7 +44,7 @@ def tickets(tickets):
         else:
             g = 'day'
         groups[g + '_fronte']['attendees'].append(t)
-        #groups[g + '_retro']['attendees'].append(t)
+        groups[g + '_retro']['attendees'].append(t)
 
     for v in groups.values():
         v['attendees'].sort(key=lambda x: x['name'].lower())
