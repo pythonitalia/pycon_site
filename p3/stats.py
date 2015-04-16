@@ -454,12 +454,13 @@ def conference_speakers(conf, code=None):
             'columns': (
                 ('name', 'Name'),
                 ('email', 'Email'),
+                ('phone', 'Telefono'),
             ),
             'data': [],
         }
         data = output['data']
         qs = qs\
-            .select_related('user')\
+            .select_related('user__attendeeprofile')\
             .order_by('user__first_name', 'user__last_name')
         for x in qs:
             data.append({
@@ -468,6 +469,7 @@ def conference_speakers(conf, code=None):
                     x.user.first_name,
                     x.user.last_name),
                 'email': x.user.email,
+                'phone': x.user.attendeeprofile.phone,
                 'uid': x.user_id,
             })
     return output
@@ -506,7 +508,7 @@ def conference_speakers_day(conf, code=None):
         return output
     else:
         people_data = data[code[1:]]
-        conf_events = dict([(x['id'], x) for x in events(conf='ep2013')])
+        conf_events = dict([(x['id'], x) for x in events(conf=conf)])
         tracks = defaultdict(list)
         for p in people_data:
             tickets = [
