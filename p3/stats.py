@@ -7,13 +7,15 @@ from django.db.models import Q, Count
 from p3 import models
 from conference import models as cmodels
 
-def _tickets(conf, ticket_type=None, fare_code=None, only_complete=True):
+def _tickets(conf, ticket_type=None, fare_code=None, only_complete=True, include_admin=False):
     qs = Ticket.objects\
         .filter(fare__conference=conf)
-    if only_complete:
-        qs = qs.filter(orderitem__order___complete=True)
-    else:
-        qs = qs.filter(Q(orderitem__order___complete=True)|Q(orderitem__order__method='bank'))
+    order_status = Q(orderitem__order___complete=True)
+    if not only_complete:
+        order_status = order_status | Q(orderitem__order__method='bank')
+    if include_admin:
+        order_status = order_status | Q(orderitem__order__method='admin')
+    qs = qs.filter(order_status)
 
     if ticket_type:
         qs = qs.filter(fare__ticket_type=ticket_type)
@@ -134,7 +136,7 @@ def tickets_status(conf, code=None):
     sim_tickets = _tickets(conf, fare_code='SIM%')\
         .filter(Q(p3_conference_sim=None)|Q(name='')|Q(p3_conference_sim__document=''))\
         .select_related('p3_conference_sim')
-    voupe03 = _tickets(conf, fare_code='VOUPE03')
+    voupe03 = _tickets(conf, fare_code='VOUPE03', include_admin=True)
     from p3.utils import spam_recruiter_by_conf
     spam_recruiting = spam_recruiter_by_conf(conf)
     if code is None:
