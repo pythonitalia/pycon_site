@@ -531,29 +531,19 @@ CONFERENCE_ADMIN_ATTENDEE_STATS = (
 
 def CONFERENCE_VIDEO_COVER_EVENTS(conference):
     from conference import dataaccess
-    from conference import models
-    from datetime import timedelta
-
-    conf = models.Conference.objects.get(code=conference)
 
     def valid(e):
         if e['tags'] & set(['special', 'break']):
             return False
-        # sprints are in the last two days
-        if e['time'].date() >= conf.conference_end - timedelta(days=1):
-            return False
         # evening events are not recorded
         if e['time'].hour >= 20:
-            return False
-        if len(e['tracks']) == 1 and (
-            e['tracks'][0] in ('helpdesk1', 'helpdesk2')):
             return False
         return True
 
     return [x['id'] for x in filter(valid, dataaccess.events(conf=conference))]
 
 
-def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
+def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front'):
     import re
     import os.path
     from PIL import Image, ImageDraw, ImageFont
@@ -595,59 +585,44 @@ def CONFERENCE_VIDEO_COVER_IMAGE(eid, type='front', thumb=False):
             lines[ix] = line
         return lines
 
-    if conference in ('ep2012', 'ep2013'):
-        master = Image.open(os.path.join(stuff, 'cover-start-end.png')).convert(
-            'RGBA')
+    def write_text(y, text, font, color, page_width, offset_x):
+        lines = wrap_text(font, text, page_width)
+        for line in lines:
+            text_width, text_height = font.getsize(line)
+            x = offset_x + (page_width / 2 - text_width / 2)
+            d.text((x, y), line, font=font, fill=color)
+            y += text_height + text_height / 2
+        return y
 
-        if type == 'back':
-            return master
-
-        if conference == 'ep2012':
-            ftitle = ImageFont.truetype(
-                os.path.join(stuff, 'League Gothic.otf'),
-                36, encoding="unic")
-            fauthor = ImageFont.truetype(
-                os.path.join(stuff, 'Arial_Unicode.ttf'),
-                21, encoding="unic")
-            y = 175
-        elif conference == 'ep2013':
-            ftitle = ImageFont.truetype(
-                os.path.join(stuff, 'League_Gothic.otf'),
-                36, encoding="unic")
-            fauthor = ImageFont.truetype(
-                os.path.join(stuff, 'League_Gothic.otf'),
-                28, encoding="unic")
-            y = 190
-
-        width = master.size[0] - 40
-        d = ImageDraw.Draw(master)
-
-        title = event['name']
-        if event.get('custom'):
-            # this is a custom event, if starts with an anchor we can
-            # extract the reference
-            m = re.match(r'<a href="(.*)">(.*)</a>', title)
-            if m:
-                title = m.group(2)
-        lines = wrap_text(ftitle, title, width)
-        for l in lines:
-            d.text((20, y), l, font=ftitle, fill=(0x2f, 0x1c, 0x1c, 0xff))
-            y += ftitle.getsize(l)[1] + 8
-
-        if event.get('talk'):
-            spks = [x['name'] for x in event['talk']['speakers']]
-            text = 'by ' + ','.join(spks)
-            lines = wrap_text(fauthor, text, width)
-            for l in lines:
-                d.text((20, y), l, font=fauthor, fill=(0x3d, 0x7e, 0x8a, 0xff))
-                y += fauthor.getsize(l)[1] + 8
-
-        if thumb:
-            master.thumbnail(thumb, Image.ANTIALIAS)
+    master = Image.open(os.path.join(stuff, 'cover.png')).convert('RGBA')
+    if type == 'back':
         return master
-    else:
-        return None
+    font_title = ImageFont.truetype(
+        os.path.join(stuff, 'ProximaNova-Semibold.otf'), 80, encoding="unic")
+    font_author = ImageFont.truetype(
+        os.path.join(stuff, 'Arial_Unicode.ttf'), 45, encoding="unic")
 
+    title_y = 500
+
+    margin = 50
+    width = master.size[0] - margin * 2
+    d = ImageDraw.Draw(master)
+
+    title = event['name']
+    if event.get('custom'):
+        # this is a custom event, if starts with an anchor we can
+        # extract the reference
+        m = re.match(r'<a href="(.*)">(.*)</a>', title)
+        if m:
+            title = m.group(2)
+
+    y = write_text(title_y, title, font_title, color=(226, 3, 59, 255), page_width=width, offset_x=margin)
+    if event.get('talk'):
+        spks = [spk['name'] for spk in event['talk']['speakers']]
+        text = 'by ' + ', '.join(spks)
+        y = write_text(y + 50, text, font_author, color=(255, 255, 255, 255), page_width=width, offset_x=margin)
+
+    return master
 
 CONFERENCE_TICKET_BADGE_ENABLED = True
 CONFERENCE_TICKET_BADGE_PROG_ARGS = ['-e', '3', '-p', 'A4', '-n', '4', '--center']
