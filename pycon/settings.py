@@ -96,6 +96,7 @@ STATICFILES_DIRS = (
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
+    'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
@@ -106,6 +107,7 @@ SECRET_KEY = ''
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
+    'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
     'django.template.loaders.app_directories.Loader',
     # 'django.template.loaders.eggs.Loader',
 )
@@ -128,6 +130,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "sekizai.context_processors.sekizai",
     "cms.context_processors.cms_settings",
     "django.core.context_processors.static",
+    'aldryn_boilerplates.context_processors.boilerplate',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -200,7 +203,6 @@ INSTALLED_APPS = (
     'tagging',
     'taggit',
     'authority',
-    #'pages',
     'mptt',
 
     'microblog',
@@ -222,8 +224,13 @@ INSTALLED_APPS = (
     'cms_migration',
     'markitup',
     'cms_utils',
-
+    'absolute',
+    'aldryn_forms',
+    'aldryn_forms.contrib.email_notifications',
+    'captcha',
+    'emailit',
     'raven.contrib.django.raven_compat',
+    'aldryn_style',
 )
 
 RECAPTCHA_OPTIONS = {
@@ -350,6 +357,12 @@ CKEDITOR_SETTINGS = {
     'skin': 'moono',
     'extraPlugins': 'cmsplugins',
 }
+ALDRYN_STYLE_CLASS_NAMES = (
+    ('info', ugettext('info')),
+    ('new', ugettext('new')),
+    ('hint', ugettext('hint')),
+)
+
 
 MICROBLOG_LINK = 'http://www.pycon.it'
 MICROBLOG_TITLE = 'PyconIT blog'
@@ -386,6 +399,7 @@ DJANGOCMS_GRID_CONFIG = {
     'TOTAL_WIDTH': 960,
     'GUTTER': 20,
 }
+ALDRYN_BOILERPLATE_NAME = 'legacy'
 
 
 def MICROBLOG_POST_FILTER(posts, user):
