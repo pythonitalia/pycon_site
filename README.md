@@ -56,7 +56,7 @@ To deploy to live:
 * Be sure that current master has been pushed to the remote repository
 * Launch the command::
 
-      fab deploy
+        fab deploy
 
     
 Deploy to dev
@@ -66,9 +66,9 @@ To deploy to dev:
 
 * Be sure to be on develop branch
 * Be sure that current develop has been pushed to the remote repository
-* Launch the command:
+* Launch the command::
 
-      fab deploy_beta
+        fab deploy_beta
 
     
 Deploy a specific branch
@@ -78,11 +78,11 @@ To deploy to dev/live a specific branch:
 
 * Be sure to be on the branch you want to deploy
 * Be sure that branch has been pushed to the remote repository
-* Launch the command:
+* Launch the command::
 
-      fab deploy_beta:$branch_name
+        fab deploy_beta:$branch_name
 
-  or (for live):
+  or (for live)::
 
-      fab deploy:$branch_name
+        fab deploy:$branch_name
 
