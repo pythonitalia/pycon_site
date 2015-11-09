@@ -146,7 +146,12 @@
     <header role="banner">
         <div class="grid-container">
             <div class="grid-60 prefix-20">
-                <div class="branding"><a href="/" title="Home"><img src="{{STATIC_URL}}p6/images/pycon-sei-logo.png" alt="*" ></a></div>
+                <div class="branding">
+                    <a href="/" title="Home"><img src="{{STATIC_URL}}p6/images/pycon_sette_logo.svg" alt="*" ></a>
+                    <p class="event-name">{% trans "Pycon sette" %}</p>
+                    <p class="event-location">{% trans "firenze" %}</p>
+                    <p class="event-date">14-17 aprile 2016</p>
+                </div>
             </div>
         </div><!-- /grid-container -->
     </header>
@@ -180,11 +185,44 @@
         <div class="grid-100 help-text">
             {% static_placeholder "help_text" %}
         </div>
+        <section class="grid-100 donate">
+            <header class="section-header">
+                <h1>{% trans "Please Donate" %}</h1>
+            </header>
+            <ul class="donate__payments">
+                <li>
+                    <img src="{% static "p5/images/icon-visa.png" %}"  alt="Visa" width="32" height="32">
+                </li>
+                <li>
+                    <img src="{% static "p5/images/icon-mastercard.png" %}" alt="Mastercard" width="32" height="32">
+                </li>
+                <li>
+                    <img src="{% static "p5/images/icon-amex.png" %}" alt="Amex" width="32" height="32">
+                </li>
+                <li>
+                    <img src="{% static "p5/images/icon-paypal.png" %}" alt="Paypal" width="32" height="32">
+                </li>
+            </ul>
+            <form id="donate-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="PDVV2CL2WVLLG">
+                <img alt="" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+                <button class="btn btn-small" title="PayPal - {% trans "The safer, easier way to pay online!" %}">
+                    {% trans "Donate Now" %}
+                </button>
+                <script type="text/javascript">
+                    $('#donate-form a').click(function(e) {
+                        e.preventDefault();
+                        $('#donate-form').submit();
+                    });
+                </script>
+            </form>
+        </section>
     </div>
 </div>
 <div class="copyright">
     <!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT ---><table width=125 border=0 cellspacing=0 cellpadding=0 title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information." ><tr><td><span id="ss_img_wrapper_gmogs_image_125-50_en_black"><a href="https://www.globalsign.eu/" target=_blank title="GlobalSign Site Seal" rel="nofollow"><img alt="SSL" border=0 id="ss_img" src="//seal.globalsign.com/SiteSeal/images/gs_noscript_125-50_en.gif"></a></span><script type="text/javascript" src="//seal.globalsign.com/SiteSeal/gmogs_image_125-50_en_black.js"></script></td></tr></table><!--- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT --->
-    <p>&copy; 2007&ndash;2014 <a href="/python-italia/">Python Italia</a> with <a href="http://creativecommons.org/licenses/by-nd/3.0/">some rights reserved</a>.</p>
+    <p>&copy; 2007&ndash;2015 <a href="/python-italia/">Python Italia</a> with <a href="http://creativecommons.org/licenses/by-nd/3.0/">some rights reserved</a>.</p>
 </div>
 
 </footer>

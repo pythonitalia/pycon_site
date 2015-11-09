@@ -30,8 +30,14 @@ section.splash img {
         <img src="{{ MEDIA_URL }}{{ imgsrc }}" alt=""/>
     </section>
     {% endif %}
-
-    {% placeholder text %} {# markdown #} {# render #}
+    <div class="grid-container clearfix">
+        {% placeholder text %} {# markdown #} {# render #}
+    </div>
+    <div class="grid-container clearfix">
+        <div class="grid-60 prefix-20  form-container">
+            {% placeholder form %} {# markdown #} {# render #}
+        </div>
+    </div>
 {% endblock %}
 
 
