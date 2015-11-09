@@ -1664,7 +1664,7 @@ msgstr ""
 "La registrazione non è obbligatoria, ma sarà esclusivamente necessaria per "
 "gli organizzatori per conoscere il numero dei partecipanti, e per poter "
 "gestire al meglio la gestione di spazi e attrezzature. Se pensi di poter "
-"partecipare ad uno sprint (anche se non sei sicuro al 100%), <b>per favore, "
+"partecipare ad uno sprint (anche se non sei sicuro al 100%%), <b>per favore, "
 "registrati.</b>"
 
 #: p3/templates/p3/sprints.html:38
