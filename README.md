@@ -17,24 +17,72 @@ INSTALL
 Project dependencies are stored in the file `requirements.txt` and can be
 installed using `pip`.
 
-Although not required the use virtualenv is highly recommended.
+Although not required the use virtualenv is highly recommended::
 
->>> virtualenv pycon-env
->>> source pycon-env/bin/activate
->>> pip install -r requirements.txt
+    >>> virtualenv pycon-env
+    >>> source pycon-env/bin/activate
+    >>> pip install -r requirements.txt
 
 SETUP
 -----
 
-When the install completes you must setup your pycon installation.
+When the install completes you must setup your pycon installation::
 
->>> cp pycon/settings_locale.py.in pycon/settings_locale.py
+    >>> cp pycon/settings_locale.py.in pycon/settings_locale.py
 
 Edit `pycon/settings_locale.py` to your taste!
 
 The next step is the database setup; the pycon site uses sqlite so the only
-needed thing is to create the directory where the db will be placed.
+needed thing is to create the directory where the db will be placed::
 
->>> mdirk -p data/site
->>> ./manage.py syncdb
->>> ./manage.py migrate
+    >>> mdirk -p data/site
+    >>> ./manage.py syncdb
+    >>> ./manage.py migrate
+
+
+DEPLOY
+======
+
+Deploy is handled through fabric.
+
+Please check that you can connect to `ssh -p22 pyconwww@pycon.it`
+
+Deploy to live
+--------------
+
+To deploy to live:
+
+* Be sure to be on master branch
+* Be sure that current master has been pushed to the remote repository
+* Launch the command::
+
+      fab deploy
+
+    
+Deploy to dev
+--------------
+
+To deploy to dev:
+
+* Be sure to be on develop branch
+* Be sure that current develop has been pushed to the remote repository
+* Launch the command:
+
+      fab deploy_beta
+
+    
+Deploy a specific branch
+------------------------
+
+To deploy to dev/live a specific branch:
+
+* Be sure to be on the branch you want to deploy
+* Be sure that branch has been pushed to the remote repository
+* Launch the command:
+
+      fab deploy_beta:$branch_name
+
+  or (for live):
+
+      fab deploy:$branch_name
+
