@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-09 15:56+0100\n"
+"POT-Creation-Date: 2015-11-11 13:01+0100\n"
 "PO-Revision-Date: 2015-03-31 22:55+0050\n"
 "Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: en <pycon-organization@googlegroups.com>\n"
@@ -1539,8 +1539,8 @@ msgid "firenze"
 msgstr "Florence"
 
 #: p3/templates/p3/base.html:153
-msgid "14-17 aprile 2016"
-msgstr "14th 17th April 2016"
+msgid "15-17 aprile 2016"
+msgstr "15th 17th April 2016"
 
 #: p3/templates/p3/base.html:190
 msgid "Please Donate"
