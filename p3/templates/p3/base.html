@@ -116,27 +116,6 @@
     {% endfor %}
     {% endif %}
     {% block TOP_NAV_BLOCK %}
-        <a href="#navigation-toggle" class="navigation-toggle"><i title="Menu" class="fa fa-bars"></i></a>
-        <nav id="navigation-toggle" role="navigation">
-            <ul class="clearfix">
-                {% show_menu 0 1 1 1  %}
-                {% language_chooser "p3/includes/langnav.html" "native" %}
-                <li class="right">
-                {% if request.user.is_authenticated %}
-                    <a class="username" href="{% url "assopy-profile" %}"><i class="fa fa-user"></i>&nbsp;{{ request.user.assopy_user.name }}</a>
-                    {% if request.user.is_staff %}
-                        <a title="Enter admin" href="/admin/"><i class="fa fa-wrench"></i></a>
-                    {% endif %}
-                    {% if request.session.doppelganger %}
-                        <a href="{% url "admin:auser-kill-doppelganger" %}" title="Kill doppelganger"><i class="fa fa-bolt"></i></a>
-                    {% endif %}
-                        <a href="/accounts/logout/?next=/"><i class="fa fa-sign-out"></i>Log out</a>
-                {% else %}
-                    <a href="/accounts/login/?next={{ request.META.PATH_INFO }}">Log in</a>
-                {% endif %}
-                </li>
-            </ul>
-        </nav>
     {% endblock %}
 {% endblock %}
 
@@ -172,6 +151,13 @@
             <a href="/blog/feeds/latest/"><img src="{% static 'p7/images/rss.svg' %}" /></a>
         </div>
     </div>
+</div>
+<div class="bg-grey">
+    <ul class="footer-menu">
+        <li><a href="{% page_url 'contacts' %}">{% page_attribute 'menu_title' 'contacts'  %}</a></li>
+        <li><a href="{% page_url 'privacy' %}">{% page_attribute 'menu_title' 'privacy'  %}</a></li>
+        <li><a href="{% page_url 'conduct-code' %}">{% page_attribute 'menu_title' 'conduct-code'  %}</a></li>
+    </ul>
 </div>
 <div class="join-us">
     <div class="grid-container">
