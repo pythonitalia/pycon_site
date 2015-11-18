@@ -232,6 +232,38 @@ body > div.draft {
         height: 100px;
     }
 }
+
+.home-tpl {
+    .branding {
+        a {
+            display: block;
+            border-bottom: 0;
+
+            &:hover {
+                border-bottom: 0;
+            }
+        }
+
+        img {
+            width: 250px;
+            height: auto;
+        }
+
+        .event-name {
+            @include font-size(90);
+            font-weight: bold;
+        }
+
+        .event-location {
+            @include font-size(30);
+        }
+
+        .event-date {
+            @include font-size(30);
+        }
+    }
+}
+
 .calendar {
     h4 {
         text-align: left;

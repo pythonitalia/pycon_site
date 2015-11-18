@@ -59,7 +59,7 @@ margin : 0 auto; }
 a {
 display : block;
 padding : $gutterwidth;
-border-bottom : $navigationborderwidth $navigationborderstyle $navigationbordercolor;
+border-bottom : 0;
 color : $navigationlinkcolor;
 text-transform : uppercase;
 

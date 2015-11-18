@@ -128,8 +128,8 @@ body {
 }
 
 .bg-red {
-    background-color: $primarycolor;
-    color: $white;
+    background: $primarycolor;
+    color: $textcolor;
 }
 
 .bg-grey {
@@ -162,23 +162,32 @@ body {
 }
 
 .learn-with-pycon {
-    background-image: url("../images/bg-learn-with-pycon.jpg");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: $secondarycolor;
+
     a:hover {
+        @include transition(all .2s);
         text-decoration: none;
+        color: $primarycolor;
+
+        .learn-icon {
+            @include transition(all .2s);
+            border-width: 15px;
+        }
     }
     p {
         text-align: center;
-        color: $secondarycolor;
+        color: $white;
+    }
+    a {
+        color: darken($white, 20);
+        border: 0;
     }
     h2 {
         margin: 0 0 0.5em 0;
+        color: $white;
     }
     h4 {
-        color: $secondarycolor;
+        color: $white;
         font-weight: 600;
         @include font-size(32);
         margin-bottom: 0;
@@ -253,17 +262,13 @@ footer {
     }
 }
 
-#navigation-toggle {
-    border-bottom: 5px solid $primarycolor;
-}
-
 header {
     background: $secondarycolor;
     background-size: cover;
 }
 
 .quote-section {
-    background: #555;
+    background: lighten($secondarycolor, 15);
     color: white;
     q {
         @include font-size(30);
@@ -496,3 +501,15 @@ header {
 
 
 
+footer,
+h4 {
+
+    a {
+        border-bottom: 0;
+
+        &:hover {
+            border-bottom: 0;
+        }
+    }
+
+}

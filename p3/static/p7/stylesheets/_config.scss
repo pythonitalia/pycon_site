@@ -34,7 +34,7 @@
 // Start the ‘atmosphere’ of your design by defining the colours of your pages and text
 
 $bodycolor 						: white;
-$textcolor 						: #555555;
+$textcolor 						: #202020;
 
 
 
@@ -138,7 +138,7 @@ $black 							: rgb(0,0,0);
 $white 							: rgb(255,255,255);
 
 // Choose a colour for your hyperlinks. Often this will be the $primarycolor 
-$linkcolor 		    			: $primarycolor;
+$linkcolor 		    			: #000000;
 $linkcolorhover 				: $secondarycolor;
 $linkcolorvisited   			: darken($linkcolorhover, 10);
 $linkcolorfocus 				: darken($linkcolorvisited, 10);
@@ -217,7 +217,7 @@ $basefontbackgroundcolor		: $lightestneutralcolor;
 // By default site navigation has a flat background colour
 // Add an optional gradient in __navigation-toggle.scss
 // Configure the gradient colours in _texture.scss
-$navigationbackgroundcolor 		: $white;
+$navigationbackgroundcolor 		: #303030;
 
 // Set navigation items’ bottom border width
 $navigationborderwidth			: $borderwidth;
@@ -235,6 +235,7 @@ $navigationlinkcolor			: $primarycolor;
 $navigationlinkcolorhover		: $white;
 
 
+$navigationrightlinkcolor       : #eeeeee;
 
 
 
@@ -583,7 +584,7 @@ $buttonpadding 					: 6px 11px;
 // Buttons have a default flat background colour
 // Add an optional gradient in _bootstrap-form-buttons.scss
 // Configure the gradient colours in _texture.scss
-$buttonbackgroundcolor 			: $lightestneutralcolor;
+$buttonbackgroundcolor 			: $primarycolor;
 
 // Set the default button’s border width. Default is $borderwidth defined above
 $buttonborderwidth				: $borderwidth;

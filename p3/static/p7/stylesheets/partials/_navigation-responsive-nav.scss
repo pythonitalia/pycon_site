@@ -81,7 +81,7 @@ nav[role=navigation].active {
                 @include font-size(16);}
         
             &:hover {
-                color : $secondarycolor;
+                color : $white;
                 text-decoration : none;
             }
         }
@@ -98,14 +98,14 @@ nav[role=navigation].active {
                 float: right; 
             }
             a { 
-                color: $secondarycolor;
+                color: $navigationrightlinkcolor;
                 text-transform : none; 
                 @include font-size(14);
                 &.username {
                     font-weight: 600;
                 }
                 &:hover {
-                    color: darken($secondarycolor, 20%);
+                    color: lighten($navigationrightlinkcolor, 20%);
                 }
                 i {
                     color: $primarycolor;
@@ -116,11 +116,11 @@ nav[role=navigation].active {
         //
         &.right.lang a {
             text-transform: uppercase;
-            background-color: #F5F5F5;
+            background-color: lighten($secondarycolor, 10);
             padding-left: 15px;
             padding-right: 15px;  
             &:hover {
-                background-color: #EEE;
+                background-color: $secondarycolor;
             }
         }
     }

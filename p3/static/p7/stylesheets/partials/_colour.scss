@@ -6,13 +6,16 @@
 a {
 text-decoration : none;
 color : $linkcolor;
+border-bottom: 2px solid $linkcolor;
 
 &:visited {
 }
 
 &:hover {
 text-decoration : none;
-color : darken($primarycolor, 10%); }
+color : lighten($linkcolor, 15);
+border-color: $primarycolor;
+}
 
 &:focus {
 outline : thin dotted;

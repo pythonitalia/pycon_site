@@ -32,3 +32,4 @@ djangocms-grid==1.2
 simplejson  # Necessario per il Syncdb
 aldryn-forms==0.6.0
 aldryn-style==0.3.0
+django-mptt==0.6.1

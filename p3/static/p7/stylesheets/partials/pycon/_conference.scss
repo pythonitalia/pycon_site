@@ -1,27 +1,30 @@
-/*
- * Copyright (C) 2009-2013, Python Italia APS
- * All rights reserved.
- *
- * This file is non-free. See README.md for an explanation.
- */
+//
+// Copyright (C) 2009-2013, Python Italia APS
+// All rights reserved.
+//
+// This file is non-free. See README.md for an explanation.
+//
 
 // TALKS =============================================================================
 
 #talk-voting {
     @include zero;
     list-style: none;
+
     h3 {
         margin-bottom: 0;
-    }        
+    }
+
     > li {
         margin: 0 0 $baselineheight / 2 0;
-        padding: 0 0 $baselineheight / 2 0;    
-        border-bottom: 1px dotted $bordercolor; }
+        padding: 0 0 $baselineheight / 2 0;
+        border-bottom: 1px dotted $bordercolor;
+    }
 
     .talk-speakers {
         @extend .meta;
         text-transform: uppercase;
-    }    
+    }
 
     .accordion__group.abstract .accordion__inner * {
         @include font-size(16);
@@ -29,12 +32,12 @@
 
     // Talk in English
     .international abbr {
+        @include font-size(14);
         background: $lighterneutralcolor;
         padding: 1px 3px;
-        @include font-size(14);
         border-radius: 2px;
     }
-    
+
     // Talk with teaser video
     .video .fa {
         color: $secondarycolor;
@@ -43,115 +46,103 @@
     .rateit {
         margin: $baselineheight / 2 0;
     }
-    
 }
 
 #form-options {
-    
     .control-group {
         float: left;
         margin-right: $gutterwidth;
-        
-/*
-        label {
-            @extend .meta;
-            text-transform: uppercase;            
-        }
-*/
+
+        //label {
+        //    @extend .meta;
+        //    text-transform: uppercase;
+        //}
     }
-    
+
     // Stop to float elements
     .tagfield {
         float: none;
         clear: both;
     }
-    
 }
 
 
 // CART ========================================================================
 
 #form-cart {
+    // Totals
+    .total {
+        padding: $baselineheight/2 0;
+        text-align: center;
+        background: tint($primarycolor, 75%);
+    }
 
-// Totals 
-.total {
-    padding: $baselineheight/2 0;
-    text-align: center;
-    background: tint($primarycolor, 75%);
+    // Coupon field
+    .coupon {
+        input { @extend .input-xlarge; }
+    }
+
+    .save {
+        color: $successstatecolor;
+        display: none;
+    }
+
+    .total.save {
+        background-color: transparent;
+    }
 }
 
-// Coupon field
-.coupon {
-    input { @extend .input-xlarge; }
-}
-.save {
-    color: $successstatecolor;
-    display: none;
-}
+//.room-type.selected {
+//    color: red;
+//}
 
-.total.save {
-    background-color: transparent;
-}
-
-}
-
-/*
-
-.room-type.selected {
-    color: red;
-}
-
-.room-type.disabled {
-    background: gray;
-}
-*/
+//.room-type.disabled {
+//    background: gray;
+//}
 
 // TICKETS =====================================================================
 
 .ticket {
-.preview {
-    background: $white;
+    .preview {
+        background: $white;
 
-    margin: $baselineheight 0;    
-    border: 1px solid $bordercolor;    
-    border-radius: $borderradius;
+        margin: $baselineheight 0;
+        border: 1px solid $bordercolor;
+        border-radius: $borderradius;
 
-    position: relative;
-    min-height: $baselineheight*9;
-    box-shadow: 0 0 4px $neutralcolor;
+        position: relative;
+        min-height: $baselineheight*9;
+        box-shadow: 0 0 4px $neutralcolor;
 
-    .preview-inner {
-        padding: 0 $gutterwidth/2;
-        
+        .preview-inner {
+            padding: 0 $gutterwidth/2;
+        }
+
+        h2 {
+            padding: $baselineheight/4 $gutterwidth/2;
+            color: $white;
+            // background improbabile :) tutte le tariffe lo ridefiniscono, metto
+            // comunque un default per quando aggiungiuamo un nuovo tipo di tariffa e
+            // ci scordiamo di aggiornare il css
+            background: thistle;
+        }
+
+        .media-heading {
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+
+        .tagline {
+            color: $neutralcolor;
+            font-style: italic;
+            margin-bottom: $baselineheight/2;
+        }
+
+        .fa-star {
+            color: gold;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+        }
     }
-
-    h2 {
-        padding: $baselineheight/4 $gutterwidth/2;
-        color: $white;
-        /*
-         * background improbabile :) tutte le tariffe lo ridefiniscono, metto
-         * comunque un default per quando aggiungiuamo un nuovo tipo di tariffa e
-         * ci scordiamo di aggiornare il css
-         */
-        background: thistle;
-    }
-
-    .media-heading {
-        text-transform: uppercase;
-        margin-bottom: 0;
-    }
-
-    .tagline {
-        color: $neutralcolor;    
-        font-style: italic;
-        margin-bottom: $baselineheight/2;
-    }
-    
-    .fa-star {
-        color: gold;
-        text-shadow: 0 1px 0 rgba(0,0,0,.4);
-    }
-}
 }
 
 .ticket.conference .preview h2 {
@@ -181,8 +172,7 @@
 .ticket[data-fare=HR1] .preview h2,
 .ticket[data-fare=HR2] .preview h2,
 .ticket[data-fare=HR3] .preview h2,
-.ticket[data-fare=HR4] .preview h2
-{
+.ticket[data-fare=HR4] .preview h2 {
     background: #BB78FF;
 }
 
@@ -191,18 +181,15 @@
 }
 
 .ticket-commands {
-    position: absolute;    
+    @include transition(opacity .2s ease-out);
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    
     text-align: center;
-
     min-height: 100%;
     min-width: 100%;
-
     background: $white;
-    @include transition(opacity .2s ease-out);
     opacity: 0;
 
     p {
@@ -216,11 +203,11 @@
 }
 
 .ticket-footer {
-	position: absolute;
-	bottom: $baselineheight/2;
-	right: $gutterwidth/2;
-    color: $neutralcolor;  
     @extend small;
+    position: absolute;
+    bottom: $baselineheight/2;
+    right: $gutterwidth/2;
+    color: $neutralcolor;
 }
 
 // Tweaks to made it shorter
@@ -244,7 +231,7 @@
     .see-more {
         @extend .meta;
     }
-    
+
     .person-card-picture {
         float: left;
         margin-right: $gutterwidth/2;
@@ -267,14 +254,17 @@
 
     .stripe-error {
         color: #E61F4B;
+
         h1 {
             border-bottom: 2px dashed #E61F4B;
         }
     }
+
     #payment-form {
         width: 600px;
         margin: 0 auto;
         padding: 20px 0;
+
         input {
             @extend input[type="text"];
         }
@@ -295,11 +285,14 @@
     .stripe-checkout-footer {
         margin-bottom: 20px;
         text-align: center;
+
         p {
             display: inline;
         }
+
         p:first-child:after {
             content: " - ";
         }
     }
 }
+
