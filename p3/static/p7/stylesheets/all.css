@@ -6049,17 +6049,21 @@ input.search-query {
   padding: 0.75em 15px;
   background-color: #303030;
   color: #ffca00;
-  border-bottom-left-radius: 4px; }
+  border-bottom: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000328}}
+  #nav-toggle:hover {
+    border-bottom: 0;
+    background-color: #3d3d3d; }
   @media (min-width: 37.5em) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000320}}
     #nav-toggle {
       display: none; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000338}}
 .navigation-toggle {
   display: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000341}}
 nav[role=navigation] {
   clear: both;
   background-color: #303030;
@@ -6067,93 +6071,162 @@ nav[role=navigation] {
   -moz-transition: all 0.25s ease;
   transition: all 0.25s ease; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000347}}
 nav[role=navigation].active {
   max-height: 25em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000351}}
 #navigation-toggle {
   list-style-type: none;
   margin: 0;
   padding: 0; }
   @media (min-width: 48em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000351}}
     #navigation-toggle {
       width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000357}}
       #navigation-toggle ul {
         margin: 0 auto;
         max-width: 1170px; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000363}}
   #navigation-toggle ul {
     list-style: none;
     margin: 0;
     padding: 0; }
     @media (min-width: 37.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000363}}
       #navigation-toggle ul {
         margin: 0 auto; } }
   @media (min-width: 37.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000370}}
     #navigation-toggle li {
       float: left;
-      margin: 0 15px 0 0; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000369}}
+      margin: 0; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000377}}
   #navigation-toggle li a {
     vertical-align: middle;
     display: block;
-    padding: 15px 7.5px;
-    border-top: 1px solid #ffca00;
+    padding: 15px;
     color: #ffca00;
     text-transform: uppercase;
-    letter-spacing: .5px; }
+    letter-spacing: .5px;
+    border: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000386}}
+    #navigation-toggle li a:hover {
+      color: white;
+      text-decoration: none;
+      border: 0;
+      background: #3d3d3d; }
     @media (min-width: 37.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000377}}
       #navigation-toggle li a {
         display: inline-block;
         border: none;
         font-size: 16px;
-        font-size: 1.6rem; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000383}}
-    #navigation-toggle li a:hover {
-      color: white;
-      text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000390}}
+        font-size: 1.6rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000398}}
+        #navigation-toggle li a:hover {
+          background: transparent; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003105}}
   #navigation-toggle li.current a {
     color: #000000; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003110}}
   #navigation-toggle li.right {
     margin: 0 0 0 15px; }
     @media (min-width: 37.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003110}}
       #navigation-toggle li.right {
         float: right; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003116}}
     #navigation-toggle li.right a {
       color: #eeeeee;
       text-transform: none;
       font-size: 14px;
       font-size: 1.4rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003121}}
       #navigation-toggle li.right a.username {
         font-weight: 600; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003125}}
       #navigation-toggle li.right a:hover {
         color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003129}}
       #navigation-toggle li.right a i {
         color: #ffca00;
         margin-right: 4px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003136}}
   #navigation-toggle li.right.lang a {
     text-transform: uppercase;
     background-color: #1a1a1a;
     padding-left: 15px;
     padding-right: 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003141}}
     #navigation-toggle li.right.lang a:hover {
       background-color: #000000; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003148}}
+#navigation-toggle .main-navigation--lang, #navigation-toggle .main-navigation--user-menu {
+  background: black;
+  padding: 0;
+  line-height: 1;
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003154}}
+  #navigation-toggle .main-navigation--lang a, #navigation-toggle .main-navigation--user-menu a {
+    font-size: 12px;
+    padding: 10px 15px;
+    color: white;
+    line-height: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003160}}
+    #navigation-toggle .main-navigation--lang a:hover, #navigation-toggle .main-navigation--user-menu a:hover {
+      color: #ffca00; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003166}}
+#navigation-toggle .main-navigation--lang {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003170}}
+  #navigation-toggle .main-navigation--lang + li {
+    clear: both; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003175}}
+#navigation-toggle .main-navigation--user-menu {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003179}}
+  #navigation-toggle .main-navigation--user-menu a {
+    display: inline-block; }
+
+@media (min-width: 37.5em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003186}}
+  #navigation-toggle .main-navigation--lang, #navigation-toggle .main-navigation--user-menu {
+    float: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003189}}
+    #navigation-toggle .main-navigation--lang a, #navigation-toggle .main-navigation--user-menu a {
+      border-right: 2px solid #303030;
+      padding: 5px 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003193}}
+      #navigation-toggle .main-navigation--lang a:hover, #navigation-toggle .main-navigation--user-menu a:hover {
+        border-right: 2px solid #303030; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003199}}
+  #navigation-toggle .main-navigation--lang {
+    -moz-border-radius: 0 0 0 5px;
+    -webkit-border-radius: 0 0 0 5px;
+    border-radius: 0 0 0 5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003204}}
+  #navigation-toggle .main-navigation--user-menu {
+    -moz-border-radius: 0 0 5px 0;
+    -webkit-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+    margin-right: 15px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003209}}
+    #navigation-toggle .main-navigation--user-menu a:last-child {
+      border-right: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_navigation-responsive-nav\.scss}line{font-family:\00003212}}
+      #navigation-toggle .main-navigation--user-menu a:last-child:hover {
+        border-right: 0; } }
 /*
  * Copyright (C) 2009-2013, Python Italia APS
  * All rights reserved.
@@ -6595,85 +6668,63 @@ h4 {
 .btn-centered {
   display: block; }
 
-/*
- * Copyright (C) 2009-2013, Python Italia APS
- * All rights reserved.
- *
- * This file is non-free. See README.md for an explanation.
- */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000310}}
 #talk-voting {
   margin: 0;
   padding: 0;
   list-style: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000314}}
   #talk-voting h3, #talk-voting .stripe-checkout h1, .stripe-checkout #talk-voting h1 {
     margin-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000318}}
   #talk-voting > li {
     margin: 0 0 0.75em 0;
     padding: 0 0 0.75em 0;
     border-bottom: 1px dotted #bcbab2; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000324}}
   #talk-voting .talk-speakers {
     text-transform: uppercase; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000329}}
   #talk-voting .accordion__group.abstract .accordion__inner * {
     font-size: 16px;
     font-size: 1.6rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000334}}
   #talk-voting .international abbr {
-    background: #d4d2cd;
-    padding: 1px 3px;
     font-size: 14px;
     font-size: 1.4rem;
+    background: #d4d2cd;
+    padding: 1px 3px;
     border-radius: 2px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000342}}
   #talk-voting .video .fa {
     color: #000000; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000346}}
   #talk-voting .rateit {
     margin: 0.75em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000352}}
 #form-options .control-group {
   float: left;
-  margin-right: 30px;
-  /*
-          label {
-              @extend .meta;
-              text-transform: uppercase;            
-          }
-  */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000364}}
+  margin-right: 30px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000363}}
 #form-options .tagfield {
   float: none;
   clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000374}}
 #form-cart .total {
   padding: 0.75em 0;
   text-align: center;
   background: #fff1bf; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000385}}
 #form-cart .save {
   color: #148414;
   display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\0000390}}
 #form-cart .total.save {
   background-color: transparent; }
 
-/*
-
-.room-type.selected {
-    color: red;
-}
-
-.room-type.disabled {
-    background: gray;
-}
-*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003106}}
 .ticket .preview {
   background: white;
   margin: 1.5em 0;
@@ -6682,54 +6733,49 @@ h4 {
   position: relative;
   min-height: 13.5em;
   box-shadow: 0 0 4px #807c6f; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003117}}
   .ticket .preview .preview-inner {
     padding: 0 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003121}}
   .ticket .preview h2 {
     padding: 0.375em 15px;
     color: white;
-    /*
-     * background improbabile :) tutte le tariffe lo ridefiniscono, metto
-     * comunque un default per quando aggiungiuamo un nuovo tipo di tariffa e
-     * ci scordiamo di aggiornare il css
-     */
     background: thistle; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003138}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003130}}
   .ticket .preview .media-heading {
     text-transform: uppercase;
     margin-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003143}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003135}}
   .ticket .preview .tagline {
     color: #807c6f;
     font-style: italic;
     margin-bottom: 0.75em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003141}}
   .ticket .preview .fa-star {
     color: gold;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003148}}
 .ticket.conference .preview h2 {
   background: #ffca00; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003152}}
 .ticket.partner .preview h2 {
   background: #301D1D; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003156}}
 .ticket[data-fare=SIM01] .preview h2 {
   background: #EC7324; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003160}}
 .ticket[data-fare=VOUPE01] .preview h2 {
   background: #194175; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003172}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003164}}
 .ticket[data-fare=VOUPE02] .preview h2 {
   background: #793f4b; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003168}}
 .ticket[data-fare=HB1] .preview h2,
 .ticket[data-fare=HB2] .preview h2,
 .ticket[data-fare=HB3] .preview h2,
@@ -6740,12 +6786,15 @@ h4 {
 .ticket[data-fare=HR4] .preview h2 {
   background: #BB78FF; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003179}}
 .preview:hover .ticket-commands {
   opacity: .85; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003192}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003183}}
 .ticket-commands {
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
   position: absolute;
   top: 0;
   left: 0;
@@ -6754,79 +6803,76 @@ h4 {
   min-height: 100%;
   min-width: 100%;
   background: white;
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
   opacity: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003205}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003195}}
   .ticket-commands p {
     margin: 4.5em 0 0 0;
     color: #807c6f; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003211}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003201}}
 .ticket-assigned-to.ticket-commands {
   opacity: .8; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003215}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003205}}
 .ticket-footer {
   position: absolute;
   bottom: 0.75em;
   right: 15px;
   color: #807c6f; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003226}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003216}}
 #form-ticket-edit ul {
   margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003234}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003224}}
 .person-card {
   background: white;
   padding: 0.75em 15px;
   border: 1px solid #bcbab2;
   border-radius: 4px;
   margin-bottom: 1.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003245}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003235}}
   .person-card .person-card-picture {
     float: left;
     margin-right: 15px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003252}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003242}}
 .stripe-checkout h1 {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   padding-bottom: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003261}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003251}}
 .stripe-checkout > h1 {
   border-bottom: 2px solid #8D897C; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003265}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003255}}
 .stripe-checkout .stripe-error {
   color: #E61F4B; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003268}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003258}}
   .stripe-checkout .stripe-error h1 {
     border-bottom: 2px dashed #E61F4B; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003273}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003263}}
 .stripe-checkout #payment-form {
   width: 600px;
   margin: 0 auto;
   padding: 20px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003282}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003272}}
   .stripe-checkout #payment-form button {
     display: block;
     margin: 10px auto 0 auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003289}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003279}}
   .stripe-checkout #payment-form .total {
     margin: 20px auto;
     text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003285}}
 .stripe-checkout .stripe-checkout-footer {
   margin-bottom: 20px;
   text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003299}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003289}}
   .stripe-checkout .stripe-checkout-footer p {
     display: inline; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003303}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/pycon\/_conference\.scss}line{font-family:\00003293}}
   .stripe-checkout .stripe-checkout-footer p:first-child:after {
     content: " - "; }
 

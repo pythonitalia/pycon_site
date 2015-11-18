@@ -119,9 +119,7 @@
         <a href="#navigation-toggle" class="navigation-toggle"><i title="Menu" class="fa fa-bars"></i></a>
         <nav id="navigation-toggle" role="navigation">
             <ul class="clearfix">
-                {% show_menu 0 1 1 1  %}
-                {% language_chooser "p3/includes/langnav.html" "native" %}
-                <li class="right">
+                <li class="main-navigation--user-menu">
                 {% if request.user.is_authenticated %}
                     <a class="username" href="{% url "assopy-profile" %}"><i class="fa fa-user"></i>&nbsp;{{ request.user.assopy_user.name }}</a>
                     {% if request.user.is_staff %}
@@ -135,6 +133,8 @@
                     <a href="/accounts/login/?next={{ request.META.PATH_INFO }}">Log in</a>
                 {% endif %}
                 </li>
+                {% language_chooser "p3/includes/langnav.html" "native" %}
+                {% show_menu 0 1 1 1  %}
             </ul>
         </nav>
     {% endblock %}
