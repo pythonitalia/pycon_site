@@ -224,10 +224,22 @@ body > div.draft {
 .general-notice {
 }
 
+.branding {
+    a {
+        display: block;
+        border-bottom: 0;
+
+        &:hover {
+            border-bottom: 0;
+        }
+    }
+}
+
 .content-tpl {
     header {
         padding: 1.5em;
     }
+
     .branding img {
         height: 100px;
     }
@@ -235,15 +247,6 @@ body > div.draft {
 
 .home-tpl {
     .branding {
-        a {
-            display: block;
-            border-bottom: 0;
-
-            &:hover {
-                border-bottom: 0;
-            }
-        }
-
         img {
             width: 250px;
             height: auto;

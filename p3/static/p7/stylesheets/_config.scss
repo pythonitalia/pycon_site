@@ -612,7 +612,7 @@ $buttonfontsize 				: $basefontsize;
 // Set the default button’s text colour
 // Colours for :hover and :active  are derived automatically from $buttoncolor
 // Override colours for :hover and :active in _bootstrap-form-buttons.scss
-$buttoncolor 					: $darkneutralcolor;
+$buttoncolor 					: #202020;
 
 
 
@@ -622,8 +622,8 @@ $buttoncolor 					: $darkneutralcolor;
 
 
 // Set the primary action button’s border and text colours
-$buttonbordercolorprimary		: darken($primarycolor, 10%);
-$buttoncolorprimary				: $white;
+$buttonbordercolorprimary		: $primarycolor;
+$buttoncolorprimary				: $buttoncolor;
 
 
 // Set the error button’s border and text colours

@@ -173,20 +173,21 @@ header {
     .deadline {
         font-style: italic;
         font-weight: 300;
+
         time {
             @include font-size(16);
             color: white;
-            background: $primarycolor;
+            background: lighten($secondarycolor, 20);
             font-style: normal;
             border-radius: 0;
-            padding: 0;
+            padding: 5px;
+            margin-right: 5px;
         }
-        
     }
 
     .deadline.expired {
-        text-decoration: line-through;       
-        color: $neutralcolor;        
+        text-decoration: line-through;
+        color: $neutralcolor;
     }
 
     time {
@@ -196,7 +197,7 @@ header {
         color: $primarycolor;
         @include font-size(14);
         border-radius: $borderradius;
-    }    
+    }
 }
 
 

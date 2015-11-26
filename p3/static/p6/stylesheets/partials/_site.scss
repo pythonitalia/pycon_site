@@ -138,7 +138,8 @@ body {
 
 .deadlines {
     padding: 1em 0;
-    @extend .bg-grey;
+    background-color: lighten($secondarycolor, 5);
+    color: $white;
 }
 
 .deadline-homepage, .deadline-button {
@@ -150,13 +151,14 @@ body {
 }
 
 .calendar-icon {
-    display: inline-block;    
+    display: inline-block;
 }
 
 .media-body {
     text-align: center;
-    h3 { 
-        padding-top: 5px; 
+
+    h3 {
+        padding-top: 5px;
     }
 }
 
