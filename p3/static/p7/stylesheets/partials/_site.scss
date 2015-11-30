@@ -370,15 +370,15 @@ header {
         .filer_image_link {
             text-decoration: none;
             border: 0;
-            height: 255px; // FIXME magic number
             display: block;
-            padding-top: 40px;
+            position: relative;
 
-            img {
-                width: 50%;
-                height: auto;
-                display: block;
-                margin: 0 auto;
+            .filer_image_info {
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                width: 100%;
+                text-align: center;
             }
         }
 
