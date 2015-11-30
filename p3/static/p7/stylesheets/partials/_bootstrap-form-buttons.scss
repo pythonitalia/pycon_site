@@ -104,12 +104,12 @@
 
 .btn-large {
     @include button($primarycolor, lighten($buttoncolor, 10));
-    padding: 15px;
+    padding: 15px 18px;
 }
 
 .btn-small {
     @include button($primarycolor, lighten($buttoncolor, 10));
-    padding: 5px 10px;
+    padding: 10px 15px;
 }
 
 .btn-mini {

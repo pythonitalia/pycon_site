@@ -357,12 +357,31 @@ header {
         display: block;
         margin: 0 auto 0.5em auto;
     }
+
     .subcommunity-container {
         @extend .learn-icon;
         padding: 15px;
         width: 100%;
         height: auto;
         border: 5px solid #EEE;
+
+        // This block is for the call for communities link,
+        // ugly code
+        .filer_image_link {
+            text-decoration: none;
+            border: 0;
+            height: 255px; // FIXME magic number
+            display: block;
+            padding-top: 40px;
+
+            img {
+                width: 50%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
         &:hover {
             @include transition(all 80ms linear);
             background-color: #EEE;
