@@ -3101,7 +3101,7 @@ input.search-query {
     -webkit-margin-top-collapse: separate; }
 
 /*form-search*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000339}}
 .btn, .cms .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action a, .stripe-checkout #payment-form button,
 .btn:visited,
 .cms .call-to-action a:visited,
@@ -3122,8 +3122,9 @@ input.search-query {
   border: 0;
   cursor: pointer;
   letter-spacing: .5px;
-  display: inline-block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000313}}
+  display: inline-block;
+  padding: 10px 15px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000314}}
   .btn:before, .cms .call-to-action a:before, .conference-schedules.list .event .details .abstract .call-to-action a:before, .stripe-checkout #payment-form button:before,
   .btn:visited:before,
   .cms .call-to-action a:visited:before,
@@ -3148,7 +3149,7 @@ input.search-query {
     right: 0;
     bottom: 0;
     background: #ffdf66; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000328}}
   .btn:hover, .cms .call-to-action a:hover, .conference-schedules.list .event .details .abstract .call-to-action a:hover, .stripe-checkout #payment-form button:hover, .btn:active, .cms .call-to-action a:active, .conference-schedules.list .event .details .abstract .call-to-action a:active, .stripe-checkout #payment-form button:active,
   .btn:visited:hover,
   .cms .call-to-action a:visited:hover,
@@ -3159,7 +3160,7 @@ input.search-query {
   .conference-schedules.list .event .details .abstract .call-to-action a:visited:active,
   .stripe-checkout #payment-form button:visited:active {
     color: #131313; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000332}}
     .btn:hover:before, .cms .call-to-action a:hover:before, .conference-schedules.list .event .details .abstract .call-to-action a:hover:before, .stripe-checkout #payment-form button:hover:before, .btn:active:before, .cms .call-to-action a:active:before, .conference-schedules.list .event .details .abstract .call-to-action a:active:before, .stripe-checkout #payment-form button:active:before,
     .btn:visited:hover:before,
     .cms .call-to-action a:visited:hover:before,
@@ -3178,20 +3179,20 @@ input.search-query {
       -o-transform: scaleX(1);
       transform: scaleX(1); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000345}}
 .btn:first-child, .cms .call-to-action a:first-child, .conference-schedules.list .event .details .abstract .call-to-action a:first-child, .stripe-checkout #payment-form button:first-child {
   *margin-left: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000349}}
 .btn-disabled {
   opacity: .5;
   cursor: default; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000378}}
 .btn-primary, .stripe-checkout #payment-form button {
   padding: 10px 15px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003103}}
 .btn-extlarge {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -3209,8 +3210,9 @@ input.search-query {
   cursor: pointer;
   letter-spacing: .5px;
   display: inline-block;
+  padding: 10px 15px;
   padding: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000314}}
   .btn-extlarge:before {
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
@@ -3231,10 +3233,10 @@ input.search-query {
     right: 0;
     bottom: 0;
     background: #ffdf66; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000328}}
   .btn-extlarge:hover, .btn-extlarge:active {
     color: #131313; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000332}}
     .btn-extlarge:hover:before, .btn-extlarge:active:before {
       -webkit-transition: transform 0.15s;
       -moz-transition: transform 0.15s;
@@ -3245,7 +3247,7 @@ input.search-query {
       -o-transform: scaleX(1);
       transform: scaleX(1); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003108}}
 .btn-large {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -3263,8 +3265,9 @@ input.search-query {
   cursor: pointer;
   letter-spacing: .5px;
   display: inline-block;
+  padding: 10px 15px;
   padding: 15px 18px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000314}}
   .btn-large:before {
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
@@ -3285,10 +3288,10 @@ input.search-query {
     right: 0;
     bottom: 0;
     background: #ffdf66; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000328}}
   .btn-large:hover, .btn-large:active {
     color: #131313; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000332}}
     .btn-large:hover:before, .btn-large:active:before {
       -webkit-transition: transform 0.15s;
       -moz-transition: transform 0.15s;
@@ -3299,7 +3302,7 @@ input.search-query {
       -o-transform: scaleX(1);
       transform: scaleX(1); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003113}}
 .btn-small {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -3317,8 +3320,9 @@ input.search-query {
   cursor: pointer;
   letter-spacing: .5px;
   display: inline-block;
+  padding: 10px 15px;
   padding: 10px 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000314}}
   .btn-small:before {
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
@@ -3339,10 +3343,10 @@ input.search-query {
     right: 0;
     bottom: 0;
     background: #ffdf66; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000328}}
   .btn-small:hover, .btn-small:active {
     color: #131313; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000332}}
     .btn-small:hover:before, .btn-small:active:before {
       -webkit-transition: transform 0.15s;
       -moz-transition: transform 0.15s;
@@ -3353,7 +3357,7 @@ input.search-query {
       -o-transform: scaleX(1);
       transform: scaleX(1); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003118}}
 .btn-mini {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -3371,8 +3375,9 @@ input.search-query {
   cursor: pointer;
   letter-spacing: .5px;
   display: inline-block;
+  padding: 10px 15px;
   padding: 0 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000314}}
   .btn-mini:before {
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
@@ -3393,10 +3398,10 @@ input.search-query {
     right: 0;
     bottom: 0;
     background: #ffdf66; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000328}}
   .btn-mini:hover, .btn-mini:active {
     color: #131313; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\0000332}}
     .btn-mini:hover:before, .btn-mini:active:before {
       -webkit-transition: transform 0.15s;
       -moz-transition: transform 0.15s;
@@ -3407,39 +3412,39 @@ input.search-query {
       -o-transform: scaleX(1);
       transform: scaleX(1); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003126}}
 .btn-group {
   position: relative;
   *zoom: 1;
   *margin-left: .3em;
   margin-bottom: 1.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003131}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003132}}
   .btn-group .btn, .btn-group .cms .call-to-action a, .cms .call-to-action .btn-group a, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a, .btn-group .stripe-checkout #payment-form button, .stripe-checkout #payment-form .btn-group button {
     position: relative;
     float: left;
     margin-left: -1px;
     border-radius: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003138}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003139}}
   .btn-group .btn:first-child, .btn-group .cms .call-to-action a:first-child, .cms .call-to-action .btn-group a:first-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a:first-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a:first-child, .btn-group .stripe-checkout #payment-form button:first-child, .stripe-checkout #payment-form .btn-group button:first-child {
     margin-left: 0;
     border-radius: 2px, 0, 2px, 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003143}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003144}}
   .btn-group .btn:last-child, .btn-group .cms .call-to-action a:last-child, .cms .call-to-action .btn-group a:last-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a:last-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a:last-child, .btn-group .stripe-checkout #payment-form button:last-child, .stripe-checkout #payment-form .btn-group button:last-child {
     border-radius: 0, 2px, 0, 2px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003147}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003148}}
   .btn-group .btn.large:first-child, .btn-group .cms .call-to-action a.large:first-child, .cms .call-to-action .btn-group a.large:first-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a.large:first-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a.large:first-child, .btn-group .stripe-checkout #payment-form button.large:first-child, .stripe-checkout #payment-form .btn-group button.large:first-child {
     margin-left: 0;
     border-radius: 4px, 0, 4px, 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003153}}
   .btn-group .btn.large:last-child, .btn-group .cms .call-to-action a.large:last-child, .cms .call-to-action .btn-group a.large:last-child, .btn-group .conference-schedules.list .event .details .abstract .call-to-action a.large:last-child, .conference-schedules.list .event .details .abstract .call-to-action .btn-group a.large:last-child, .btn-group .stripe-checkout #payment-form button.large:last-child, .stripe-checkout #payment-form .btn-group button.large:last-child {
     border-radius: 0, 4px, 0, 4px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003157}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003158}}
 .btn-toolbar {
   clear: both;
   margin-top: 0.75em;
   margin-bottom: 0.75em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003162}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/carloratm\/NEPHILA\/WWW\/pycon-sei\/p3\/static\/p7\/stylesheets\/partials\/_bootstrap-form-buttons\.scss}line{font-family:\00003163}}
   .btn-toolbar .btn-group {
     display: inline-block;
     *display: inline;
