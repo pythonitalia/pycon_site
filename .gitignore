@@ -11,5 +11,6 @@ p3/static/p6/.sass-cache/*
 .bundle
 ._*
 .idea/*
-vendor/
+/vendor/
+p3/static/p7/stylesheets/vendor/
 .sass-cache
