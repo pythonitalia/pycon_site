@@ -34,7 +34,7 @@ TALK_TYPES = (
 # @see p3.admin.TalkAdmin
 TALK_SUBCOMMUNITY = (
     ('', _('-------')),
-    ('odoo', _('Odoo')),
+    #('odoo', _('Odoo')),
     ('pydata', _('PyData')),
     ('django', _('DjangoVillage')),
     ('pycon', _('Python & Friends')),
@@ -701,8 +701,12 @@ class P3FormTickets(aforms.FormTickets):
             if k.startswith('H'):
                 del self.fields[k]
 
-        self.fields['room_reservations'] = HotelReservationsField(types=('HR',), required=False)
-        self.fields['bed_reservations'] = HotelReservationsField(types=('HB',), required=False)
+        hotel = models.HotelBooking.objects\
+            .filter(conference=settings.CONFERENCE_CONFERENCE)\
+            .count()
+        if hotel > 0:
+            self.fields['room_reservations'] = HotelReservationsField(types=('HR',), required=False)
+            self.fields['bed_reservations'] = HotelReservationsField(types=('HB',), required=False)
 
     def clean_coupon(self):
         data = self.cleaned_data.get('coupon', '').strip()
