@@ -374,11 +374,14 @@ header {
             position: relative;
 
             .filer_image_info {
+                font-size: 24px;
+                text-transform: uppercase;
                 position: absolute;
-                bottom: 10px;
+                bottom: 18%;
                 left: 0;
                 width: 100%;
                 text-align: center;
+                line-height: 1;
             }
         }
 
