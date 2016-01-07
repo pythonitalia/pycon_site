@@ -30,3 +30,6 @@ easy_thumbnails==2.2
 raven==5.1.1
 djangocms-grid==1.1
 simplejson  # Necessario per il Syncdb
+django-grappelli==2.7.2
+django-filebrowser==3.6.1
+
