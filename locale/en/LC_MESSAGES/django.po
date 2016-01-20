@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-20 22:18+0100\n"
+"POT-Creation-Date: 2016-01-20 22:24+0100\n"
 "PO-Revision-Date: 2015-03-31 22:55+0050\n"
 "Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: en <pycon-organization@googlegroups.com>\n"
@@ -1408,7 +1408,7 @@ msgstr "Become a sponsor"
 
 #: p3/templates/django_cms/p5_homepage.html:94
 #, fuzzy
-msgid "Our Mediapartner"
+msgid "Our Mediapartners"
 msgstr "Media Partners"
 
 #: p3/templates/django_cms/p5_homepage.html:129
