@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-11 13:01+0100\n"
+"POT-Creation-Date: 2016-01-20 21:56+0100\n"
 "PO-Revision-Date: 2015-03-31 22:55+0050\n"
 "Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: en <pycon-organization@googlegroups.com>\n"
@@ -93,16 +93,12 @@ msgstr "60 minutes inc Q&A"
 msgid "Regular talk"
 msgstr ""
 
-#: p3/forms.py:30 p3/templates/django_cms/p5_homepage.html:128
+#: p3/forms.py:30 p3/templates/django_cms/p5_homepage.html:145
 msgid "Training"
 msgstr "Training"
 
 #: p3/forms.py:36
 msgid "-------"
-msgstr ""
-
-#: p3/forms.py:37 p3/models.py:22
-msgid "Odoo"
 msgstr ""
 
 #: p3/forms.py:38 p3/models.py:23
@@ -113,7 +109,7 @@ msgstr ""
 msgid "DjangoVillage"
 msgstr ""
 
-#: p3/forms.py:40
+#: p3/forms.py:40 p3/models.py:25
 msgid "Python & Friends"
 msgstr ""
 
@@ -309,11 +305,11 @@ msgstr "Full room"
 msgid "Insert your discount code and save money!"
 msgstr "Insert your discount code and save money!"
 
-#: p3/forms.py:712 p3/forms.py:716 p3/forms.py:718
+#: p3/forms.py:716 p3/forms.py:720 p3/forms.py:722
 msgid "invalid coupon"
 msgstr "invalid coupon"
 
-#: p3/forms.py:831
+#: p3/forms.py:835
 msgid "already booked"
 msgstr "already booked"
 
@@ -321,8 +317,8 @@ msgstr "already booked"
 msgid "None"
 msgstr ""
 
-#: p3/models.py:25
-msgid "PyCon Sei"
+#: p3/models.py:22
+msgid "Odoo"
 msgstr ""
 
 #: p3/models.py:35
@@ -950,7 +946,7 @@ msgstr ""
 "This page contains additional privacy settings for advanced opt-in features."
 
 #: p3/templates/assopy/profile_spam_control.html:14
-#: p3/templates/django_cms/p5_homepage.html:157
+#: p3/templates/django_cms/p5_homepage.html:174
 msgid "Recruiting"
 msgstr "Recruiting"
 
@@ -1410,55 +1406,61 @@ msgstr "Our Sponsors"
 msgid "Become a sponsor"
 msgstr "Become a sponsor"
 
-#: p3/templates/django_cms/p5_homepage.html:112
+#: p3/templates/django_cms/p5_homepage.html:94
+#, fuzzy
+msgid "Our Mediapartner"
+msgstr "Media Partners"
+
+#: p3/templates/django_cms/p5_homepage.html:129
 msgid "Scopri PyCon Italia"
 msgstr "Discover PyCon Italy"
 
-#: p3/templates/django_cms/p5_homepage.html:119
-msgid "Talk"
-msgstr "Talk"
+#: p3/templates/django_cms/p5_homepage.html:136
+#, fuzzy
+msgid "Learning"
+msgstr "Training"
 
-#: p3/templates/django_cms/p5_homepage.html:120
+#: p3/templates/django_cms/p5_homepage.html:137
 msgid "3 tracce parallele di talk per ascoltare e scoprire"
 msgstr "Three parallel tracks of exciting talks to listen to"
 
-#: p3/templates/django_cms/p5_homepage.html:129
+#: p3/templates/django_cms/p5_homepage.html:146
 msgid ""
 "Sessioni di 4 ore, con le mani sulla tastiera: impara l'arte e mettila da "
 "parte"
 msgstr "4-hour hands-on sessions: gain practical experience"
 
-#: p3/templates/django_cms/p5_homepage.html:137
+#: p3/templates/django_cms/p5_homepage.html:154
 msgid "Helpdesk"
 msgstr "Helpdesk"
 
-#: p3/templates/django_cms/p5_homepage.html:138
+#: p3/templates/django_cms/p5_homepage.html:155
 msgid "Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
 msgstr ""
 "Fix your problem: schedule a meeting and talk about it with our experts"
 
-#: p3/templates/django_cms/p5_homepage.html:148
+#: p3/templates/django_cms/p5_homepage.html:165
 msgid "Scopri chi viene"
 msgstr "Who's coming?"
 
-#: p3/templates/django_cms/p5_homepage.html:149
+#: p3/templates/django_cms/p5_homepage.html:166
 msgid ""
 "Guarda chi ha già comprato un biglietto, contattalo, organizza un incontro"
 msgstr "Take a look to who's participating: set an appointment with them"
 
-#: p3/templates/django_cms/p5_homepage.html:158
+#: p3/templates/django_cms/p5_homepage.html:175
 msgid "Cerchi lavoro su Python? Partecipa alle nostre sessioni dedicate"
 msgstr "Are you looking for a Python job? Attend our recruiting sessions"
 
-#: p3/templates/django_cms/p5_homepage.html:166
+#: p3/templates/django_cms/p5_homepage.html:183
 msgid "Eventi sociali"
 msgstr "Social events"
 
-#: p3/templates/django_cms/p5_homepage.html:167
+#: p3/templates/django_cms/p5_homepage.html:184
 msgid "Ribollita, bistecca e vino: che PyCon è senza una bella mangiata?"
 msgstr "Ribollita, steak and wine: what's Pycon without a binge?"
 
-#: p3/templates/django_cms/p5_homepage.html:187
+#: p3/templates/django_cms/p5_homepage.html:204
 msgid "Ultimi post dal blog"
 msgstr "Latest posts from the blog "
 
@@ -1626,11 +1628,11 @@ msgstr "Did you know that..."
 msgid "Le ultime da Twitter"
 msgstr "Latests from Twitter"
 
-#: p3/templates/p3/box_newsletter.html:4
+#: p3/templates/p3/box_newsletter.html:3
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: p3/templates/p3/box_newsletter.html:5
+#: p3/templates/p3/box_newsletter.html:4
 msgid ""
 "If you want to stay updated with news about thie conference, sign-up to the "
 "official low-traffic PyCon mailing-list:"
@@ -1638,7 +1640,7 @@ msgstr ""
 "If you want to stay updated with news about thie conference, sign-up to the "
 "official low-traffic PyCon mailing-list:"
 
-#: p3/templates/p3/box_newsletter.html:8
+#: p3/templates/p3/box_newsletter.html:37
 msgid "Sign up"
 msgstr "Sign up"
 
@@ -2260,6 +2262,9 @@ msgstr ""
 msgid "hint"
 msgstr ""
 
+#~ msgid "Talk"
+#~ msgstr "Talk"
+
 #~ msgid "30 minutes inc Q&A"
 #~ msgstr "30 minutes inc Q&A"
 
@@ -2381,9 +2386,6 @@ msgstr ""
 
 #~ msgid "I nostri sponsor"
 #~ msgstr "Our sponsors"
-
-#~ msgid "Media partner"
-#~ msgstr "Media Partners"
 
 #~ msgid "Mancano *%(days)d giorni* all'inizio della conferenza."
 #~ msgstr "The conference starts in *%(days)d days*."
