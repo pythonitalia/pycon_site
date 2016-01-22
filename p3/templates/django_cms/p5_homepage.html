@@ -86,6 +86,11 @@
             </div><!-- /grid-container -->
         </section>
         {%endif%}
+        <div class="community-sponsor">
+            <div class="grid-container">
+               {% placeholder "community_sponsors" %}
+            </div><!-- /grid-container -->
+        </div>
         {% conference_mediapartner 'pycon7' as mediapartner %}
         {% if mediapartner %}
         <section>
