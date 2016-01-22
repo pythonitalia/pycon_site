@@ -336,6 +336,9 @@ header {
             @include transition(all 80ms linear);
         }
     }
+    a {
+        border-bottom: none;
+    }
 }
 
 .join-us {
