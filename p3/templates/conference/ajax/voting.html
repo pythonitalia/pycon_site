@@ -104,8 +104,8 @@
         $('.feedback-vote').click(function(e) {
             e.preventDefault();
             var talk = $(e.target).parents('li');
-            var tid = $('h2', talk).attr('id');
-            var title = $('h2 a', talk).eq(1).html();
+            var tid = $('h3', talk).attr('id');
+            var title = $('h3 a', talk).eq(1).html();
             var speakers = [];
             $('.talk-speakers .speaker-name', talk).each(function() {
                 var s = $(this);
@@ -119,7 +119,6 @@
             var speaker = speakers.join(', ');
             var url = document.location.href + '#' + tid;
             var vote = $($('.rateit', talk).attr('data-rateit-backingfld')).val();
-
             if(title.length > 60) {
                 title = title.substring(0, 57) + '...';
             }
