@@ -26,6 +26,10 @@ color : $linkcolorfocus; }
 outline : 0; }
 }
 
+.filer_image_link {
+    border-bottom: 0;
+}
+
 ::-moz-selection {
 background-color : lighten($primarycolor, 65%);
 color : $primarycolor;
