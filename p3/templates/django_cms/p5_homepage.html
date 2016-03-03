@@ -99,7 +99,7 @@
                     <h2 class="border-title">{% trans 'Startup' %}</h2>
                 </div>
                 {% for s in startup %}
-                    <div class="grid-26" style="margin-left: 41.5%;">
+                    <div class="grid-33">
                         <div class="sponsor">
                             <a href="{{ s.url }}"><img src="{{ MEDIA_URL }}{{ s.logo }}" alt="{{ s.name }}" title="{{ s.name }}" width="190" height="90" /></a>
                         </div>
@@ -116,7 +116,7 @@
                     <h2 class="border-title">{% trans 'Our Mediapartners' %}</h2>
                 </div>
                 {% for s in mediapartner %}
-                    <div class="grid-26" style="margin-left: 41.5%;">
+                    <div class="grid-33">
                         <div class="sponsor">
                             <a href="{{ s.url }}"><img src="{{ MEDIA_URL }}{{ s.logo }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" /></a>
                         </div>
