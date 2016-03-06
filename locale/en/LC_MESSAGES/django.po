@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-04 12:01+0100\n"
+"POT-Creation-Date: 2016-03-06 12:19+0100\n"
 "PO-Revision-Date: 2015-03-31 22:55+0050\n"
 "Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: en <pycon-organization@googlegroups.com>\n"
@@ -93,7 +93,7 @@ msgstr "60 minutes inc Q&A"
 msgid "Regular talk"
 msgstr ""
 
-#: p3/forms.py:30 p3/templates/django_cms/p5_homepage.html:150
+#: p3/forms.py:30 p3/templates/django_cms/p5_homepage.html:169
 msgid "Training"
 msgstr "Training"
 
@@ -946,7 +946,7 @@ msgstr ""
 "This page contains additional privacy settings for advanced opt-in features."
 
 #: p3/templates/assopy/profile_spam_control.html:14
-#: p3/templates/django_cms/p5_homepage.html:179
+#: p3/templates/django_cms/p5_homepage.html:200
 msgid "Recruiting"
 msgstr "Recruiting"
 
@@ -1407,60 +1407,64 @@ msgid "Become a sponsor"
 msgstr "Become a sponsor"
 
 #: p3/templates/django_cms/p5_homepage.html:99
+msgid "Startup"
+msgstr ""
+
+#: p3/templates/django_cms/p5_homepage.html:116
 #, fuzzy
 msgid "Our Mediapartners"
 msgstr "Media Partners"
 
-#: p3/templates/django_cms/p5_homepage.html:134
+#: p3/templates/django_cms/p5_homepage.html:151
 msgid "Scopri PyCon Italia"
 msgstr "Discover PyCon Italy"
 
-#: p3/templates/django_cms/p5_homepage.html:141
+#: p3/templates/django_cms/p5_homepage.html:159
 #, fuzzy
 msgid "Learning"
 msgstr "Training"
 
-#: p3/templates/django_cms/p5_homepage.html:142
+#: p3/templates/django_cms/p5_homepage.html:160
 msgid "3 tracce parallele di talk per ascoltare e scoprire"
 msgstr "Three parallel tracks of exciting talks to listen to"
 
-#: p3/templates/django_cms/p5_homepage.html:151
+#: p3/templates/django_cms/p5_homepage.html:170
 msgid ""
 "Sessioni di 4 ore, con le mani sulla tastiera: impara l'arte e mettila da "
 "parte"
 msgstr "4-hour hands-on sessions: gain practical experience"
 
-#: p3/templates/django_cms/p5_homepage.html:159
+#: p3/templates/django_cms/p5_homepage.html:178
 msgid "Helpdesk"
 msgstr "Helpdesk"
 
-#: p3/templates/django_cms/p5_homepage.html:160
+#: p3/templates/django_cms/p5_homepage.html:179
 msgid "Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
 msgstr ""
 "Fix your problem: schedule a meeting and talk about it with our experts"
 
-#: p3/templates/django_cms/p5_homepage.html:170
+#: p3/templates/django_cms/p5_homepage.html:190
 msgid "Scopri chi viene"
 msgstr "Who's coming?"
 
-#: p3/templates/django_cms/p5_homepage.html:171
+#: p3/templates/django_cms/p5_homepage.html:191
 msgid ""
 "Guarda chi ha già comprato un biglietto, contattalo, organizza un incontro"
 msgstr "Take a look to who's participating: set an appointment with them"
 
-#: p3/templates/django_cms/p5_homepage.html:180
+#: p3/templates/django_cms/p5_homepage.html:201
 msgid "Cerchi lavoro su Python? Partecipa alle nostre sessioni dedicate"
 msgstr "Are you looking for a Python job? Attend our recruiting sessions"
 
-#: p3/templates/django_cms/p5_homepage.html:188
+#: p3/templates/django_cms/p5_homepage.html:210
 msgid "Eventi sociali"
 msgstr "Social events"
 
-#: p3/templates/django_cms/p5_homepage.html:189
+#: p3/templates/django_cms/p5_homepage.html:211
 msgid "Ribollita, bistecca e vino: che PyCon è senza una bella mangiata?"
 msgstr "Ribollita, steak and wine: what's Pycon without a binge?"
 
-#: p3/templates/django_cms/p5_homepage.html:209
+#: p3/templates/django_cms/p5_homepage.html:231
 msgid "Ultimi post dal blog"
 msgstr "Latest posts from the blog "
 
