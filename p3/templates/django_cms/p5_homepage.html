@@ -151,7 +151,8 @@
                 <h2 class="border-title">{% trans "Scopri PyCon Italia" %}</h2>
             </div>
             <div class="grid-33">
-                <a href="{% page_url 'schedule' %}">
+                {% page_url 'schedule' as schedule_url %}
+                <a href="{{ schedule_url }}">
                     <div class="learn-icon">
                         <img src="{% static 'p7/images/talk.svg' %}">
                     </div>
@@ -160,7 +161,8 @@
                 </a>
             </div>
             <div class="grid-33">
-                <a href="{% page_url 'trainings' %}">
+                {% page_url 'trainings' as trainings_url %}
+                <a href="{{ trainings_url }}">
                     <div class="learn-icon">
                         <img src="{% static 'p7/images/training.svg' %}" />
                     </div>
@@ -180,7 +182,8 @@
 
 
             <div class="grid-33">
-                <a href="{% page_url 'whos_coming' %}">
+                {% page_url 'whos_coming' as whos_coming_url %}
+                <a href="{{ whos_coming_url }}">
                     <div class="learn-icon">
                         <img src="{% static 'p7/images/scopri_chi_viene.svg' %}" />
                     </div>
@@ -189,7 +192,8 @@
                 </a>
             </div>
             <div class="grid-33">
-                <a href="{% page_url 'recruiting' %}">
+                {% page_url 'recruiting' as recruiting_url %}
+                <a href="{{ recruiting_url }}">
                     <div class="learn-icon">
                         <img src="{% static 'p7/images/recruiting.svg' %}" />
                     </div>
@@ -198,7 +202,8 @@
                 </a>
             </div>
             <div class="grid-33">
-                <a href="{% page_url 'events' %}">
+                {% page_url 'events' as events_url %}
+                <a href="{{ events_url }}">
                     <div class="learn-icon">
                         <img src="{% static 'p7/images/eventi_sociali.svg' %}" />
                     </div>
