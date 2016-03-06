@@ -665,8 +665,12 @@ def CONFERENCE_TALK_VIDEO_ACCESS(request, talk):
 
 
 def ASSOPY_ORDERITEM_CAN_BE_REFUNDED(user, item):
+    from conference.models import Conference
     if user.is_superuser:
         return True
+    conference = Conference.objects.get(code=CONFERENCE_CONFERENCE)
+    if not conference.refund_available():
+        return False
     if not item.ticket:
         return False
     ticket = item.ticket
