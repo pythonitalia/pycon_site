@@ -1,5 +1,5 @@
 {% extends "p3/base.html" %}
-{% load conference p3 %}
+{% load conference p3 i18n cms_tags %}
 {% block EXTRA_HEAD %}
 <script type="text/javascript" src="{{ STATIC_URL }}p7/flowplayer/flowplayer-3.2.11.min.js"></script>
 <style>
@@ -54,30 +54,91 @@
     margin: 10px 0;
     font-size: 18px;
 }
+
+.video-toggle {
+	width: 640px;
+	height: 360px;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+.video-toggle h3 {
+	text-align: center;
+	font-size: 18px;
+}
+.video-toggle iframe {
+	display: none;
+}
 </style>
+<script>
+$(function() {
+	$(".video-toggle").on("click", function(ev) {
+		var iframe = $("iframe", ev.currentTarget);
+		var text = $("h3", ev.currentTarget);
+		text.hide();
+		iframe.show();
+	});
+});
+</script>
     {% endblock %}
     {% block MAIN_CONTENT %}
 <div id="live" class="cms">
     <h1>Pycon {{ tracks.0.schedule.date.year }} - Now Live!</h1>
     <div style="text-align: center;">
-        <h2>Python &amp; Friends B</h2>
-        <iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe1.html" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div style="text-align: center;">
         <h3>DjangoVillage</h3>
-        <iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe2.html" frameborder="0" allowfullscreen></iframe>
+	<div class="video-toggle">
+		<h3>click to start</h3>
+		<iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe1.html" frameborder="0" allowfullscreen></iframe>
+	</div>
     </div>
     <div style="text-align: center;">
-        <h2>Python &amp; Friends A</h2>
-        <iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe3.html" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div style="text-align: center;">
-        <h2>Odoo</h2>
-        <iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe4.html" frameborder="0" allowfullscreen></iframe>
+        <h2>Python &amp; Friends I</h2>
+	<div class="video-toggle">
+		<h3>click to start</h3>
+		<iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe2.html" frameborder="0" allowfullscreen></iframe>
+	</div>
     </div>
     <div style="text-align: center;">
         <h2>PyData</h2>
-        <iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe5.html" frameborder="0" allowfullscreen></iframe>
+	<div class="video-toggle">
+		<h3>click to start</h3>
+		<iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe3.html" frameborder="0" allowfullscreen></iframe>
+	</div>
+    </div>
+    <div style="text-align: center;">
+        <h2>PyBusiness</h2>
+	<div class="video-toggle">
+		<h3>click to start</h3>
+		<iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe4.html" frameborder="0" allowfullscreen></iframe>
+	</div>
+    </div>
+    <div style="text-align: center;">
+        <h2>Training</h2>
+	<div class="video-toggle">
+		<h3>click to start</h3>
+		<iframe width="640" height="360" src="https://live.top-ix.org/pycon/iframe5.html" frameborder="0" allowfullscreen></iframe>
+	</div>
     </div>
 </div>
+        {% conference_sponsor as sponsors %}
+        {%if sponsors %}
+        <section>
+            <div class="grid-container">
+                <div class="grid-100">
+                    <h2 class="border-title">{% trans 'Our Sponsors' %}</h2>
+                </div>
+                {% for s in sponsors %}
+                    <div class="grid-25">
+                        <div class="sponsor">
+                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.alt_text }}" title="{% firstof s.title_text s.sponsor %}" width="190" height="90" /></a>
+                        </div>
+                    </div><!-- /grid -->
+                {% endfor %}
+                <div class="grid-25">
+                    <div class="sponsor sponsor-wanted">
+                        <a href="{% page_url 'sponsor' %}">{% trans 'Become a sponsor' %}</a>
+                    </div>
+                </div><!-- /grid -->
+            </div><!-- /grid-container -->
+        </section>
+{% endif %}
 {% endblock %}
