@@ -61,14 +61,14 @@ $baselineheight 				: 1.5em;
 // 768px 	48em
 // 992px 	62em
 // 1382px	86.375em
- 
-$bp2 							: 30em;  		
-$bp3 							: 37.5em;  	
-$bp4 							: 48em;  		
-$bp5 							: 1170px; 		
-$bp6 							: $bp5; 	
 
-// Device breakpoints. These kick in the desktop or mobile Unsemantic grid. 
+$bp2 							: 30em;
+$bp3 							: 37.5em;
+$bp4 							: 48em;
+$bp5 							: 1170px;
+$bp6 							: $bp5;
+
+// Device breakpoints. These kick in the desktop or mobile Unsemantic grid.
 // You can keep the default pixel values or use the variables $bp2-$bp6 above
 
 $bpmobilemax                    : 767px;
@@ -77,11 +77,11 @@ $bpdesktopmin                   : $bpmobilemax + 1;
 // Show current device (blue) and logical (green) breakpoints on the bottom
 $show-breakpoint                : false;
 
-// Does your design needs a maximum width to maintain readable line lengths? 
+// Does your design needs a maximum width to maintain readable line lengths?
 
 $maxwidth						: $bp5;
 
-// What is the class name that the media query mixin should use to target 
+// What is the class name that the media query mixin should use to target
 // browsers not supporting media queries?
 
 $no-mq-classname 				: ".lt-ie9";
@@ -137,7 +137,7 @@ $lightestneutralcolor 			: lighten($neutralcolor,40%);
 $black 							: rgb(0,0,0);
 $white 							: rgb(255,255,255);
 
-// Choose a colour for your hyperlinks. Often this will be the $primarycolor 
+// Choose a colour for your hyperlinks. Often this will be the $primarycolor
 $linkcolor 		    			: #000000;
 $linkcolorhover 				: $secondarycolor;
 $linkcolorvisited   			: darken($linkcolorhover, 10);
@@ -150,7 +150,7 @@ $infocolor 						: #9DCFFF;
 $successcolor 					: #90EE90;
 $warningcolor 					: $errorcolor;
 
-// Define form validation states (success, warning, error) 
+// Define form validation states (success, warning, error)
 // These usually are darker versions of colours above
 $errorstatecolor 			    : darken($errorcolor, 10%);
 $successstatecolor 				: darken($successcolor, 45%);
@@ -163,8 +163,8 @@ $inversecolor 					: #414141;
 
 // STEP FOUR: TEXTURE ================================================
 
-// Next set variables for your design’s borders. 
-// These will be inherited by many Rock Hammer elements below 
+// Next set variables for your design’s borders.
+// These will be inherited by many Rock Hammer elements below
 
 $bordercolor    				: $lightneutralcolor;
 $borderstyle					: solid;
@@ -204,7 +204,7 @@ $borderradius 					: 4px;
 // TYPOGRAPHY =============================================================================
 
 // Background colour for blockquotes, ins, and mark
-$basefontbackgroundcolor		: $lightestneutralcolor; 
+$basefontbackgroundcolor		: $lightestneutralcolor;
 
 
 
@@ -302,7 +302,7 @@ $breadcrumbbordercolor			: darken($breadcrumbbackgroundcolor, 5%);
 // Set the breadcrumbs’ border style
 $breadcrumbborderstyle 			: $borderstyle;
 
-// Set the breadcrumbs’ font-size. 
+// Set the breadcrumbs’ font-size.
 // Use only a number. Units (em/px/%) are not required
 // Default is $basefontsize defined above
 $breadcrumbfontsize 			: $basefontsize;
@@ -449,7 +449,7 @@ $alertbordercolor				: darken($alertbackgroundcolor, 20%);
 // Set the alert’s border radius. Default is $borderradius defined above
 $alertborderradius 				: 0;
 
-// Set the alert’s font-size. 
+// Set the alert’s font-size.
 // Use only a number. Units (em/px/%) are not required
 // Default is $basefontsize defined above
 $alertfontsize 					: $basefontsize;
@@ -604,7 +604,7 @@ $buttonborderradius				: $borderradius;
 // Set the button’s font-family. Default is $basefontfamily defined above
 $buttonfontfamily 				: $basefontfamily;
 
-// Set the button’s font-size. 
+// Set the button’s font-size.
 // Use only a number. Units (em/px/%) are not required
 // Default is $basefontsize defined above
 $buttonfontsize 				: $basefontsize;
