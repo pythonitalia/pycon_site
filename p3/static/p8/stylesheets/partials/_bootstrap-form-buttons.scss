@@ -1,0 +1,169 @@
+
+@mixin button($bg, $fg) {
+    @include border-radius(4px);
+    @include font-size(16);
+    @include transform(translateZ(0));
+    background: $bg;
+    color: $fg;
+    border: 0;
+    cursor: pointer;
+    letter-spacing: .5px;
+    display: inline-block;
+    padding: 10px 15px;
+
+    &:before {
+        @include transform(scaleX(0));
+        @include border-radius(4px);
+        @include transition(transform .15s);
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: lighten($bg, 20);
+    }
+
+    &:hover,
+    &:active {
+        color: darken($fg, 15);
+
+        &:before {
+            @include transition(transform .15s);
+            @include transform(scaleX(1));
+        }
+    }
+}
+
+.btn,
+.btn:visited {
+    @include button($primarycolor, lighten($buttoncolor, 10));
+}
+
+
+.btn:first-child {
+    *margin-left: 0;
+}
+
+.btn-disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+.btn-error {
+
+    &:visited,
+    &:active,
+    &:hover {
+    }
+}
+
+.btn-info {
+
+    &:visited,
+    &:active,
+    &:hover {
+    }
+}
+
+.btn-inverse {
+
+    &:visited,
+    &:active,
+    &:hover {
+    }
+}
+
+.btn-primary {
+    padding: 10px 15px;
+
+    &:visited,
+    &:active,
+    &:hover {
+    }
+}
+
+.btn-success {
+
+    &:visited,
+    &:active,
+    &:hover {
+    }
+}
+
+.btn-warning {
+
+    &:visited,
+    &:active,
+    &:hover {
+    }
+}
+
+.btn-extlarge {
+    @include button($primarycolor, lighten($buttoncolor, 10));
+    padding: 20px;
+}
+
+.btn-large {
+    @include button($primarycolor, lighten($buttoncolor, 10));
+    padding: 15px 18px;
+}
+
+.btn-small {
+    @include button($primarycolor, lighten($buttoncolor, 10));
+    padding: 10px 15px;
+}
+
+.btn-mini {
+    @include button($primarycolor, lighten($buttoncolor, 10));
+    padding: 0 10px;
+}
+
+
+// group of buttons
+
+.btn-group {
+    position: relative;
+    *zoom: 1;
+    *margin-left: .3em;
+    margin-bottom: $baselineheight;
+
+    .btn {
+        position: relative;
+        float: left;
+        margin-left: -1px;
+        border-radius: 0;
+    }
+
+    .btn:first-child {
+        margin-left: 0;
+        border-radius: 2px, 0, 2px, 0;
+    }
+
+    .btn:last-child {
+        border-radius: 0, 2px, 0, 2px;
+    }
+
+    .btn.large:first-child {
+        margin-left: 0;
+        border-radius: 4px, 0, 4px, 0;
+    }
+
+    .btn.large:last-child {
+        border-radius: 0, 4px, 0, 4px;
+    }
+}
+
+.btn-toolbar {
+    clear: both;
+    margin-top: $baselineheight / 2;
+    margin-bottom: $baselineheight / 2;
+
+    .btn-group {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+    }
+}
+

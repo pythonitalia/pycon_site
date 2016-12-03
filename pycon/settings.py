@@ -350,7 +350,7 @@ MARKITUP_FILTER = ('markdown2.markdown', {'safe_mode': False})
 
 CKEDITOR_SETTINGS = {
     'height': 300,
-    'stylesSet': 'default:/static/p7/javascripts/ckeditor.wysiwyg.js',
+    'stylesSet': 'default:/static/p8/javascripts/ckeditor.wysiwyg.js',
     'contentsCss': ['/static/css/base.css'],
     'language': '{{ language }}',
     'toolbar': 'CMS',
