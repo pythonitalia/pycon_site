@@ -20,7 +20,7 @@
         *  * se il testo inserito è diverso dall'ultima ricerca fatta viene
         *  esgeuita una richiesta AJAX, i risultati vengono evidenziati e il
         *  browser scorre alla prima occorrenza
-        * 
+        *
         *  * se il testo è uguale viene scrollato il browser alla occorrenza
         *  successiva
         *
@@ -120,7 +120,7 @@
             var v = visible ? 1 : 0;
             $.each(['show-training1', 'show-training2', 'show-trackx'], function(ix, name) {
                 var i = $('input[name=' + name + ']');
-                if(i.length) 
+                if(i.length)
                     i.val(v)
                 else
                     form.append('<input type="hidden" name="' + name + '" value="' + v + '" />')
@@ -132,7 +132,7 @@
             var v = visible ? 1 : 0;
             $.each(['show-partner0', 'show-partner1'], function(ix, name) {
                 var i = $('input[name=' + name + ']');
-                if(i.length) 
+                if(i.length)
                     i.val(v)
                 else
                     form.append('<input type="hidden" name="' + name + '" value="' + v + '" />')
@@ -144,7 +144,7 @@
             var v = visible ? 1 : 0;
             $.each(['show-sprint0', 'show-sprint1'], function(ix, name) {
                 var i = $('input[name=' + name + ']');
-                if(i.length) 
+                if(i.length)
                     i.val(v)
                 else
                     form.append('<input type="hidden" name="' + name + '" value="' + v + '" />')
@@ -207,7 +207,7 @@
         var schedules = $('.schedule-wrapper')
         if(schedules.length) {
             var h3 = form_flags.prev();
-            h3.prepend('<img src="{{ STATIC_URL }}p7/i/ajax-loader.gif" width="16" />');
+            h3.prepend('<img src="{{ STATIC_URL }}p8/i/ajax-loader.gif" width="16" />');
             form_flags.attr('data-wait', schedules.length);
             schedules.each(function() {
                 var schedule = $(this);
@@ -216,7 +216,7 @@
                     if(queue <= 0)
                         $('img', h3).remove();
                     form_flags.attr('data-wait', queue);
-                }); 
+                });
             });
         }
     }

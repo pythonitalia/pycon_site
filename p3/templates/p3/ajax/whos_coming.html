@@ -1,7 +1,7 @@
 {% load conference p3 %}
 {% p3_profiles_data pids as pdata %}
 <div id="people-wrapper" class="grid-container">
-    {% for profile_data in pdata %} 
+    {% for profile_data in pdata %}
         <div class="grid-50">
             <div id="{{ profile_data.slug }}" class="person-card">
                 <div class="person-card-picture">
@@ -67,7 +67,7 @@
                 {% endif %}
             </div>
         </div>
-        {% cycle '' '<br class="clear" />' %}        
+        {% cycle '' '<br class="clear" />' %}
     {% endfor %}
 </div><!-- /grid-container -->
-<script src="{{ STATIC_URL }}p7/javascripts/profile_box.js"></script>
+<script src="{{ STATIC_URL }}p8/javascripts/profile_box.js"></script>

@@ -77,7 +77,7 @@
                             title="{% if teaser %}Teaser Talk - {% endif %}{{ ref.talk.title }}">{% if teaser %}{{ ref.talk.title|truncate_chars:30 }}{% else %}{{ ref.talk.title|truncate_chars:50 }}{% endif %}</a>
                     </h3>
                     {% if not teaser %}
-                    by 
+                    by
                     {% get_talk_speakers ref.talk as speakers %}
                     {% for ts in speakers %}
                     <a href="{% url "conference-speaker" slug=ts.speaker.slug %}">{{ ts.speaker.name|name_abbrv }}</a>{% if not forloop.last %}, {% endif %}
@@ -95,7 +95,7 @@
                         {% endif %}
                         {% if ref in overbooked %}
                         <div class="room-full">
-                            <img src="{{ STATIC_URL }}p7/i/warning.png" title="our estimate of attendance exceeds the room size" alt="warning" />
+                            <img src="{{ STATIC_URL }}p8/i/warning.png" title="our estimate of attendance exceeds the room size" alt="warning" />
                         </div>
                         {% endif %}
                     </div>
@@ -130,7 +130,7 @@
         $('.talk-interest button', table).click(function(e) {
             e.preventDefault();
             var btn = $(this);
-            var wrap = $(this).parents('.talk-interest'); 
+            var wrap = $(this).parents('.talk-interest');
             var val = 0;
             if(!btn.hasClass('active')) {
                 val = btn.hasClass('up') ? 1 : -1;
