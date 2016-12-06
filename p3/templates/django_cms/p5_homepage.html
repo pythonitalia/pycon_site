@@ -91,7 +91,7 @@
                {% placeholder "community_sponsors" %}
             </div><!-- /grid-container -->
         </div>
-        {% conference_startup 'pycon7' as startup %}
+        {% conference_startup CONFERENCE as startup %}
         {% if startup %}
         <section>
             <div class="grid-container">
@@ -108,7 +108,7 @@
             </div><!-- /grid-container -->
         </section>
         {% endif %}
-        {% conference_mediapartner 'pycon7' as mediapartner %}
+        {% conference_mediapartner CONFERENCE as mediapartner %}
         {% if mediapartner %}
         <section>
             <div class="grid-container">
