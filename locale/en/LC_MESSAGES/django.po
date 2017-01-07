@@ -1541,8 +1541,8 @@ msgid "firenze"
 msgstr "Florence"
 
 #: p3/templates/p3/base.html:153
-msgid "15-17 aprile 2016"
-msgstr "15th 17th April 2016"
+msgid "6-9 aprile 2017"
+msgstr "6th 9th April 2017"
 
 #: p3/templates/p3/base.html:190
 msgid "Please Donate"
