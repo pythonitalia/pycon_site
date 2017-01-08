@@ -36,6 +36,7 @@ TALK_SUBCOMMUNITY = (
     ('', _('-------')),
     #('odoo', _('Odoo')),
     ('pybusiness', _('PyBusiness')),
+    ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
     ('django', _('DjangoVillage')),
     ('pycon', _('Python & Friends')),
