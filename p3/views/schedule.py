@@ -1,13 +1,17 @@
 # -*- coding: UTF-8 -*-
 import datetime
+from django_xhtml2pdf.utils import generate_pdf
+
 from assopy.views import render_to_json
 from collections import defaultdict
 from conference import models as cmodels
 from conference.utils import TimeTable2
+
 from django import http
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, HttpResponse
+
 
 def _partner_as_event(fares):
     from conference.templatetags.conference import fare_blob
@@ -31,6 +35,7 @@ def _partner_as_event(fares):
             'tracks': ['partner0'],
         })
     return dict(partner)
+
 
 def _build_timetables(schedules, events=None, partner=None):
     """
@@ -81,14 +86,17 @@ def _build_timetables(schedules, events=None, partner=None):
             for e in evts:
                 e['schedule_id'] = sid
                 tt.addEvents([e])
+
     def key(o):
         # timetable has an indirect reference to the day, I need to get it
         # from one of the events.
         tt = o[1]
         ev0 = tt.events.values()[0][0]
         return ev0['time']
+
     tts.sort(key=key)
     return tts
+
 
 def _conference_timetables(conference):
     """
@@ -96,26 +104,28 @@ def _conference_timetables(conference):
     """
     # The timetables must contain both events in the db and "artificial"
     # events from partner program
-    sids = cmodels.Schedule.objects\
-        .filter(conference=conference)\
+    sids = cmodels.Schedule.objects \
+        .filter(conference=conference) \
         .values_list('id', flat=True)
 
     from conference.dataaccess import fares, schedules_data
-    pfares = [ f for f in fares(conference) if f['ticket_type'] == 'partner' ]
+    pfares = [f for f in fares(conference) if f['ticket_type'] == 'partner']
     partner = _partner_as_event(pfares)
 
     schedules = schedules_data(sids)
     tts = _build_timetables(schedules, partner=partner)
     return tts
 
+
 def schedule(request, conference):
     tts = _conference_timetables(conference)
     ctx = {
         'conference': conference,
-        'sids': [ x[0] for x in tts ],
+        'sids': [x[0] for x in tts],
         'timetables': tts,
     }
     return render(request, 'p3/schedule.html', ctx)
+
 
 def schedule_ics(request, conference, mode='conference'):
     if mode == 'my-schedule':
@@ -128,58 +138,69 @@ def schedule_ics(request, conference, mode='conference'):
     cal = conference2ical(conference, user=uid, abstract='abstract' in request.GET)
     return http.HttpResponse(list(cal.encode()), content_type='text/calendar')
 
+
 def schedule_list(request, conference):
-    sids = cmodels.Schedule.objects\
-        .filter(conference=conference)\
+    sids = cmodels.Schedule.objects \
+        .filter(conference=conference) \
         .values_list('id', flat=True)
     ctx = {
         'conference': conference,
         'sids': sids,
         'timetables': zip(sids, map(TimeTable2.fromSchedule, sids)),
     }
-    return render(request, 'p3/schedule_list.html', ctx)
+    view_mode = request.GET.get('view', None)
+    template = 'p3/pdfs/schedule_list.html' if view_mode == 'pdf' else 'p3/schedule_list.html'
+    if view_mode == 'pdf':
+        resp = HttpResponse(content_type='application/pdf')
+        result = generate_pdf(template, context=ctx, file_object=resp)
+        return result
+    else:
+        return render(request, template, ctx)
+
 
 @login_required
 def jump_to_my_schedule(request):
     return redirect('p3-schedule-my-schedule', conference=settings.CONFERENCE_CONFERENCE)
 
+
 @login_required
 def my_schedule(request, conference):
-    qs = cmodels.Event.objects\
-        .filter(eventinterest__user=request.user, eventinterest__interest__gt=0)\
-        .filter(schedule__conference=conference)\
+    qs = cmodels.Event.objects \
+        .filter(eventinterest__user=request.user, eventinterest__interest__gt=0) \
+        .filter(schedule__conference=conference) \
         .values('id', 'schedule')
 
     events = defaultdict(list)
     for x in qs:
         events[x['schedule']].append(x['id'])
 
-    qs = cmodels.EventBooking.objects\
-        .filter(user=request.user, event__schedule__conference=conference)\
+    qs = cmodels.EventBooking.objects \
+        .filter(user=request.user, event__schedule__conference=conference) \
         .values('event', 'event__schedule')
     for x in qs:
         events[x['event__schedule']].append(x['event'])
 
-    qs = cmodels.Ticket.objects\
-        .filter(user=request.user)\
-        .filter(fare__conference=conference, fare__ticket_type='partner')\
-       .values_list('fare', flat=True)
+    qs = cmodels.Ticket.objects \
+        .filter(user=request.user) \
+        .filter(fare__conference=conference, fare__ticket_type='partner') \
+        .values_list('fare', flat=True)
 
     from conference.dataaccess import fares, schedules_data
-    pfares = [ f for f in fares(conference) if f['id'] in qs ]
+    pfares = [f for f in fares(conference) if f['id'] in qs]
     partner = _partner_as_event(pfares)
 
     schedules = schedules_data(events.keys())
     tts = _build_timetables(schedules, events=events, partner=partner)
     ctx = {
         'conference': conference,
-        'sids': [ x[0] for x in tts ],
+        'sids': [x[0] for x in tts],
         'timetables': tts,
     }
     return render(request, 'p3/my_schedule.html', ctx)
+
 
 @render_to_json
 def schedule_search(request, conference):
     from haystack.query import SearchQuerySet
     sqs = SearchQuerySet().models(cmodels.Event).auto_query(request.GET.get('q')).filter(conference=conference)
-    return [ { 'pk': x.pk, 'score': x.score, } for x in sqs ]
+    return [{'pk': x.pk, 'score': x.score,} for x in sqs]

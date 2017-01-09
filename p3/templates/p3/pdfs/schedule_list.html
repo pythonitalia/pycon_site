@@ -1,0 +1,63 @@
+{% extends 'p3/pdfs/base.html' %}
+{% load conference p3 i18n %}
+{% block TOP_NAV_BLOCK %}{% endblock %}
+{% block MAIN_CONTENT %}
+
+
+    <h1>{% block CONTENT_TITLE %}{% trans 'PyCon schedule' %}{% endblock %}</h1>
+        {% schedules_data sids as schedules %}
+        {% for sid, timet in timetables %}
+            {% with schedules|attrib_:forloop.counter0 as sdata %}
+                {% with timet|timetable_remove_first:"break" as tt %}
+                        <h2>{{ sdata.date|date:"l, j F Y" }}</h2>
+                        <hr>
+
+                        <table width="100%">
+                            {% for time_, events in tt.iterOnTimes %}
+                                {% with events|remove_duplicates:"id" as events %}
+                                    {% for e in events %}
+
+                                        <tr>
+                                            {% if forloop.counter0 == 0 %}
+                                                <th width="10%" rowspan="{{ events|length }}" valign="top">{{ time_|time:"H:i" }}</th>
+                                            {% endif %}
+                                            <td align="left">
+                                                <div>
+                                                    In
+                                                    <strong>
+                                                        {% for t in e.tracks %}
+                                                            <i>{{ sdata.tracks|attrib_:t|attrib_:"title"|safe }}</i>
+                                                            {% if not forloop.last %}, {% endif %}
+                                                        {% endfor %}
+                                                    </strong>
+                                                </div>
+                                                {% if e.talk %}
+                                                    <span class="talk-level {{ e.talk.level }}">&nbsp;</span>
+                                                        <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a>
+                                                    <div class="speakers">
+                                                    by
+                                                        {% for s in e.talk.speakers %}
+                                                            <a href="{% url "conference-profile" slug=s.slug %}">{{ s.name|name_abbrv }}</a>
+                                                            {% if not forloop.last %}, {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    <div class="name">{{ e.name|safe }}</div>
+                                                {% endif %}
+                                            <br>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endwith %}
+                            {% endfor %}
+                        </table>
+                {% endwith %}
+            {% endwith %}
+            {% if not forloop.last %}
+            <div>
+                <pdf:nextpage/>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+{% endblock %}
