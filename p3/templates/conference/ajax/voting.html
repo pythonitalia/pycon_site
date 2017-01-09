@@ -130,7 +130,7 @@
                 {% url "conference-voting" as u %}
                 activity.addActionLink('Vote a talk', '{{ u|full_url }}');
                 var media = new RPXNOW.Social.ImageMediaCollection();
-                media.addImage('https://ep2013.europython.eu/media/uploads/twitter-avatar.png', url);
+                media.addImage('https://www.pycon.it/static/p8/images/apple-touch-icon.png', url);
                 activity.setMediaItem(media);
                 RPXNOW.Social.publishActivity(activity);
             });
