@@ -1602,7 +1602,7 @@ msgid "firenze"
 msgstr ""
 
 #: p3/templates/p3/base.html:153
-msgid "15-17 aprile 2016"
+msgid "6-9 aprile 2017"
 msgstr ""
 
 #: p3/templates/p3/base.html:190

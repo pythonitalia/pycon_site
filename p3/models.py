@@ -20,6 +20,8 @@ log = logging.getLogger('p3.models')
 TALK_SUBCOMMUNITY = (
     ('', _('None')),
     ('odoo', _('Odoo')),
+    ('pybusiness', _('PyBusiness')),
+    ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
     ('django', _('DjangoVillage')),
     ('pycon', _('Python & Friends')),
