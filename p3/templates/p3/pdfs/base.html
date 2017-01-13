@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+        @page {
+            size: a4 portrait;
+            @frame header_frame { /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt;
+            width: 512pt;
+            top: 50pt;
+            height: 40pt;
+        }
+
+        @frame content_frame {
+            /* Content Frame */
+        left: 50pt; width: 512pt; bottom:10pt; top: 70pt; height: 725pt;
+        }
+        @frame footer_frame {
+            /* Another static Frame */
+        -pdf-frame-content:footer_content;
+        left: 50pt; width: 512pt; top: 782pt; height: 20pt;
+        }
+        }
+
+        table {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        #footer_content{
+            background-color: #e3e3e3;
+            text-align: center;
+        }
+
+        #header_content{
+            background-color: #e3e3e3;
+            text-align: right;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<!-- Content for Static Frame 'header_frame' -->
+
+<div id="header_content">Pycon8 Schedule List</div>
+
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content">page <pdf:pagenumber>/
+    <pdf:pagecount>
+</div>
+
+<!-- HTML Content -->
+{% block MAIN_CONTENT %}
+{% endblock MAIN_CONTENT %}
+</body>
+</html>

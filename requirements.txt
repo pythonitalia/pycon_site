@@ -1,35 +1,81 @@
-Django==1.5.12
-South==1.0.2
-Pillow==2.6.0
-html5lib==0.9999999
-django-page-cms==1.5.3
-django-authority==0.4 #serve a django-page-cms ma non è incluso nelle sue dipendenze
-django-taggit==0.9.3
-django-rosetta==0.7.4
 akismet==0.2.0
-git+git://github.com/smacker/django-filebrowser-no-grappelli-django14.git#egg=django-filebrowser
-django-templatesadmin==0.7
-django-tagging==0.3.1
-python-memcached==1.48
-django-filer==0.9.12
-cmsplugin-filer==0.10.2
-pytz
-Fabric
-django-crontab==0.4.2
--e git+git://github.com/dcramer/django-paypal.git#egg=django-paypal
-django-cms==3.0.15
--e git+https://github.com/pythonitalia/microblog.git#egg=microblog
--e git+https://github.com/pythonitalia/hcomments.git#egg=hcomments
--e git+https://github.com/pythonitalia/conference.git#egg=conference
--e git+https://github.com/pythonitalia/assopy.git#egg=assopy
-BeautifulSoup==3.2.1
-django-markitup==2.2.2
-markdown2==2.3.0
-djangocms_text_ckeditor==2.6.0
-easy_thumbnails==2.2
-raven==5.1.1
-djangocms-grid==1.2
-simplejson  # Necessario per il Syncdb
+
+aldryn-boilerplates==0.7.2
 aldryn-forms==0.6.0
 aldryn-style==0.3.0
-django-mptt==0.6.1
+-e git+https://github.com/pythonitalia/assopy.git@19278196e29ee7dce4bf19631c045c8dc74abdc4#egg=assopy-master
+BeautifulSoup==3.2.1
+certifi==2015.11.20.1
+cmsplugin-filer==0.10.2
+-e git+https://github.com/pythonitalia/conference.git@a257c5cdb4b7c65c1f475344bf3452ab0c2e74e4#egg=conference-master
+cssselect==0.9.1
+cssutils==1.0.1
+Django==1.5.12
+django-absolute==0.3
+django-appconf==0.6
+django-authority==0.4
+django-classy-tags==0.5.1
+django-cms==3.0.15
+django-crontab==0.4.2                                                                                                                                                                                               
+django-emailit==0.2.2                                                                                                                                                                                               
+django-filebrowser-no-grappelli==3.6.1                                                                                                                                                                              
+django-filer==0.9.12                                                                                                                                                                                                
+django-markitup==2.2.2                                                                                                                                                                                              
+django-mptt==0.6.1                                                                                                                                                                                                  
+django-page-cms==1.5.3                                                                                                                                                                                              
+-e git://github.com/dcramer/django-paypal.git@4d58224317e9c0f4c9c2ee88bd1a6b8de8891800#egg=django_paypal-master                                                                                                     
+django-pingback==0.3                                                                                                                                                                                                
+django-polymorphic==0.7.2                                                                                                                                                                                           
+django-recaptcha-works==0.3.4                                                                                                                                                                                       
+django-rosetta==0.7.4                                                                                                                                                                                               
+django-sekizai==0.7                                                                                                                                                                                                 
+django-simple-captcha==0.4.6                                                                                                                                                                                        
+django-sizefield==0.8                                                                                                                                                                                               
+django-tablib==3.1.1                                                                                                                                                                                                
+django-tagging==0.3.1                                                                                                                                                                                               
+django-taggit==0.9.3                                                                                                                                                                                                
+django-templatesadmin==0.7                                                                                                                                                                                          
+django-xmlrpc==0.1.5
+djangocms-admin-style==0.2.2
+djangocms-grid==1.2
+djangocms-picture==0.1
+djangocms-style==1.4
+djangocms-text-ckeditor==2.6.0
+easy-thumbnails==2.2
+ecdsa==0.11
+Fabric==1.10.0
+fancy-tag==0.2.0
+-e git+https://github.com/pythonitalia/hcomments.git@4ec18851a377cc5ec6a59fe20dc561d77d476712#egg=hcomments-master
+html2text==2014.9.25
+html5lib==0.9999999
+httplib2==0.9
+lxml==3.4.0
+markdown2==2.3.0
+-e git+https://github.com/pythonitalia/microblog.git@201633c4fae5c859ed7d8a53480b82d9075e765f#egg=microblog-master
+numpy==1.9.1
+oauthlib==0.7.0
+paramiko==1.15.1
+Pillow==2.6.0
+polib==1.0.4
+premailer==2.9.6
+pycrypto==2.6.1
+Pygments==1.6
+python-memcached==1.48
+python-oembed==0.2.1
+python-twitter==2.0
+pytz==2014.7
+raven==5.1.1
+requests==2.8.1
+requests-oauthlib==0.4.2
+simplejson==3.6.5
+six==1.8.0
+South==1.0.2
+stripe==1.19.1
+suds==0.4
+tablib==0.10.0
+Unidecode==0.4.16
+wheel==0.24.0
+YURL==0.13
+
+xhtml2pdf
+django-xhtml2pdf
