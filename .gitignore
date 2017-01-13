@@ -16,3 +16,4 @@ p3/static/p7/stylesheets/vendor/
 p3/static/p8/stylesheets/vendor/
 .sass-cache
 .DS_Store
+src
