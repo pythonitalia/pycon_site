@@ -99,6 +99,7 @@ class DjangoSite(object):
     def run(self, revision=None):
         self.update_code(revision)
         self.update_static_files()
+        self.update_locales()
         self.update_database()
         self.restart_site()
 
@@ -185,6 +186,15 @@ class DjangoSite(object):
         with cd(remote_dir):
             with hide('output'):
                 result = self.run_virtualenv('./manage.py migrate')
+                if result.failed:
+                    print result
+                    utils.abort(red("{} failed with code {}".format(result.real_command, result.return_code)))
+
+    def update_locales(self):
+        remote_dir = self.project_layout.working_copy()
+        with cd(remote_dir):
+            with hide('output'):
+                result = self.run_virtualenv('./manage.py compilemessages')
                 if result.failed:
                     print result
                     utils.abort(red("{} failed with code {}".format(result.real_command, result.return_code)))
