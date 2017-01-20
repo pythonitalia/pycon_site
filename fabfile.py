@@ -172,9 +172,6 @@ class DjangoSite(object):
                     utils.abort(red("{} failed with code {}".format(result.real_command, result.return_code)))
 
     def update_static_files(self):
-        self.collect_static()
-
-    def collect_static(self):
         remote_dir = self.project_layout.working_copy()
         with cd(remote_dir):
             with hide('output'):
