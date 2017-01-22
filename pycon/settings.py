@@ -372,7 +372,7 @@ MICROBLOG_POST_LIST_PAGINATION = True
 MICROBLOG_POST_PER_PAGE = 10
 MICROBLOG_MODERATION_TYPE = 'akismet'
 MICROBLOG_AKISMET_KEY = '56c34997206c'
-MICROBLOG_EMAIL_RECIPIENTS = ['pycon-organization@googlegroups.com']
+MICROBLOG_EMAIL_RECIPIENTS = ['pycon-organization@googlegroups.com', 'pycon@lists.python.it']
 MICROBLOG_EMAIL_INTEGRATION = True
 
 MICROBLOG_TWITTER_USERNAME = 'pyconit'
@@ -420,8 +420,8 @@ CONFERENCE_GOOGLE_MAPS = {
     'country': 'it',
 }
 
-CONFERENCE_CONFERENCE = 'pycon7'
-CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', ]
+CONFERENCE_CONFERENCE = 'pycon8'
+CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', 'pycon@lists.python.it']
 CONFERENCE_VOTING_DISALLOWED = 'https://www.pycon.it/voting-disallowed'
 
 CONFERENCE_FORMS = {
@@ -665,8 +665,12 @@ def CONFERENCE_TALK_VIDEO_ACCESS(request, talk):
 
 
 def ASSOPY_ORDERITEM_CAN_BE_REFUNDED(user, item):
+    from conference.models import Conference
     if user.is_superuser:
         return True
+    conference = Conference.objects.get(code=CONFERENCE_CONFERENCE)
+    if not conference.refund_available():
+        return False
     if not item.ticket:
         return False
     ticket = item.ticket
