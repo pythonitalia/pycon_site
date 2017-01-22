@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 12:19+0100\n"
+"POT-Creation-Date: 2017-01-20 14:07+0100\n"
 "PO-Revision-Date: 2015-03-31 22:55+0050\n"
 "Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: en <pycon-organization@googlegroups.com>\n"
@@ -102,32 +102,41 @@ msgid "-------"
 msgstr ""
 
 #: p3/forms.py:38 p3/models.py:23
-msgid "PyData"
-msgstr ""
+#, fuzzy
+msgid "PyBusiness"
+msgstr "Business"
 
 #: p3/forms.py:39 p3/models.py:24
-msgid "DjangoVillage"
+msgid "PyDatabase"
 msgstr ""
 
 #: p3/forms.py:40 p3/models.py:25
+msgid "PyData"
+msgstr ""
+
+#: p3/forms.py:41 p3/models.py:26
+msgid "DjangoVillage"
+msgstr ""
+
+#: p3/forms.py:42 p3/models.py:27
 msgid "Python & Friends"
 msgstr ""
 
-#: p3/forms.py:66
+#: p3/forms.py:68
 msgid "Duration"
 msgstr "Duration"
 
-#: p3/forms.py:67
+#: p3/forms.py:69
 msgid ""
 "This is the <i>desired duration</i> of the Talk. <br> As for a Training, the "
 "duration is <i>fixed</i> to 4 hours."
 msgstr ""
 
-#: p3/forms.py:75
+#: p3/forms.py:77
 msgid "I'm a first-time speaker"
 msgstr "I'm a first-time speaker"
 
-#: p3/forms.py:76
+#: p3/forms.py:78
 msgid ""
 "We are planning a special program to help first time speaker, check this if "
 "you'd like to join"
@@ -135,22 +144,22 @@ msgstr ""
 "We are planning a special program to help first time speaker, check this if "
 "you'd like to join"
 
-#: p3/forms.py:80
+#: p3/forms.py:82
 msgid "Talk Type"
 msgstr "Talk Type"
 
-#: p3/forms.py:81
+#: p3/forms.py:83
 msgid "Choose between a standard talk or a 4-hours in-depth training"
 msgstr ""
 
-#: p3/forms.py:88
+#: p3/forms.py:90
 msgid ""
 "I agree to let you publish my data (excluding birth date and phone number)."
 msgstr ""
 "I agree to let you publish my data (excluding birth date and phone number) "
 "on the web site."
 
-#: p3/forms.py:89
+#: p3/forms.py:91
 msgid ""
 "This speaker profile will be publicly accesible if one of your talks is "
 "accepted. Your mobile phone and date of birth will <i>never</i> be published"
@@ -158,11 +167,11 @@ msgstr ""
 "This speaker profile will be publicly accesible if one of your talks is "
 "accepted. Your mobile phone and date of birth will <i>never</i> be published"
 
-#: p3/forms.py:92
+#: p3/forms.py:94
 msgid "I agree to release all the talk material after the event."
 msgstr "I agree to release all the talk material after the event."
 
-#: p3/forms.py:93
+#: p3/forms.py:95
 msgid ""
 "If the talk is accepted, speakers a required to timely release all the talk "
 "material (including slides) for publishing on this web site."
@@ -170,24 +179,24 @@ msgstr ""
 "If the talk is accepted, speakers a required to timely release all the talk "
 "material (including slides) for publishing on this web site."
 
-#: p3/forms.py:96
+#: p3/forms.py:98
 msgid "I agree to let the organization record my talk and publish the video."
 msgstr "I agree to let the organization record my talk and publish the video."
 
-#: p3/forms.py:99 p3/forms.py:205 p3/forms.py:300 p3/forms.py:393
+#: p3/forms.py:101 p3/forms.py:207 p3/forms.py:302 p3/forms.py:395
 #: p3/templates/conference/profile_bio_form.html:8
 msgid "Compact biography"
 msgstr "Compact biography"
 
-#: p3/forms.py:100 p3/forms.py:206 p3/forms.py:301 p3/forms.py:394
+#: p3/forms.py:102 p3/forms.py:208 p3/forms.py:303 p3/forms.py:396
 msgid "Short biography (one or two paragraphs). Do not paste your CV"
 msgstr "Short biography (one or two paragraphs). Do not paste your CV"
 
-#: p3/forms.py:104
+#: p3/forms.py:106
 msgid "Talk abstract"
 msgstr "Talk abstract"
 
-#: p3/forms.py:105
+#: p3/forms.py:107
 msgid ""
 "<p>Short description of the talk you are submitting. Be sure to includes the "
 "goals of your talk and any prerequisite required to fully understand it.</"
@@ -197,23 +206,23 @@ msgstr ""
 "goals of your talk and any prerequisite required to fully understand it.</"
 "p><p>Suggested size: two or three paragraphs.</p>"
 
-#: p3/forms.py:109
+#: p3/forms.py:111
 msgid "Select Italian only if you are not comfortable in speaking English."
 msgstr "Select English only if you are not comfortable in speaking Italian."
 
-#: p3/forms.py:114 p3/templates/conference/talk.html:183
+#: p3/forms.py:116 p3/templates/conference/talk.html:183
 msgid "Track"
 msgstr ""
 
-#: p3/forms.py:115
+#: p3/forms.py:117
 msgid "Select the track this talk is intended for."
 msgstr ""
 
-#: p3/forms.py:211
+#: p3/forms.py:213
 msgid "Probable days of attendance"
 msgstr "Probable days of attendance"
 
-#: p3/forms.py:213
+#: p3/forms.py:215
 msgid ""
 "This ticket grants you full access to the conference. The above selection is "
 "just for helping out the organizers"
@@ -221,35 +230,35 @@ msgstr ""
 "This ticket grants you full access to the conference. The above selection is "
 "just for helping out the organizers"
 
-#: p3/forms.py:237
+#: p3/forms.py:239
 msgid "Days"
 msgstr "Days"
 
-#: p3/forms.py:305 p3/templates/conference/profile_publicdata_form.html:10
+#: p3/forms.py:307 p3/templates/conference/profile_publicdata_form.html:10
 msgid "Tagline"
 msgstr "Tagline"
 
-#: p3/forms.py:306
+#: p3/forms.py:308
 msgid "Describe yourself in one line"
 msgstr "Describe yourself in one line"
 
-#: p3/forms.py:417
+#: p3/forms.py:419
 msgid "no picture"
 msgstr "no picture"
 
-#: p3/forms.py:418
+#: p3/forms.py:420
 msgid "use gravatar"
 msgstr "use gravatar"
 
-#: p3/forms.py:419
+#: p3/forms.py:421
 msgid "use url"
 msgstr "use url"
 
-#: p3/forms.py:420
+#: p3/forms.py:422
 msgid "upload file"
 msgstr "upload file"
 
-#: p3/forms.py:465
+#: p3/forms.py:467
 msgid ""
 "If you opt-in the privacy settings, we can send you important communications "
 "via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This "
@@ -259,11 +268,11 @@ msgstr ""
 "via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This "
 "number will <i>never</i> be published."
 
-#: p3/forms.py:470 p3/templates/assopy/profile_personal_data.html:29
+#: p3/forms.py:472 p3/templates/assopy/profile_personal_data.html:29
 msgid "Date of birth"
 msgstr "Date of birth"
 
-#: p3/forms.py:471
+#: p3/forms.py:473
 msgid ""
 "We require date of birth for speakers to accomodate for Italian laws "
 "regarding minors.<br />Format: YYYY-MM-DD<br />This date will <i>never</i> "
@@ -273,43 +282,43 @@ msgstr ""
 "regarding minors.<br />Format: YYYY-MM-DD<br />This date will <i>never</i> "
 "be published."
 
-#: p3/forms.py:489 p3/forms.py:500
+#: p3/forms.py:491 p3/forms.py:502
 msgid "This field is required for a speaker"
 msgstr "This field is required for a speaker"
 
-#: p3/forms.py:514
+#: p3/forms.py:516
 msgid "Email already registered"
 msgstr "Email already registered"
 
-#: p3/forms.py:518
+#: p3/forms.py:520
 msgid "I want to receive a few selected job offers through PyCon."
 msgstr "I want to receive a few selected job offers through PyCon."
 
-#: p3/forms.py:519
+#: p3/forms.py:521
 msgid "I want to receive private messages from other partecipants."
 msgstr "I want to receive private messages from other partecipants."
 
-#: p3/forms.py:520
+#: p3/forms.py:522
 msgid "I want to receive SMS during the conference for main communications."
 msgstr "I want to receive SMS during the conference for main communications."
 
-#: p3/forms.py:617
+#: p3/forms.py:619
 msgid "Room sharing"
 msgstr "Room sharing"
 
-#: p3/forms.py:621
+#: p3/forms.py:623
 msgid "Full room"
 msgstr "Full room"
 
-#: p3/forms.py:681
+#: p3/forms.py:683
 msgid "Insert your discount code and save money!"
 msgstr "Insert your discount code and save money!"
 
-#: p3/forms.py:716 p3/forms.py:720 p3/forms.py:722
+#: p3/forms.py:718 p3/forms.py:722 p3/forms.py:724
 msgid "invalid coupon"
 msgstr "invalid coupon"
 
-#: p3/forms.py:835
+#: p3/forms.py:837
 msgid "already booked"
 msgstr "already booked"
 
@@ -321,43 +330,43 @@ msgstr ""
 msgid "Odoo"
 msgstr ""
 
-#: p3/models.py:35
+#: p3/models.py:37
 msgid "Sub-Community Track"
 msgstr ""
 
-#: p3/models.py:62
+#: p3/models.py:64
 msgid "Omnivorous"
 msgstr "Omnivorous"
 
-#: p3/models.py:63
+#: p3/models.py:65
 msgid "Vegetarian"
 msgstr "Vegetarian"
 
-#: p3/models.py:68
+#: p3/models.py:70
 msgid "0 stars"
 msgstr "0 stars"
 
-#: p3/models.py:69
+#: p3/models.py:71
 msgid "1 stars"
 msgstr "1 star"
 
-#: p3/models.py:70
+#: p3/models.py:72
 msgid "2 stars"
 msgstr "2 stars"
 
-#: p3/models.py:71
+#: p3/models.py:73
 msgid "3 stars"
 msgstr "3 stars"
 
-#: p3/models.py:72
+#: p3/models.py:74
 msgid "4 stars"
 msgstr "4 stars"
 
-#: p3/models.py:73
+#: p3/models.py:75
 msgid "5 stars"
 msgstr "5 stars"
 
-#: p3/models.py:107
+#: p3/models.py:109
 msgid ""
 "a (funny?) tagline that will be displayed on the badge<br />Eg. CEO of "
 "FooBar Inc.; Student at MIT; Super Python fanboy"
@@ -365,11 +374,11 @@ msgstr ""
 "a (funny?) tagline that will be displayed on the badge<br />Eg. CEO of "
 "FooBar Inc.; Student at MIT; Super Python fanboy"
 
-#: p3/models.py:109
+#: p3/models.py:111
 msgid "Days of attendance"
 msgstr "Days of attendance"
 
-#: p3/models.py:113
+#: p3/models.py:115
 msgid ""
 "A custom badge image instead of the python logo. Don't use a very large "
 "image, 250x250 should be fine."
@@ -377,31 +386,31 @@ msgstr ""
 "A custom badge image instead of the python logo. Don't use a very large "
 "image, 250x250 should be fine."
 
-#: p3/models.py:144
+#: p3/models.py:146
 msgid "Standard SIM (USIM)"
 msgstr "Standard SIM (USIM)"
 
-#: p3/models.py:145
+#: p3/models.py:147
 msgid "Micro SIM"
 msgstr "Micro SIM"
 
-#: p3/models.py:146
+#: p3/models.py:148
 msgid "Nano SIM"
 msgstr "Nano SIM"
 
-#: p3/models.py:149
+#: p3/models.py:151
 msgid "Standard Plan"
 msgstr "Standard Plan"
 
-#: p3/models.py:150
+#: p3/models.py:152
 msgid "BlackBerry Plan"
 msgstr "BlackBerry Plan"
 
-#: p3/models.py:155 p3/models.py:391
+#: p3/models.py:157 p3/models.py:393
 msgid "ID Document"
 msgstr "ID Document"
 
-#: p3/models.py:159
+#: p3/models.py:161
 msgid ""
 "Italian regulations require a document ID to activate a phone SIM. You can "
 "use the same ID for up to three SIMs. Any document is fine (EU driving "
@@ -411,7 +420,7 @@ msgstr ""
 "use the same ID for up to three SIMs. Any document is fine (EU driving "
 "license, personal ID card, etc)."
 
-#: p3/models.py:164
+#: p3/models.py:166
 msgid ""
 "Select the SIM physical format. USIM is the sandard for most mobile phones; "
 "Micro SIM is notably used on iPad and iPhone 4; Nano SIM is used for the "
@@ -420,61 +429,61 @@ msgstr ""
 "Select the SIM physical format. USIM is the sandard for most mobile phones; "
 "Micro SIM is notably used on iPad and iPhone 4; Nano SIM is used for the "
 "last generation smartphone like the iPhone 5"
-
-#: p3/models.py:169
-msgid ""
-"Standard plan is fine for all mobiles except BlackBerry that require a "
-"special plan (even though rates and features are exactly the same)."
-msgstr ""
-"Standard plan is fine for all mobiles except BlackBerry that require a "
-"special plan (even though rates and features are exactly the same)."
 
 #: p3/models.py:171
+msgid ""
+"Standard plan is fine for all mobiles except BlackBerry that require a "
+"special plan (even though rates and features are exactly the same)."
+msgstr ""
+"Standard plan is fine for all mobiles except BlackBerry that require a "
+"special plan (even though rates and features are exactly the same)."
+
+#: p3/models.py:173
 msgid "Telephone number"
 msgstr "Telephone number"
 
-#: p3/models.py:178
+#: p3/models.py:180
 msgid "first bookable day"
 msgstr ""
 
-#: p3/models.py:179
+#: p3/models.py:181
 msgid "last bookable day"
 msgstr ""
 
-#: p3/models.py:181
+#: p3/models.py:183
 msgid ""
 "suggested first bookable day (used in the cart as the default start day)"
 msgstr ""
 
-#: p3/models.py:183
+#: p3/models.py:185
 msgid "suggested last bookable day (used in the cart as the default last day)"
 msgstr ""
 
-#: p3/models.py:190
+#: p3/models.py:192
 msgid "Single room"
 msgstr "Single room"
 
-#: p3/models.py:191
+#: p3/models.py:193
 msgid "Double room"
 msgstr "Double room"
 
-#: p3/models.py:192
+#: p3/models.py:194
 msgid "Triple room"
 msgstr "Triple room"
 
-#: p3/models.py:193
+#: p3/models.py:195
 msgid "Quadruple room"
 msgstr "Quadruple room"
 
-#: p3/models.py:385
+#: p3/models.py:387
 msgid "room shared"
 msgstr "room shared"
 
-#: p3/models.py:386
+#: p3/models.py:388
 msgid "room not shared"
 msgstr "room not shared"
 
-#: p3/models.py:395
+#: p3/models.py:397
 msgid ""
 "Italian regulations require a document ID to book an hotel room. Any "
 "document is fine (EU driving license, personal ID card, etc)."
@@ -482,15 +491,15 @@ msgstr ""
 "Italian regulations require a document ID to book an hotel room. Any "
 "document is fine (EU driving license, personal ID card, etc)."
 
-#: p3/models.py:402
+#: p3/models.py:404
 msgid "Bed place not needed"
 msgstr "Bed place not needed"
 
-#: p3/models.py:403
+#: p3/models.py:405
 msgid "Check if you don't use this bed place."
 msgstr "Check if you don't use this bed place."
 
-#: p3/models.py:448
+#: p3/models.py:450
 msgid "describe yourself in one line!"
 msgstr "describe yourself in one line!"
 
@@ -498,18 +507,15 @@ msgstr "describe yourself in one line!"
 msgid "people want to take part in this sprint"
 msgstr ""
 
-#: p3/render_single_sprint.html:25
-#: p3/templates/p3/render_single_sprint.html:25
+#: p3/render_single_sprint.html:25 p3/templates/p3/render_single_sprint.html:25
 msgid "I will attend this sprint"
 msgstr ""
 
-#: p3/render_single_sprint.html:27
-#: p3/templates/p3/render_single_sprint.html:27
+#: p3/render_single_sprint.html:27 p3/templates/p3/render_single_sprint.html:27
 msgid "Cancel my registration"
 msgstr "Cancel my registration"
 
-#: p3/render_single_sprint.html:39
-#: p3/templates/p3/render_single_sprint.html:39
+#: p3/render_single_sprint.html:39 p3/templates/p3/render_single_sprint.html:39
 #: p3/templates/p3/sprint_submission.html:14
 msgid "Submit"
 msgstr "Submit"
@@ -1398,11 +1404,11 @@ msgstr ""
 msgid "Submit your proposal"
 msgstr "Submit your proposal"
 
-#: p3/templates/django_cms/p5_homepage.html:72
+#: p3/templates/django_cms/p5_homepage.html:72 p3/templates/p3/live.html:127
 msgid "Our Sponsors"
 msgstr "Our Sponsors"
 
-#: p3/templates/django_cms/p5_homepage.html:83
+#: p3/templates/django_cms/p5_homepage.html:83 p3/templates/p3/live.html:138
 msgid "Become a sponsor"
 msgstr "Become a sponsor"
 
@@ -1536,27 +1542,27 @@ msgstr "Reactions"
 msgid "Condividi questo post"
 msgstr "Share this post"
 
-#: p3/templates/p3/base.html:151
-msgid "Pycon sette"
-msgstr "Pycon sette"
+#: p3/templates/p3/base.html:144
+msgid "<span>Pycon</span> otto"
+msgstr ""
 
-#: p3/templates/p3/base.html:152
+#: p3/templates/p3/base.html:145
 msgid "firenze"
 msgstr "Florence"
 
-#: p3/templates/p3/base.html:153
+#: p3/templates/p3/base.html:146
 msgid "6-9 aprile 2017"
 msgstr "6th 9th April 2017"
 
-#: p3/templates/p3/base.html:190
+#: p3/templates/p3/base.html:183
 msgid "Please Donate"
 msgstr ""
 
-#: p3/templates/p3/base.html:210
+#: p3/templates/p3/base.html:203
 msgid "The safer, easier way to pay online!"
 msgstr ""
 
-#: p3/templates/p3/base.html:211
+#: p3/templates/p3/base.html:204
 msgid "Donate Now"
 msgstr ""
 
@@ -1961,7 +1967,7 @@ msgstr "Are you sure to reclaim this ticket"
 msgid "ticket reclaimed"
 msgstr "ticket reclaimed"
 
-#: p3/templates/p3/whos_coming.html:4 p3/templates/p3/whos_coming.html:16
+#: p3/templates/p3/whos_coming.html:4 p3/templates/p3/whos_coming.html.py:16
 msgid "Who's coming?"
 msgstr "Who's coming?"
 
@@ -2242,185 +2248,26 @@ msgstr ""
 msgid "Company Name"
 msgstr "Company Name"
 
-#: pycon/settings.py:50 pycon/settings.py:325
+#: pycon/settings.py:47 pycon/settings.py:322
 msgid "Italiano"
 msgstr "Italiano"
 
-#: pycon/settings.py:51 pycon/settings.py:305 pycon/settings.py:329
+#: pycon/settings.py:48 pycon/settings.py:302 pycon/settings.py:326
 msgid "English"
 msgstr "English"
 
-#: pycon/settings.py:304
+#: pycon/settings.py:301
 msgid "Italian"
 msgstr "Italian"
 
-#: pycon/settings.py:361
+#: pycon/settings.py:358
 msgid "info"
 msgstr ""
 
-#: pycon/settings.py:362
+#: pycon/settings.py:359
 msgid "new"
 msgstr ""
 
-#: pycon/settings.py:363
+#: pycon/settings.py:360
 msgid "hint"
 msgstr ""
-
-#~ msgid "Talk"
-#~ msgstr "Talk"
-
-#~ msgid "30 minutes inc Q&A"
-#~ msgstr "30 minutes inc Q&A"
-
-#~ msgid "This is the <i>desired duration</i> of the talk"
-#~ msgstr "This is the <b>net duration</b> of the talk, excluding Q&A"
-
-#~ msgid "Dal blog"
-#~ msgstr "From the blog"
-
-#~ msgid "Continua"
-#~ msgstr "Continue"
-
-#~ msgid "Dicono di noi"
-#~ msgstr "About us"
-
-#~ msgid "Vedi tutte le scadenze &rarr;"
-#~ msgstr "All the deadlines &rarr;"
-
-#~ msgid ""
-#~ "Following the great success of the last year we will waiting for you at "
-#~ "PyCon Italy, the biggest national conference in Europe dedicated to the "
-#~ "Python programming language."
-#~ msgstr ""
-#~ "Following the great success of the last year we will waiting for you at "
-#~ "PyCon Italy, the biggest national conference in Europe dedicated to the "
-#~ "Python programming language."
-
-#~ msgid ""
-#~ "We expect more than 400 visitors among companies, professionals and "
-#~ "hobbystis that will have a chance to attend to numerous talks about the "
-#~ "most up to date topics  in the Python world."
-#~ msgstr ""
-#~ "We expect more than 400 visitors among companies, professionals and "
-#~ "hobbystis that will have a chance to attend to numerous talks about the "
-#~ "most up to date topics in the Python world."
-
-#~ msgid "Dal Blog"
-#~ msgstr "From the blog"
-
-#~ msgid "Scritto da"
-#~ msgstr "Written by"
-
-#~ msgid "il"
-#~ msgstr "the"
-
-#~ msgid "Continua &rarr;"
-#~ msgstr "Continue &rarr;"
-
-#~ msgid "Archivio blog"
-#~ msgstr "Blog archive"
-
-#~ msgid "All the deadlines &rarr;"
-#~ msgstr "All the deadlines &rarr;"
-
-#~ msgid "Buy tickets"
-#~ msgstr "Your talks"
-
-#~ msgid "Other personal pages"
-#~ msgstr "Personal website"
-
-#~ msgid "Suggested duration"
-#~ msgstr "Suggested duration"
-
-#~ msgid "affiliated"
-#~ msgstr "affiliated"
-
-#~ msgid "Sito Azienda"
-#~ msgstr "Company site"
-
-#~ msgid "di"
-#~ msgstr "of"
-
-#~ msgid "nella track"
-#~ msgstr "in the track"
-
-#~ msgid "Categorie"
-#~ msgstr "Categories"
-
-#~ msgid "Aggiungi un commento"
-#~ msgstr "Add a comment"
-
-#~ msgid "Categoria"
-#~ msgstr "Category"
-
-#~ msgid "Tag"
-#~ msgstr "Tag"
-
-#~ msgid "Lo sai che"
-#~ msgstr "Did you know?"
-
-#~ msgid "Calendario"
-#~ msgstr "Calendar"
-
-#~ msgid "Da Twitter"
-#~ msgstr "From Twitter"
-
-#~ msgid "siamo già in"
-#~ msgstr "we are just in"
-
-#~ msgid "I suoi talk"
-#~ msgstr "The talks"
-
-#~ msgid "Aggiungi un commentoddddddddd"
-#~ msgstr "Add a comment"
-
-#~ msgid "Comments"
-#~ msgstr "Comments"
-
-#~ msgid "Archive "
-#~ msgstr "Archive"
-
-#~ msgid ""
-#~ "La conferenza Italiana sul linguaggio di programmazione Python dove "
-#~ "sviluppatori, aziende e università si incontrano per imparare, "
-#~ "collaborare e crescere insieme."
-#~ msgstr ""
-#~ "The Italian conference on Python programming language where developers, "
-#~ "companies and universities meet to learn, work and grow up together."
-
-#~ msgid "I nostri sponsor"
-#~ msgstr "Our sponsors"
-
-#~ msgid "Mancano *%(days)d giorni* all'inizio della conferenza."
-#~ msgstr "The conference starts in *%(days)d days*."
-
-#~ msgid "La conferenza inizia *domani*!"
-#~ msgstr "The conference starts *tomorrow*!"
-
-#~ msgid "La conferenza è in fase di svolgimento!"
-#~ msgstr "The conference is being!"
-
-#~ msgid "Ci sono ancora *%(seat)d* posti disponibili"
-#~ msgstr "Available seats: *%(seat)d!*"
-
-#~ msgid "Progetto grafico"
-#~ msgstr "Graphic design"
-
-#~ msgid "telefono"
-#~ msgstr "Telephone"
-
-#~ msgid "email"
-#~ msgstr "Email"
-
-#~ msgid "sito"
-#~ msgstr "Web site"
-
-#~ msgid "saluto di guido in homepage"
-#~ msgstr ""
-#~ "This year's PyCon Italy will have an exceptional guest in <b><a href="
-#~ "\"http://en.wikipedia.org/wiki/Guido_van_Rossum\">Guido van Rossum</a></"
-#~ "b>, author of the language, who will give a Keynote about the latest "
-#~ "developments of the language."
-
-#~ msgid "Il Late Bird finisce *oggi*!"
-#~ msgstr "Subscriptions ends *today*!"
