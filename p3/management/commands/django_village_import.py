@@ -9,6 +9,12 @@ from django.db import transaction
 from p3 import models as pmodels
 
 
+def encode(d):
+    for key, value in d.items():
+        d[key] = unicode(value, "utf-8")
+    return d
+
+
 class Command(BaseCommand):
     """
     """
@@ -25,6 +31,7 @@ class Command(BaseCommand):
 
     def insert_data(self, reader):
         for line in reader:
+            line = encode(line)
             line["first_name"], line["last_name"] = line["author"].split(" ", 1)
             p = self.retrieve_profile(line)
             spk = self.mark_as_speaker(p)
@@ -61,7 +68,7 @@ class Command(BaseCommand):
         return p
 
     def new_username(self, data):
-        return "{}{}{}".format(
+        return u"{}{}{}".format(
             data["first_name"][0],
             data["last_name"][0],
             str(random.randint(0, 100000)))
@@ -90,12 +97,20 @@ class Command(BaseCommand):
         else:
             return False
 
+        levels = {
+            "every": "beginner",
+            "beginner": "beginner",
+            "inter": "intermediate",
+            "advanced": "advanced",
+        }
         t = cmodels.Talk.objects.createFromTitle(
             title=data["proposal_title"],
             conference=settings.CONFERENCE_CONFERENCE,
             speaker=speaker,
             duration=30,
-            language="en"
+            language="en",
+            level=levels[data["proposal_audience"]],
         )
         pmodels.P3Talk.objects.create(talk=t, sub_community="django")
+        t.setAbstract(data["proposal_abstract"], language="en")
         return True
