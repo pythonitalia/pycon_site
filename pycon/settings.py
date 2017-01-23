@@ -372,7 +372,7 @@ MICROBLOG_POST_LIST_PAGINATION = True
 MICROBLOG_POST_PER_PAGE = 10
 MICROBLOG_MODERATION_TYPE = 'akismet'
 MICROBLOG_AKISMET_KEY = '56c34997206c'
-MICROBLOG_EMAIL_RECIPIENTS = ['pycon-organization@googlegroups.com']
+MICROBLOG_EMAIL_RECIPIENTS = ['pycon-organization@googlegroups.com', 'pycon@lists.python.it']
 MICROBLOG_EMAIL_INTEGRATION = True
 
 MICROBLOG_TWITTER_USERNAME = 'pyconit'
@@ -421,7 +421,7 @@ CONFERENCE_GOOGLE_MAPS = {
 }
 
 CONFERENCE_CONFERENCE = 'pycon8'
-CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', ]
+CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', 'pycon@lists.python.it']
 CONFERENCE_VOTING_DISALLOWED = 'https://www.pycon.it/voting-disallowed'
 
 CONFERENCE_FORMS = {
