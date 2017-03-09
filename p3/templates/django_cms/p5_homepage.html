@@ -101,7 +101,7 @@
                 {% for s in startup %}
                     <div class="grid-33">
                         <div class="sponsor">
-                            <a href="{{ s.url }}"><img src="{{ MEDIA_URL }}{{ s.logo }}" alt="{{ s.name }}" title="{{ s.name }}" width="190" height="90" /></a>
+                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.name }}" title="{{ s.name }}" width="190" height="90" /></a>
                         </div>
                     </div><!-- /grid -->
                 {% endfor %}
@@ -118,7 +118,7 @@
                 {% for s in mediapartner %}
                     <div class="grid-33">
                         <div class="sponsor">
-                            <a href="{{ s.url }}"><img src="{{ MEDIA_URL }}{{ s.logo }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" /></a>
+                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" /></a>
                         </div>
                     </div><!-- /grid -->
                 {% endfor %}
