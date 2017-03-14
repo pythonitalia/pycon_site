@@ -58,6 +58,11 @@ class Command(BaseCommand):
 
             u = data['spk'].user
             name = '%s %s' % (u.first_name, u.last_name)
+
+            if Coupon.objects.filter(conference=conference, user=u.assopy_user).exists():
+                print name.encode('utf-8'), u.email, 'coupon already exist'
+                continue
+
             print code, name.encode('utf-8'), u.email, 'value:', value
             c = Coupon(conference=conference)
             c.code = code
