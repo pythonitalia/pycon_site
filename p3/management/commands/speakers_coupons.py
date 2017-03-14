@@ -60,7 +60,7 @@ class Command(BaseCommand):
             name = '%s %s' % (u.first_name, u.last_name)
 
             if Coupon.objects.filter(conference=conference, user=u.assopy_user).exists():
-                print name.encode('utf-8'), u.email, 'coupon already exist'
+                print "\t", name.encode('utf-8'), u.email, 'coupon already exist'
                 continue
 
             print code, name.encode('utf-8'), u.email, 'value:', value
