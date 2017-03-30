@@ -44,6 +44,8 @@ urlpatterns += patterns('p3.views',
 
     url(r'^schedule/(?P<conference>[\w-]+)/my-schedule/$',
         'my_schedule', name='p3-schedule-my-schedule'),
+    url(r'^schedule/(?P<conference>[\w-]+)/app-schedule.ics$',
+        'app_schedule_ics', name='p3-schedule-app-schedule-ics'),
     url(r'^schedule/(?P<conference>[\w-]+)/my-schedule.ics$',
         'schedule_ics', name='p3-schedule-my-schedule-ics', kwargs={'mode': 'my-schedule'}),
 
