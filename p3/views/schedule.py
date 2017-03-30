@@ -1,5 +1,7 @@
 # -*- coding: UTF-8 -*-
 import datetime
+import json
+from base64 import b64decode
 from assopy.views import render_to_json
 from collections import defaultdict
 from conference import models as cmodels
@@ -127,6 +129,71 @@ def schedule_ics(request, conference, mode='conference'):
     from p3.utils import conference2ical
     cal = conference2ical(conference, user=uid, abstract='abstract' in request.GET)
     return http.HttpResponse(list(cal.encode()), content_type='text/calendar')
+
+
+def app_schedule_ics(request, conference):
+    from p3.utils import conference2ical
+
+    auth = request.META.get('HTTP_AUTHORIZATION', None)
+    user_id = None
+
+    if auth:
+        from django.contrib.auth import authenticate
+        basic, auth = auth.split()
+        email, password = b64decode(auth).split(':')
+        user = authenticate(email=email, password=password)
+        if user is not None and user.is_active:
+            user_id = user.id
+
+    qs = cmodels.Event.objects.filter(
+        schedule__conference=conference
+    )
+
+    star = []
+    if user_id:
+        stars = qs.filter(
+            eventinterest__interest__gt=0,
+            eventinterest__user=user,
+        ).values_list("pk", flat=True)
+
+    events = []
+    for e in qs:
+        start, end = e.get_time_range()
+
+        tracks = e.tracks.values_list("title", flat=True)
+        track = tracks[0] if len(tracks) == 1 else "All Rooms"
+
+        host = "https://www.pycon.it"
+
+        abstract = e.talk.get_absolute_url() if e.talk else ""
+        if abstract:
+            abstract = "{}/{}".format(host, abstract)
+
+        event = {
+            "LOCATION": track,
+            "UID": "{}/{}".format(host, e.pk),
+            "CLASS": "PUBLIC",
+            "DTSTART": start.strftime('%Y%m%dT%H%M%S'),
+            "ORGANIZER;CN=Python Italia": "mailto:info@pycon.it",
+            "DTEND": end.strftime('%Y%m%dT%H%M%S'),
+            "GEO": "",
+            "SUMMARY": e.__unicode__(),
+            "ABSTRACT": abstract,
+            "STAR": e.pk in stars
+        }
+        events.append(event)
+
+    data = {
+        "VCALENDAR":{
+            "VERSION":"2.0",
+            "VEVENT": events,
+            "X-PUBLISHED-TTL":"P0DT1H0M0S",
+            "PRODID":"https://www.pycon.it/en/sprints/schedule/pycon8/"
+        }
+    }
+
+    return http.HttpResponse(json.dumps(data))
+
 
 def schedule_list(request, conference):
     sids = cmodels.Schedule.objects\
