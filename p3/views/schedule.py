@@ -149,7 +149,7 @@ def app_schedule_ics(request, conference):
         schedule__conference=conference
     )
 
-    star = []
+    stars = []
     if user_id:
         stars = qs.filter(
             eventinterest__interest__gt=0,
