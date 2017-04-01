@@ -38,7 +38,12 @@ def ticketConferenceForm():
         def __init__(self, *args, **kw):
             if 'instance' in kw:
                 o = kw['instance']
-                p3c = o.p3_conference
+
+                try:
+                    p3c = o.p3_conference
+                except models.TicketConference.DoesNotExist:
+                    p3c = None
+
                 if p3c:
                     initial = kw.pop('initial', {})
                     for k in _TICKET_CONFERENCE_COPY_FIELDS:
