@@ -1543,7 +1543,7 @@ msgid "Condividi questo post"
 msgstr "Share this post"
 
 #: p3/templates/p3/base.html:144
-msgid "<span>Pycon</span> otto"
+msgid "<span>Pycon</span> nove"
 msgstr ""
 
 #: p3/templates/p3/base.html:145
