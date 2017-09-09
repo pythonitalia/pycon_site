@@ -71,6 +71,7 @@
                 <div class="grid-100">
                     <h2 class="border-title">{% trans 'Our Sponsors' %}</h2>
                 </div>
+                {% comment %}
                 {% for s in sponsors %}
                     <div class="grid-25">
                         <div class="sponsor">
@@ -78,6 +79,7 @@
                         </div>
                     </div><!-- /grid -->
                 {% endfor %}
+                {% endcomment %}
                 <div class="grid-25">
                     <div class="sponsor sponsor-wanted">
                         <a href="{% page_url 'sponsor' %}">{% trans 'Become a sponsor' %}</a>
@@ -93,6 +95,7 @@
         </div>
         {% conference_startup CONFERENCE as startup %}
         {% if startup %}
+        {% comment %}
         <section>
             <div class="grid-container">
                 <div class="grid-100">
@@ -107,9 +110,11 @@
                 {% endfor %}
             </div><!-- /grid-container -->
         </section>
+        {% endcomment %}
         {% endif %}
         {% conference_mediapartner CONFERENCE as mediapartner %}
         {% if mediapartner %}
+        {% comment %}
         <section>
             <div class="grid-container">
                 <div class="grid-100">
@@ -124,6 +129,7 @@
                 {% endfor %}
             </div><!-- /grid-container -->
         </section>
+        {% endcomment %}
         {% endif %}
     {% endblock SPONSORS %}
 
