@@ -2204,7 +2204,7 @@ body > div.draft { position: fixed; top: 0; left: 0; width: 100px; bottom: 0; z-
 .content-tpl header { padding: 1.5em; }
 .content-tpl .branding img { height: 100px; }
 
-.home-tpl .branding img { width: 250px; height: auto; }
+.home-tpl .branding img { width: 80%; height: auto; max-width: 600px; margin: 0 0 30px; }
 .home-tpl .branding .event-name { font-size: 90px; font-size: 9rem; font-weight: bold; }
 .home-tpl .branding .event-location { font-size: 30px; font-size: 3rem; }
 .home-tpl .branding .event-date { font-size: 30px; font-size: 3rem; }

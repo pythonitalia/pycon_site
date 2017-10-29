@@ -255,8 +255,10 @@ body > div.draft {
 .home-tpl {
     .branding {
         img {
-            width: 250px;
+            width: 80%;
             height: auto;
+            max-width: 600px;
+            margin: 0 0 30px;
         }
 
         .event-name {
