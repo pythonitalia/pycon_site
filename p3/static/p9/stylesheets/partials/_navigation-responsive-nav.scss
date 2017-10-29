@@ -1,0 +1,218 @@
+/*! responsive-nav.js v1.0.14 by @viljamis */
+
+.js nav[role=navigation] {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    zoom: 1;
+
+    @include media-query-bp($bp3){
+        max-height: none;}
+
+    .opened {
+      max-height: 9999px;
+    }
+}
+
+// Added via JS
+#nav-toggle {
+    float: right;
+    display: block;
+    padding: $baselineheight / 2 $gutterwidth / 2;
+    background-color: $navigationbackgroundcolor;
+    color: $navigationlinkcolor;
+    border-bottom: 0;
+
+    &:hover {
+        border-bottom: 0;
+        background-color: lighten($navigationbackgroundcolor, 5);
+    }
+
+    @include media-query-bp($bp3){
+        display: none;
+    }
+}
+
+.navigation-toggle { display: none; }
+
+// Common styles
+nav[role=navigation] {
+    clear: both;
+    background-color: $navigationbackgroundcolor;
+    @include transition (all $transitionduration ease);
+}
+
+nav[role=navigation].active {
+    max-height: 25em;
+}
+
+#navigation-toggle {
+    list-style-type: none;
+    @include zero;
+
+    @include media-query-bp($bp4) {
+        width: 100%;
+        ul {
+            margin: 0 auto;
+            max-width: $maxwidth;
+        }
+    }
+
+    ul {
+        list-style: none;
+        @include zero;
+        @include media-query-bp($bp3) {
+            margin: 0 auto;}
+    }
+
+    li {
+        @include media-query-bp($bp3) {
+            //display: inline-block;
+            float: left;
+            margin: 0;
+        }
+
+        a {
+            vertical-align: middle;
+            display: block;
+            padding: $gutterwidth / 2;
+            color: $navigationlinkcolor;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            border: 0;
+
+            &:hover {
+                color: $white;
+                text-decoration: none;
+                border: 0;
+                background: lighten($navigationbackgroundcolor, 5);
+            }
+
+            @include media-query-bp($bp3) {
+                display: inline-block;
+                border: none;
+                @include font-size(16);
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+
+        // Current nav item
+        &.current a {
+            color: $secondarycolor;
+        }
+
+        // Special user-related nav items
+        &.right {
+            margin: 0 0 0 15px;
+            @include media-query-bp($bp3) {
+                float: right;
+            }
+
+            a {
+                color: $navigationrightlinkcolor;
+                text-transform: none;
+                @include font-size(14);
+
+                &.username {
+                    font-weight: 600;
+                }
+
+                &:hover {
+                    color: lighten($navigationrightlinkcolor, 20%);
+                }
+
+                i {
+                    color: $primarycolor;
+                    margin-right: 4px;
+                }
+            }
+        }
+        //
+        &.right.lang a {
+            text-transform: uppercase;
+            background-color: lighten($secondarycolor, 10);
+            padding-left: 15px;
+            padding-right: 15px;
+            &:hover {
+                background-color: $secondarycolor;
+            }
+        }
+    }
+}
+
+%main-navigation-secondary-links {
+    background: black;
+    padding: 0;
+    line-height: 1;
+    display: block;
+
+    a {
+        font-size: 12px;
+        padding: 10px 15px;
+        color: $white;
+        line-height: 1;
+
+        &:hover {
+            color: $primarycolor;
+        }
+    }
+}
+
+#navigation-toggle .main-navigation--lang {
+    @extend %main-navigation-secondary-links;
+    @include border-radius(0);
+
+    + li {
+        clear: both;
+    }
+}
+
+#navigation-toggle .main-navigation--user-menu {
+    @extend %main-navigation-secondary-links;
+    @include border-radius(0);
+
+    a {
+        display: inline-block;
+    }
+}
+
+
+@include media-query-bp($bp3) {
+    %main-navigation-secondary-links-desktop {
+        float: right;
+
+        a {
+            border-right: 2px solid $navigationbackgroundcolor;
+            padding: 5px 10px;
+
+            &:hover {
+                border-right: 2px solid $navigationbackgroundcolor;
+            }
+        }
+    }
+
+    #navigation-toggle .main-navigation--lang {
+        @extend %main-navigation-secondary-links-desktop;
+        @include border-radius(0 0 0 5px);
+    }
+
+    #navigation-toggle .main-navigation--user-menu {
+        @extend %main-navigation-secondary-links-desktop;
+        @include border-radius(0 0 5px 0);
+        margin-right: 15px;
+
+        a:last-child {
+            border-right: 0;
+
+            &:hover {
+                border-right: 0;
+            }
+        }
+    }
+}
+

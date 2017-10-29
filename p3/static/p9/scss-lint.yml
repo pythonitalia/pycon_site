@@ -1,0 +1,91 @@
+---
+scss_files: 'stylesheets/partials/pycon/_schedule.scss'
+scss_files: 'stylesheets/partials/pycon/_conference.scss'
+
+linters:
+  BangFormat:
+    enabled: true
+  BorderZero:
+    enabled: true
+    severity: error
+  ColorKeyword:
+    enabled: false
+  ColorVariable:
+    enabled: false
+  Comment:
+    enabled: true
+  DeclarationOrder:
+    enabled: true
+  DuplicateProperty:
+    enabled: true
+  ElsePlacement:
+    enabled: true
+  EmptyLineBetweenBlocks:
+    enabled: true
+  EmptyRule:
+    enabled: true
+  FinalNewline:
+    enabled: false
+  HexLength:
+    enabled: true
+  HexNotation:
+    enabled: false
+  IdSelector:
+    enabled: false
+  ImportPath:
+    enabled: true
+  ImportantRule:
+    enabled: false
+  Indentation:
+    enabled: true
+    severity: error
+    width: 4
+  LeadingZero:
+    enabled: true
+  MergeableSelector:
+    enabled: false
+  NameFormat:
+    enabled: true
+  NestingDepth:
+    enabled: true
+    severity: error
+    max_depth: 6
+  PlaceholderInExtend:
+    enabled: false
+  PropertySortOrder:
+    enabled: false
+  PropertySpelling:
+    enabled: true
+  QualifyingElement:
+    enabled: false
+  SelectorDepth:
+    enabled: true
+    max_depth: 6
+  SelectorFormat:
+    enabled: false
+  Shorthand:
+    enabled: false
+  SingleLinePerProperty:
+    enabled: true
+  SingleLinePerSelector:
+    enabled: false
+  SpaceAfterComma:
+    enabled: true
+  SpaceAfterPropertyColon:
+    enabled: true
+  SpaceBeforeBrace:
+    enabled: true
+  SpaceBetweenParens:
+    enabled: true
+  StringQuotes:
+    enabled: true
+    style: double_quotes
+    severity: error
+  TrailingSemicolon:
+    enabled: true
+  UnnecessaryParentReference:
+    enabled: true
+  VendorPrefix:
+    enabled: false
+  ZeroUnit:
+    enabled: true
