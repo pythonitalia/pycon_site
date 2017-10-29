@@ -18,20 +18,21 @@
     <meta name="author" content="Python Italia" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400|Roboto+Slab:300,400" rel="stylesheet">
 
-    <link rel="shortcut icon" href="{{ STATIC_URL }}p9/images/favicon.ico">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}p9/images/apple-touch-icon.png">
-
-    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p9/images/favicon.ico" sizes="16x16">
-    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p9/images/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="{{ STATIC_URL }}p9/images/favicon-32x32.png" sizes="32x32">
-    <meta name="msapplication-TileColor" content="#ffffff  ">
-    <meta name="msapplication-TileImage" content="{{ STATIC_URL }}p9/images/mstile-144x144.png">
-    <meta name="msapplication-square70x70logo" content="{{ STATIC_URL }}p9/images/mstile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="{{ STATIC_URL }}p9/images/mstile-150x150.png">
-    <meta name="msapplication-square310x310logo" content="{{ STATIC_URL }}p9/images/mstile-310x310.png">
-    <meta name="msapplication-wide310x150logo" content="{{ STATIC_URL }}p9/images/mstile-310x150.png">
-
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}p9/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ STATIC_URL }}p9/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ STATIC_URL }}p9/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ STATIC_URL }}p9/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ STATIC_URL }}p9/images/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#3DFFD2">
 
     <!-- For all browsers -->
     <!--[if (gt IE 8) | (IEMobile)]><!-->
@@ -91,7 +92,7 @@
     <meta name="google-site-verification" content="kBsSy1heDIyy-W34t57N5-RsOKonmK54u7zn0mC8mv8" />
     {% render_block "css" %}
     {% block OPENGRAPH %}
-    <meta property="og:image" content="https://www.pycon.it/media/filer_public/aa/a3/aaa32de1-aa33-4973-9fd7-5b53c8cff82e/15288448_1052998294828731_2749916988240695698_o.png" />
+    <meta property="og:image" content="{{ STATIC_URL }}p9/images/social.png" />
     <meta property="fb:admins" content="789244177" />
     {% endblock %}
 </head>
