@@ -1441,7 +1441,6 @@ msgid "Sorry, no talks match your query."
 msgstr "Spiacente, nessun talk corrisponde alla tua richiesta."
 
 #: p3/templates/django_cms/p5_homepage.html:26
-#, fuzzy
 msgid "Next deadline:"
 msgstr "La prossima scadenza"
 
