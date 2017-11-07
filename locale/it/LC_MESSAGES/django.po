@@ -1449,9 +1449,8 @@ msgid "All the deadlines"
 msgstr "Tutte le scadenze"
 
 #: p3/templates/django_cms/p5_homepage.html:40
-#, fuzzy
 msgid "Call for Proposals is <span>open</span>"
-msgstr "Il Call for proposal è <span>aperto</span>"
+msgstr "La Call for proposal è <span>aperta</span>"
 
 #: p3/templates/django_cms/p5_homepage.html:48
 msgid "Submit your proposal"
