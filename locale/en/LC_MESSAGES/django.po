@@ -1552,7 +1552,7 @@ msgstr "Florence"
 
 #: p3/templates/p3/base.html:146
 msgid "19-22 aprile 2018"
-msgstr "19th 22th April 2018"
+msgstr "19th - 22nd April 2018"
 
 #: p3/templates/p3/base.html:183
 msgid "Please Donate"
