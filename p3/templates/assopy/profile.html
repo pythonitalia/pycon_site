@@ -1,6 +1,10 @@
 {% extends "assopy/base.html" %}
-{% load assopy_tags i18n p3 static %}
-
+{% load assopy_tags i18n p3 conference static %}
+{% block ASSOPY_EXTRA_HEAD %}
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="{% static 'p9/javascripts/pdfgenerator/cert_of_attendance_obf.js' %}"></script>
+    <script src="{% static 'p9/javascripts/pdfgenerator/images.js' %}"></script>
+{% endblock %}
 {% block PAGE_TITLE %}{% trans 'Your profile' %}{% endblock %}
 
 {% block ASSOPY_MAIN_CONTENT %}
@@ -16,6 +20,7 @@
             <li><a data-toggle="tab" href="#account-spam-control">{% trans "Privacy settings" %}</a></li>
             <li><a data-toggle="tab" href="#account-login-options">{% trans "Login options" %}</a></li>
             <li><a data-toggle="tab" href="#account-orders">{% trans "Orders, invoices &amp; coupons" %}</a></li>
+            <li><a data-toggle="tab" href="#cert-participation">{% trans "Certicate of attendance" %}</a></li>
         </ul>
 
         <div class="tab-content">
@@ -135,6 +140,16 @@
                     </table>
                 </div>
                 {% endwith %}
+            </div>
+            <div class="tab-pane" id="cert-participation">
+                {%  if request.user.assopy_user.tickets|length >= 1 %}
+                    {% get_latest_conf_deadline as conf %}
+                    {% if conf.4 > conf.3 %}
+                        <a class="btn btn-small" href="#" onclick='generate_cert("{{ conf.0 }}", "{{ conf.2|date:"d/m/Y" }}", "{{ conf.3|date:"d/m/Y" }}", "{{ profile.name }}", "{{ profile.email }}", "{{ LANGUAGE_CODE }}")'>Download [pdf]</a>
+                    {% else %}
+                        <p>{% trans "The certificate is not yet available." %}</p>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </div> <!-- /tab-content -->
