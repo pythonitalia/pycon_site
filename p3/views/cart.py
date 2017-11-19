@@ -1,15 +1,19 @@
 # -*- coding: UTF-8 -*-
 from assopy import models as amodels
 from assopy import forms as aforms
+from assopy.clients.app18 import app18_client
 from assopy.views import render_to_json, HttpResponseRedirectSeeOther
 from django import forms
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.utils.translation import ugettext as _
 from p3 import forms as p3forms
 from p3 import models
+from python_18app import voucher_spend
+
 
 class P3BillingData(aforms.BillingData):
     payment = forms.ChoiceField(choices=amodels.ORDER_PAYMENT, initial='paypal')
@@ -138,7 +142,8 @@ def calculator(request):
             if data['coupon']:
                 coupons.append(data['coupon'])
             totals = amodels.Order\
-                .calculator(items=data['tickets'], coupons=coupons, user=request.user.assopy_user)
+                .calculator(items=data['tickets'], coupons=coupons, user=request.user.assopy_user,
+                            app18=data['coupon_18app'])
             try:
                 booking = models.HotelBooking.objects\
                     .get(conference=settings.CONFERENCE_CONFERENCE)
@@ -156,6 +161,7 @@ def calculator(request):
             # to allow the client to associate each ticket with the correct price
             # infos are rewritten inthe same "format" that has been used to send them.
             tickets = []
+            app18 = data['coupon_18app']
             for row in totals['tickets']:
                 fcode = row[0].code
                 total = row[2]
@@ -165,6 +171,10 @@ def calculator(request):
                     params['period'] = map(lambda x: (x-start).days, params['period'])
                 tickets.append((fcode, params, _fmt(total)))
                 grand_total += total
+                if row[0].recipient_type != 'c' and app18 and app18['value'] <= row[0].price:
+                    output['app18'] = (-app18['value'], app18)
+                    grand_total -= app18['value']
+
             output['tickets'] = tickets
 
             if data['coupon']:
@@ -204,8 +214,11 @@ def billing(request):
         cform = P3BillingDataCompany
 
     coupon = request.session['user-cart']['coupon']
+    app18 = request.session['user-cart']['coupon_18app']
     totals = amodels.Order.calculator(
-        items=tickets, coupons=[coupon] if coupon else None, user=request.user.assopy_user)
+        items=tickets, coupons=[coupon] if coupon else None, user=request.user.assopy_user,
+        app18=app18
+    )
 
     if request.method == 'POST':
         auser = request.user.assopy_user
@@ -231,12 +244,14 @@ def billing(request):
 
         if order_data:
             coupon = request.session['user-cart']['coupon']
+            app18 = request.session['user-cart']['coupon_18app']
             kw = dict(
                 user=auser,
                 payment=order_data['payment'],
                 billing_notes=order_data.get('billing_notes', ''),
                 items=request.session['user-cart']['tickets'],
                 coupons=[coupon] if coupon else None,
+                app18=app18 if app18 else None,
             )
             if recipient == 'p':
                 kw['cf_code'] = auser.cf_code
@@ -244,6 +259,12 @@ def billing(request):
                 kw['vat_number'] = auser.vat_number
 
             o = amodels.Order.objects.create(**kw)
+
+            if app18:
+                app18_value = voucher_spend(app18_client(), app18['code'])
+                if not app18_value:
+                    return HttpResponseRedirect('{}?app18_error=1' % reverse('p3-billing'))
+
             if totals['total'] == 0:
                 return HttpResponseRedirectSeeOther(reverse('assopy-tickets'))
 

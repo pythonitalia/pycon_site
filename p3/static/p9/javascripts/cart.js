@@ -157,7 +157,6 @@
             dataType: 'json',
             success: function(data, text, jqHXR) {
                 _clearTotals()
-
                 /*
                  * data contiene il totale generale, lo sconto ottenuto tramite
                  * coupon e il dettaglio dei costi dei singoli biglietti
@@ -169,6 +168,14 @@
                 }
                 else {
                     feedback.css('display', 'none');
+                }
+                var feedback18app = $('.coupon_18app .total');
+                if (data.app18) {
+                    feedback18app.css('display', 'inline');
+                    feedback18app.find('b').html('€ ' + (-data.app18[0] || 0));
+                }
+                else {
+                    feedback18app.css('display', 'none');
                 }
                 $('.grand.total b', form).html('€ ' + (data.total || 0));
                 $('.hotel-reservations td[data-fare]', form).next().html('');
