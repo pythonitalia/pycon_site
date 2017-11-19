@@ -7,7 +7,6 @@ django-authority==0.4 #serve a django-page-cms ma non è incluso nelle sue dipen
 django-taggit==0.9.3
 django-rosetta==0.7.4
 akismet==0.2.0
-git+git://github.com/smacker/django-filebrowser-no-grappelli-django14.git#egg=django-filebrowser
 django-templatesadmin==0.7
 django-tagging==0.3.1
 python-memcached==1.48
@@ -35,3 +34,7 @@ simplejson  # Necessario per il Syncdb
 aldryn-forms==0.6.0
 aldryn-style==0.3.0
 django-mptt==0.6.1
+djangocms-admin-style==1.1.0
+aldryn-boilerplates==0.7.4
+django-filebrowser-no-grappelli==3.6.2
+https://github.com/yakky/18app-python-sdk/archive/3210e86.zip
