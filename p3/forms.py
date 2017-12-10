@@ -687,6 +687,12 @@ class P3FormTickets(aforms.FormTickets):
         required=False,
         widget=forms.TextInput(attrs={'size': 10}),
     )
+    coupon_18app = forms.CharField(
+        label=_('Insert 18App coupon!'),
+        max_length=10,
+        required=False,
+        widget=forms.TextInput(attrs={'size': 10}),
+    )
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(P3FormTickets, self).__init__(*args, **kwargs)
@@ -714,6 +720,22 @@ class P3FormTickets(aforms.FormTickets):
 
     def clean_coupon(self):
         data = self.cleaned_data.get('coupon', '').strip()
+        if not data:
+            return None
+        if data[0] == '_':
+            raise forms.ValidationError(_('invalid coupon'))
+        try:
+            coupon = amodels.Coupon.objects.get(code__iexact=data)
+        except amodels.Coupon.DoesNotExist:
+            raise forms.ValidationError(_('invalid coupon'))
+        if not coupon.valid(self.user):
+            raise forms.ValidationError(_('invalid coupon'))
+        return coupon
+
+    def clean_coupon_18app(self):
+        data = self.cleaned_data.get('coupon_18app', '').strip()
+
+        ## TODO: Insert 18app Code
         if not data:
             return None
         if data[0] == '_':
