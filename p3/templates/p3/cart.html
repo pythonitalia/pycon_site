@@ -241,11 +241,21 @@
 -->
 <section>
     <div class="grid-container">
-    <div class="grid-100">
+    <div class="grid-50">
 
         <fieldset class="tickets coupon">
             <legend>{% trans "Coupon code" %}</legend>
             {{ form.coupon|form_field:"coupon" }} <span></span>
+            <div class="save total"><i class="fa fa-check"></i> {% trans "You save (VAT inc.)" %}&emsp;<b>€ 0</b></div>
+        </fieldset>
+
+    </div><!--/grid -->
+
+    <div class="grid-50">
+
+        <fieldset class="tickets coupon">
+            <legend>{% trans "Coupon 18App" %}</legend>
+            {{ form.coupon_18app|form_field:"coupon_18app" }} <span></span>
             <div class="save total"><i class="fa fa-check"></i> {% trans "You save (VAT inc.)" %}&emsp;<b>€ 0</b></div>
         </fieldset>
 
