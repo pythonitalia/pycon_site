@@ -58,15 +58,15 @@
                     var markers = [];
 
                     choiceContainer.find("input:checked").each(function (ix, conf) {
-
-                        for (var key in data[conf['labels'][0].innerText].data) {
+                        console.log(conf['labels'][0]);
+                        for (var key in data[conf['labels'][0].textContent].data) {
                             var serie = {
-                                label: key + ' (' + conf['labels'][0].innerText + ')',
-                                data: accumulate(data[conf['labels'][0].innerText].data[key])
+                                label: key + ' (' + conf['labels'][0].textContent + ')',
+                                data: accumulate(data[conf['labels'][0].textContent].data[key])
                             };
                             series.push(serie);
                         }
-                        $(data[conf['labels'][0].innerText].markers).each(function (iy, marker) {
+                        $(data[conf['labels'][0].textContent].markers).each(function (iy, marker) {
                             markers.push({
                                 xaxis: {from: marker[0], to: marker[0]},
                                 color: _colors[ix]
