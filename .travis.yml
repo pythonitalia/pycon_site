@@ -1,0 +1,9 @@
+---
+dist: trusty
+sudo: required
+install: "sudo pip install -U tox"
+env:
+  matrix:
+  - TESTENV=py27
+
+script: tox --recreate -e $TESTENV
