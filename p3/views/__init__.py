@@ -30,7 +30,7 @@ from conference import settings as csettings
 from conference.forms import PseudoRadioRenderer, OptionForm
 from p3.forms import TALK_SUBCOMMUNITY
 from p3.models import P3Talk
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 # -----------------------------
 
 log = logging.getLogger('p3.views')

@@ -15,7 +15,8 @@ from p3 import models
 from p3 import dataaccess
 from p3 import forms as pforms
 # Add support for translations for some form or admin fields
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
+
 
 _TICKET_CONFERENCE_COPY_FIELDS = ('shirt_size', 'python_experience', 'diet', 'tagline', 'days', 'badge_image')
 def ticketConferenceForm():

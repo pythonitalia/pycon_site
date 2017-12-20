@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q
 from django.db.models.query import QuerySet
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from conference.models import Ticket, ConferenceTaggedItem, AttendeeProfile
 from taggit.managers import TaggableManager
