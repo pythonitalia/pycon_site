@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from p3 import forms as p3forms
 from p3 import models
 
