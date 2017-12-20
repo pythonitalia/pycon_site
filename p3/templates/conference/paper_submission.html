@@ -18,7 +18,7 @@
     </script>
 
 {% endblock %}
-{% block PAGE_TITLE %}Nuovo talk{% endblock %}
+{% block PAGE_TITLE %}{% trans "New talk" %}{% endblock %}
 
 {% block MAIN_CONTENT %}
 
@@ -27,10 +27,10 @@
     <section>
         <div class="grid-container">
         <div class="grid-100">
-            <h2>Profilo speaker</h2>
+            <h2>{% trans "Speaker profile" %}</h2>
 
             <fieldset>
-                <legend>Dati personali</legend>
+                <legend>{% trans "Personal info" %}</legend>
                 {{ form.first_name|form_field }}
                 {{ form.last_name|form_field }}
                 {{ form.job_title|form_field }}
@@ -38,12 +38,12 @@
                 {{ form.phone|form_field }}
             </fieldset>
             <fieldset>
-                <legend>Azienda</legend>
+                <legend>{% trans "Company" %}</legend>
                 {{ form.company|form_field }}
                 {{ form.company_homepage|form_field }}
             </fieldset>
             <fieldset>
-                <legend>Su di te</legend>
+                <legend>{% trans "About you" %}</legend>
 
                 {{ form.bio|form_field }}
             </fieldset>
@@ -59,14 +59,17 @@
 <section>
     <div class="grid-container">
     <div class="grid-100">
-        <h2>Invia un nuovo talk</h2>
+        <h2>{% trans "Propose a new talk" %}</h2>
 
     {% if proposed_talks %}
         <div class="alert alert--info">
             <p>
+                {% url "conference-profile" slug=speaker.user.attendeeprofile.slug as speaker_profile_url %}
+                {% blocktrans %}
                 You have already submitted {{ proposed_talks.count }} paper{{ proposed_talks.count|pluralize }}.
                 To edit your submission{{ proposed_talks.count|pluralize }},
-                visit your <a href="{% url "conference-profile" slug=speaker.user.attendeeprofile.slug %}">speaker profile</a>.</p>
+                visit your <a href="{{ speaker_profile_url }}">speaker profile</a>.</p>
+                {% endblocktrans %}
         </div>
     {% endif %}
 
@@ -90,12 +93,14 @@
         </fieldset>
 
         <fieldset class="form-actions">
-            <button type="submit" name="" class="btn btn-primary">Invia il talk</button>
+            <button type="submit" name="" class="btn btn-primary">{% trans "Invia il talk" %}</button>
         </fieldset>
 
         <div class="alert alert--info">
+            {% blocktrans %}
             <b>Note</b>: if you are available to give the same talk both in Italian and English,
             please submit the talk twice, with fully translated title and abstract.</div>
+            {% endblocktrans %}
     </div><!-- /grid -->
     </div><!-- /grid-container -->
 </section>
