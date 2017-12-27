@@ -153,7 +153,7 @@
                             {% endfor %}
                         </div>
                         <h3 class="name">
-                            {% if e.talk.language == "en" %}<img src="{{ STATIC_URL }}p8/images/english-flag.png" class="language" />{% endif %}
+                            {% if e.talk.language == "en" %}<img src="{{ STATIC_URL }}p9/images/english-flag.png" class="language" />{% endif %}
                             <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a>
                         </h3>
                         <div class="maximized all-tags">
@@ -191,7 +191,7 @@
                                 {% comment %}
                                 {% if ref in overbooked %}
                                 <div class="room-full">
-                                    <img src="{{ STATIC_URL }}p8/i/warning.png" title="our estimate of attendance exceeds the room size" alt="warning" />
+                                    <img src="{{ STATIC_URL }}p9/i/warning.png" title="our estimate of attendance exceeds the room size" alt="warning" />
                                 </div>
                                 {% endif %}
                                 {% endcomment %}
@@ -242,6 +242,6 @@
     user.interest = {};
 {% endif %}
 </script>
-<script src="{{ STATIC_URL }}p8/javascripts/schedule.js"></script>
+<script src="{{ STATIC_URL }}p9/javascripts/schedule.js"></script>
 {% endblock %}
 

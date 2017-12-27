@@ -91,7 +91,7 @@
                {% placeholder "community_sponsors" %}
             </div><!-- /grid-container -->
         </div>
-        {% conference_startup 'pycon7' as startup %}
+        {% conference_startup CONFERENCE as startup %}
         {% if startup %}
         <section>
             <div class="grid-container">
@@ -101,14 +101,14 @@
                 {% for s in startup %}
                     <div class="grid-33">
                         <div class="sponsor">
-                            <a href="{{ s.url }}"><img src="{{ MEDIA_URL }}{{ s.logo }}" alt="{{ s.name }}" title="{{ s.name }}" width="190" height="90" /></a>
+                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.name }}" title="{{ s.name }}" width="190" height="90" /></a>
                         </div>
                     </div><!-- /grid -->
                 {% endfor %}
             </div><!-- /grid-container -->
         </section>
         {% endif %}
-        {% conference_mediapartner 'pycon7' as mediapartner %}
+        {% conference_mediapartner CONFERENCE as mediapartner %}
         {% if mediapartner %}
         <section>
             <div class="grid-container">
@@ -118,7 +118,7 @@
                 {% for s in mediapartner %}
                     <div class="grid-33">
                         <div class="sponsor">
-                            <a href="{{ s.url }}"><img src="{{ MEDIA_URL }}{{ s.logo }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" /></a>
+                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" /></a>
                         </div>
                     </div><!-- /grid -->
                 {% endfor %}

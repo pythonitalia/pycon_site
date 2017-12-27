@@ -8,6 +8,7 @@ from assopy.models import Coupon
 import string
 import random
 
+
 class Command(BaseCommand):
     """
     """
@@ -17,7 +18,7 @@ class Command(BaseCommand):
             conference = models.Conference.objects.get(code=args[0])
         except IndexError:
             raise CommandError('conference missing')
-        
+
         speakers = {}
         qs = models.TalkSpeaker.objects\
             .filter(talk__conference=conference.code, talk__status='accepted')\
@@ -26,7 +27,7 @@ class Command(BaseCommand):
             if row.talk.type not in ('t', 's'):
                 continue
             if row.speaker_id not in speakers:
-                 speakers[row.speaker_id] = {
+                speakers[row.speaker_id] = {
                     'spk': row.speaker,
                     'discount': 'talk',
                 }
@@ -34,12 +35,14 @@ class Command(BaseCommand):
             if row.talk.type == 't':
                 s['discount'] = 'training'
 
-
+        # i coupon sono utilizzabili solo per comprare i biglietti della
+        # conferenza; non vogliamo usarli, ad esempio, per i biglietti degli
+        # hotel
         fares = models.Fare.objects\
             .filter(conference=conference.code, ticket_type='conference')
-        codes = set([c['code'] for c in Coupon.objects\
-            .filter(conference=conference.code)\
-            .values('code')])
+        codes = set([c['code'] for c in Coupon.objects
+                     .filter(conference=conference.code)
+                     .values('code')])
 
         for sid, data in speakers.items():
             while True:
@@ -50,10 +53,16 @@ class Command(BaseCommand):
             if data['discount'] == 'training':
                 value = '100%'
             else:
-                value = '100'
+                # da pycon8 anche i talk sono rimborsati al 100%
+                value = '100%'
 
             u = data['spk'].user
             name = '%s %s' % (u.first_name, u.last_name)
+
+            if Coupon.objects.filter(conference=conference, user=u.assopy_user).exists():
+                print "\t", name.encode('utf-8'), u.email, 'coupon already exist'
+                continue
+
             print code, name.encode('utf-8'), u.email, 'value:', value
             c = Coupon(conference=conference)
             c.code = code

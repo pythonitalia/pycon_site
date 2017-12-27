@@ -30,7 +30,7 @@ from conference import settings as csettings
 from conference.forms import PseudoRadioRenderer, OptionForm
 from p3.forms import TALK_SUBCOMMUNITY
 from p3.models import P3Talk
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 # -----------------------------
 
 log = logging.getLogger('p3.views')
@@ -83,28 +83,30 @@ def _assign_ticket(ticket, email):
         except IndexError:
             recipient = None
     if recipient is None:
-        from assopy.clients import genro
-        rid = genro.users(email)['r0']
-        if rid is not None:
-            # the email it's not associated to a django user, but genropy
-            # knows it. If rid is assigned to an assopy user I'll reuse the
-            # connected user. This check works when the ticket is assigned
-            # to a user, the user modifies its email but later the ticket
-            # is reassigned to the original email.
-            try:
-                recipient = amodels.User.objects.get(assopy_id=rid).user
-            except amodels.User.DoesNotExist:
-                pass
-            else:
-                if recipient.email != email:
-                    log.info(
-                            'email "%s" found on genropy; but user (%s) have a different email: "%s"',
-                        email.encode('utf-8'), unicode(recipient).encode('utf-8'), recipient.email.encode('utf-8'))
-                    email = recipient.email
+        from assopy.settings import GENRO_BACKEND
+        if GENRO_BACKEND:
+            from assopy.clients import genro
+            rid = genro.users(email)['r0']
+            if rid is not None:
+                # the email it's not associated to a django user, but genropy
+                # knows it. If rid is assigned to an assopy user I'll reuse the
+                # connected user. This check works when the ticket is assigned
+                # to a user, the user modifies its email but later the ticket
+                # is reassigned to the original email.
+                try:
+                    recipient = amodels.User.objects.get(assopy_id=rid).user
+                except amodels.User.DoesNotExist:
+                    pass
                 else:
-                    log.info(
-                        'email "%s" found on genropy; user (%s)',
-                        email.encode('utf-8'), unicode(recipient).encode('utf-8'))
+                    if recipient.email != email:
+                        log.info(
+                                'email "%s" found on genropy; but user (%s) have a different email: "%s"',
+                            email.encode('utf-8'), unicode(recipient).encode('utf-8'), recipient.email.encode('utf-8'))
+                        email = recipient.email
+                    else:
+                        log.info(
+                            'email "%s" found on genropy; user (%s)',
+                            email.encode('utf-8'), unicode(recipient).encode('utf-8'))
 
     if recipient is None:
         log.info('No user found for the email "%s"; time to create a new one', email)

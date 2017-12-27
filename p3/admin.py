@@ -15,7 +15,8 @@ from p3 import models
 from p3 import dataaccess
 from p3 import forms as pforms
 # Add support for translations for some form or admin fields
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
+
 
 _TICKET_CONFERENCE_COPY_FIELDS = ('shirt_size', 'python_experience', 'diet', 'tagline', 'days', 'badge_image')
 def ticketConferenceForm():
@@ -38,7 +39,12 @@ def ticketConferenceForm():
         def __init__(self, *args, **kw):
             if 'instance' in kw:
                 o = kw['instance']
-                p3c = o.p3_conference
+
+                try:
+                    p3c = o.p3_conference
+                except models.TicketConference.DoesNotExist:
+                    p3c = None
+
                 if p3c:
                     initial = kw.pop('initial', {})
                     for k in _TICKET_CONFERENCE_COPY_FIELDS:
@@ -80,7 +86,10 @@ class TicketConferenceAdmin(cadmin.TicketAdmin):
 
     def save_model(self, request, obj, form, change):
         obj.save()
-        p3c = obj.p3_conference
+        try:
+            p3c = obj.p3_conference
+        except models.TicketConference.DoesNotExist:
+            p3c = None
         if p3c is None:
             p3c = models.TicketConference(ticket=obj)
 

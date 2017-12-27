@@ -72,7 +72,7 @@
         </div>
         {% with talk.event_set.all as events %}
         <div class="readonly"{% if form.errors|length > 0 %} style="display: none;"{% endif %}>
-            <div class="cms"
+            <div class="cms">
             {# This info has been moved on the left pane. Removed from here!  #}
 {#                {% if talk_data.sub_community.0 %} Sub Community: {{ talk_data.sub_community.1 }}{% endif %}#}
                 <p>{{ talk_data.abstract|markdown2:"smarty-pants,code-color" }}</p>

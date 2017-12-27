@@ -3,7 +3,7 @@ from django import forms
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import transaction
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import assopy.models as amodels
 import assopy.forms as aforms
@@ -35,6 +35,8 @@ TALK_TYPES = (
 TALK_SUBCOMMUNITY = (
     ('', _('-------')),
     #('odoo', _('Odoo')),
+    ('pybusiness', _('PyBusiness')),
+    ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
     ('django', _('DjangoVillage')),
     ('pycon', _('Python & Friends')),
