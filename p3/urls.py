@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('p3.views',
