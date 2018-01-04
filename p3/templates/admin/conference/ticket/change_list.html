@@ -2,8 +2,8 @@
 {% load i18n %}
 {% block result_list %}
 
-    <div class="demo-container">
-        <div id="plot-container" style="min-width: 310px; max-width: 1600px; height: 550px; margin-right: 150px"></div>
+    <div class="demo-container"style="margin-right:250px; height: 550px;">
+        <div id="plot-container" style="height: 550px;"></div>
     </div>
 
     {{ block.super }}
@@ -40,116 +40,4 @@
             });
         });
     </script>
-    {#    <script type="text/javascript">#}
-    {#        (function () {#}
-    {#            var url = "{% url "admin:p3-ticket-stats-data" %}";#}
-    {##}
-    {#            function accumulate(data) {#}
-    {#                var t = 0;#}
-    {#                for (var ix = 0; ix < data.length; ix++) {#}
-    {#                    var e = data[ix];#}
-    {#                    t += e[1];#}
-    {#                    e[1] = t;#}
-    {#                }#}
-    {#                return data;#}
-    {#            }#}
-    {##}
-    {#            var _colors = [#}
-    {#                '#ff0000',#}
-    {#                '#00ff00',#}
-    {#                '#0000ff',#}
-    {#                '#f0f000',#}
-    {#                '#00f0f0',#}
-    {#                '#f000f0'#}
-    {#            ];#}
-    {##}
-    {#            var choiceContainer = $("#choices");#}
-    {#            var temp_series =[];#}
-    {#            var temp_markers = [];#}
-    {##}
-    {#            $.getJSON(url, function (data) {#}
-    {#                var conferences = [];#}
-    {#                for (var k in data) {#}
-    {#                    conferences.push(k);#}
-    {#                }#}
-    {#                conferences.sort();#}
-    {##}
-    {#                // insert checkboxes#}
-    {##}
-    {#                $.each(conferences, function (key, val) {#}
-    {#                    choiceContainer.append("<input type='checkbox' name='" + key +#}
-    {#                        "' checked='checked' id='id" + key + "'></input>" +#}
-    {#                        "<label for='id" + key + "'>"#}
-    {#                        + val + "</label>");#}
-    {#                });#}
-    {##}
-    {#                $(conferences).each(function(ix, conf) {#}
-    {#                    for(var key in data[conf].data) {#}
-    {#                        var serie = {#}
-    {#                            label: key + ' (' + conf + ')',#}
-    {#                            data: accumulate(data[conf].data[key])#}
-    {#                        };#}
-    {#                        series.push(serie);#}
-    {#                    }#}
-    {#                    $(data[conf].markers).each(function(iy, marker) {#}
-    {#                        markers.push({#}
-    {#                            xaxis: { from: marker[0], to: marker[0] },#}
-    {#                            color: _colors[ix]#}
-    {#                        });#}
-    {#                    });#}
-    {#                });#}
-    {##}
-    {#                plot_chart();#}
-    {##}
-    {#            });#}
-    {##}
-    {#            choiceContainer.find("input").click(plot_chart);#}
-    {##}
-    {#            function plot_chart() {#}
-    {#                var selected = choiceContainer.find("input:checked").map(#}
-    {#                    function(i, elem){ return $(elem).next().text()}#}
-    {#                );#}
-    {##}
-    {#                var series = [];#}
-    {#                var markers = [];#}
-    {##}
-    {#                var options = {#}
-    {#                    legend: {#}
-    {#                        position: 'no',#}
-    {#                        container: '#plot-legend',#}
-    {#                        noColumns: 4#}
-    {#                    },#}
-    {#                    series: {#}
-    {#                        lines: {#}
-    {#                            fill: true#}
-    {#                        }#}
-    {#                    },#}
-    {#                    grid: {#}
-    {#                        hoverable: true,#}
-    {#                        markings: markers#}
-    {#                    }#}
-    {#                };#}
-    {##}
-    {#                var obj = $.plot('#plot', series, options);#}
-    {#                $('#plot').bind('plothover', function (event, pos, item) {#}
-    {#                    var x = Math.round(pos.x);#}
-    {#                    var markers = [];#}
-    {#                    for (var ic = 0; ic < conferences.length; ic++) {#}
-    {#                        var conf = conferences[ic];#}
-    {#                        for (var im = 0; im < data[conf].markers.length; im++) {#}
-    {#                            var m = data[conf].markers[im];#}
-    {#                            if (m[0] == x) {#}
-    {#                                markers.push(conf + ' - ' + m[1]);#}
-    {#                            }#}
-    {#                        }#}
-    {#                    }#}
-    {#                    if (item) {#}
-    {#                        markers.push('VAL: ' + item.datapoint[1]);#}
-    {#                    }#}
-    {#                    $('#markers-text').html(markers.join(', '));#}
-    {#                });#}
-    {#            }#}
-    {##}
-    {#        })();#}
-    {#    </script>#}
 {% endblock %}
