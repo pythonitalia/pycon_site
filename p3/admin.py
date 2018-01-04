@@ -116,8 +116,8 @@ class TicketConferenceAdmin(cadmin.TicketAdmin):
     def get_urls(self):
         urls = super(TicketConferenceAdmin, self).get_urls()
         my_urls = patterns('',
-            url(r'^stats/data/$', self.admin_site.admin_view(self.stats_data), name='p3-ticket-stats-data'),
-        )
+                           url(r'^stats/data/$', self.admin_site.admin_view(self.stats_data), name='p3-ticket-stats-data'),
+                           )
         return my_urls + urls
 
     def stats_data(self, request):
@@ -126,16 +126,17 @@ class TicketConferenceAdmin(cadmin.TicketAdmin):
         from collections import defaultdict
         from microblog.models import PostContent
         import datetime
+        import random
 
-        conferences = cmodels.Conference.objects\
-            .exclude(code__startswith='ep')\
+        conferences = cmodels.Conference.objects \
+            .exclude(code__startswith='ep') \
             .order_by('conference_start')
 
         output = {}
         for c in conferences:
-            tickets = cmodels.Ticket.objects\
-                .filter(fare__conference=c)\
-                .filter(Q(orderitem__order___complete=True) | Q(orderitem__order__method__in=('bank', 'admin')))\
+            tickets = cmodels.Ticket.objects \
+                .filter(fare__conference=c) \
+                .filter(Q(orderitem__order___complete=True) | Q(orderitem__order__method__in=('bank', 'admin'))) \
                 .select_related('fare', 'orderitem__order')
             data = {
                 'conference': defaultdict(lambda: 0),
@@ -152,27 +153,65 @@ class TicketConferenceAdmin(cadmin.TicketAdmin):
             for k, v in data.items():
                 data[k] = sorted(v.items())
 
-
             dlimit = datetime.date(c.conference_start.year, 1, 1)
-            deadlines = cmodels.DeadlineContent.objects\
-                .filter(language='en')\
-                .filter(deadline__date__lte=c.conference_start, deadline__date__gte=dlimit)\
-                .select_related('deadline')\
+            deadlines = cmodels.DeadlineContent.objects \
+                .filter(language='en') \
+                .filter(deadline__date__lte=c.conference_start, deadline__date__gte=dlimit) \
+                .select_related('deadline') \
                 .order_by('deadline__date')
-            markers = [ ((d.deadline.date - c.conference_start).days, 'CAL: ' + (d.headline or d.body)) for d in deadlines ]
+            markers = [((d.deadline.date - c.conference_start).days, 'CAL: ' + (d.headline or d.body)) for d in
+                       deadlines]
 
-            posts = PostContent.objects\
-                .filter(language='en')\
-                .filter(post__date__lte=c.conference_start, post__date__gte=dlimit)\
-                .filter(post__status='P')\
-                .select_related('post')\
+            posts = PostContent.objects \
+                .filter(language='en') \
+                .filter(post__date__lte=c.conference_start, post__date__gte=dlimit) \
+                .filter(post__status='P') \
+                .select_related('post') \
                 .order_by('post__date')
-            markers += [ ((d.post.date.date() - c.conference_start).days, 'BLOG: ' + d.headline) for d in posts ]
+            markers += [((d.post.date.date() - c.conference_start).days, 'BLOG: ' + d.headline) for d in posts]
 
             output[c.code] = {
                 'data': data,
                 'markers': markers,
             }
+
+        plot_data = output
+
+        def accumulate_tickets(list_of_lists):
+            x = 0
+            b = []
+            for el in list_of_lists:
+                b.append([el[0], el[1] + x])
+                x += el[1]
+            return b
+
+        series = []
+        for k, v in plot_data.iteritems():
+            for k1, v1 in plot_data[k]['data'].iteritems():
+                series.append({'name': k + '-' + k1, 'type': 'area', 'data': accumulate_tickets(v1)})
+
+        markers = []
+        for k, v in plot_data.iteritems():
+            markers.append({'labelOptions': {
+                'shape': 'connector',
+                'align': 'right',
+                'justify': 'false',
+                'crop': 'true',
+                'style': {
+                    'fontSize': '0.8em',
+                    'textOutline': '1px white'
+                }},
+                'labels': [
+                    {'point': {'xAxis': 0, 'yAxis': 0, 'x': el[0], 'y': random.randint(0, 600)},
+                     'text': k + '-' + el[1]} for el in plot_data[k]['markers']
+                ]})
+
+        lines = []
+        for k, v in plot_data.items():
+            for el in plot_data[k]['markers']:
+                lines.append({'color': '#e6e6e6', 'value': el[0], 'width': 1})
+
+        output = {'series': series, 'lines': lines, 'markers': markers}
 
         return http.HttpResponse(json_dumps(output), 'text/javascript')
 
@@ -185,8 +224,8 @@ class SpeakerAdmin(cadmin.SpeakerAdmin):
         # this bad hack filter to keep only speakers of current conference.
         qs = super(SpeakerAdmin, self).queryset(request)
         qs = qs.filter(user__in=(
-            cmodels.TalkSpeaker.objects\
-                .filter(talk__conference=settings.CONFERENCE_CONFERENCE)\
+            cmodels.TalkSpeaker.objects \
+                .filter(talk__conference=settings.CONFERENCE_CONFERENCE) \
                 .values('speaker')
         ))
         return qs
@@ -247,8 +286,8 @@ class HotelRoomAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super(HotelRoomAdmin, self).get_urls()
         my_urls = patterns('',
-            url(r'^tickets/$', self.admin_site.admin_view(self.ticket_list), name='p3-hotelrooms-tickets-data'),
-        )
+                           url(r'^tickets/$', self.admin_site.admin_view(self.ticket_list), name='p3-hotelrooms-tickets-data'),
+                           )
         return my_urls + urls
 
     def ticket_list(self, request):
@@ -258,9 +297,9 @@ class HotelRoomAdmin(admin.ModelAdmin):
         rdays = models.TicketRoom.objects.reserved_days()
         day = rdays[day_ix]
 
-        qs = models.TicketRoom.objects.valid_tickets()\
-            .filter(room_type__room_type=room_type, checkin__lte=day, checkout__gte=day)\
-            .select_related('ticket__user', 'ticket__orderitem__order')\
+        qs = models.TicketRoom.objects.valid_tickets() \
+            .filter(room_type__room_type=room_type, checkin__lte=day, checkout__gte=day) \
+            .select_related('ticket__user', 'ticket__orderitem__order') \
             .order_by('ticket__orderitem__order__created')
 
         output = []
@@ -321,14 +360,14 @@ class P3TalkAdminForm(forms.ModelForm):
 
     # talk_url = forms.URLField(_('Talk'), required=False)
     talk_url = forms.ModelChoiceField(required=False, queryset=cmodels.Talk.objects.filter(
-                                                        conference=settings.CONFERENCE_CONFERENCE))
+        conference=settings.CONFERENCE_CONFERENCE))
 
     def __init__(self, *args, **kwargs):
         super(P3TalkAdminForm, self).__init__(*args, **kwargs)
         if self.instance and self.instance.pk:
             self.fields['talk_url'].widget = pforms.HTMLAnchorWidget(title=self.instance.talk.title)
             self.fields['talk_url'].initial = str(urlresolvers.reverse('admin:conference_talk_change',
-                                                                   args=(self.instance.talk.pk,)))
+                                                                       args=(self.instance.talk.pk,)))
 
 
 
