@@ -7,12 +7,12 @@ django-authority==0.4 #serve a django-page-cms ma non è incluso nelle sue dipen
 django-taggit==0.9.3
 django-rosetta==0.7.4
 akismet==0.2.0
+django-filebrowser-no-grappelli==3.6.2
 django-templatesadmin==0.7
 django-tagging==0.3.1
 python-memcached==1.48
 django-filer==0.9.12
 cmsplugin-filer==0.10.2
-# ref https://github.com/divio/django-filer/issues/653
 django-polymorphic==0.7.2
 pytz
 Fabric
@@ -22,7 +22,9 @@ django-cms==3.0.15
 -e git+https://github.com/pythonitalia/microblog.git@63826d7#egg=microblog
 -e git+https://github.com/pythonitalia/hcomments.git#egg=hcomments
 -e git+https://github.com/pythonitalia/conference.git@7e5d9c4#egg=conference
--e git+https://github.com/pythonitalia/assopy.git#egg=assopy
+-e git+https://github.com/pythonitalia/conference.git#egg=conference
+-e git+https://github.com/yakky/assopy.git@18app#egg=assopy
+-e git+https://github.com/yakky/18app-python-sdk.git@draft3#egg=python_18app
 BeautifulSoup==3.2.1
 django-markitup==2.2.2
 markdown2==2.3.0
