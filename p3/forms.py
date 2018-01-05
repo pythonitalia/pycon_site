@@ -10,6 +10,9 @@ import assopy.forms as aforms
 import conference.forms as cforms
 import conference.models as cmodels
 
+from python_18app import voucher_value
+from assopy.clients.app18 import app18_client
+
 from p3 import dataaccess
 from p3 import models
 
@@ -733,18 +736,14 @@ class P3FormTickets(aforms.FormTickets):
     def clean_coupon_18app(self):
         data = self.cleaned_data.get('coupon_18app', '').strip()
 
-        ## TODO: Insert 18app Code
         if not data:
             return None
         if data[0] == '_':
             raise forms.ValidationError(_('invalid coupon'))
-        try:
-            coupon = amodels.Coupon.objects.get(code__iexact=data)
-        except amodels.Coupon.DoesNotExist:
+        value = voucher_value(app18_client(), data)
+        if not value:
             raise forms.ValidationError(_('invalid coupon'))
-        if not coupon.valid(self.user):
-            raise forms.ValidationError(_('invalid coupon'))
-        return coupon
+        return {'code': data, 'value': value}
 
     def _check_hotel_reservation(self, field_name):
         data = self.cleaned_data.get(field_name, [])
