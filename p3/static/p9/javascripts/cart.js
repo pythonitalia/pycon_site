@@ -156,7 +156,7 @@
             url: '/p3/cart/calculator/',
             dataType: 'json',
             success: function(data, text, jqHXR) {
-                _clearTotals()
+                _clearTotals();
                 /*
                  * data contiene il totale generale, lo sconto ottenuto tramite
                  * coupon e il dettaglio dei costi dei singoli biglietti
@@ -176,6 +176,9 @@
                 }
                 else {
                     feedback18app.css('display', 'none');
+                }
+                if($('#id_coupon_18app').siblings('.errors').length > 0) {
+                    $('#id_coupon_18app').siblings('.errors').remove();
                 }
                 $('.grand.total b', form).html('€ ' + (data.total || 0));
                 $('.hotel-reservations td[data-fare]', form).next().html('');
@@ -306,6 +309,12 @@
                 }
                 for(var fname in err) {
                     switch(fname) {
+                        case 'coupon_18app':
+                            if($('#id_coupon_18app').siblings('.errors').length === 0) {
+                                $('<div class="errors"></div>')
+                                    .insertAfter($('#id_coupon_18app'))
+                                    .html(err[fname][0]);
+                            }
                         case 'bed_reservations':
                         case 'room_reservations':
                             var type = fname.split('_')[0];
