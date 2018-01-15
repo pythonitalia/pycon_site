@@ -22,8 +22,8 @@ django-cms==3.0.15
 -e git+https://github.com/pythonitalia/microblog.git#egg=microblog
 -e git+https://github.com/pythonitalia/hcomments.git#egg=hcomments
 -e git+https://github.com/pythonitalia/conference.git#egg=conference
--e git+https://github.com/yakky/assopy.git@18app#egg=assopy
--e git+https://github.com/yakky/18app-python-sdk.git@draft3#egg=python_18app
+-e git+https://github.com/yakky/assopy.git@c020b96b920aa9f9b62e27df635ac05dd773ba13#egg=assopy
+-e git+https://github.com/yakky/18app-python-sdk.git@8af619870f3162d6b76fe0aba44f8397b9ce2880#egg=python_18app
 BeautifulSoup==3.2.1
 django-markitup==2.2.2
 markdown2==2.3.0
@@ -38,4 +38,3 @@ django-mptt==0.6.1
 djangocms-admin-style==1.1.0
 aldryn-boilerplates==0.7.4
 django-filebrowser-no-grappelli==3.6.2
-https://github.com/yakky/18app-python-sdk/archive/3210e86.zip
