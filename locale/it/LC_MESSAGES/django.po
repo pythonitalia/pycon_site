@@ -1470,7 +1470,7 @@ msgid ""
 "If you leave some talks without a vote, they will be automatically ranked "
 "with avg value (5 stars)."
 msgstr ""
-"Se lasci qualche talk senza voto, saranno automaticamente conteggiati con il"
+"Se lasci qualche talk senza voto, saranno automaticamente conteggiati con il "
 "valore medio (5 stelle)."
 
 #: p3/templates/conference/voting.html:114
