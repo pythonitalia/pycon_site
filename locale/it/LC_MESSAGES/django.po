@@ -2,19 +2,19 @@
 # Copyright (C) 2009 Python Italia.
 # This file is distributed under the same license as the p3 package.
 # dvd <dvd@gnx.it>, 2009.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-20 14:07+0100\n"
+"POT-Creation-Date: 2018-01-15 14:49+0100\n"
 "PO-Revision-Date: 2017-12-10 23:24+0050\n"
 "Last-Translator: Carlo Miron <carlo@miron.it>\n"
 "Language-Team: it <pycon-organization@googlegroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Translated-Using: django-rosetta 0.7.4\n"
 
 #: cms_utils/cms_app.py:7
@@ -130,8 +130,8 @@ msgstr "Durata"
 
 #: p3/forms.py:69
 msgid ""
-"This is the <i>desired duration</i> of the Talk. <br> As for a Training, the"
-" duration is <i>fixed</i> to 4 hours."
+"This is the <i>desired duration</i> of the Talk. <br> As for a Training, the "
+"duration is <i>fixed</i> to 4 hours."
 msgstr ""
 "Indicare la <i>durata desiderata</i> del Talk. <br> Per i Training, la "
 "durata è <i>fissata</i> a 4 ore."
@@ -145,8 +145,8 @@ msgid ""
 "We are planning a special program to help first time speaker, check this if "
 "you'd like to join"
 msgstr ""
-"Prevediamo di aiutare in modo speciale coloro che provano per la prima volta"
-" a fare gli speaker"
+"Prevediamo di aiutare in modo speciale coloro che provano per la prima volta "
+"a fare gli speaker"
 
 #: p3/forms.py:82
 msgid "Talk Type"
@@ -169,8 +169,8 @@ msgid ""
 "accepted. Your mobile phone and date of birth will <i>never</i> be published"
 msgstr ""
 "Il tuo profilo sarà visibile a tutti se una delle tue proposte viene "
-"accettata. Il tuo numero di telefono e data di nascita non verranno "
-"<i>mai</i> pubblicati. "
+"accettata. Il tuo numero di telefono e data di nascita non verranno <i>mai</"
+"i> pubblicati. "
 
 #: p3/forms.py:94
 msgid "I agree to release all the talk material after the event."
@@ -183,14 +183,13 @@ msgid ""
 "If the talk is accepted, speakers a required to timely release all the talk "
 "material (including slides) for publishing on this web site."
 msgstr ""
-"Se la proposta viene accettata, gli speaker dovranno pubblicare il materiale"
-" (incluse le slide) in tempi rapidi, pubblicandoli su questo sito."
+"Se la proposta viene accettata, gli speaker dovranno pubblicare il materiale "
+"(incluse le slide) in tempi rapidi, pubblicandoli su questo sito."
 
 #: p3/forms.py:98
 msgid "I agree to let the organization record my talk and publish the video."
 msgstr ""
-"Autorizzo gli organizzatori a videoregistrare e pubblicare il mio "
-"intervento."
+"Autorizzo gli organizzatori a videoregistrare e pubblicare il mio intervento."
 
 #: p3/forms.py:101 p3/forms.py:207 p3/forms.py:302 p3/forms.py:395
 #: p3/templates/conference/profile_bio_form.html:8
@@ -200,8 +199,7 @@ msgstr "Breve biografia"
 #: p3/forms.py:102 p3/forms.py:208 p3/forms.py:303 p3/forms.py:396
 msgid "Short biography (one or two paragraphs). Do not paste your CV"
 msgstr ""
-"Inserisci una breve biografia (uno o due paragrafi). Non incollare il tuo "
-"CV!"
+"Inserisci una breve biografia (uno o due paragrafi). Non incollare il tuo CV!"
 
 #: p3/forms.py:106
 msgid "Talk abstract"
@@ -209,13 +207,13 @@ msgstr "Abstract del talk"
 
 #: p3/forms.py:107
 msgid ""
-"<p>Short description of the talk you are submitting. Be sure to includes the"
-" goals of your talk and any prerequisite required to fully understand "
-"it.</p><p>Suggested size: two or three paragraphs.</p>"
+"<p>Short description of the talk you are submitting. Be sure to includes the "
+"goals of your talk and any prerequisite required to fully understand it.</"
+"p><p>Suggested size: two or three paragraphs.</p>"
 msgstr ""
 "<p>Inserisci una breve descrizione del talk, parlando degli obiettivi e "
-"citando anche i prerequisiti necessari per una piena "
-"comprensione.</p><p>Dimensione suggerita: 2 o 3 paragrafi</p>"
+"citando anche i prerequisiti necessari per una piena comprensione.</"
+"p><p>Dimensione suggerita: 2 o 3 paragrafi</p>"
 
 #: p3/forms.py:111
 msgid "Select Italian only if you are not comfortable in speaking English."
@@ -235,8 +233,8 @@ msgstr "Giorni di presenza effettiva"
 
 #: p3/forms.py:215
 msgid ""
-"This ticket grants you full access to the conference. The above selection is"
-" just for helping out the organizers"
+"This ticket grants you full access to the conference. The above selection is "
+"just for helping out the organizers"
 msgstr ""
 "Il biglietto consente l'ingresso per tutti i giorni, ma questa informazione "
 "ci aiuterà a pianificare meglio."
@@ -271,8 +269,8 @@ msgstr "carica file"
 
 #: p3/forms.py:467
 msgid ""
-"If you opt-in the privacy settings, we can send you important communications"
-" via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This "
+"If you opt-in the privacy settings, we can send you important communications "
+"via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This "
 "number will <i>never</i> be published."
 msgstr ""
 "Il numero non verrà <b>mai</b> pubblicato, ma se lo inserisci e attivi la "
@@ -290,9 +288,9 @@ msgid ""
 "regarding minors.<br />Format: YYYY-MM-DD<br />This date will <i>never</i> "
 "be published."
 msgstr ""
-"Necessaria per verificare i requisiti d'età richiesti per "
-"legge.<br/>Formato: AAAA-MM-GG<br/>La tua data di nascita non verrà "
-"<b>mai</b> pubblicata."
+"Necessaria per verificare i requisiti d'età richiesti per legge.<br/"
+">Formato: AAAA-MM-GG<br/>La tua data di nascita non verrà <b>mai</b> "
+"pubblicata."
 
 #: p3/forms.py:491 p3/forms.py:502
 msgid "This field is required for a speaker"
@@ -304,8 +302,7 @@ msgstr "Email già registrata"
 
 #: p3/forms.py:520
 msgid "I want to receive a few selected job offers through PyCon."
-msgstr ""
-"Voglio ricevere alcune proposte di lavoro selezionate attraverso PyCon"
+msgstr "Voglio ricevere alcune proposte di lavoro selezionate attraverso PyCon"
 
 #: p3/forms.py:521
 msgid "I want to receive private messages from other partecipants."
@@ -314,8 +311,7 @@ msgstr ""
 
 #: p3/forms.py:522
 msgid "I want to receive SMS during the conference for main communications."
-msgstr ""
-"Voglio ricevere SMS durante la conferenza per comunicazioni importanti"
+msgstr "Voglio ricevere SMS durante la conferenza per comunicazioni importanti"
 
 #: p3/forms.py:619
 msgid "Room sharing"
@@ -504,9 +500,9 @@ msgid ""
 "Italian regulations require a document ID to book an hotel room. Any "
 "document is fine (EU driving license, personal ID card, etc)."
 msgstr ""
-"La legge italiana richiede un documento di identità per prenotare una camera"
-" d'hotel. Va bene qualsiasi documento (passaporto europeo, carta d'identità,"
-" ecc)."
+"La legge italiana richiede un documento di identità per prenotare una camera "
+"d'hotel. Va bene qualsiasi documento (passaporto europeo, carta d'identità, "
+"ecc)."
 
 #: p3/models.py:404
 msgid "Bed place not needed"
@@ -524,18 +520,15 @@ msgstr "Descriviti con una frase"
 msgid "people want to take part in this sprint"
 msgstr ""
 
-#: p3/render_single_sprint.html:25
-#: p3/templates/p3/render_single_sprint.html:25
+#: p3/render_single_sprint.html:25 p3/templates/p3/render_single_sprint.html:25
 msgid "I will attend this sprint"
 msgstr ""
 
-#: p3/render_single_sprint.html:27
-#: p3/templates/p3/render_single_sprint.html:27
+#: p3/render_single_sprint.html:27 p3/templates/p3/render_single_sprint.html:27
 msgid "Cancel my registration"
 msgstr "Cancella la mia registrazione"
 
-#: p3/render_single_sprint.html:39
-#: p3/templates/p3/render_single_sprint.html:39
+#: p3/render_single_sprint.html:39 p3/templates/p3/render_single_sprint.html:39
 #: p3/templates/p3/sprint_submission.html:14
 msgid "Submit"
 msgstr "Invia"
@@ -599,16 +592,16 @@ msgstr "Che cos'è uno sprint"
 
 #: p3/sprints.html:14 p3/templates/p3/sprints.html:12
 msgid ""
-"A sprint is a self-organized session where programmers join together to work"
-" on a specific project, usually open-source and connected to the Python "
+"A sprint is a self-organized session where programmers join together to work "
+"on a specific project, usually open-source and connected to the Python "
 "ecosystem. The sprint is usually proposed and driven by one or more "
 "programmers who are already expert on the specific project (maybe even "
-"maintainers), and are willing to help out more programmers to introduce them"
-" into the project."
+"maintainers), and are willing to help out more programmers to introduce them "
+"into the project."
 msgstr ""
 "Uno sprint è una sessione auto-organizzata nella quale i programmatori si "
-"uniscono per lavorare su di uno specifico progetto, generalmente open-source"
-" e che abbia a che fare con Python. Lo sprint è tipicamente proposto e "
+"uniscono per lavorare su di uno specifico progetto, generalmente open-source "
+"e che abbia a che fare con Python. Lo sprint è tipicamente proposto e "
 "gestito da uno o più sviluppatori già esperti del codice dello specifico "
 "progetto (magari proprio maintainers), i quali saranno ben lieti di "
 "supportare nuovi programmatori nello sviluppo, e introdurli nel progetto."
@@ -621,13 +614,13 @@ msgstr "Requisiti"
 msgid ""
 "Sprint sessions are open for everybody to join, and are <b>totally free</b>"
 msgstr ""
-"Le sessioni di sprint sono aperte a chiunque, e sono <b>totalmente "
-"gratuite</b>"
+"Le sessioni di sprint sono aperte a chiunque, e sono <b>totalmente gratuite</"
+"b>"
 
 #: p3/sprints.html:17
 msgid ""
-"While we assume that most people there will have a ticket for the conference"
-" days (held in the previous days), having a ticket for the conference is "
+"While we assume that most people there will have a ticket for the conference "
+"days (held in the previous days), having a ticket for the conference is "
 "<b>not required</b> to join a sprint."
 msgstr ""
 "Sebbene si assume che la maggiorparte dei partecipanti sia già in possesso "
@@ -641,9 +634,9 @@ msgid ""
 "with logistic tasks. Partecipants are required to <b>bring their own "
 "laptops</b> to take part into the sprint"
 msgstr ""
-"Lo staff organizzativo di PyCon si preoccuperà di preparare delle postazioni"
-" di lavoro adatte allo svolgimento dello sprint (cavi di alimentazione, cavi"
-" di rete, connessione wi-fi, lavagne) e sarà generalmente di supporto per "
+"Lo staff organizzativo di PyCon si preoccuperà di preparare delle postazioni "
+"di lavoro adatte allo svolgimento dello sprint (cavi di alimentazione, cavi "
+"di rete, connessione wi-fi, lavagne) e sarà generalmente di supporto per "
 "questioni logistiche e organizzative. I partecipanti ad uno sprint dovranno "
 "però <b>necessariamente</b> utilizzare il proprio laptop per lo sviluppo."
 
@@ -686,17 +679,17 @@ msgstr "(dopo <a href="
 #: p3/sprints.html:28
 #, python-format
 msgid ""
-"Registration is not mandatory, and will not be enforced by organizers in any"
-" way, but it will help us out understanding how many people will be present,"
-" and at the same time will help sprint organizers setting up a list of tasks"
-" for their project. If you think that you might join a sprint (even if you "
+"Registration is not mandatory, and will not be enforced by organizers in any "
+"way, but it will help us out understanding how many people will be present, "
+"and at the same time will help sprint organizers setting up a list of tasks "
+"for their project. If you think that you might join a sprint (even if you "
 "are not 100%% sure yet), <b>please register</b>."
 msgstr ""
 "La registrazione non è obbligatoria, ma sarà esclusivamente necessaria per "
 "gli organizzatori per conoscere il numero dei partecipanti, e per poter "
 "gestire al meglio la gestione di spazi e attrezzature. Se pensi di poter "
-"partecipare ad uno sprint (anche se non sei sicuro al 100%%), <b>per favore,"
-" registrati.</b>"
+"partecipare ad uno sprint (anche se non sei sicuro al 100%%), <b>per favore, "
+"registrati.</b>"
 
 #: p3/sprints.html:38 p3/templates/p3/sprints.html:30
 msgid "List of sprints"
@@ -738,11 +731,15 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"            If you don't receive this email please check yout spam folder and <a href=\"%(url)s\">write to us</a> specifying your order number: <b>%(code)s</b>\n"
+"            If you don't receive this email please check yout spam folder "
+"and <a href=\"%(url)s\">write to us</a> specifying your order number: <b>"
+"%(code)s</b>\n"
 "            "
 msgstr ""
 "\n"
-"Se non ricevi l'email, per favore verifica la cartella dello spam. Altrimenti <a href=\"%(url)s\">scrivici</a> specificando il tuo codice d'ordine: <b>%(code)s</b>"
+"Se non ricevi l'email, per favore verifica la cartella dello spam. "
+"Altrimenti <a href=\"%(url)s\">scrivici</a> specificando il tuo codice "
+"d'ordine: <b>%(code)s</b>"
 
 #: p3/templates/assopy/bank_feedback_ok.html:18
 msgid "What to do next"
@@ -777,11 +774,13 @@ msgstr "In attesa della risposta da PayPal..."
 #, python-format
 msgid ""
 "\n"
-"            Are you waiting for too long? <a href=\"%(url)s\">Write to us</a> specifying your order number %(code)s\n"
+"            Are you waiting for too long? <a href=\"%(url)s\">Write to us</"
+"a> specifying your order number %(code)s\n"
 "            "
 msgstr ""
 "\n"
-"Stai aspettando troppo? <a href=\"%(url)s\">Scrivici</a> specificando il tuo codice d'ordine: %(code)s"
+"Stai aspettando troppo? <a href=\"%(url)s\">Scrivici</a> specificando il tuo "
+"codice d'ordine: %(code)s"
 
 #: p3/templates/assopy/paypal_feedback_ok.html:22
 msgid "Purchase completed"
@@ -789,46 +788,51 @@ msgstr "Acquisto completato."
 
 #: p3/templates/assopy/paypal_feedback_ok.html:24
 msgid ""
-"Thank you for the purchase. The transaction was completed and a receipt from"
-" paypal will be sent to your email address."
+"Thank you for the purchase. The transaction was completed and a receipt from "
+"paypal will be sent to your email address."
 msgstr ""
-"Grazie per l'acquisto. La transazione è stata completata e paypal ti invierà"
-" una ricevuta per email."
+"Grazie per l'acquisto. La transazione è stata completata e paypal ti invierà "
+"una ricevuta per email."
 
 #: p3/templates/assopy/paypal_feedback_ok.html:25
 msgid "Edit your tickets"
 msgstr "Modifica i tuoi biglietti"
 
-#: p3/templates/assopy/profile.html:4
+#: p3/templates/assopy/profile.html:8
 msgid "Your profile"
 msgstr "Il tuo profilo"
 
-#: p3/templates/assopy/profile.html:14
+#: p3/templates/assopy/profile.html:18
 msgid "Personal data"
 msgstr "Dati personali"
 
-#: p3/templates/assopy/profile.html:15
+#: p3/templates/assopy/profile.html:19
 msgid "Email contact"
 msgstr "Email"
 
-#: p3/templates/assopy/profile.html:16
+#: p3/templates/assopy/profile.html:20
 #: p3/templates/assopy/profile_spam_control.html:7
 msgid "Privacy settings"
 msgstr "Impostazioni privacy"
 
-#: p3/templates/assopy/profile.html:17
+#: p3/templates/assopy/profile.html:21
 msgid "Login options"
 msgstr "Opzioni di login"
 
-#: p3/templates/assopy/profile.html:18
+#: p3/templates/assopy/profile.html:22
 msgid "Orders, invoices &amp; coupons"
 msgstr "Ordini, fatture &amp; coupon"
 
-#: p3/templates/assopy/profile.html:30
+#: p3/templates/assopy/profile.html:23
+#, fuzzy
+msgid "Certicate of attendance"
+msgstr "Giorni di presenza"
+
+#: p3/templates/assopy/profile.html:35
 msgid "Web accounts for log in"
 msgstr "Account social per fare login"
 
-#: p3/templates/assopy/profile.html:31
+#: p3/templates/assopy/profile.html:36
 msgid ""
 "You can connect more web accounts to your profile, so that you can use any "
 "of them for logging in (without having to remember which one you used to "
@@ -838,51 +842,55 @@ msgstr ""
 "qualunque per fare login (senza doverti ricordare quale avevi usato per "
 "creare l'account)"
 
-#: p3/templates/assopy/profile.html:37
+#: p3/templates/assopy/profile.html:42
 msgid "Remove account"
 msgstr "Elimina account"
 
-#: p3/templates/assopy/profile.html:56
+#: p3/templates/assopy/profile.html:61
 msgid "Web access removed"
 msgstr "Account social rimosso"
 
-#: p3/templates/assopy/profile.html:60
+#: p3/templates/assopy/profile.html:65
 msgid ""
 "Cannot remove the requested account, please contact info@pycon.it for "
 "assistance"
 msgstr ""
-"Impossibile rimuovere l'account richiesto; per favore contatta info@pycon.it"
-" per assistenza"
+"Impossibile rimuovere l'account richiesto; per favore contatta info@pycon.it "
+"per assistenza"
 
-#: p3/templates/assopy/profile.html:80
+#: p3/templates/assopy/profile.html:85
 msgid "Your discount coupons"
 msgstr "I tuoi coupon sconto"
 
-#: p3/templates/assopy/profile.html:84 p3/templates/assopy/profile.html:89
+#: p3/templates/assopy/profile.html:89 p3/templates/assopy/profile.html:94
 msgid "Code:"
 msgstr "Codice:"
 
-#: p3/templates/assopy/profile.html:99
+#: p3/templates/assopy/profile.html:104
 msgid "Your orders"
 msgstr "I tuoi ordini"
 
-#: p3/templates/assopy/profile.html:103
+#: p3/templates/assopy/profile.html:108
 msgid "Order#"
 msgstr "Ordine#"
 
-#: p3/templates/assopy/profile.html:104
+#: p3/templates/assopy/profile.html:109
 msgid "Date"
 msgstr "Data"
 
-#: p3/templates/assopy/profile.html:105
+#: p3/templates/assopy/profile.html:110
 msgid "Invoice"
 msgstr "Fattura"
 
-#: p3/templates/assopy/profile.html:116
+#: p3/templates/assopy/profile.html:121
 msgid "N/A"
 msgstr "N/A"
 
-#: p3/templates/assopy/profile.html:145
+#: p3/templates/assopy/profile.html:152
+msgid "The certificate is not yet available."
+msgstr ""
+
+#: p3/templates/assopy/profile.html:160
 #, python-format
 msgid ""
 "Partecipate in <a href=\"%(url)s\">Find out who's coming</a>: let people "
@@ -891,27 +899,27 @@ msgstr ""
 "Fai sapere a tutti che verrai a PyCon: compila il tuo profilo e pubblicalo "
 "nella sezione \"<a href=\"%(url)s\">Scopri chi viene</a>"
 
-#: p3/templates/assopy/profile.html:146
+#: p3/templates/assopy/profile.html:161
 msgid "View your public profile"
 msgstr "Vedi il tuo profilo pubblico"
 
-#: p3/templates/assopy/profile.html:152
+#: p3/templates/assopy/profile.html:167
 msgid "See the conferences you have attended and who you have met."
 msgstr "Guarda le conferenze a cui sei stato e le persone che hai conosciuto."
 
-#: p3/templates/assopy/profile.html:153
+#: p3/templates/assopy/profile.html:168
 msgid "Conference &amp; contacts"
 msgstr "Conferenza &amp; contatti"
 
-#: p3/templates/assopy/profile.html:157
+#: p3/templates/assopy/profile.html:172
 msgid "Fill in and review all your tickets."
 msgstr "Compila e verifica i tuoi biglietti."
 
-#: p3/templates/assopy/profile.html:158
+#: p3/templates/assopy/profile.html:173
 msgid "View your tickets"
 msgstr "Visualizza i tuoi biglietti"
 
-#: p3/templates/assopy/profile.html:162
+#: p3/templates/assopy/profile.html:177
 msgid "View your schedule"
 msgstr "Visualizza il tuo schedule"
 
@@ -922,8 +930,8 @@ msgstr "Hai richiesto di cambiare la tua email in: <b>%(pending)s</b>."
 
 #: p3/templates/assopy/profile_email_contact.html:12
 msgid ""
-"We have sent you an email. Please follow the instructions in the message you"
-" will receive shortly. This change will not affect in any way the web "
+"We have sent you an email. Please follow the instructions in the message you "
+"will receive shortly. This change will not affect in any way the web "
 "accounts you use to log in."
 msgstr ""
 "Ti abbiamo inviato una email. Segui le istruzioni che riceverai a breve. "
@@ -984,8 +992,8 @@ msgid ""
 "further information."
 msgstr ""
 "Rispettiamo la tua privacy. <i>Non condividiamo i tuoi dati personali</i> "
-"con nessuno. Dai un'occhiata alla nostra <a href=\"%(url)s\">privacy "
-"policy</a> per maggiori informazioni."
+"con nessuno. Dai un'occhiata alla nostra <a href=\"%(url)s\">privacy policy</"
+"a> per maggiori informazioni."
 
 #: p3/templates/assopy/profile_spam_control.html:11
 msgid ""
@@ -1003,9 +1011,9 @@ msgstr "Recruiting"
 #, python-format
 msgid ""
 "Many of our sponsors support our conference to offer jobs and recruit good "
-"Python programmers. In addition to the official <a "
-"href=\"%(url)s\">recruiting sessions</a>, you might like to receive selected"
-" job offers via email, and evaluate them in a more private environment."
+"Python programmers. In addition to the official <a href=\"%(url)s"
+"\">recruiting sessions</a>, you might like to receive selected job offers "
+"via email, and evaluate them in a more private environment."
 msgstr ""
 "Molti dei nostri sponsor supportano la conferenza per cercare e assumere "
 "ottimi programmatori Python. In aggiunta alla <a href=\"%(url)s\">sessione "
@@ -1041,22 +1049,20 @@ msgid ""
 "out</a> that you are coming to the conference. Do you want them to be able "
 "to contact you through our website?"
 msgstr ""
-"Dopo aver comprato un biglietto e attivato il tuo <a "
-"href=\"%(profile_url)s\">profilo pubblico</a>, gli altri partecipanti "
-"potranno trovarti nella sezione \"<a href=\"%(url)s\">Scopri chi "
-"viene</a>\". Vuoi che possano contattarti tramite il sito web?"
+"Dopo aver comprato un biglietto e attivato il tuo <a href=\"%(profile_url)s"
+"\">profilo pubblico</a>, gli altri partecipanti potranno trovarti nella "
+"sezione \"<a href=\"%(url)s\">Scopri chi viene</a>\". Vuoi che possano "
+"contattarti tramite il sito web?"
 
 #: p3/templates/assopy/profile_spam_control.html:34
-msgid ""
-"Your email address will <b>never</b> be shared with other participants."
+msgid "Your email address will <b>never</b> be shared with other participants."
 msgstr ""
 "Il tuo indirizzo email non verrà <b>mai</b> condiviso con gli altri "
 "partecipanti. "
 
 #: p3/templates/assopy/profile_spam_control.html:35
 msgid "We will send you one mail notifying you of the received message."
-msgstr ""
-"Ti invieremo una email che conterrà il messaggio che ti hanno inviato."
+msgstr "Ti invieremo una email che conterrà il messaggio che ti hanno inviato."
 
 #: p3/templates/assopy/profile_spam_control.html:36
 msgid "User messages will be active until the conference ends."
@@ -1068,8 +1074,8 @@ msgstr "Messaggi SMS"
 
 #: p3/templates/assopy/profile_spam_control.html:43
 msgid ""
-"Sometimes it is useful for organizers to send last-minute information to all"
-" participants (eg: transportation strikes, last-minute schedule changes, "
+"Sometimes it is useful for organizers to send last-minute information to all "
+"participants (eg: transportation strikes, last-minute schedule changes, "
 "impromptu happenings, etc.). Do you want to receive these information "
 "through SMS?"
 msgstr ""
@@ -1080,8 +1086,8 @@ msgstr ""
 
 #: p3/templates/assopy/profile_spam_control.html:49
 msgid ""
-"You must insert your phone number in the “Personal data” section to activate"
-" this service."
+"You must insert your phone number in the “Personal data” section to activate "
+"this service."
 msgstr ""
 "Devi inserire il tuo numero di telefono tra i tuoi dati di profilo per "
 "attivare questo servizio."
@@ -1159,9 +1165,64 @@ msgstr ""
 #: p3/templates/conference/genro_wrapper.html:7
 msgid "genro-problem"
 msgstr ""
-"Se hai problemi contattaci in <a onclick=\"habla_window.show(); "
-"habla_window.expand()\" href=\"#\">chat</a> o scrivi a <a "
-"href=\"mailto:gestionale@pycon.it\">gestionale@pycon.it</a>"
+"Se hai problemi contattaci in <a onclick=\"habla_window.show(); habla_window."
+"expand()\" href=\"#\">chat</a> o scrivi a <a href=\"mailto:gestionale@pycon."
+"it\">gestionale@pycon.it</a>"
+
+#: p3/templates/conference/paper_submission.html:21
+#, fuzzy
+msgid "New talk"
+msgstr "Talk"
+
+#: p3/templates/conference/paper_submission.html:30
+#, fuzzy
+msgid "Speaker profile"
+msgstr "Il tuo profilo"
+
+#: p3/templates/conference/paper_submission.html:33
+#, fuzzy
+msgid "Personal info"
+msgstr "Personale"
+
+#: p3/templates/conference/paper_submission.html:41
+#, fuzzy
+msgid "Company"
+msgstr "Ragione sociale"
+
+#: p3/templates/conference/paper_submission.html:46
+msgid "About you"
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:62
+#, fuzzy
+msgid "Propose a new talk"
+msgstr "Proponi uno Sprint"
+
+#: p3/templates/conference/paper_submission.html:68
+#, python-format
+msgid ""
+"\n"
+"                You have already submitted %(proposed_talks.count)s paper"
+"%(proposed_talks.count|pluralize)s.\n"
+"                To edit your submission%(proposed_talks.count|pluralize)s,\n"
+"                visit your <a href=\"%(speaker_profile_url)s\">speaker "
+"profile</a>.</p>\n"
+"                "
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:96
+msgid "Invia il talk"
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:100
+msgid ""
+"\n"
+"            <b>Note</b>: if you are available to give the same talk both in "
+"Italian and English,\n"
+"            please submit the talk twice, with fully translated title and "
+"abstract.</div>\n"
+"            "
+msgstr ""
 
 #: p3/templates/conference/profile.html:29
 msgid "It’s you!"
@@ -1322,11 +1383,11 @@ msgstr "Votazione talk"
 #: p3/templates/conference/voting.html:31
 #, python-format
 msgid ""
-"To join the community voting, you must buy a ticket. You can buy one <a "
-"href=\"%(cart_url)s\">here</a>."
+"To join the community voting, you must buy a ticket. You can buy one <a href="
+"\"%(cart_url)s\">here</a>."
 msgstr ""
-"Per partecipare alla votazione comunitaria devi possedere un biglietto. Puoi"
-" comprarlo <a href=\"%(cart_url)s\">qui</a>."
+"Per partecipare alla votazione comunitaria devi possedere un biglietto. Puoi "
+"comprarlo <a href=\"%(cart_url)s\">qui</a>."
 
 #: p3/templates/conference/voting.html:33
 msgid "To join the community voting, you must buy a ticket."
@@ -1339,8 +1400,8 @@ msgid ""
 "If you already bought a ticket please <a href=\"%(url)s\">log in</a>, "
 "otherwise you can buy one <a href=\"%(cart_url)s\">here</a>."
 msgstr ""
-"Se hai già comprato un biglietto, effettua il <a href=\"%(url)s\">log "
-"in</a>, altrimenti puoi acquistarne uno <a href=\"%(cart_url)s\">qui</a>."
+"Se hai già comprato un biglietto, effettua il <a href=\"%(url)s\">log in</"
+"a>, altrimenti puoi acquistarne uno <a href=\"%(cart_url)s\">qui</a>."
 
 #: p3/templates/conference/voting.html:41
 msgid "Talk Voting"
@@ -1352,8 +1413,8 @@ msgid ""
 "Set your favorite tags in <a href=\"%(profile_url)s\">your profile</a> and "
 "filter by your interests with one click."
 msgstr ""
-"Seleziona i tuoi tag preferiti nel <a href=\"%(profile_url)s\">tuo "
-"profilo</a> e filtra in base ai tuoi interessi con un click."
+"Seleziona i tuoi tag preferiti nel <a href=\"%(profile_url)s\">tuo profilo</"
+"a> e filtra in base ai tuoi interessi con un click."
 
 #: p3/templates/conference/voting.html:65
 msgid "Match my tags"
@@ -1369,8 +1430,8 @@ msgstr "Clicca sulle stelle per votare; esistono anche le mezze stelle!"
 
 #: p3/templates/conference/voting.html:99
 msgid ""
-"Click on the red sign on the left of the stars to remove a vote, if you want"
-" to think about it more."
+"Click on the red sign on the left of the stars to remove a vote, if you want "
+"to think about it more."
 msgstr ""
 "Clicca sul simbolo rosso a sinistra delle stelle per rimuovere il tuo voto, "
 "se ci hai ripensato."
@@ -1401,16 +1462,16 @@ msgid ""
 "Do you have some questions on a talk? Leave a comment in the talk page, and "
 "the speaker will answer you and enhance the abstract."
 msgstr ""
-"Hai domande sui talk? Lascia un commento sulla pagina del talk, e lo speaker"
-" ti risponderà e migliorerà l'abstract."
+"Hai domande sui talk? Lascia un commento sulla pagina del talk, e lo speaker "
+"ti risponderà e migliorerà l'abstract."
 
 #: p3/templates/conference/voting.html:109
 msgid ""
-"If you leave some talks without a vote, we will assume that you don't like "
-"them at all (= minimum vote)."
+"If you leave some talks without a vote, they will be automatically ranked "
+"with avg value (5 stars)."
 msgstr ""
-"Se lasci qualche talk senza voto, assumeremo che tu gli abbia voluto "
-"attribuire il voto minimo."
+"Se lasci qualche talk senza voto, saranno automaticamente conteggiati con il"
+"valore medio (5 stelle)."
 
 #: p3/templates/conference/voting.html:114
 msgid "Need more info?"
@@ -1420,14 +1481,19 @@ msgstr "Hai bisogno di ulteriori informazioni?"
 #, python-format
 msgid ""
 "\n"
-"                Go to the <a href=\"%(voting_url)s\">talk voting</a> description page for all the details.\n"
-"                If you still have answers, <a href=\"%(contacts_url)s\">write us</a> or\n"
-"                <a href=\"%(chat_url)s\" onclick=\"%(chat_click)s\">chat with us</a>.\n"
+"                Go to the <a href=\"%(voting_url)s\">talk voting</a> "
+"description page for all the details.\n"
+"                If you still have answers, <a href=\"%(contacts_url)s"
+"\">write us</a> or\n"
+"                <a href=\"%(chat_url)s\" onclick=\"%(chat_click)s\">chat "
+"with us</a>.\n"
 "                "
 msgstr ""
 "\n"
-"Vai alla descrizione della <a href=\"%(voting_url)s\">pagina delle votazioni</a> per tutti i dettagli.\n"
-"Se hai ancora dubbi, <a href=\"%(contacts_url)s\">scrivici</a> oppure contattaci via \n"
+"Vai alla descrizione della <a href=\"%(voting_url)s\">pagina delle "
+"votazioni</a> per tutti i dettagli.\n"
+"Se hai ancora dubbi, <a href=\"%(contacts_url)s\">scrivici</a> oppure "
+"contattaci via \n"
 "<a href=\"%(chat_url)s\" onclick=\"%(chat_click)s\">chat</a>."
 
 #: p3/templates/conference/ajax/voting.html:31
@@ -1496,8 +1562,7 @@ msgid "Helpdesk"
 msgstr "Helpdesk"
 
 #: p3/templates/django_cms/p5_homepage.html:179
-msgid ""
-"Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
+msgid "Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
 msgstr ""
 "Risolvi un problema: fissa un appuntamento e parla con i nostri esperti"
 
@@ -1596,27 +1661,23 @@ msgstr "Reazioni"
 msgid "Condividi questo post"
 msgstr "Condividi questo post"
 
-#: p3/templates/p3/base.html:144
-msgid "<span>Pycon</span> nove"
-msgstr ""
-
-#: p3/templates/p3/base.html:145
+#: p3/templates/p3/base.html:147
 msgid "firenze"
 msgstr ""
 
-#: p3/templates/p3/base.html:146
+#: p3/templates/p3/base.html:148
 msgid "19-22 aprile 2018"
 msgstr ""
 
-#: p3/templates/p3/base.html:183
+#: p3/templates/p3/base.html:185
 msgid "Please Donate"
 msgstr ""
 
-#: p3/templates/p3/base.html:203
+#: p3/templates/p3/base.html:205
 msgid "The safer, easier way to pay online!"
 msgstr ""
 
-#: p3/templates/p3/base.html:204
+#: p3/templates/p3/base.html:206
 msgid "Donate Now"
 msgstr ""
 
@@ -1658,9 +1719,12 @@ msgstr "Dati di fatturazione"
 msgid ""
 "\n"
 "                        Paypal is used for credit card transactions.<br />\n"
-"                        <strong>No registration is required</strong>, you will just need to\n"
-"                        click on a small link for non-registered users, located somewhere in the\n"
-"                        page (the exact position varies depending on the browser's language),\n"
+"                        <strong>No registration is required</strong>, you "
+"will just need to\n"
+"                        click on a small link for non-registered users, "
+"located somewhere in the\n"
+"                        page (the exact position varies depending on the "
+"browser's language),\n"
 "                        and then fill in the form.\n"
 "                        "
 msgstr ""
@@ -1777,8 +1841,10 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                Book a room in the conference hotel, including wifi and breakfast.\n"
-"                See all details of our <a href=\"%(url)s\">concession</a> with the conference hotel.\n"
+"                Book a room in the conference hotel, including wifi and "
+"breakfast.\n"
+"                See all details of our <a href=\"%(url)s\">concession</a> "
+"with the conference hotel.\n"
 "                Rooms are limited, book now!\n"
 "                "
 msgstr ""
@@ -1908,18 +1974,18 @@ msgid ""
 "help out with logistic tasks. Partecipants are required to <b>bring their "
 "own laptops</b> to take part into the sprint"
 msgstr ""
-"Lo staff organizzativo di PyCon si preoccuperà di preparare delle postazioni"
-" di lavoro adatte allo svolgimento dello sprint (cavi di alimentazione, cavi"
-" di rete, connessione wi-fi, lavagne) e sarà generalmente di supporto per "
+"Lo staff organizzativo di PyCon si preoccuperà di preparare delle postazioni "
+"di lavoro adatte allo svolgimento dello sprint (cavi di alimentazione, cavi "
+"di rete, connessione wi-fi, lavagne) e sarà generalmente di supporto per "
 "questioni logistiche e organizzative. I partecipanti ad uno sprint dovranno "
 "però <b>necessariamente</b> utilizzare il proprio laptop per lo sviluppo."
 
 #: p3/templates/p3/sprints.html:20
 #, fuzzy, python-format
 msgid ""
-"Sprint submission is open to everybody, by using the <a "
-"href=\"%(sprint_url)s\">online form</a>. Please submit a sprint only if you "
-"really intend to hold it and help out other people joining it."
+"Sprint submission is open to everybody, by using the <a href=\"%(sprint_url)s"
+"\">online form</a>. Please submit a sprint only if you really intend to hold "
+"it and help out other people joining it."
 msgstr ""
 "Per favore, inviare la propria proposta di sprint soltanto se si intente "
 "<b>realmente</b> parteciparvi e aiutare le persone ad unirsi alla sessione."
@@ -1929,17 +1995,17 @@ msgstr ""
 msgid ""
 "If you are interested in a specific sprint, join it by clicking the "
 "corresponding button (after <a href=\"/accounts/login/\">login</a>). "
-"Registration is not mandatory, and will not be enforced by organizers in any"
-" way, but it will help us out understanding how many people will be present,"
-" and at the same time will help sprint organizers setting up a list of tasks"
-" for their project. If you think that you might join a sprint (even if you "
+"Registration is not mandatory, and will not be enforced by organizers in any "
+"way, but it will help us out understanding how many people will be present, "
+"and at the same time will help sprint organizers setting up a list of tasks "
+"for their project. If you think that you might join a sprint (even if you "
 "are not 100%% sure yet), <b>please register</b>."
 msgstr ""
 "La registrazione non è obbligatoria, ma sarà esclusivamente necessaria per "
 "gli organizzatori per conoscere il numero dei partecipanti, e per poter "
 "gestire al meglio la gestione di spazi e attrezzature. Se pensi di poter "
-"partecipare ad uno sprint (anche se non sei sicuro al 100%%), <b>per favore,"
-" registrati.</b>"
+"partecipare ad uno sprint (anche se non sei sicuro al 100%%), <b>per favore, "
+"registrati.</b>"
 
 #: p3/templates/p3/sprints.html:25
 msgid "Sprint teasers"
@@ -1950,8 +2016,8 @@ msgid ""
 "The 3 sprints with more registered people will be selected to give a sprint "
 "teaser on Friday afternoon (see the <a href=\"/schedule/\">conference "
 "schedule</a>). Sprint teasers are just technical sessions where the sprint "
-"is introduced and can be openly discussed with all the people that will join"
-" it in the following two days."
+"is introduced and can be openly discussed with all the people that will join "
+"it in the following two days."
 msgstr ""
 
 #: p3/templates/p3/tickets.html:4 p3/templates/p3/tickets.html.py:12
@@ -1964,8 +2030,8 @@ msgid ""
 "You still have not bought any ticket with this account. Please proceed to "
 "the <a href=\"%(u)s\">cart</a> to place an order."
 msgstr ""
-"Non hai ancora comprato nessun biglietto con questo account. Vai al <a "
-"href=\"%(u)s\">carrello</a> per fare un ordine."
+"Non hai ancora comprato nessun biglietto con questo account. Vai al <a href="
+"\"%(u)s\">carrello</a> per fare un ordine."
 
 #: p3/templates/p3/tickets.html:35
 msgid "Refund Ticket"
@@ -2154,29 +2220,35 @@ msgstr "Vuoi cambiare nome? <a href=\"%(url)s\">Modifica il tuo account</a>."
 #, python-format
 msgid ""
 "\n"
-"                            <a href=\"%(profile_url)s\">Your profile</a> is not visibile by anyone.\n"
-"                            Why don't you let people know that you are coming? <a href=\"%(url)s\">Find out why</a>.\n"
+"                            <a href=\"%(profile_url)s\">Your profile</a> is "
+"not visibile by anyone.\n"
+"                            Why don't you let people know that you are "
+"coming? <a href=\"%(url)s\">Find out why</a>.\n"
 "                            "
 msgstr ""
 "\n"
 "<a href=\"%(profile_url)s\">Il tuo profilo</a> non è visibile da nessuno.\n"
-"Perché non far sapere alla gente che vieni? <a href=\"%(url)s\">Scopri come</a>."
+"Perché non far sapere alla gente che vieni? <a href=\"%(url)s\">Scopri come</"
+"a>."
 
 #: p3/templates/p3/fragments/render_ticket.html:193
 #, python-format
 msgid ""
 "\n"
-"                            Only <b>conference participants</b> can view <a href=\"%(profile_url)s\">your profile</a>.\n"
+"                            Only <b>conference participants</b> can view <a "
+"href=\"%(profile_url)s\">your profile</a>.\n"
 "                            "
 msgstr ""
 "\n"
-"Solo i <b>partecipanti alla conferenza</b> possono vedere <a href=\"%(profile_url)s\">il tuo profilo</a>."
+"Solo i <b>partecipanti alla conferenza</b> possono vedere <a href="
+"\"%(profile_url)s\">il tuo profilo</a>."
 
 #: p3/templates/p3/fragments/render_ticket.html:201
 #, python-format
 msgid ""
 "\n"
-"                            Your <a href=\"%(profile_url)s\">profile</a> is <b>publicly visible</b>.\n"
+"                            Your <a href=\"%(profile_url)s\">profile</a> is "
+"<b>publicly visible</b>.\n"
 "                            "
 msgstr ""
 "\n"
@@ -2268,7 +2340,7 @@ msgstr ""
 msgid "Invia nuova password"
 msgstr "Invia nuova password"
 
-#: p3/views/__init__.py:496
+#: p3/views/__init__.py:498
 msgid "All"
 msgstr ""
 
@@ -2277,8 +2349,8 @@ msgid ""
 "I have read and accepted the <a class=\"trigger-overlay\" href=\"/code-of-"
 "conduct\" target=\"blank\">code of conduct</a>."
 msgstr ""
-"Ho letto e accetto il <a class=\"trigger-overlay\" href=\"/codice-condotta\""
-" target=\"blank\">codice di condotta</a>"
+"Ho letto e accetto il <a class=\"trigger-overlay\" href=\"/codice-condotta\" "
+"target=\"blank\">codice di condotta</a>"
 
 #: p3/views/cart.py:21
 msgid "Your Name"
@@ -2306,26 +2378,26 @@ msgstr ""
 msgid "Company Name"
 msgstr "Ragione sociale"
 
-#: pycon/settings.py:47 pycon/settings.py:322
+#: pycon/settings.py:50 pycon/settings.py:325
 msgid "Italiano"
 msgstr "Italiano"
 
-#: pycon/settings.py:48 pycon/settings.py:302 pycon/settings.py:326
+#: pycon/settings.py:51 pycon/settings.py:305 pycon/settings.py:329
 msgid "English"
 msgstr "Inglese"
 
-#: pycon/settings.py:301
+#: pycon/settings.py:304
 msgid "Italian"
 msgstr "Italiano"
 
-#: pycon/settings.py:358
+#: pycon/settings.py:361
 msgid "info"
 msgstr ""
 
-#: pycon/settings.py:359
+#: pycon/settings.py:362
 msgid "new"
 msgstr ""
 
-#: pycon/settings.py:360
+#: pycon/settings.py:363
 msgid "hint"
 msgstr ""
