@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-20 14:07+0100\n"
+"POT-Creation-Date: 2018-01-15 14:49+0100\n"
 "PO-Revision-Date: 2015-03-31 22:55+0050\n"
 "Last-Translator: David Mugnai <dvd@gnx.it>\n"
 "Language-Team: en <pycon-organization@googlegroups.com>\n"
@@ -756,36 +756,40 @@ msgstr ""
 msgid "Edit your tickets"
 msgstr "Edit your tickets"
 
-#: p3/templates/assopy/profile.html:4
+#: p3/templates/assopy/profile.html:8
 msgid "Your profile"
 msgstr "Your profile"
 
-#: p3/templates/assopy/profile.html:14
+#: p3/templates/assopy/profile.html:18
 msgid "Personal data"
 msgstr "Personal data"
 
-#: p3/templates/assopy/profile.html:15
+#: p3/templates/assopy/profile.html:19
 msgid "Email contact"
 msgstr "Email contact"
 
-#: p3/templates/assopy/profile.html:16
+#: p3/templates/assopy/profile.html:20
 #: p3/templates/assopy/profile_spam_control.html:7
 msgid "Privacy settings"
 msgstr "Privacy settings"
 
-#: p3/templates/assopy/profile.html:17
+#: p3/templates/assopy/profile.html:21
 msgid "Login options"
 msgstr "Login options"
 
-#: p3/templates/assopy/profile.html:18
+#: p3/templates/assopy/profile.html:22
 msgid "Orders, invoices &amp; coupons"
 msgstr "Orders, invoices &amp; coupons"
 
-#: p3/templates/assopy/profile.html:30
+#: p3/templates/assopy/profile.html:23
+msgid "Certicate of attendance"
+msgstr "Certicate of attendance"
+
+#: p3/templates/assopy/profile.html:35
 msgid "Web accounts for log in"
 msgstr "Web accounts for log in"
 
-#: p3/templates/assopy/profile.html:31
+#: p3/templates/assopy/profile.html:36
 msgid ""
 "You can connect more web accounts to your profile, so that you can use any "
 "of them for logging in (without having to remember which one you used to "
@@ -795,15 +799,15 @@ msgstr ""
 "of them for logging in (without having to remember which one you used to "
 "create the account)."
 
-#: p3/templates/assopy/profile.html:37
+#: p3/templates/assopy/profile.html:42
 msgid "Remove account"
 msgstr "Remove account"
 
-#: p3/templates/assopy/profile.html:56
+#: p3/templates/assopy/profile.html:61
 msgid "Web access removed"
 msgstr "Web access removed"
 
-#: p3/templates/assopy/profile.html:60
+#: p3/templates/assopy/profile.html:65
 msgid ""
 "Cannot remove the requested account, please contact info@pycon.it for "
 "assistance"
@@ -811,35 +815,39 @@ msgstr ""
 "Cannot remove the requested account, please contact info@pycon.it for "
 "assistance"
 
-#: p3/templates/assopy/profile.html:80
+#: p3/templates/assopy/profile.html:85
 msgid "Your discount coupons"
 msgstr "Your discount coupons"
 
-#: p3/templates/assopy/profile.html:84 p3/templates/assopy/profile.html:89
+#: p3/templates/assopy/profile.html:89 p3/templates/assopy/profile.html:94
 msgid "Code:"
 msgstr "Code:"
 
-#: p3/templates/assopy/profile.html:99
+#: p3/templates/assopy/profile.html:104
 msgid "Your orders"
 msgstr "Your orders"
 
-#: p3/templates/assopy/profile.html:103
+#: p3/templates/assopy/profile.html:108
 msgid "Order#"
 msgstr "Order#"
 
-#: p3/templates/assopy/profile.html:104
+#: p3/templates/assopy/profile.html:109
 msgid "Date"
 msgstr "Date"
 
-#: p3/templates/assopy/profile.html:105
+#: p3/templates/assopy/profile.html:110
 msgid "Invoice"
 msgstr "Invoice"
 
-#: p3/templates/assopy/profile.html:116
+#: p3/templates/assopy/profile.html:121
 msgid "N/A"
 msgstr "N/A"
 
-#: p3/templates/assopy/profile.html:145
+#: p3/templates/assopy/profile.html:152
+msgid "The certificate is not yet available."
+msgstr ""
+
+#: p3/templates/assopy/profile.html:160
 #, python-format
 msgid ""
 "Partecipate in <a href=\"%(url)s\">Find out who's coming</a>: let people "
@@ -848,27 +856,27 @@ msgstr ""
 "Partecipate in <a href=\"%(url)s\">Find out who's coming</a>: let people "
 "know that you will be coming to this conference."
 
-#: p3/templates/assopy/profile.html:146
+#: p3/templates/assopy/profile.html:161
 msgid "View your public profile"
 msgstr "View your public profile"
 
-#: p3/templates/assopy/profile.html:152
+#: p3/templates/assopy/profile.html:167
 msgid "See the conferences you have attended and who you have met."
 msgstr "See the conferences you have attended and who you have met."
 
-#: p3/templates/assopy/profile.html:153
+#: p3/templates/assopy/profile.html:168
 msgid "Conference &amp; contacts"
 msgstr "Conference &amp; contacts"
 
-#: p3/templates/assopy/profile.html:157
+#: p3/templates/assopy/profile.html:172
 msgid "Fill in and review all your tickets."
 msgstr "Fill in and review all your tickets."
 
-#: p3/templates/assopy/profile.html:158
+#: p3/templates/assopy/profile.html:173
 msgid "View your tickets"
 msgstr "View your tickets"
 
-#: p3/templates/assopy/profile.html:162
+#: p3/templates/assopy/profile.html:177
 msgid "View your schedule"
 msgstr "View your schedule"
 
@@ -1114,6 +1122,56 @@ msgstr ""
 "show(); habla_window.expand()\" href=\"#\">chat</a> or drop a line to <a "
 "href=\"mailto:gestionale@pycon.it\">gestionale@pycon.it</a>"
 
+#: p3/templates/conference/paper_submission.html:21
+msgid "New talk"
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:30
+msgid "Speaker profile"
+msgstr "Speaker profile"
+
+#: p3/templates/conference/paper_submission.html:33
+msgid "Personal info"
+msgstr "Personal info"
+
+#: p3/templates/conference/paper_submission.html:41
+msgid "Company"
+msgstr "Company"
+
+#: p3/templates/conference/paper_submission.html:46
+msgid "About you"
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:62
+msgid "Propose a new talk"
+msgstr "Propose a new talk"
+
+#: p3/templates/conference/paper_submission.html:68
+#, python-format
+msgid ""
+"\n"
+"                You have already submitted %(proposed_talks.count)s paper"
+"%(proposed_talks.count|pluralize)s.\n"
+"                To edit your submission%(proposed_talks.count|pluralize)s,\n"
+"                visit your <a href=\"%(speaker_profile_url)s\">speaker "
+"profile</a>.</p>\n"
+"                "
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:96
+msgid "Invia il talk"
+msgstr ""
+
+#: p3/templates/conference/paper_submission.html:100
+msgid ""
+"\n"
+"            <b>Note</b>: if you are available to give the same talk both in "
+"Italian and English,\n"
+"            please submit the talk twice, with fully translated title and "
+"abstract.</div>\n"
+"            "
+msgstr ""
+
 #: p3/templates/conference/profile.html:29
 msgid "It’s you!"
 msgstr "It’s you!"
@@ -1352,11 +1410,11 @@ msgstr ""
 
 #: p3/templates/conference/voting.html:109
 msgid ""
-"If you leave some talks without a vote, we will assume that you don't like "
-"them at all (= minimum vote)."
+"If you leave some talks without a vote, they will be automatically ranked "
+"with avg value (5 stars)."
 msgstr ""
-"If you leave some talks without a vote, we will assume that you don't like "
-"them at all (= minimum vote)."
+"If you leave some talks without a vote, they will be automatically ranked "
+"with avg value (5 stars)."
 
 #: p3/templates/conference/voting.html:114
 msgid "Need more info?"
@@ -1417,18 +1475,16 @@ msgid "Startup"
 msgstr ""
 
 #: p3/templates/django_cms/p5_homepage.html:116
-#, fuzzy
 msgid "Our Mediapartners"
-msgstr "Media Partners"
+msgstr "Our Mediapartners"
 
 #: p3/templates/django_cms/p5_homepage.html:151
 msgid "Scopri PyCon Italia"
 msgstr "Discover PyCon Italy"
 
 #: p3/templates/django_cms/p5_homepage.html:159
-#, fuzzy
 msgid "Learning"
-msgstr "Training"
+msgstr "Learning"
 
 #: p3/templates/django_cms/p5_homepage.html:160
 msgid "3 tracce parallele di talk per ascoltare e scoprire"
@@ -1542,27 +1598,23 @@ msgstr "Reactions"
 msgid "Condividi questo post"
 msgstr "Share this post"
 
-#: p3/templates/p3/base.html:144
-msgid "<span>Pycon</span> nove"
-msgstr ""
-
-#: p3/templates/p3/base.html:145
+#: p3/templates/p3/base.html:147
 msgid "firenze"
 msgstr "Florence"
 
-#: p3/templates/p3/base.html:146
+#: p3/templates/p3/base.html:148
 msgid "19-22 aprile 2018"
 msgstr "19th - 22nd April 2018"
 
-#: p3/templates/p3/base.html:183
+#: p3/templates/p3/base.html:185
 msgid "Please Donate"
 msgstr ""
 
-#: p3/templates/p3/base.html:203
+#: p3/templates/p3/base.html:205
 msgid "The safer, easier way to pay online!"
 msgstr ""
 
-#: p3/templates/p3/base.html:204
+#: p3/templates/p3/base.html:206
 msgid "Donate Now"
 msgstr ""
 
@@ -2210,7 +2262,7 @@ msgstr ""
 msgid "Invia nuova password"
 msgstr "Send new password"
 
-#: p3/views/__init__.py:496
+#: p3/views/__init__.py:498
 msgid "All"
 msgstr ""
 
@@ -2248,26 +2300,26 @@ msgstr ""
 msgid "Company Name"
 msgstr "Company Name"
 
-#: pycon/settings.py:47 pycon/settings.py:322
+#: pycon/settings.py:50 pycon/settings.py:325
 msgid "Italiano"
 msgstr "Italiano"
 
-#: pycon/settings.py:48 pycon/settings.py:302 pycon/settings.py:326
+#: pycon/settings.py:51 pycon/settings.py:305 pycon/settings.py:329
 msgid "English"
 msgstr "English"
 
-#: pycon/settings.py:301
+#: pycon/settings.py:304
 msgid "Italian"
 msgstr "Italian"
 
-#: pycon/settings.py:358
+#: pycon/settings.py:361
 msgid "info"
 msgstr ""
 
-#: pycon/settings.py:359
+#: pycon/settings.py:362
 msgid "new"
 msgstr ""
 
-#: pycon/settings.py:360
+#: pycon/settings.py:363
 msgid "hint"
 msgstr ""
