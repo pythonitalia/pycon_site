@@ -37,4 +37,3 @@ aldryn-style==0.3.0
 django-mptt==0.6.1
 djangocms-admin-style==1.1.0
 aldryn-boilerplates==0.7.4
-django-filebrowser-no-grappelli==3.6.2
