@@ -38,7 +38,7 @@ TALK_SUBCOMMUNITY = (
     ('pybusiness', _('PyBusiness')),
     ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
-    ('django', _('DjangoVillage')),
+    ('django', _('PyWeb')),
     ('pycon', _('Python & Friends')),
 )
 
