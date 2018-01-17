@@ -10,7 +10,7 @@ from django.db import transaction
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render_to_response, render
 from django.template import RequestContext, Template
-from django.utils.http import is_safe_url
+from django.views.i18n import set_language as set_language_django
 
 import p3.forms as p3forms
 from p3 import dataaccess
@@ -543,28 +543,14 @@ def subcommunity_talk_voting(request):
 
 def set_language(request):
     """
-    Redirect to a given url while setting the chosen language in the
-    session or cookie. The url and the language code need to be
-    specified in the request parameters.
-
-    Since this view changes how the user will see the rest of the site, it must
-    only be accessed as a POST request. If called as a GET request, it will
-    redirect to the page in the request (the 'next' parameter) without changing
-    any state.
+    Estende la funzione equivalente di Django applicando l'activate
+    necessario per evitare che il middleware di django CMS faccia
+    l'override della lingua
     """
-    next = request.REQUEST.get('next')
-    if not is_safe_url(url=next, host=request.get_host()):
-        next = request.META.get('HTTP_REFERER')
-        if not is_safe_url(url=next, host=request.get_host()):
-            next = '/'
-    response = http.HttpResponseRedirect(next)
+    response = set_language_django(request)
     if request.method == 'POST':
         lang_code = request.POST.get('language', None)
         if lang_code and check_for_language(lang_code):
-            if hasattr(request, 'session'):
-                request.session['django_language'] = lang_code
-            else:
-                response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
             activate(lang_code)
     return response
 
