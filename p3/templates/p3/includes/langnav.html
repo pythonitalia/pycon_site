@@ -6,10 +6,12 @@
 {% if current_language != language.0 %}
 <li class="main-navigation--lang lang{% if current_language = language.0 %} active{% endif %}">
 	{% language language.0 %}
-        {% if request.current_page %}
+        {% if request.current_page and request.current_page.get_slug != 'blog' %}
 	        <a href="{% page_language_url language.0 %}" title="{% trans 'Change to language:' %} {{ language.1 }}">{{ language.1 }}</a>
+        {% elif request.current_page and request.current_page.get_slug == 'blog' %}
+	        <a href="{% page_language_url language.0 %}" data-language="{{ language.0 }}" class="change-language" title="{% trans 'Change to language:' %} {{ language.1 }}">{{ language.1 }}</a>
         {% else %}
-	        <a href="#" data-language="{{ language.0 }}" class="change-language" title="{% trans 'Change to language:' %} {{ language.1 }}">{{ language.1 }}</a>
+	        <a href="{{ request.path_info }}" data-language="{{ language.0 }}" class="change-language" title="{% trans 'Change to language:' %} {{ language.1 }}">{{ language.1 }}</a>
         {% endif %}
 	{% endlanguage %}
 </li>
@@ -19,6 +21,8 @@
 
 {% addtoblock "script_ready" %}
     $('.change-language').on('click', function(e) {
+        e.preventDefault()
+        $("[name='next']", $("#language-form")).val($(this).attr('href'));
         $("[name='language']", $("#language-form")).val($(this).data('language'));
         $("#language-form").submit();
     });

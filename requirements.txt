@@ -20,7 +20,7 @@ Fabric
 django-crontab==0.4.2
 -e git+git://github.com/dcramer/django-paypal.git#egg=django-paypal
 django-cms==3.0.15
--e git+https://github.com/pythonitalia/microblog.git#egg=microblog
+-e git+https://github.com/pythonitalia/microblog.git@hotfix/language_change#egg=microblog
 -e git+https://github.com/pythonitalia/hcomments.git#egg=hcomments
 -e git+https://github.com/pythonitalia/conference.git#egg=conference
 -e git+https://github.com/pythonitalia/assopy.git#egg=assopy
