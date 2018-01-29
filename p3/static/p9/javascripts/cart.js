@@ -206,6 +206,7 @@
                     var total = e.data('total') + Number(value);
                     e.data('total', total);
                     e.children('b').html('€ ' + total.toFixed(2));
+                    $('#form-cart [type=submit]').removeAttribute('disabled');
                 }
                 $(data.tickets).each(function() {
                     var code = this[0];
@@ -269,7 +270,7 @@
             },
             error: function(response) {
                 var err = null;
-                if(response.status == 400) {
+                if(response.status === 400) {
                     try {
                         err = JSON.parse(response.responseText);
                     }
@@ -278,6 +279,7 @@
                 }
 
                 _clearTotals();
+                $('#form-cart [type=submit]').attr('disabled', 1);
                 if(err == null) {
                     //alert(response.responseText);
                     return;
