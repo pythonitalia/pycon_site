@@ -23,7 +23,7 @@ django-cms==3.0.15
 -e git+https://github.com/pythonitalia/hcomments.git#egg=hcomments
 -e git+https://github.com/pythonitalia/conference.git#egg=conference
 -e git+https://github.com/yakky/assopy.git@c020b96b920aa9f9b62e27df635ac05dd773ba13#egg=assopy
--e git+https://github.com/yakky/18app-python-sdk.git@b2a1ce22372b519778be966e361e57f60e215eda#egg=python_18app
+-e git+https://github.com/yakky/18app-python-sdk.git@9cf12260fd0c9ca708e2aeda8913c0f3de961efb#egg=python_18app
 BeautifulSoup==3.2.1
 django-markitup==2.2.2
 markdown2==2.3.0
