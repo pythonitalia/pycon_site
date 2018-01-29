@@ -263,7 +263,7 @@ def billing(request):
             if app18:
                 app18_value = voucher_spend(app18_client(), app18['code'])
                 if not app18_value:
-                    return HttpResponseRedirect('{}?app18_error=1' % reverse('p3-billing'))
+                    return HttpResponseRedirect('%s?app18_error=1' % reverse('p3-billing'))
 
             if totals['total'] == 0:
                 return HttpResponseRedirectSeeOther(reverse('assopy-tickets'))
