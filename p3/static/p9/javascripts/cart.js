@@ -206,7 +206,7 @@
                     var total = e.data('total') + Number(value);
                     e.data('total', total);
                     e.children('b').html('€ ' + total.toFixed(2));
-                    $('#form-cart [type=submit]').removeAttribute('disabled');
+                    $('#form-cart [type=submit]').removeAttr('disabled');
                 }
                 $(data.tickets).each(function() {
                     var code = this[0];
