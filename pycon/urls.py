@@ -30,7 +30,7 @@ urlpatterns = patterns('',
         name='sub_community-conference-voting'),
     (r'^conference/', include('conference.urls')),
     (r'^hcomments/', include('hcomments.urls')),
-    (r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^i18n/set_language/', 'p3.views.set_language', name="set_language"),
     url(r'^markitup/', include('markitup.urls'))
 )
 
