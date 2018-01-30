@@ -213,6 +213,7 @@ class FormTicket(forms.ModelForm):
     days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(),
                                      widget=forms.CheckboxSelectMultiple,
                                      help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
+    food_intolerance = forms.CharField(required=False, widget=forms.Textarea(attrs={'rows':3}))
 
     class Meta:
         model = models.TicketConference
