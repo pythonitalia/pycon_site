@@ -971,8 +971,6 @@ from django.core.files import storage
 
 SECURE_STORAGE = storage.FileSystemStorage(location=SECURE_MEDIA_ROOT,
                                            base_url=SECURE_MEDIA_URL)
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 
 if not SECRET_KEY:
     if not DEBUG:
