@@ -7,6 +7,7 @@
 {% endblock %}
 {% block EXTRA_HEAD %}
     {{ block.super }}
+    <link href="{{ post.get_absolute_url }}" rel="canonical" >
     {% if post.allow_comments %}
     <script type="text/javascript">//<![CDATA[
         $(function() {
