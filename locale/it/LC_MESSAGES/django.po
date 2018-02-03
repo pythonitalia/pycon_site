@@ -729,7 +729,7 @@ msgstr "Ordine completato"
 
 #: p3/templates/assopy/bank_feedback_ok.html:9
 msgid ""
-"Thank you for your order. You will receieve an email with all the details "
+"Thank you for your order. You will receive an email with all the details "
 "for the wire transfer."
 msgstr ""
 "Grazie per il tuo ordine. Stai per ricevere una email con tutti i dettagli "
