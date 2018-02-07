@@ -122,7 +122,7 @@
             if(title.length > 60) {
                 title = title.substring(0, 57) + '...';
             }
-            var tweet = 'Just voted ' + vote + '/10 "' + title + '" by ' + speaker + ' #europython';
+            var tweet = 'Just voted ' + vote + '/10 "' + title + '" by ' + speaker + ' @pyconit';
             RPXNOW.loadAndRun(['Social'], function () {
                 var activity = new RPXNOW.Social.Activity('Share your vote', tweet, url);
                 activity.setTitle('PyCon - Community voting');
@@ -130,7 +130,7 @@
                 {% url "conference-voting" as u %}
                 activity.addActionLink('Vote a talk', '{{ u|full_url }}');
                 var media = new RPXNOW.Social.ImageMediaCollection();
-                media.addImage('https://www.pycon.it/static/p8/images/apple-touch-icon.png', url);
+                media.addImage('https://www.pycon.it/media/filer_public/3c/6c/3c6c6ef0-c683-4228-bd37-0f68c6b2f795/logopycon.png', url);
                 activity.setMediaItem(media);
                 RPXNOW.Social.publishActivity(activity);
             });

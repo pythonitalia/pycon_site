@@ -23,7 +23,7 @@ TALK_SUBCOMMUNITY = (
     ('pybusiness', _('PyBusiness')),
     ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
-    ('django', _('DjangoVillage')),
+    ('django', _('PyWeb & DevOps')),
     ('pycon', _('Python & Friends')),
 )
 
@@ -63,7 +63,7 @@ TICKET_CONFERENCE_SHIRT_SIZES = (
 TICKET_CONFERENCE_DIETS = (
     ('omnivorous', _('Omnivorous')),
     ('vegetarian', _('Vegetarian')),
-    #('vegan', _('Vegan')),
+    ('vegan', _('Vegan')),
     #('kosher', _('Kosher')),
 )
 TICKET_CONFERENCE_EXPERIENCES = (
@@ -103,6 +103,7 @@ class TicketConference(models.Model):
     shirt_size = models.CharField(max_length=4, choices=TICKET_CONFERENCE_SHIRT_SIZES, default='l')
     python_experience = models.PositiveIntegerField(choices=TICKET_CONFERENCE_EXPERIENCES, default=0)
     diet = models.CharField(max_length=10, choices=TICKET_CONFERENCE_DIETS, default='omnivorous')
+    food_intolerance = models.TextField(null=True, default='', blank=True)
     tagline = models.CharField(
         max_length=60,
         blank=True,

@@ -29,6 +29,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': SITE_DATA_ROOT + '/p3.db',
+        'OPTIONS': {
+            'timeout': 10,
+        }
     }
 }
 
@@ -216,6 +219,8 @@ INSTALLED_APPS = (
     'paypal.standard.ipn',
     'filer',
     'easy_thumbnails',
+
+    'jobboard',
 
     'recaptcha_works',
     'django_crontab',

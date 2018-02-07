@@ -1,0 +1,78 @@
+{% extends "p3/base.html" %}
+{% load conference i18n p3 assopy_tags %}
+{% block EXTRA_HEAD %}
+    {% if form %}{{ form.media }}{% endif %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    {# Override CSS rule to allow typography & alignments   #}
+    <style type="text/css">
+        .profile-details .details-container dd {
+            margin-left: 20%;
+        }
+    </style>
+
+{% endblock %}
+
+{% block PAGE_TITLE %}Job Board{% endblock %}
+
+
+{% block MAIN_CONTENT %}
+    <section>
+        <div class="grid-container">
+            <div class="grid-76">
+
+                <h1>{% trans 'Job Offers' %}</h1>
+
+                <div class="blog-archive">
+                    <ul>
+                        {% for offer in object_list %}
+                            <li>
+
+                                <div class="microblog post-summary">
+                                    <h2 class="h4"><a title="Permalink a questa offerta" href="{% url 'job-detail' offer.slug %}">{{ offer.job_title }}</a></h2>
+                                    <div class="summary">
+                                        {{ offer.job_description|truncate_chars:150 }}
+                                    </div>
+{#                                    <div class="meta">#}
+{#                                        <b>{% trans 'Company: ' %}</b>{{ offer.company }}<br>#}
+{#                                        <b>{% trans 'Offer url: ' %}</b><a href="{{ offer.url }}">{{ offer.url }}</a>#}
+{#                                    </div>#}
+                                    <div class="all-tags" style="padding-top: 10px;">
+                                        {% for tag in offer.tags|split:"," %}
+                                            <span class="tag">{{ tag }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="summary" style="text-align: right;">
+                                        <a href="{% url 'job-detail' offer.slug %}" class="btn btn-small">{% trans 'Read more' %}<i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <hr>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+{#            <div class="grid-33">#}
+{#                <div id="blog-archives-browser">#}
+{##}
+{#                    <h3>Tags</h3>#}
+{##}
+{#                    <ul>#}
+{##}
+{#                        <li><a href="/it/blog/years/2014/">2014</a> (6)</li>#}
+{##}
+{#                        <li><a href="/it/blog/years/2015/">2015</a> (8)</li>#}
+{##}
+{#                        <li><a href="/it/blog/years/2016/">2016</a> (7)</li>#}
+{##}
+{#                        <li><a href="/it/blog/years/2017/">2017</a> (11)</li>#}
+{##}
+{#                        <li><a href="/it/blog/years/2018/">2018</a> (2)</li>#}
+{##}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+    </section>
+{% endblock %}

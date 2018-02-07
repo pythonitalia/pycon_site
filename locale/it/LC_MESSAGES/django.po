@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 14:49+0100\n"
+"POT-Creation-Date: 2018-01-30 14:47+0100\n"
 "PO-Revision-Date: 2017-12-10 23:24+0050\n"
 "Last-Translator: Carlo Miron <carlo@miron.it>\n"
 "Language-Team: it <pycon-organization@googlegroups.com>\n"
@@ -117,7 +117,7 @@ msgid "PyData"
 msgstr "PyData"
 
 #: p3/forms.py:41 p3/models.py:26
-msgid "DjangoVillage"
+msgid "PyWeb & DevOps"
 msgstr ""
 
 #: p3/forms.py:42 p3/models.py:27
@@ -191,12 +191,12 @@ msgid "I agree to let the organization record my talk and publish the video."
 msgstr ""
 "Autorizzo gli organizzatori a videoregistrare e pubblicare il mio intervento."
 
-#: p3/forms.py:101 p3/forms.py:207 p3/forms.py:302 p3/forms.py:395
+#: p3/forms.py:101 p3/forms.py:207 p3/forms.py:304 p3/forms.py:397
 #: p3/templates/conference/profile_bio_form.html:8
 msgid "Compact biography"
 msgstr "Breve biografia"
 
-#: p3/forms.py:102 p3/forms.py:208 p3/forms.py:303 p3/forms.py:396
+#: p3/forms.py:102 p3/forms.py:208 p3/forms.py:305 p3/forms.py:398
 msgid "Short biography (one or two paragraphs). Do not paste your CV"
 msgstr ""
 "Inserisci una breve biografia (uno o due paragrafi). Non incollare il tuo CV!"
@@ -239,35 +239,39 @@ msgstr ""
 "Il biglietto consente l'ingresso per tutti i giorni, ma questa informazione "
 "ci aiuterà a pianificare meglio."
 
-#: p3/forms.py:239
+#: p3/forms.py:216
+msgid "Food intolerance"
+msgstr "Intolleranze alimentari"
+
+#: p3/forms.py:241
 msgid "Days"
 msgstr "Giorni"
 
-#: p3/forms.py:307 p3/templates/conference/profile_publicdata_form.html:10
+#: p3/forms.py:309 p3/templates/conference/profile_publicdata_form.html:10
 msgid "Tagline"
 msgstr "Tagline"
 
-#: p3/forms.py:308
+#: p3/forms.py:310
 msgid "Describe yourself in one line"
 msgstr "Descriviti con una frase"
 
-#: p3/forms.py:419
+#: p3/forms.py:421
 msgid "no picture"
 msgstr "nessuna immagine"
 
-#: p3/forms.py:420
+#: p3/forms.py:422
 msgid "use gravatar"
 msgstr "usa il mio Gravatar"
 
-#: p3/forms.py:421
+#: p3/forms.py:423
 msgid "use url"
 msgstr "usa l'URL"
 
-#: p3/forms.py:422
+#: p3/forms.py:424
 msgid "upload file"
 msgstr "carica file"
 
-#: p3/forms.py:467
+#: p3/forms.py:469
 msgid ""
 "If you opt-in the privacy settings, we can send you important communications "
 "via SMS.<br />Use the international format, eg: +39-055-123456.<br/>This "
@@ -278,11 +282,11 @@ msgstr ""
 "comunicazioni importanti via SMS (non commerciali).<br/>Usa il formato "
 "internazionale: +39-347-1234567."
 
-#: p3/forms.py:472 p3/templates/assopy/profile_personal_data.html:29
+#: p3/forms.py:474 p3/templates/assopy/profile_personal_data.html:29
 msgid "Date of birth"
 msgstr "Data di nascita"
 
-#: p3/forms.py:473
+#: p3/forms.py:475
 msgid ""
 "We require date of birth for speakers to accomodate for Italian laws "
 "regarding minors.<br />Format: YYYY-MM-DD<br />This date will <i>never</i> "
@@ -292,44 +296,44 @@ msgstr ""
 ">Formato: AAAA-MM-GG<br/>La tua data di nascita non verrà <b>mai</b> "
 "pubblicata."
 
-#: p3/forms.py:491 p3/forms.py:502
+#: p3/forms.py:493 p3/forms.py:504
 msgid "This field is required for a speaker"
 msgstr "Questo campo è obbligatorio per gli speaker"
 
-#: p3/forms.py:516
+#: p3/forms.py:518
 msgid "Email already registered"
 msgstr "Email già registrata"
 
-#: p3/forms.py:520
+#: p3/forms.py:522
 msgid "I want to receive a few selected job offers through PyCon."
 msgstr "Voglio ricevere alcune proposte di lavoro selezionate attraverso PyCon"
 
-#: p3/forms.py:521
+#: p3/forms.py:523
 msgid "I want to receive private messages from other partecipants."
 msgstr ""
 "Autorizzo la ricezione di messaggi privati da parte di altri partecipanti"
 
-#: p3/forms.py:522
+#: p3/forms.py:524
 msgid "I want to receive SMS during the conference for main communications."
 msgstr "Voglio ricevere SMS durante la conferenza per comunicazioni importanti"
 
-#: p3/forms.py:619
+#: p3/forms.py:621
 msgid "Room sharing"
 msgstr "Room sharing"
 
-#: p3/forms.py:623
+#: p3/forms.py:625
 msgid "Full room"
 msgstr "Camera"
 
-#: p3/forms.py:683
+#: p3/forms.py:685
 msgid "Insert your discount code and save money!"
 msgstr "Inserisci il tuo codice sconto e risparmia!"
 
-#: p3/forms.py:718 p3/forms.py:722 p3/forms.py:724
+#: p3/forms.py:720 p3/forms.py:724 p3/forms.py:726
 msgid "invalid coupon"
 msgstr "coupon non valido"
 
-#: p3/forms.py:837
+#: p3/forms.py:839
 msgid "already booked"
 msgstr "già prenotato"
 
@@ -352,6 +356,10 @@ msgstr "Onnivoro"
 #: p3/models.py:65
 msgid "Vegetarian"
 msgstr "Vegeteriano"
+
+#: p3/models.py:66
+msgid "Vegan"
+msgstr "Vegano"
 
 #: p3/models.py:70
 msgid "0 stars"
@@ -377,7 +385,7 @@ msgstr "4 stelle"
 msgid "5 stars"
 msgstr "5 stelle"
 
-#: p3/models.py:109
+#: p3/models.py:110
 msgid ""
 "a (funny?) tagline that will be displayed on the badge<br />Eg. CEO of "
 "FooBar Inc.; Student at MIT; Super Python fanboy"
@@ -385,11 +393,11 @@ msgstr ""
 "Una tagline (anche divertente) che verrà scritta sul tuo badge<br/>Es: CEO, "
 "FooBar Srl; Studente al MIT; Super Python Fanboy"
 
-#: p3/models.py:111
+#: p3/models.py:112
 msgid "Days of attendance"
 msgstr "Giorni di presenza"
 
-#: p3/models.py:115
+#: p3/models.py:116
 msgid ""
 "A custom badge image instead of the python logo. Don't use a very large "
 "image, 250x250 should be fine."
@@ -397,31 +405,31 @@ msgstr ""
 "Un'immagine personalizzata al posto del logo di Python. Non usare "
 "un'immagine troppo grande, 250x250 dovrebbe andare bene."
 
-#: p3/models.py:146
+#: p3/models.py:147
 msgid "Standard SIM (USIM)"
 msgstr "SIM standard (USIM)"
 
-#: p3/models.py:147
+#: p3/models.py:148
 msgid "Micro SIM"
 msgstr "Micro SIM"
 
-#: p3/models.py:148
+#: p3/models.py:149
 msgid "Nano SIM"
 msgstr "Nano SIM"
 
-#: p3/models.py:151
+#: p3/models.py:152
 msgid "Standard Plan"
 msgstr "Piano standard"
 
-#: p3/models.py:152
+#: p3/models.py:153
 msgid "BlackBerry Plan"
 msgstr "Piano BlackBerry"
 
-#: p3/models.py:157 p3/models.py:393
+#: p3/models.py:158 p3/models.py:394
 msgid "ID Document"
 msgstr "Documento di identità"
 
-#: p3/models.py:161
+#: p3/models.py:162
 msgid ""
 "Italian regulations require a document ID to activate a phone SIM. You can "
 "use the same ID for up to three SIMs. Any document is fine (EU driving "
@@ -431,7 +439,7 @@ msgstr ""
 "telefonica. Puoi usare lo stesso documento per attivare fino a tre SIM. Va "
 "bene qualsiasi documento (patente europea, carta d'identità, ecc)."
 
-#: p3/models.py:166
+#: p3/models.py:167
 msgid ""
 "Select the SIM physical format. USIM is the sandard for most mobile phones; "
 "Micro SIM is notably used on iPad and iPhone 4; Nano SIM is used for the "
@@ -442,7 +450,7 @@ msgstr ""
 "iPhone4; Nano SIM funziona sugli smartphone di ultima generazione come "
 "l'iPhone 5"
 
-#: p3/models.py:171
+#: p3/models.py:172
 msgid ""
 "Standard plan is fine for all mobiles except BlackBerry that require a "
 "special plan (even though rates and features are exactly the same)."
@@ -450,52 +458,52 @@ msgstr ""
 "Il piano standard va bene per tutti i cellulari eccetto il BlackBerry che "
 "richiede un pino speciale (anche se prezzi e feature sono le medesime)"
 
-#: p3/models.py:173
+#: p3/models.py:174
 msgid "Telephone number"
 msgstr "Numero telefonico"
 
-#: p3/models.py:180
+#: p3/models.py:181
 msgid "first bookable day"
 msgstr ""
 
-#: p3/models.py:181
+#: p3/models.py:182
 msgid "last bookable day"
 msgstr ""
 
-#: p3/models.py:183
+#: p3/models.py:184
 msgid ""
 "suggested first bookable day (used in the cart as the default start day)"
 msgstr ""
 
-#: p3/models.py:185
+#: p3/models.py:186
 msgid "suggested last bookable day (used in the cart as the default last day)"
 msgstr ""
 
-#: p3/models.py:192
+#: p3/models.py:193
 msgid "Single room"
 msgstr "Camera singola"
 
-#: p3/models.py:193
+#: p3/models.py:194
 msgid "Double room"
 msgstr "Camera doppia"
 
-#: p3/models.py:194
+#: p3/models.py:195
 msgid "Triple room"
 msgstr "Camera tripla"
 
-#: p3/models.py:195
+#: p3/models.py:196
 msgid "Quadruple room"
 msgstr "Camera quadrupla"
 
-#: p3/models.py:387
+#: p3/models.py:388
 msgid "room shared"
 msgstr "Camera condivisa"
 
-#: p3/models.py:388
+#: p3/models.py:389
 msgid "room not shared"
 msgstr "Camera non condivisa"
 
-#: p3/models.py:397
+#: p3/models.py:398
 msgid ""
 "Italian regulations require a document ID to book an hotel room. Any "
 "document is fine (EU driving license, personal ID card, etc)."
@@ -504,15 +512,15 @@ msgstr ""
 "d'hotel. Va bene qualsiasi documento (passaporto europeo, carta d'identità, "
 "ecc)."
 
-#: p3/models.py:404
+#: p3/models.py:405
 msgid "Bed place not needed"
 msgstr "Posto letto non necessario"
 
-#: p3/models.py:405
+#: p3/models.py:406
 msgid "Check if you don't use this bed place."
 msgstr "Seleziona se non intendi utilizzare questo posto letto."
 
-#: p3/models.py:450
+#: p3/models.py:451
 msgid "describe yourself in one line!"
 msgstr "Descriviti con una frase"
 
@@ -721,7 +729,7 @@ msgstr "Ordine completato"
 
 #: p3/templates/assopy/bank_feedback_ok.html:9
 msgid ""
-"Thank you for your order. You will receieve an email with all the details "
+"Thank you for your order. You will receive an email with all the details "
 "for the wire transfer."
 msgstr ""
 "Grazie per il tuo ordine. Stai per ricevere una email con tutti i dettagli "
@@ -824,9 +832,8 @@ msgid "Orders, invoices &amp; coupons"
 msgstr "Ordini, fatture &amp; coupon"
 
 #: p3/templates/assopy/profile.html:23
-#, fuzzy
 msgid "Certicate of attendance"
-msgstr "Giorni di presenza"
+msgstr "Attestato di partecipazione"
 
 #: p3/templates/assopy/profile.html:35
 msgid "Web accounts for log in"
@@ -967,8 +974,8 @@ msgstr "Modifica"
 #: p3/templates/conference/profile_picture_form.html:30
 #: p3/templates/conference/profile_publicdata_form.html:106
 #: p3/templates/conference/talk.html:143
-#: p3/templates/p3/fragments/render_ticket.html:214
-#: p3/templates/p3/fragments/render_ticket.html:223
+#: p3/templates/p3/fragments/render_ticket.html:215
+#: p3/templates/p3/fragments/render_ticket.html:224
 msgid "Save"
 msgstr "Salva"
 
@@ -1115,9 +1122,8 @@ msgid "Missing stripe parameters. More details below:"
 msgstr ""
 
 #: p3/templates/assopy/stripe/checkout.html:74
-#, fuzzy
 msgid "Please enter your credit card details."
-msgstr "Non usare il tuo indirizzo email."
+msgstr "Inserisci i dati della carta di credito."
 
 #: p3/templates/assopy/stripe/checkout.html:83
 msgid "Card Number"
@@ -1144,9 +1150,8 @@ msgid "VAT inc."
 msgstr ""
 
 #: p3/templates/assopy/stripe/checkout.html:93
-#, fuzzy
 msgid "Submit Payment"
-msgstr "Proponi uno sprint"
+msgstr "Invia il pagamento"
 
 #: p3/templates/assopy/stripe/checkout.html:97
 msgid "Payment processed by Stripe.com"
@@ -1669,15 +1674,15 @@ msgstr ""
 msgid "19-22 aprile 2018"
 msgstr ""
 
-#: p3/templates/p3/base.html:185
+#: p3/templates/p3/base.html:188
 msgid "Please Donate"
 msgstr ""
 
-#: p3/templates/p3/base.html:205
+#: p3/templates/p3/base.html:208
 msgid "The safer, easier way to pay online!"
 msgstr ""
 
-#: p3/templates/p3/base.html:206
+#: p3/templates/p3/base.html:209
 msgid "Donate Now"
 msgstr ""
 

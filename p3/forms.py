@@ -41,7 +41,7 @@ TALK_SUBCOMMUNITY = (
     ('pybusiness', _('PyBusiness')),
     ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
-    ('django', _('DjangoVillage')),
+    ('django', _('PyWeb & DevOps')),
     ('pycon', _('Python & Friends')),
 )
 
@@ -216,6 +216,8 @@ class FormTicket(forms.ModelForm):
     days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(),
                                      widget=forms.CheckboxSelectMultiple,
                                      help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
+    food_intolerance = forms.CharField(label=_('Food intolerance'), required=False,
+                                       widget=forms.Textarea(attrs={'rows':3}))
 
     class Meta:
         model = models.TicketConference
@@ -740,6 +742,7 @@ class P3FormTickets(aforms.FormTickets):
             return None
         if data[0] == '_':
             raise forms.ValidationError(_('invalid coupon'))
+
         value = voucher_value(app18_client(), data)
         if not value:
             raise forms.ValidationError(_('invalid coupon'))

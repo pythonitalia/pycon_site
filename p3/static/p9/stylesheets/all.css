@@ -151,6 +151,8 @@ header { background: #262626; background-size: cover; }
 
 .event-date { color: white; text-transform: uppercase; margin-bottom: 0; }
 
+.branding-psa { color: #ccc; }
+
 footer a, h4 a { border-bottom: 0; }
 footer a:hover, h4 a:hover { border-bottom: 0; }
 
