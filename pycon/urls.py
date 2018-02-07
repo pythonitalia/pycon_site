@@ -31,7 +31,8 @@ urlpatterns = patterns('',
     (r'^conference/', include('conference.urls')),
     (r'^hcomments/', include('hcomments.urls')),
     url(r'^i18n/set_language/', 'p3.views.set_language', name="set_language"),
-    url(r'^markitup/', include('markitup.urls'))
+    url(r'^markitup/', include('markitup.urls')),
+    url(r'^jobs/', include('jobboard.urls'))
 )
 
 if settings.DEBUG:

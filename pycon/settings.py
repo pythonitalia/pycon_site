@@ -217,6 +217,8 @@ INSTALLED_APPS = (
     'filer',
     'easy_thumbnails',
 
+    'jobboard',
+
     'recaptcha_works',
     'django_crontab',
     'formstyle',
