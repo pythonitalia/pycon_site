@@ -81,3 +81,4 @@ tablib==0.11.3
 Unidecode==0.04.19
 wsgiref==0.1.2
 YURL==0.13
+django-summernote==0.6.1

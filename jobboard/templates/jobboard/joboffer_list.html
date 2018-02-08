@@ -31,12 +31,8 @@
                                 <div class="microblog post-summary">
                                     <h2 class="h4"><a title="Permalink a questa offerta" href="{% url 'job-detail' offer.slug %}">{{ offer.job_title }}</a></h2>
                                     <div class="summary">
-                                        {{ offer.job_description|truncate_chars:150 }}
+                                        {{ offer.job_description|truncate_chars:150|safe }}
                                     </div>
-{#                                    <div class="meta">#}
-{#                                        <b>{% trans 'Company: ' %}</b>{{ offer.company }}<br>#}
-{#                                        <b>{% trans 'Offer url: ' %}</b><a href="{{ offer.url }}">{{ offer.url }}</a>#}
-{#                                    </div>#}
                                     <div class="all-tags" style="padding-top: 10px;">
                                         {% for tag in offer.tags|split:"," %}
                                             <span class="tag">{{ tag }}</span>
@@ -52,27 +48,6 @@
                     </ul>
                 </div>
             </div>
-
-{#            <div class="grid-33">#}
-{#                <div id="blog-archives-browser">#}
-{##}
-{#                    <h3>Tags</h3>#}
-{##}
-{#                    <ul>#}
-{##}
-{#                        <li><a href="/it/blog/years/2014/">2014</a> (6)</li>#}
-{##}
-{#                        <li><a href="/it/blog/years/2015/">2015</a> (8)</li>#}
-{##}
-{#                        <li><a href="/it/blog/years/2016/">2016</a> (7)</li>#}
-{##}
-{#                        <li><a href="/it/blog/years/2017/">2017</a> (11)</li>#}
-{##}
-{#                        <li><a href="/it/blog/years/2018/">2018</a> (2)</li>#}
-{##}
-{#                    </ul>#}
-{#                </div>#}
-{#            </div>#}
         </div>
     </section>
 {% endblock %}
