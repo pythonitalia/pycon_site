@@ -216,6 +216,7 @@ INSTALLED_APPS = (
     'paypal.standard.ipn',
     'filer',
     'easy_thumbnails',
+    'django_summernote',
 
     'jobboard',
 
@@ -242,6 +243,7 @@ RECAPTCHA_OPTIONS = {
     # 'custom_translations': {},
     #'custom_theme_widget': None
 }
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -799,6 +801,34 @@ P3_LIVE_TRACKS = {
             'internal': 'live/pizzanapoli',
         }
     },
+}
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode
+    'iframe': False,  # or set False to use SummernoteInplaceWidget - no iframe mode
+
+    # Using Summernote Air-mode
+    'airMode': False,
+
+    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
+    # (Firefox, Chrome only)
+    'styleWithTags': True,
+
+    # Set text direction : 'left to right' is default.
+    'direction': 'ltr',
+
+    # Change editor size
+    'width': '100%',
+    'height': '480',
+
+
+    # Customize toolbar buttons
+    'toolbar': [
+        ['style', ['style']],
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'height']],
+        ['insert', ['link']],
+    ]
 }
 
 
