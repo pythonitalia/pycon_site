@@ -13,23 +13,8 @@ class JobsAdminForm(forms.ModelForm):
         }
 
 
-
 class JobsAdmin(admin.ModelAdmin):
     form = JobsAdminForm
-
-
-
-# class JobsAdminForm(forms.ModelForm):
-#     class Meta:
-#         model = models.JobOffer
-#         widgets = {
-#            'job_description_it': RedactorEditor(),
-#            'job_description_en': RedactorEditor(),
-#         }
-#
-#
-# class JobsAdmin(admin.ModelAdmin):
-#     form = JobsAdminForm
 
 
 admin.site.register(models.JobOffer, JobsAdmin)
