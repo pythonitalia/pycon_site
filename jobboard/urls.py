@@ -6,6 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 
 urlpatterns = patterns(
     'jobboard.views',
-    url('^board/list/$', view=JobList.as_view(), name='job_list'),
+    url('^$', view=JobList.as_view(), name='job_list'),
     url('detail/(?P<slug>[\w-]+)', JobDetail.as_view(), name='job-detail'),
 )
