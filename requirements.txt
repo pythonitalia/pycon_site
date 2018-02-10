@@ -26,7 +26,7 @@ django-markitup==2.2.2
 django-mptt==0.6.1
 django-page-cms==1.5.3
 django-pingback==0.3
-django-polymorphic>=0.7,<0.8
+django-polymorphic==0.7.2
 django-recaptcha-works==0.3.4
 django-rosetta==0.7.4
 django-sekizai==0.10.0
@@ -81,3 +81,4 @@ tablib==0.11.3
 Unidecode==0.04.19
 wsgiref==0.1.2
 YURL==0.13
+django-summernote==0.6.1
