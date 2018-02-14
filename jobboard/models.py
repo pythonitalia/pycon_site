@@ -49,7 +49,7 @@ class JobOffer(models.Model):
         return getattr(self, 'job_description_%s' % language, '')
 
     class Meta:
-        ordering = ['company']
+        ordering = ['pk']
 
     def __unicode__(self):
         return self.company
