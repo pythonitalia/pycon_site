@@ -11,6 +11,7 @@ class JobList(ListView):
         context = super(JobList, self).get_context_data(**kwargs)
         return context
 
+
 class JobDetail(DetailView):
     model = JobOffer
 
