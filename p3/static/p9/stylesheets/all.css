@@ -1,14 +1,14 @@
 @charset "UTF-8";
-/* 
+/*
 
 Built on Rock Hammer by Stuff and Nonsense
-URL: http://stuffandnonsense.co.uk/projects/rock-hammer/ 
+URL: http://stuffandnonsense.co.uk/projects/rock-hammer/
 
 */
-/* 
+/*
 
 Built on Rock Hammer by Stuff and Nonsense
-URL: http://stuffandnonsense.co.uk/projects/rock-hammer/ 
+URL: http://stuffandnonsense.co.uk/projects/rock-hammer/
 
 */
 @import url("//fonts.googleapis.com/css?family=Lato:300italic,700italic,300,400,400italic,700");
@@ -2825,5 +2825,43 @@ dt.toggle img, dt.tag-toggle img { vertical-align: middle; }
 dt.toggle + dd, dt.tag-toggle + dd { font-size: 14px; font-size: 1.4rem; color: #807c6f; margin: 0.75em 0 0 15px; }
 
 .async-feedback { display: none; position: fixed; top: 1.5em; left: 50%; right: 0; width: 50%; margin-left: -25%; text-align: center; }
+
+/* PyCon Nove app banner */
+
+.app_banner {
+  height: 100px;
+
+  padding: 20px;
+
+  background-image: linear-gradient(to bottom, #ff61c0, #ff4c71);
+
+  display: flex;
+}
+
+.app_banner__image {
+  height: 100%;
+  width: auto;
+}
+
+.app_banner__content {
+  margin-left: 10;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app_banner__title {
+  font-weight: normal;
+  font-family: "Roboto slab", Arial, serif;
+  font-size: 18px;
+  color: white;
+}
+
+@media (min-width: 700px) {
+  .app_banner {
+    display: none
+  }
+}
 
 /*# sourceMappingURL=all.css.map */
