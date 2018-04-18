@@ -904,7 +904,7 @@ msgid ""
 "know that you will be coming to this conference."
 msgstr ""
 "Fai sapere a tutti che verrai a PyCon: compila il tuo profilo e pubblicalo "
-"nella sezione \"<a href=\"%(url)s\">Scopri chi viene</a>"
+"nella sezione \"<a href=\"%(url)s\">Scopri chi viene</a>\""
 
 #: p3/templates/assopy/profile.html:161
 msgid "View your public profile"
