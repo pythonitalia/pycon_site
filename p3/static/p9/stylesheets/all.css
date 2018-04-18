@@ -2863,6 +2863,12 @@ dt.toggle + dd, dt.tag-toggle + dd { font-size: 14px; font-size: 1.4rem; color: 
   border: none;
 }
 
+.app_banner__link img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
 .app_banner__title {
   font-weight: normal;
   font-family: "Roboto slab", Arial, serif;
