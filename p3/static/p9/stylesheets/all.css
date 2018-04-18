@@ -2829,9 +2829,9 @@ dt.toggle + dd, dt.tag-toggle + dd { font-size: 14px; font-size: 1.4rem; color: 
 /* PyCon Nove app banner */
 
 .app_banner {
-  height: 100px;
+  height: 80px;
 
-  padding: 20px;
+  padding: 10px;
 
   background-image: linear-gradient(to bottom, #ff61c0, #ff4c71);
 
@@ -2844,17 +2844,29 @@ dt.toggle + dd, dt.tag-toggle + dd { font-size: 14px; font-size: 1.4rem; color: 
 }
 
 .app_banner__content {
-  margin-left: 10;
+  margin-left: 10px;
   display: flex;
 
   flex-direction: column;
   justify-content: space-between;
 }
 
+.app_banner__link {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app_banner__link a {
+  display: block;
+  width: 45%;
+  text-decoration: none;
+  border: none;
+}
+
 .app_banner__title {
   font-weight: normal;
   font-family: "Roboto slab", Arial, serif;
-  font-size: 18px;
+  font-size: 14px;
   color: white;
 }
 
