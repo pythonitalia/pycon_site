@@ -1504,8 +1504,8 @@ msgid "Startup"
 msgstr ""
 
 #: p3/templates/django_cms/p5_homepage.html:116
-msgid "Our Mediapartners"
-msgstr "Our Mediapartners"
+msgid "Our Media Partners"
+msgstr "Our Media Partners"
 
 #: p3/templates/django_cms/p5_homepage.html:151
 msgid "Scopri PyCon Italia"
