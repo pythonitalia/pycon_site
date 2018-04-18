@@ -98,14 +98,14 @@
 </head>
 <body id="{% block BODY_ID %}{% endblock %}" class="{% block body-class %}content-tpl{% endblock %}">
 <div class="app_banner">
-    <img class="app_banner__image" src="https://lh3.googleusercontent.com/1V5B__ftSTxqLi9Fn3b-GZf4zGu2_ROQTO7SSVMFN4GJrLOk77RbX6Lp_mSfciFdsnvO=s180-rw" />
+    <img class="app_banner__image" src="{{ STATIC_URL }}p9/images/banner/logo.png" />
 
     <div class="app_banner__content">
         <p class="app_banner__title">{% trans "Scarica l'app mobile" %}</p>
 
         <div class="app_banner__link">
-            <a href="https://play.google.com/store/apps/details?id=com.pyconotto.app"><img src="https://play.google.com/intl/en_us/badges/images/badge_new.png"></a>
-            <a href="https://itunes.apple.com/it/app/pycon9/id1210782249?mt=8"><img src="https://www.pycon.it/media/filer_public/36/b3/36b3339d-7e8c-44d5-a82d-0f1fdb619af5/iosapp.png" height="46" width="153"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.pyconotto.app"><img src="{{ STATIC_URL }}p9/images/banner/play.png"></a>
+            <a href="https://itunes.apple.com/it/app/pycon9/id1210782249?mt=8"><img src="{{ STATIC_URL }}p9/images/banner/appstore.png" height="46" width="153"></a>
         </div>
     </div>
 </div>
