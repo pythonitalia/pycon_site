@@ -2864,7 +2864,7 @@ dt.toggle + dd, dt.tag-toggle + dd { font-size: 14px; font-size: 1.4rem; color: 
 }
 
 .app_banner__link img {
-  height: 100%;
+  height: 30px;
   width: auto;
   max-width: none;
 }
