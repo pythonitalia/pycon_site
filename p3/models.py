@@ -49,16 +49,16 @@ class SpeakerConference(models.Model):
     first_time = models.BooleanField(default=False)
 
 TICKET_CONFERENCE_SHIRT_SIZES = (
-    ('fs', 'S (female)'),
-    ('fm', 'M (female)'),
-    ('fl', 'L (female)'),
-    ('fxl', 'XL (female)'),
-    ('fxxl', 'XXL (female)'),
-    ('s', 'S (male)'),
-    ('m', 'M (male)'),
-    ('l', 'L (male)'),
-    ('xl', 'XL (male)'),
-    ('xxl', 'XXL (male)'),
+    ('fs', 'S (stretch fit)'),
+    ('fm', 'M (stretch fit)'),
+    ('fl', 'L (stretch fit)'),
+    ('fxl', 'XL (stretch fit)'),
+    ('fxxl', 'XXL (stretch fit)'),
+    ('s', 'S (standard fit)'),
+    ('m', 'M (standard fit)'),
+    ('l', 'L (standard fit)'),
+    ('xl', 'XL (standard fit)'),
+    ('xxl', 'XXL (standard fit)'),
 )
 TICKET_CONFERENCE_DIETS = (
     ('omnivorous', _('Omnivorous')),
