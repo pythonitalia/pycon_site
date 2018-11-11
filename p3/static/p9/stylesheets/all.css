@@ -2833,7 +2833,7 @@ dt.toggle + dd, dt.tag-toggle + dd { font-size: 14px; font-size: 1.4rem; color: 
 
   padding: 10px;
 
-  background-image: linear-gradient(to bottom, #ff61c0, #ff4c71);
+  background-image: linear-gradient(to bottom, #f5cd73, #bc9d56);
 
   display: flex;
 }
