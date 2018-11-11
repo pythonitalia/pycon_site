@@ -97,6 +97,7 @@
     {% endblock %}
 </head>
 <body id="{% block BODY_ID %}{% endblock %}" class="{% block body-class %}content-tpl{% endblock %}">
+{% comment %}
 <div class="app_banner">
     <img class="app_banner__image" src="{{ STATIC_URL }}p9/images/banner/logo.png" />
 
@@ -109,6 +110,7 @@
         </div>
     </div>
 </div>
+{% endcomment %}
 {% cms_toolbar %}
 {% if request.toolbar.edit_mode %}<div class="draft"></div>{% endif %}
 <!--[if lt IE 8]>
