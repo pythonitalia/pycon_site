@@ -1671,7 +1671,7 @@ msgid "firenze"
 msgstr ""
 
 #: p3/templates/p3/base.html:148
-msgid "19-22 aprile 2018"
+msgid "2-5 maggio 2019"
 msgstr ""
 
 #: p3/templates/p3/base.html:188

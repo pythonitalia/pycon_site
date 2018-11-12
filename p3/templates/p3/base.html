@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
 <head>
     <meta charset="UTF-8" />
-    <title>{% block PAGE_TITLE %}{% if current_page %}{% page_attribute "title" %}{% endif %}{% endblock %} &middot; PyCon Nove &middot; Firenze, 19-22 Aprile 2018</title>
+    <title>{% block PAGE_TITLE %}{% if current_page %}{% page_attribute "title" %}{% endif %}{% endblock %} &middot; PyCon X &middot; Firenze, 2-5 Maggio 2019</title>
 
     {% block HEAD_VIEWPORT %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +32,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ STATIC_URL }}p9/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ STATIC_URL }}p9/images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ STATIC_URL }}p9/images/favicon/favicon-16x16.png">
-    <meta name="theme-color" content="#9af7eb">
+    <meta name="theme-color" content="#f5ce73">
 
     <!-- For all browsers -->
     <!--[if (gt IE 8) | (IEMobile)]><!-->
@@ -97,6 +97,7 @@
     {% endblock %}
 </head>
 <body id="{% block BODY_ID %}{% endblock %}" class="{% block body-class %}content-tpl{% endblock %}">
+{% comment %}
 <div class="app_banner">
     <img class="app_banner__image" src="{{ STATIC_URL }}p9/images/banner/logo.png" />
 
@@ -109,6 +110,7 @@
         </div>
     </div>
 </div>
+{% endcomment %}
 {% cms_toolbar %}
 {% if request.toolbar.edit_mode %}<div class="draft"></div>{% endif %}
 <!--[if lt IE 8]>
@@ -154,10 +156,10 @@
             <div class="grid-60 prefix-20">
                 <div class="branding">
                     <a href="/" title="Home">
-                        <img src="{{STATIC_URL}}p9/images/pycon_nove_logo.svg" alt="PyCon Nove">
+                        <img src="{{STATIC_URL}}p9/images/pycon_x_logo.svg" alt="PyCon X">
                     </a>
                     <p class="event-location">{% trans "firenze" %}</p>
-                    <p class="event-date">{% trans "19-22 aprile 2018" %}</p>
+                    <p class="event-date">{% trans "2-5 maggio 2019" %}</p>
                 </div>
                 <div class="branding-psa">
                     {% placeholder "psa" %}

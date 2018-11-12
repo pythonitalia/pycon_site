@@ -1636,8 +1636,8 @@ msgid "firenze"
 msgstr "Florence"
 
 #: p3/templates/p3/base.html:160
-msgid "19-22 aprile 2018"
-msgstr "19th - 22nd April 2018"
+msgid "2-5 maggio 2019"
+msgstr "2nd - 5th May 2019"
 
 #: p3/templates/p3/base.html:200
 msgid "Please Donate"
