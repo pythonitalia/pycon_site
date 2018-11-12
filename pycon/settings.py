@@ -199,7 +199,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
     'djangocms_grid',
-
+    'clear_cache',
     'cms',
     'menus',
     'sekizai',
