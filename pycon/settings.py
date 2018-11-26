@@ -29,6 +29,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': SITE_DATA_ROOT + '/p3.db',
+        'OPTIONS': {
+            'timeout': 10,
+        }
     }
 }
 
@@ -196,7 +199,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
     'djangocms_grid',
-
+    'clear_cache',
     'cms',
     'menus',
     'sekizai',
@@ -216,6 +219,9 @@ INSTALLED_APPS = (
     'paypal.standard.ipn',
     'filer',
     'easy_thumbnails',
+    'django_summernote',
+
+    'jobboard',
 
     'recaptcha_works',
     'django_crontab',
@@ -240,6 +246,7 @@ RECAPTCHA_OPTIONS = {
     # 'custom_translations': {},
     #'custom_theme_widget': None
 }
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -420,7 +427,7 @@ CONFERENCE_GOOGLE_MAPS = {
     'country': 'it',
 }
 
-CONFERENCE_CONFERENCE = 'pycon9'
+CONFERENCE_CONFERENCE = 'pycon10'
 CONFERENCE_SEND_EMAIL_TO = [ 'pycon-organization@googlegroups.com', 'pycon@lists.python.it']
 CONFERENCE_VOTING_DISALLOWED = 'https://www.pycon.it/voting-disallowed'
 
@@ -797,6 +804,34 @@ P3_LIVE_TRACKS = {
             'internal': 'live/pizzanapoli',
         }
     },
+}
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode
+    'iframe': False,  # or set False to use SummernoteInplaceWidget - no iframe mode
+
+    # Using Summernote Air-mode
+    'airMode': False,
+
+    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
+    # (Firefox, Chrome only)
+    'styleWithTags': True,
+
+    # Set text direction : 'left to right' is default.
+    'direction': 'ltr',
+
+    # Change editor size
+    'width': '100%',
+    'height': '480',
+
+
+    # Customize toolbar buttons
+    'toolbar': [
+        ['style', ['style']],
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'height']],
+        ['insert', ['link']],
+    ]
 }
 
 

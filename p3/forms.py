@@ -10,6 +10,9 @@ import assopy.forms as aforms
 import conference.forms as cforms
 import conference.models as cmodels
 
+from python_18app import voucher_value
+from assopy.clients.app18 import app18_client
+
 from p3 import dataaccess
 from p3 import models
 
@@ -38,7 +41,7 @@ TALK_SUBCOMMUNITY = (
     ('pybusiness', _('PyBusiness')),
     ('pydatabase', _('PyDatabase')),
     ('pydata', _('PyData')),
-    ('django', _('DjangoVillage')),
+    ('django', _('PyWeb & DevOps')),
     ('pycon', _('Python & Friends')),
 )
 
@@ -213,6 +216,8 @@ class FormTicket(forms.ModelForm):
     days = forms.MultipleChoiceField(label=_('Probable days of attendance'), choices=tuple(),
                                      widget=forms.CheckboxSelectMultiple,
                                      help_text=_('This ticket grants you full access to the conference. The above selection is just for helping out the organizers'),required=False)
+    food_intolerance = forms.CharField(label=_('Food intolerance'), required=False,
+                                       widget=forms.Textarea(attrs={'rows':3}))
 
     class Meta:
         model = models.TicketConference
@@ -685,6 +690,12 @@ class P3FormTickets(aforms.FormTickets):
         required=False,
         widget=forms.TextInput(attrs={'size': 10}),
     )
+    coupon_18app = forms.CharField(
+        label=_('Insert 18App coupon!'),
+        max_length=10,
+        required=False,
+        widget=forms.TextInput(attrs={'size': 10}),
+    )
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(P3FormTickets, self).__init__(*args, **kwargs)
@@ -723,6 +734,19 @@ class P3FormTickets(aforms.FormTickets):
         if not coupon.valid(self.user):
             raise forms.ValidationError(_('invalid coupon'))
         return coupon
+
+    def clean_coupon_18app(self):
+        data = self.cleaned_data.get('coupon_18app', '').strip()
+
+        if not data:
+            return None
+        if data[0] == '_':
+            raise forms.ValidationError(_('invalid coupon'))
+
+        value = voucher_value(app18_client(), data)
+        if not value:
+            raise forms.ValidationError(_('invalid coupon'))
+        return {'code': data, 'value': value}
 
     def _check_hotel_reservation(self, field_name):
         data = self.cleaned_data.get(field_name, [])

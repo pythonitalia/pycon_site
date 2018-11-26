@@ -179,7 +179,8 @@ def app_schedule_ics(request, conference):
             "GEO": "",
             "SUMMARY": e.__unicode__(),
             "ABSTRACT": abstract,
-            "STAR": e.pk in stars
+            "STAR": e.pk in stars,
+            "LANGUAGE": e.talk.language if e.talk else 'en',
         }
         events.append(event)
 

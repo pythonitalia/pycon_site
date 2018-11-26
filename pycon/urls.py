@@ -30,8 +30,10 @@ urlpatterns = patterns('',
         name='sub_community-conference-voting'),
     (r'^conference/', include('conference.urls')),
     (r'^hcomments/', include('hcomments.urls')),
-    (r'^i18n/', include('django.conf.urls.i18n')),
-    url(r'^markitup/', include('markitup.urls'))
+    url(r'^i18n/set_language/', 'p3.views.set_language', name="set_language"),
+    url(r'^markitup/', include('markitup.urls')),
+    url(r'^jobs/', include('jobboard.urls')),
+    url(r'^summernote/', include('django_summernote.urls')),
 )
 
 if settings.DEBUG:
@@ -44,6 +46,7 @@ if settings.DEBUG:
 urlpatterns += i18n_patterns('',
     url(r'^', include('cms.urls')),
 )
+
 
 from django.conf import settings
 if hasattr(settings, 'ROSETTA_AFTER_SAVE'):

@@ -156,8 +156,7 @@
             url: '/p3/cart/calculator/',
             dataType: 'json',
             success: function(data, text, jqHXR) {
-                _clearTotals()
-
+                _clearTotals();
                 /*
                  * data contiene il totale generale, lo sconto ottenuto tramite
                  * coupon e il dettaglio dei costi dei singoli biglietti
@@ -169,6 +168,17 @@
                 }
                 else {
                     feedback.css('display', 'none');
+                }
+                var feedback18app = $('.coupon_18app .total');
+                if (data.app18) {
+                    feedback18app.css('display', 'inline');
+                    feedback18app.find('b').html('€ ' + (-data.app18[0] || 0));
+                }
+                else {
+                    feedback18app.css('display', 'none');
+                }
+                if($('#id_coupon_18app').siblings('.errors').length > 0) {
+                    $('#id_coupon_18app').siblings('.errors').remove();
                 }
                 $('.grand.total b', form).html('€ ' + (data.total || 0));
                 $('.hotel-reservations td[data-fare]', form).next().html('');
@@ -196,6 +206,7 @@
                     var total = e.data('total') + Number(value);
                     e.data('total', total);
                     e.children('b').html('€ ' + total.toFixed(2));
+                    $('#form-cart [type=submit]').removeAttr('disabled');
                 }
                 $(data.tickets).each(function() {
                     var code = this[0];
@@ -259,7 +270,7 @@
             },
             error: function(response) {
                 var err = null;
-                if(response.status == 400) {
+                if(response.status === 400) {
                     try {
                         err = JSON.parse(response.responseText);
                     }
@@ -268,6 +279,7 @@
                 }
 
                 _clearTotals();
+                $('#form-cart [type=submit]').attr('disabled', 1);
                 if(err == null) {
                     //alert(response.responseText);
                     return;
@@ -299,6 +311,12 @@
                 }
                 for(var fname in err) {
                     switch(fname) {
+                        case 'coupon_18app':
+                            if($('#id_coupon_18app').siblings('.errors').length === 0) {
+                                $('<div class="errors"></div>')
+                                    .insertAfter($('#id_coupon_18app'))
+                                    .html(err[fname][0]);
+                            }
                         case 'bed_reservations':
                         case 'room_reservations':
                             var type = fname.split('_')[0];
@@ -322,7 +340,7 @@
     function setup_cart_input(inputs) {
         inputs
             .change(calcTotal)
-            .not('[name=coupon]')
+            .not('[name=coupon],[name=coupon_18app]')
             .keypress(function(e) {
                 if((e.which < 48 || e.which > 57) && e.which != 13 && e.which != 0 && e.which != 8) {
                     e.preventDefault()

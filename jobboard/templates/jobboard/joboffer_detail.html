@@ -1,0 +1,50 @@
+{% extends "p3/base.html" %}
+{% load conference i18n p3 assopy_tags %}
+{% block EXTRA_HEAD %}
+    {% if form %}{{ form.media }}{% endif %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <style>
+        .backarrow {
+            text-decoration:none!important;
+            border-bottom: none!important;
+        }
+        .backarrow:hover {
+            color: #f5ce73;
+        }
+    </style>
+{% endblock %}
+
+{% block PAGE_TITLE %}Job Board{% endblock %}
+
+
+{% block MAIN_CONTENT %}
+    <section>
+        <div class="grid-container">
+            <div class="grid-66">
+
+                <h1><a class="backarrow" href="{% url 'job_list' %}"><i class="fa fa-long-arrow-left"></i> </a>{% trans 'Job Offer Detail' %}</h1>
+                <hr>
+                <div class="blog-archive">
+                    <h3>{{ object.job_title }}</h3>
+                    <div>
+                        {{ object.job_description|safe }}
+                    </div>
+                    <hr>
+                    <a class="btn btn-small" href="{{ object.url }}" target="_blank">{% trans 'More info here' %}<i class="fa fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="grid-33">
+                <div id="blog-archives-browser" style="text-align: center">
+                    <h3>{{ object.company }}</h3>
+                    <span><img src="{{ MEDIA_URL }}{{ object.logo }}" width="200"></span>
+                    <div class="all-tags" style="padding-top: 10px;">
+                        {% for tag in object.tags|split:"," %}
+                            <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+
 class RisingResponse(object):
     """
     Questo middleware permette ad una vista di chiamare `RisingResponse.stop()`

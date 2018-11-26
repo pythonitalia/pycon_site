@@ -57,6 +57,17 @@
                             <td>€ {{ price|floatformat:"2" }}</td>
                         </tr>
                         {% endfor %}
+                        {% if totals.app18 and totals.app18.0 %}
+                        <tr>
+                            <td colspan="2">
+                                {% trans "Voucher 18 app" %}
+                                {% if request.GET.app18_error == "1" %}
+                                    &ndash; {% trans "Error has occurred during voucher validation, please retry" %}
+                                {% endif %}
+                            </td>
+                            <td>€ {{ totals.app18.0|floatformat:"2" }}</td>
+                        </tr>
+                        {% endif %}
                         <tr>
                             <td colspan="2" style="text-align: right">{% trans "Total" %}</td>
                             <td>€ <b>{{ totals.total|floatformat:"2" }}</b></td>
