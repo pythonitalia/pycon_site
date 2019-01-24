@@ -1875,7 +1875,7 @@ msgid "Add another"
 msgstr ""
 
 #: p3/templates/p3/cart.html:185
-msgid "Hotel reservations total (inc. VAT & city tax)"
+msgid "Hotel reservations total (inc. VAT)"
 msgstr ""
 
 #: p3/templates/p3/cart.html:188
