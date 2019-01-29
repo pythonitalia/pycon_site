@@ -3,6 +3,15 @@
 {% block BODY_ID %}home{% endblock %}
 {% block body-class %}home-tpl{% endblock %}
 
+{% block EXTRA_HEAD %}
+<style>
+.sponsor svg {
+    width: 190px;
+    height: auto;
+}
+</style>
+{% endblock %}
+
 {% block TEASER %}
     <section class="bg-red">
         <div class="grid-container">
@@ -118,7 +127,13 @@
                 {% for s in mediapartner %}
                     <div class="grid-33">
                         <div class="sponsor">
-                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" /></a>
+                            <a href="{{ s.url }}">
+                            {% if s.svg %}
+                                {{ s.svg|safe }}
+                            {% else %}
+                                <img src="{{ s.logo|image_resized }}" alt="{{ s.partner }}" title="{{ s.partner }}" width="190" height="90" />
+                            {% endif %}
+                            </a>
                         </div>
                     </div><!-- /grid -->
                 {% endfor %}
