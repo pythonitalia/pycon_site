@@ -342,6 +342,51 @@ header {
     }
 }
 
+.sponsor-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.sponsor-centered {
+	text-align: center;
+}
+
+.sponsor-100 {
+	min-width: 100%;
+}
+
+.sponsor-keystone {
+	width: 25%;
+}
+
+.sponsor-gold {
+	width: 25%;
+}
+
+.sponsor-silver {
+	width: 25%;
+}
+
+.sponsor-bronze {
+	width: 25%;
+}
+
+.sponsor-patron {
+	min-width: 25%;
+	max-width: 50%;
+}
+
+.sponsor-diversity {
+	min-width: 25%;
+	max-width: 50%;
+}
+
+.sponsor-startup {
+	min-width: 25%;
+	max-width: 100%;
+}
+
 .join-us {
     background-color: #202020;
     .help-text {

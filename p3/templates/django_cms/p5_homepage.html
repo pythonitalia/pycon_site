@@ -67,18 +67,22 @@
         {% conference_sponsor as sponsors %}
         {%if sponsors %}
         <section>
-            <div class="grid-container">
-                <div class="grid-100">
+            <div class="grid-container justify-content-center sponsor-container">
+                <div class="sponsor-100">
                     <h2 class="border-title">{% trans 'Our Sponsors' %}</h2>
                 </div>
-                {% for s in sponsors %}
-                    <div class="grid-25">
-                        <div class="sponsor">
-                            <a href="{{ s.url }}"><img src="{{ s.logo|image_resized }}" alt="{{ s.alt_text }}" title="{% firstof s.title_text s.sponsor %}" width="190" height="90" /></a>
-                        </div>
-                    </div><!-- /grid -->
-                {% endfor %}
-                <div class="grid-25">
+                {% for group, spons in sponsors|sponsor_order:"keystone,gold,silver,bronze,patron,diversity,startup" %}
+				<div class="sponsor-{{ group }} sponsor-centered">
+					<h6>{{ group }}</h6>
+					{% for s in spons %}
+					<!--<span class="sponsor"> -->
+							<a href="{{ s.url }}">
+					<img src="{{ s.logo|image_resized }}" alt="{{ s.alt_text }}" title="{% firstof s.title_text s.sponsor %}" /></a>
+							<!--</span>-->
+					{% endfor %}
+                </div>
+				{% endfor %}
+                <div class="sponsor-100">
                     <div class="sponsor sponsor-wanted">
                         <a href="{% page_url 'sponsor' %}">{% trans 'Become a sponsor' %}</a>
                     </div>
