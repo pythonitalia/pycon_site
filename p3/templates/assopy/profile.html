@@ -2,7 +2,7 @@
 {% load assopy_tags i18n p3 static %}
 {% block ASSOPY_EXTRA_HEAD %}
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-    <script src="{% static 'p9/javascripts/pdfgenerator/cert_of_attendance_obf.js' %}"></script>
+    <script src="{% static 'p9/javascripts/pdfgenerator/src/certificate_of_attendance.js' %}"></script>
     <script src="{% static 'p9/javascripts/pdfgenerator/images.js' %}"></script>
 {% endblock %}
 {% block PAGE_TITLE %}{% trans 'Your profile' %}{% endblock %}
@@ -20,7 +20,7 @@
             <li><a data-toggle="tab" href="#account-spam-control">{% trans "Privacy settings" %}</a></li>
             <li><a data-toggle="tab" href="#account-login-options">{% trans "Login options" %}</a></li>
             <li><a data-toggle="tab" href="#account-orders">{% trans "Orders, invoices &amp; coupons" %}</a></li>
-            <li><a data-toggle="tab" href="#cert-participation">{% trans "Certicate of attendance" %}</a></li>
+            <li><a data-toggle="tab" href="#cert-participation">{% trans "Certificate of attendance" %}</a></li>
         </ul>
 
         <div class="tab-content">
