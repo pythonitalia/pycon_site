@@ -404,6 +404,33 @@ def com_com_registration(user):
         params[k] = v.encode('utf-8')
     return url + urllib.urlencode(params)
 
+
+@register.filter
+def sponsor_order(sponsors, levels):
+    levels = levels.split(',')
+    def _sponsor_level_key(s):
+        """Return position of sponsor class in levels list."""
+        # List of tag positions in _sponsor_levels
+        keys = [len(levels)-1]  # Default, when no tags are found
+        for t in (t.lower() for t in s['tags']):
+            try:
+                keys.append(levels.index(t))
+            except ValueError:
+                pass
+        return sorted(keys)[0]  # Get lowest position in the levels list
+
+    def get_first(x):  # itemgetter(0)
+        return x[0]
+
+    groups = []
+    pairs = ((_sponsor_level_key(s), s) for s in sponsors)
+    # Iterate sponsors grouped by level
+    for pos, spons in groupby(sorted(pairs, key=get_first), get_first):
+        # Append group of sponsors and their level (last level is the default)
+        groups.append((levels[pos], [s[1] for s in spons]))
+    return groups
+
+
 @register.inclusion_tag('p3/box_next_events.html', takes_context=True)
 def box_next_events(context):
     from conference.templatetags import conference as ctags
