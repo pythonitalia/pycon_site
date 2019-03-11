@@ -659,8 +659,6 @@ def p3_voting_data(conference):
 def get_latest_conf_deadline(context, limit=None, not_expired=True):
     try:
         conf = ConferenceModels.Conference.objects.latest('conference_end')
-        print(conf)
-        print(conf.name, conf.code, conf.conference_start, conf.conference_end, datetime.today().date())
         return [conf.name, conf.code, conf.conference_start, conf.conference_end, datetime.today().date()]
     except IndexError:
         return []
