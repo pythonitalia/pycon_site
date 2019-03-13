@@ -43,7 +43,7 @@ easy-thumbnails==2.2
 -e git+https://github.com/pythonitalia/hcomments.git@4ec18851a377cc5ec6a59fe20dc561d77d476712#egg=hcomments-master
 -e git+https://github.com/pythonitalia/microblog.git@201633c4fae5c859ed7d8a53480b82d9075e765f#egg=microblog-master
 -e git+https://github.com/yakky/18app-python-sdk.git@9cf12260fd0c9ca708e2aeda8913c0f3de961efb#egg=python_18app
--e git+https://github.com/yakky/assopy.git@b2a1ce22372b519778be966e361e57f60e215eda#egg=assopy
+-e git+https://github.com/pythonitalia/assopy.git@c9363ed534a248296361b11911296f0374588bbf#egg=assopy
 enum34==1.1.6
 Fabric==1.13.1
 fancy-tag==0.2.0
