@@ -40,6 +40,15 @@ needed thing is to create the directory where the db will be placed::
     >>> ./manage.py migrate
 
 
+COMPILE CSS
+===========
+
+* make sure you have sass installed
+* cd to stylesheets directory: ``cd p3/static/p9``
+* run ``make update``
+* commit compiled css files
+ 
+
 DEPLOY
 ======
 
