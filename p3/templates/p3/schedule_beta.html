@@ -1,0 +1,260 @@
+{% extends "p3/base.html" %}
+{% load p3 conference assopy_tags i18n %}
+
+{% block PAGE_TITLE %}{% trans "Schedule" %}{% endblock %}
+
+{% block BODY_ID %}schedule{% endblock %}
+
+{% block MAIN_CONTENT %}
+{% schedules_data sids as schedules %}
+
+<style>
+.new_schedule {
+    overflow: scroll;
+}
+
+.new_schedule__row {
+    width: calc((100vw + 20px) * 7);
+}
+
+.new_schedule__time {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
+.new_schedule__talk {
+    --base-width: calc(100vw - 20px);
+    --multiplier: 1;
+    width: calc(var(--base-width) * var(--multiplier) - 20px);
+    display: inline-block;
+    height: 200px;
+    border: 1px solid purple;
+    margin: 10px;
+    vertical-align: top;
+    position: relative;
+}
+
+.new_schedule__talk--length-2 {
+    --multiplier: 2;
+}
+
+.new_schedule__talk--length-3 {
+    --multiplier: 3;
+}
+
+.new_schedule__talk--length-4 {
+    --multiplier: 4;
+}
+
+.new_schedule__talk--length-5 {
+    --multiplier: 5;
+}
+
+.new_schedule__talk--length-6 {
+    --multiplier: 6;
+}
+
+.new_schedule__talk--length-7 {
+    --multiplier: 7;
+}
+
+.new_schedule__row--length-1 .new_schedule__talk--length-1 {
+    --multiplier: 7;
+}
+
+@media (min-width: 600px) {
+    .new_schedule__talk {
+        --base-width: 150px;
+    }
+}
+
+.new_schedule__day {
+    display: flex;
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+}
+
+.new_schedule__day > :first-child {
+    position: sticky;
+    left: 0;
+    z-index: 10;
+    background: white;
+}
+
+.new_schedule__day__grid {
+    --cols: 1;
+    --rows: 1;
+    --height: 15px;
+    --min-width: calc(100vw - 60px);
+
+    display: grid;
+    grid-template-columns: repeat(var(--cols), minmax(var(--min-width), 1fr));
+    grid-template-rows: repeat(var(--rows), var(--height));
+    grid-gap: 5px;
+}
+
+.new_schedule__day__grid--header {
+    --height: 50px;
+}
+
+.new_schedule__day__grid--header > div {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d4d2cd;
+}
+
+.new_schedule__day__grid--sidebar {
+    grid-template-columns: 50px;
+    margin-right: 5px;
+}
+
+.new_schedule__day__grid--sidebar {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+.new_schedule__day__grid > div {
+    {% comment %} border: 1px solid red; {% endcomment %}
+}
+
+.new_schedule__day__talk_title {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.new_schedule__day__talk_title .language {
+    width: 20px;
+    height: auto;
+}
+
+.new_schedule__day__talk_speakers {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.new_schedule__day__talk {
+    --level-color: gray;
+
+    background: #EFECDF;
+    position: relative;
+}
+
+.new_schedule__day__talk::after {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    background: var(--level-color);
+}
+
+.talk-level--beginner {
+    --level-color: #738023;
+}
+
+.talk-level--intermediate {
+    --level-color: #e7c30f;
+}
+
+.talk-level--advanced {
+    --level-color: #DA2300;
+}
+
+.new_schedule__day__inner {
+    width: 100%;
+    max-width: calc(100vw - 60px);
+    padding: 0 10px;
+}
+
+@media (min-width: 600px) {
+    .new_schedule__day__grid {
+        --min-width: 150px;
+    }
+}
+</style>
+
+
+<div class="new_schedule">
+{% for day in days %}
+{% with schedules|attrib_:forloop.counter0 as sdata %}
+<h2>{{ sdata.date|date:"l, j F Y" }}</h2>
+<div class="new_schedule__day">
+    <div>
+        <div class="new_schedule__day__grid new_schedule__day__grid--header new_schedule__day__grid--sidebar" style="--cols: 1; --rows: 1;">
+            <div style="background: white;"></div>
+        </div>
+
+        <div class="new_schedule__day__grid new_schedule__day__grid--sidebar" style="--cols: 1; --rows: {{ day.rows }};">
+            {% for time in day.grid_times %}
+                <div style="
+                    grid-row: {{ time.start_row }} / {{ time.end_row }};
+                    grid-column: 1 / 1;
+                ">
+                    {{ time.time|date:"H:i" }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div>
+        <div class="new_schedule__day__grid new_schedule__day__grid--header" style="--cols: {{ day.cols }}; --rows: 1;">
+            {% for track in day.tracks %}
+                <div>{{ sdata.tracks|attrib_:track|attrib_:"title"|safe }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="new_schedule__day__grid" style="--cols: {{ day.cols }}; --rows: {{ day.rows }};">
+            {% for talk in day.talks %}
+                <div
+                    class="new_schedule__day__talk {% if talk.level %}talk-level--{{ talk.level }}{% endif %}"
+                    style="
+                        grid-row: {{ talk.start_row }} / {{ talk.end_row }};
+                        grid-column: {{ talk.start_column }} / {{ talk.end_column }};
+                    "
+                >
+                    <div class="new_schedule__day__inner">
+                        <div class="new_schedule__day__talk_speakers">
+                            {% for s in talk.speakers %}
+                                <a href="{% url "conference-profile" slug=s.slug %}">{{ s.name|name_abbrv }}</a>{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="new_schedule__day__talk_title">
+                            {% if talk.language == "en" %}
+                                <img src="{{ STATIC_URL }}p9/images/english-flag.png" class="language" />
+                            {% endif %}
+                            {% comment %} <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a> {% endcomment %}
+
+                            {{ talk.title|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endwith %}
+{% endfor %}
+
+<script>
+{% if request.user.is_authenticated %}
+    {% user_votes as votes %}
+    user.votes = {{ votes|json_ }};
+    {% user_events_interest as einterests %}
+    user.interest = {{ einterests|json_ }};
+{% else %}
+    user.votes = {};
+    user.interest = {};
+{% endif %}
+</script>
+<script src="{{ STATIC_URL }}p9/javascripts/schedule.js"></script>
+{% endblock %}

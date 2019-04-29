@@ -2,6 +2,7 @@
 import datetime
 import json
 from base64 import b64decode
+from datetime import timedelta
 from assopy.views import render_to_json
 from collections import defaultdict
 from conference import models as cmodels
@@ -109,6 +110,131 @@ def _conference_timetables(conference):
     schedules = schedules_data(sids)
     tts = _build_timetables(schedules, partner=partner)
     return tts
+
+
+def _get_time_indexes(start_time, end_time, times):
+    for index, time in enumerate(times):
+        end_time_index = index
+
+        if time > end_time:
+            break
+
+    start = times.index(start_time) + 1
+    end = end_time_index
+
+    return start, end
+
+
+def schedule_beta(request, conference):
+    """New version of the schedule.
+
+    Code is quite messy, the way it works is by using the previous
+    data structure and converting it to something that can be used
+    with css-grid."""
+
+    tts = _conference_timetables(conference)
+
+    days = []
+
+    for id, timetable in tts:
+        times = []
+        tracks = timetable._tracks
+        talks = []
+
+        all_times = set()
+
+        for time, talks_for_time in timetable.iterOnTimes():
+            times.append(time)
+            all_times.add(time)
+
+            for talk in talks_for_time:
+                all_times.add(talk['end_time'])
+
+        all_times = sorted(list(all_times))
+
+        new_times = []
+        start = all_times[0]
+        end = all_times[-1]
+
+        while start <= end:
+            new_times.append(start)
+            start += timedelta(minutes=5)
+
+        all_times = new_times
+
+        seen = set()
+        for time, talks_for_time in timetable.iterOnTimes():
+            for talk in talks_for_time:
+                if talk['id'] in seen:
+                    continue
+
+                seen.add(talk['id'])
+
+                start_row, end_row = _get_time_indexes(
+                    talk['time'],
+                    talk['end_time'],
+                    all_times
+                )
+
+                talk_meta = talk.get('talk', {}) or {}
+
+                t = {
+                    'title': talk.get('custom', '') or talk.get('name', ''),
+                    'id': talk['id'],
+                    'tracks': talk['tracks'],
+                    'start': time,
+                    'end': talk['end_time'],
+                    'start_column': tracks.index(talk['tracks'][0]) + 1,
+                    'end_column': tracks.index(talk['tracks'][-1]) + 2,
+                    'start_row': start_row,
+                    'end_row': end_row,
+                    'language': talk_meta.get('language', None),
+                    'level': talk_meta.get('level', None),
+                    'speakers': talk_meta.get('speakers', []),
+                }
+
+                talks.append(t)
+
+        grid_times = []
+
+        for index, time in enumerate(times[:-1]):
+            next_time = times[index + 1]
+
+            start_row, end_row = _get_time_indexes(
+                time,
+                next_time,
+                all_times
+            )
+
+            grid_times.append({
+                'time': time,
+                'start_row': start_row,
+                'end_row': end_row,
+            })
+
+        grid_times.append({
+            'time': times[-1],
+            'start_row': end_row,
+            'end_row': len(all_times),
+        })
+
+        days.append({
+            'times': all_times,
+            'grid_times': grid_times,
+            'rows': len(all_times),
+            'cols': len(tracks),
+            'tracks': tracks,
+            'talks': talks
+        })
+
+    ctx = {
+        'conference': conference,
+        'sids': [ x[0] for x in tts ],
+        'timetables': tts,
+        'days': days,
+    }
+
+    return render(request, 'p3/schedule_beta.html', ctx)
 
 def schedule(request, conference):
     tts = _conference_timetables(conference)
