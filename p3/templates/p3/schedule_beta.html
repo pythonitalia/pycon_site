@@ -171,8 +171,22 @@
 
 .new_schedule__day__inner {
     width: 100%;
+    height: 100%;
     max-width: calc(100vw - 60px);
-    padding: 0 10px;
+    padding: 0 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new_schedule__day__footer {
+    margin-top: auto;
+}
+
+.new_schedule__day__footer button {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 @media (min-width: 600px) {
@@ -229,13 +243,36 @@
                         </div>
 
                         <div class="new_schedule__day__talk_title">
+                            {% if talk.slug %}
+                            <a href="{% url "conference-talk" slug=talk.slug %}">
+                            {% endif %}
+
                             {% if talk.language == "en" %}
                                 <img src="{{ STATIC_URL }}p9/images/english-flag.png" class="language" />
                             {% endif %}
                             {% comment %} <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a> {% endcomment %}
 
                             {{ talk.title|safe }}
+
+                            {% if talk.slug %}
+                            </a>
+                            {% endif %}
                         </div>
+
+                        {% if talk.can_be_starred %}
+                        <div class="new_schedule__day__footer">
+                            <button
+                                data-url="/conference/schedule/{{ conference }}/{{ sdata.slug }}/{{ talk.id }}/interest" class="star"
+                                class="{% if talk.starred %}active{% endif %}"
+                            >
+                                {% if talk.starred %}
+                                    ⭐
+                                {% else %}
+                                    ☆
+                                {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -256,5 +293,36 @@
     user.interest = {};
 {% endif %}
 </script>
-<script src="{{ STATIC_URL }}p9/javascripts/schedule.js"></script>
+{% comment %} <script src="{{ STATIC_URL }}p9/javascripts/schedule.js"></script> {% endcomment %}
+
+<script>
+jQuery(function($) {
+    $('.new_schedule__day__footer button.star')
+        .bind('click', function(ev) {
+            var e = $(this);
+            var url = e.data('url');
+            var val = e.hasClass('active') ? -1 : 1;
+
+            e.text('loading...')
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    interest: val
+                },
+                success: function() {
+                    if (val === 1) {
+                        e.addClass('active');
+                        e.text('⭐')
+                    } else {
+                        e.removeClass('active');
+                        e.text('☆')
+                    }
+                }
+            });
+            return false;
+        });
+});
+</script>
 {% endblock %}

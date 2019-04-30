@@ -136,6 +136,19 @@ def schedule_beta(request, conference):
 
     days = []
 
+    starred_talks_ids = []
+
+    if request.user.is_authenticated():
+        starred_talks_ids = (
+            cmodels.Event.objects
+            .filter(
+                eventinterest__user=request.user,
+                eventinterest__interest__gt=0
+            )
+            .filter(schedule__conference=conference)
+            .values_list('id', flat=True)
+        )
+
     for id, timetable in tts:
         times = []
         tracks = timetable._tracks
@@ -181,6 +194,7 @@ def schedule_beta(request, conference):
                 t = {
                     'title': talk.get('custom', '') or talk.get('name', ''),
                     'id': talk['id'],
+                    'starred': talk['id'] in starred_talks_ids,
                     'tracks': talk['tracks'],
                     'start': time,
                     'end': talk['end_time'],
@@ -188,9 +202,11 @@ def schedule_beta(request, conference):
                     'end_column': tracks.index(talk['tracks'][-1]) + 2,
                     'start_row': start_row,
                     'end_row': end_row,
+                    'slug': talk_meta.get('slug', None),
                     'language': talk_meta.get('language', None),
                     'level': talk_meta.get('level', None),
                     'speakers': talk_meta.get('speakers', []),
+                    'can_be_starred': talk_meta.get('id', 0) > 0,
                 }
 
                 talks.append(t)
