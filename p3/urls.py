@@ -40,7 +40,7 @@ urlpatterns = patterns('p3.views',
 
 urlpatterns += patterns('p3.views',
     url(r'^schedule/(?P<conference>[\w-]+)/$', 'schedule', name='p3-schedule'),
-    url(r'^schedule/(?P<conference>[\w-]+)/beta$', 'schedule_beta', name='p3-schedule'),
+    url(r'^schedule/(?P<conference>[\w-]+)/beta$', 'schedule_beta', name='p3-schedule-beta'),
     url(r'^schedule/(?P<conference>[\w-]+).ics$', 'schedule_ics', name='p3-schedule-ics'),
 
     url(r'^schedule/(?P<conference>[\w-]+)/my-schedule/$',

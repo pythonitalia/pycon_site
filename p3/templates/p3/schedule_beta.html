@@ -4,13 +4,15 @@
 {% block PAGE_TITLE %}{% trans "Schedule" %}{% endblock %}
 
 {% block BODY_ID %}schedule{% endblock %}
-
+{% block TOP_NAV_BLOCK %}{% endblock  %}
+{% block HEADER %}{% endblock  %}
 {% block MAIN_CONTENT %}
 {% schedules_data sids as schedules %}
 
 <style>
-.new_schedule {
+.wrapper {
     overflow: scroll;
+    margin: 0 auto;
 }
 
 .new_schedule__row {
@@ -18,6 +20,7 @@
 }
 
 .new_schedule__time {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
@@ -73,11 +76,11 @@
 .new_schedule__day {
     display: flex;
     width: 100%;
-    overflow: scroll;
     position: relative;
 }
 
 .new_schedule__day > :first-child {
+    position: -webkit-sticky;
     position: sticky;
     left: 0;
     z-index: 10;
@@ -189,98 +192,135 @@
     cursor: pointer;
 }
 
+.new_schedule__header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: white;
+
+}
+
+.new_schedule__intro, .day_title {
+    padding: 0 0 0 50px;
+}
+
 @media (min-width: 600px) {
     .new_schedule__day__grid {
-        --min-width: 150px;
+        --min-width: 215px;
     }
 }
 </style>
 
+<div class="new_schedule__intro">
+    <h2>PyCon Italia X beta schedule</h2>
 
-<div class="new_schedule">
+    <p>
+        Welcome to the beta schedule for PyCon Italia.
+        To access the old schedule use this <a href="{% url "p3-schedule" conference=conference %}">link.</a>
+    </p>
+
+    <p>
+        <a href="/">Click here to access the homepage.</a>
+    </p>
+</div>
+
+
 {% for day in days %}
 {% with schedules|attrib_:forloop.counter0 as sdata %}
-<h2>{{ sdata.date|date:"l, j F Y" }}</h2>
-<div class="new_schedule__day">
-    <div>
-        <div class="new_schedule__day__grid new_schedule__day__grid--header new_schedule__day__grid--sidebar" style="--cols: 1; --rows: 1;">
-            <div style="background: white;"></div>
+<h2 class="day_title">{{ sdata.date|date:"l, j F Y" }}</h2>
+
+<div class="new_schedule__header">
+    <div class="new_schedule__day">
+        <div>
+            <div class="new_schedule__day__grid new_schedule__day__grid--header new_schedule__day__grid--sidebar" style="--cols: 1; --rows: 1;">
+                <div style="background: white;"></div>
+            </div>
         </div>
 
-        <div class="new_schedule__day__grid new_schedule__day__grid--sidebar" style="--cols: 1; --rows: {{ day.rows }};">
-            {% for time in day.grid_times %}
-                <div style="
-                    grid-row: {{ time.start_row }} / {{ time.end_row }};
-                    grid-column: 1 / 1;
-                ">
-                    {{ time.time|date:"H:i" }}
-                </div>
-            {% endfor %}
+        <div>
+            <div class="new_schedule__day__grid new_schedule__day__grid--header" style="--cols: {{ day.cols }}; --rows: 1;">
+                {% for track in day.tracks %}
+                    <div>{{ sdata.tracks|attrib_:track|attrib_:"title"|safe }}</div>
+                {% endfor %}
+            </div>
         </div>
     </div>
+</div>
 
-    <div>
-        <div class="new_schedule__day__grid new_schedule__day__grid--header" style="--cols: {{ day.cols }}; --rows: 1;">
-            {% for track in day.tracks %}
-                <div>{{ sdata.tracks|attrib_:track|attrib_:"title"|safe }}</div>
-            {% endfor %}
+<div class="new_schedule">
+    <div class="new_schedule__day">
+        <div>
+            <div class="new_schedule__day__grid new_schedule__day__grid--sidebar" style="--cols: 1; --rows: {{ day.rows }};">
+                {% for time in day.grid_times %}
+                    <div style="
+                        grid-row: {{ time.start_row }} / {{ time.end_row }};
+                        grid-column: 1 / 1;
+                    ">
+                        {{ time.time|date:"H:i" }}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
 
-        <div class="new_schedule__day__grid" style="--cols: {{ day.cols }}; --rows: {{ day.rows }};">
-            {% for talk in day.talks %}
-                <div
-                    class="new_schedule__day__talk {% if talk.level %}talk-level--{{ talk.level }}{% endif %}"
-                    style="
-                        grid-row: {{ talk.start_row }} / {{ talk.end_row }};
-                        grid-column: {{ talk.start_column }} / {{ talk.end_column }};
-                    "
-                >
-                    <div class="new_schedule__day__inner">
-                        <div class="new_schedule__day__talk_speakers">
-                            {% for s in talk.speakers %}
-                                <a href="{% url "conference-profile" slug=s.slug %}">{{ s.name|name_abbrv }}</a>{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                        </div>
+        <div>
+            <div class="new_schedule__day__grid" style="--cols: {{ day.cols }}; --rows: {{ day.rows }};">
+                {% for talk in day.talks %}
+                    <div
+                        class="new_schedule__day__talk {% if talk.level %}talk-level--{{ talk.level }}{% endif %}"
+                        style="
+                            grid-row: {{ talk.start_row }} / {{ talk.end_row }};
+                            grid-column: {{ talk.start_column }} / {{ talk.end_column }};
+                        "
+                    >
+                        <div class="new_schedule__day__inner">
+                            <div class="new_schedule__day__talk_speakers">
+                                {% for s in talk.speakers %}
+                                    <a href="{% url "conference-profile" slug=s.slug %}">{{ s.name|name_abbrv }}</a>{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
 
-                        <div class="new_schedule__day__talk_title">
-                            {% if talk.slug %}
-                            <a href="{% url "conference-talk" slug=talk.slug %}">
-                            {% endif %}
-
-                            {% if talk.language == "en" %}
-                                <img src="{{ STATIC_URL }}p9/images/english-flag.png" class="language" />
-                            {% endif %}
-                            {% comment %} <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a> {% endcomment %}
-
-                            {{ talk.title|safe }}
-
-                            {% if talk.slug %}
-                            </a>
-                            {% endif %}
-                        </div>
-
-                        {% if talk.can_be_starred %}
-                        <div class="new_schedule__day__footer">
-                            <button
-                                data-url="/conference/schedule/{{ conference }}/{{ sdata.slug }}/{{ talk.id }}/interest" class="star"
-                                class="{% if talk.starred %}active{% endif %}"
-                            >
-                                {% if talk.starred %}
-                                    ⭐
-                                {% else %}
-                                    ☆
+                            <div class="new_schedule__day__talk_title">
+                                {% if talk.slug %}
+                                <a href="{% url "conference-talk" slug=talk.slug %}">
                                 {% endif %}
-                            </button>
+
+                                {% if talk.language == "en" %}
+                                    <img src="{{ STATIC_URL }}p9/images/english-flag.png" class="language" />
+                                {% endif %}
+                                {% comment %} <a href="{% url "conference-talk" slug=e.talk.slug %}">{{ e.name }}</a> {% endcomment %}
+
+                                {{ talk.title|safe }}
+
+                                {% if talk.slug %}
+                                </a>
+                                {% endif %}
+                            </div>
+
+                            {% if talk.can_be_starred %}
+                            <div class="new_schedule__day__footer">
+                                <button
+                                    data-url="/conference/schedule/{{ conference }}/{{ sdata.slug }}/{{ talk.id }}/interest" class="star"
+                                    class="{% if talk.starred %}active{% endif %}"
+                                >
+                                    {% if talk.starred %}
+                                        ⭐
+                                    {% else %}
+                                        ☆
+                                    {% endif %}
+                                </button>
+                            </div>
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
 {% endwith %}
 {% endfor %}
+
 
 <script>
 {% if request.user.is_authenticated %}

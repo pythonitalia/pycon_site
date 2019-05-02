@@ -97,20 +97,7 @@
     {% endblock %}
 </head>
 <body id="{% block BODY_ID %}{% endblock %}" class="{% block body-class %}content-tpl{% endblock %}">
-{% comment %}
-<div class="app_banner">
-    <img class="app_banner__image" src="{{ STATIC_URL }}p9/images/banner/logo.png" />
 
-    <div class="app_banner__content">
-        <p class="app_banner__title">{% trans "Scarica l'app mobile" %}</p>
-
-        <div class="app_banner__link">
-            <a href="https://play.google.com/store/apps/details?id=com.pyconotto.app"><img src="{{ STATIC_URL }}p9/images/banner/play.png"></a>
-            <a href="https://itunes.apple.com/it/app/pycon9/id1210782249?mt=8"><img src="{{ STATIC_URL }}p9/images/banner/appstore.png" height="46" width="153"></a>
-        </div>
-    </div>
-</div>
-{% endcomment %}
 {% cms_toolbar %}
 {% if request.toolbar.edit_mode %}<div class="draft"></div>{% endif %}
 <!--[if lt IE 8]>
