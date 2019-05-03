@@ -205,6 +205,10 @@
     padding: 0 0 0 50px;
 }
 
+.new_schedule__day__talk--starred {
+    background: #00d6ff;
+}
+
 @media (min-width: 600px) {
     .new_schedule__day__grid {
         --min-width: 215px;
@@ -267,7 +271,7 @@
             <div class="new_schedule__day__grid" style="--cols: {{ day.cols }}; --rows: {{ day.rows }};">
                 {% for talk in day.talks %}
                     <div
-                        class="new_schedule__day__talk {% if talk.level %}talk-level--{{ talk.level }}{% endif %}"
+                        class="new_schedule__day__talk {% if talk.starred %}new_schedule__day__talk--starred{% endif %} {% if talk.level %}talk-level--{{ talk.level }}{% endif %}"
                         style="
                             grid-row: {{ talk.start_row }} / {{ talk.end_row }};
                             grid-column: {{ talk.start_column }} / {{ talk.end_column }};
@@ -353,9 +357,11 @@ jQuery(function($) {
                 },
                 success: function() {
                     if (val === 1) {
+                        e.closest('.new_schedule__day__talk').addClass('new_schedule__day__talk--starred');
                         e.addClass('active');
                         e.text('⭐')
                     } else {
+                        e.closest('.new_schedule__day__talk').removeClass('new_schedule__day__talk--starred');
                         e.removeClass('active');
                         e.text('☆')
                     }
