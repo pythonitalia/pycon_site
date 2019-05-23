@@ -9,7 +9,7 @@ cmsplugin-filer==0.10.2
 cryptography==1.7.1
 cssselect==1.0.0
 cssutils==1.0.1
-Django==1.5.12
+Django==1.11.20
 django-absolute==0.3
 django-appconf==1.0.2
 django-authority==0.4
