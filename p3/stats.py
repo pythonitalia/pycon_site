@@ -338,6 +338,7 @@ def tickets_status(conf, code=None):
             output = {
                 'columns': (
                     ('name', 'Name'),
+                    ('email', 'email'),
                 ),
                 'data': [],
             }
