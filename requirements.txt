@@ -70,7 +70,7 @@ python-oembed==0.2.4
 python-twitter==3.2
 pytz==2017.3
 raven==5.1.1
-requests==2.12.4
+requests==2.20.0
 requests-oauthlib==0.7.0
 simplejson==3.10.0
 six==1.10.0
