@@ -58,7 +58,7 @@ lxml==4.1.1
 markdown2==2.3.0
 numpy==1.12.0
 oauthlib==2.0.1
-paramiko==2.1.1
+paramiko==2.1.6
 Pillow==2.6.0
 polib==1.0.4
 premailer==3.0.1
