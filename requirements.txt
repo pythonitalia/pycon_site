@@ -39,7 +39,7 @@ django-templatesadmin==0.7
 django-xmlrpc==0.1.7
 easy-thumbnails==2.2
 -e git+https://github.com/dcramer/django-paypal.git#egg=django-paypal
--e git+https://github.com/pythonitalia/conference.git@7e5d9c4#egg=conference
+-e git+https://github.com/pythonitalia/conference.git@1daeb335dcc9315770a5b1130b9621194a40d8b9#egg=conference
 -e git+https://github.com/pythonitalia/hcomments.git@4ec18851a377cc5ec6a59fe20dc561d77d476712#egg=hcomments-master
 -e git+https://github.com/pythonitalia/microblog.git@201633c4fae5c859ed7d8a53480b82d9075e765f#egg=microblog-master
 -e git+https://github.com/yakky/18app-python-sdk.git@9cf12260fd0c9ca708e2aeda8913c0f3de961efb#egg=python_18app
